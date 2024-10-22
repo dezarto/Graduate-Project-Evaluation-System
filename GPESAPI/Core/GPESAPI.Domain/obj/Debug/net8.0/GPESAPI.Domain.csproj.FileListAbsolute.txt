@@ -1,0 +1,11 @@
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\bin\Debug\net8.0\GPESAPI.Domain.deps.json
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\bin\Debug\net8.0\GPESAPI.Domain.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\bin\Debug\net8.0\GPESAPI.Domain.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.AssemblyInfoInputs.cache
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.AssemblyInfo.cs
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\refint\GPESAPI.Domain.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\GPESAPI.Domain.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Domain\obj\Debug\net8.0\ref\GPESAPI.Domain.dll

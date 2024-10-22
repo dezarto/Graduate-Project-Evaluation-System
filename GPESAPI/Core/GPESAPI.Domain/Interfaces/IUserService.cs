@@ -1,0 +1,15 @@
+﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+
+namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
+{
+    public interface IUserService
+    {
+        Task<User> AddUserAsync(User user);
+        Task<List<User>> GetAllUserAsync();
+        Task<User> GetByUserIdAsync(int id);
+        Task UpdateUserAsync(User user);
+        Task DeleteUserAsync(int id);
+        Task<bool> ExistsByStudentNumberAsync(string studentNumber);
+        Task<List<ProfessorsUsers>> GetUsersWithProfessorsAsync();
+    }
+}
