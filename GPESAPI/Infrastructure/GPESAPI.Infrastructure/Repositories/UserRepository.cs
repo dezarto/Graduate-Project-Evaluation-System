@@ -56,5 +56,11 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Repositories
                 .Where(user => user.ProfessorId != null)
                 .ToListAsync();
         }
+
+        public async Task<User> GetByStudentNumberAsync(string studentNumber)
+        {
+            return await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.StudentNumber == studentNumber);
+        }
     }
 }

@@ -5,6 +5,5 @@
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
         public string Description { get; set; }
-        public ICollection<Team> Teams { get; set; }
     }
 }

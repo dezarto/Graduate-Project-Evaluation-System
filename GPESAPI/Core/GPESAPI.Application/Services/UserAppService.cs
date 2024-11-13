@@ -40,6 +40,12 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
             return _mapper.Map<List<UserDTO>>(users);
         }
 
+        public async Task<UserDTO> GetByStudentNumberAsync(string studentNumber)
+        {
+            var user = await _userService.GetByStudentNumberAsync(studentNumber);
+            return _mapper.Map<UserDTO>(user);
+        }
+
         public async Task<UserDTO> GetByUserAppIdAsync(int id)
         {
             var user = await _userService.GetByUserIdAsync(id);
