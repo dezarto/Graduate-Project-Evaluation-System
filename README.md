@@ -1,1 +1,1 @@
-Sadece tam ve düzgün kodları bu alana gönderin.
+Sadece tam ve düzgün çalışan kodları bu alana gönderin.
