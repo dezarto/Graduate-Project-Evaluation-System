@@ -1,4 +1,5 @@
 ﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 {
@@ -11,5 +12,6 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task DeleteUserAppAsync(int id);
         Task<bool> ExistsByStudentNumberAppAsync(string studentNumber);
         Task<List<ProfessorsUsersDTO>> GetUsersWithProfessorsAppAsync();
+        Task<UserDTO> GetByStudentNumberAsync(string studentNumber);
     }
 }

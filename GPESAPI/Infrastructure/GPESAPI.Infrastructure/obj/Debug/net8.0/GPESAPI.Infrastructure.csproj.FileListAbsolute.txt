@@ -1,4 +1,5 @@
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Infrastructure.deps.json
+C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Infrastructure.runtimeconfig.json
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Infrastructure.dll
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Infrastructure.pdb
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Application.dll
@@ -14,6 +15,5 @@ C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\De
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\GPESAPI.Infrastructure.dll
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\refint\GPESAPI.Infrastructure.dll
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\GPESAPI.Infrastructure.pdb
-C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\ref\GPESAPI.Infrastructure.dll
-C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\bin\Debug\net8.0\GPESAPI.Infrastructure.runtimeconfig.json
 C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\GPESAPI.Infrastructure.genruntimeconfig.cache
+C:\Users\Semir\source\repos\GPESAPI\Infrastructure\GPESAPI.Infrastructure\obj\Debug\net8.0\ref\GPESAPI.Infrastructure.dll

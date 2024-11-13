@@ -18,20 +18,20 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProfessorDTO>> CreateCustomer([FromBody] ProfessorDTO professorDto)
+        public async Task<ActionResult<ProfessorDTO>> CreateProfessor([FromBody] ProfessorDTO professorDto)
         {
             await _professorAppService.AddProfessorAppAsync(professorDto);
             return Ok(professorDto);
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ProfessorDTO>>> GetAllCustomers()
+        public async Task<ActionResult<List<ProfessorDTO>>> GetAllProfessors()
         {
             return await _professorAppService.GetAllProfessorAppAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProfessorDTO>> GetCustomerById(int id)
+        public async Task<ActionResult<ProfessorDTO>> GetProfessorById(int id)
         {
             var professor = await _professorAppService.GetByProfessorAppIdAsync(id);
             if (professor == null)
@@ -42,7 +42,7 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCustomer(int id, [FromBody] ProfessorDTO professorDto)
+        public async Task<IActionResult> UpdateProfessor(int id, [FromBody] ProfessorDTO professorDto)
         {
             if (id != professorDto.ProfessorId)
             {
@@ -54,7 +54,7 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(int id)
+        public async Task<IActionResult> DeleteProfessor(int id)
         {
             await _professorAppService.DeleteProfessorAppAsync(id);
             return Ok("Successful");

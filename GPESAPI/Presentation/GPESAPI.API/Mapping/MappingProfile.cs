@@ -12,6 +12,9 @@ namespace GraduateProjectEvaluationSystemAPI.API.Mapping
             CreateMap<Professor, ProfessorDTO>().ReverseMap();
             CreateMap<ProfessorsUsers, ProfessorsUsersDTO>().ReverseMap(); 
             CreateMap<ProfessorAvailability, ProfessorAvailabilityDTO>().ReverseMap();
+            CreateMap<Team, TeamDTO>().ReverseMap();
+            CreateMap<Project, ProjectDTO>().ReverseMap();
+            CreateMap<TeamMember, TeamMemberDTO>().ReverseMap();
         }
     }
 }

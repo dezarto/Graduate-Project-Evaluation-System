@@ -33,6 +33,8 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         {
             var team = _mapper.Map<Team>(teamDto);
             await _teamService.AddTeamAsync(team);
+
+            teamDto.TeamId = team.TeamId;
         }
 
         public async Task UpdateTeamAppAsync(TeamDTO teamDto)

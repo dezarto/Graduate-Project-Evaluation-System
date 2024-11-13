@@ -11,5 +11,6 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
         Task DeleteUserAsync(int id);
         Task<bool> ExistsByStudentNumberAsync(string studentNumber);
         Task<List<ProfessorsUsers>> GetUsersWithProfessorsAsync();
+        Task<User> GetByStudentNumberAsync(string studentNumber);
     }
 }

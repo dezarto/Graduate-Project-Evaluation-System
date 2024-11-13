@@ -25,6 +25,8 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
         public async Task AddTeamAsync(Team team)
         {
             await _teamRepository.AddAsync(team);
+
+            team.TeamId = team.TeamId;
         }
 
         public async Task UpdateTeamAsync(Team team)

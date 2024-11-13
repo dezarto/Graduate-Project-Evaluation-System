@@ -51,5 +51,10 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
                 ProfessorId = user.ProfessorId
             }).ToList();
         }
+
+        public async Task<User> GetByStudentNumberAsync(string studentNumber)
+        {
+            return await _userRepository.GetByStudentNumberAsync(studentNumber);
+        }
     }
 }

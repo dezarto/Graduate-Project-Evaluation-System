@@ -35,9 +35,8 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
             modelBuilder.Entity<Team>()
                 .HasKey(t => t.TeamId);
 
-            // TeamMember
             modelBuilder.Entity<TeamMember>()
-                .HasKey(tm => tm.TeamMemberId);
+                .HasNoKey();
 
             // ProjectSubmission
             modelBuilder.Entity<ProjectSubmission>()
@@ -81,6 +80,9 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
                 .HasOne<User>()
                 .WithMany()
                 .HasForeignKey(pu => pu.UserId);
+
+            modelBuilder.Entity<TeamMember>()
+                .HasKey(tm => new { tm.TeamId, tm.UserId });
         }
 
         // DbSet Properties for each table

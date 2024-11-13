@@ -33,6 +33,8 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         {
             var project = _mapper.Map<Project>(projectDto);
             await _projectService.AddProjectAsync(project);
+
+            projectDto.ProjectId = project.ProjectId;
         }
 
         public async Task UpdateProjectAppAsync(ProjectDTO projectDto)

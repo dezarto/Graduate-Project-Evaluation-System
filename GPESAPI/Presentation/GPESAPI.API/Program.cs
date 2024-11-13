@@ -50,6 +50,18 @@ builder.Services.AddScoped<IProfessorAvailabilityRepository, ProfessorAvailabili
 builder.Services.AddScoped<IProfessorAvailabilityService, ProfessorAvailabilityService>();
 builder.Services.AddScoped<IProfessorAvailabilityAppService, ProfessorAvailabilityAppService>();
 
+// Team servisleri
+builder.Services.AddScoped<ITeamService, TeamService>();
+builder.Services.AddScoped<ITeamAppService, TeamAppService>();
+
+// Project servisleri
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
+
+// TeamMember servisleri
+builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
+builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
+
 // **JWT Authentication configuration**
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = jwtSettings["Key"]; // appsettings.json'dan JWT anahtarını al

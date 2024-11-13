@@ -25,6 +25,8 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
         public async Task AddProjectAsync(Project project)
         {
             await _projectRepository.AddAsync(project);
+
+            project.ProjectId = project.ProjectId;
         }
 
         public async Task UpdateProjectAsync(Project project)
