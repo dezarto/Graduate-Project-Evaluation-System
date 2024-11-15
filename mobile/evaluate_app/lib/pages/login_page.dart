@@ -1,0 +1,157 @@
+import 'package:evaluate_app/mainwrapper.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:evaluate_app/resources/app_resources.dart';
+
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _isPasswordVisible = false;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  void _signIn() {
+    if (_formKey.currentState?.validate() ?? false) {
+      String email = _emailController.text;
+      String password = _passwordController.text;
+
+      if (email == 'test' && password == 'test') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MainWrapper()),
+        );
+      } else {
+        _showErrorSnackBar('Invalid email or password');
+      }
+    }
+  }
+
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColors.falseRed,
+        content: Text(
+          message,
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Inter',
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: AppColors.pageBackground,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 150.0),
+                SvgPicture.asset(AppAssets.evaluateRedLogo, width: 270),
+                SizedBox(height: 70.0),
+                _buildEmailField(),
+                SizedBox(height: 20.0),
+                _buildPasswordField(),
+                SizedBox(height: 20.0),
+                _buildSignInButton(),
+                SizedBox(height: 80.0),
+                SvgPicture.asset(AppAssets.IKULogo, width: 150),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEmailField() {
+    return Container(
+      height: AppDimens.inputTextFieldHeight,
+      decoration: _inputDecoration(),
+      child: TextFormField(
+        controller: _emailController,
+        decoration: InputDecoration(
+          prefixIcon:
+              Icon(Icons.email_outlined, color: AppColors.primaryTextColor),
+          hintText: "Email",
+          hintStyle: AppTextStyles.hintText,
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.all(10.0),
+          isDense: true, // Ensures compact layout for the input field
+        ),
+        style: AppTextStyles.inputText,
+      ),
+    );
+  }
+
+  Widget _buildPasswordField() {
+    return Container(
+      height: AppDimens.inputTextFieldHeight,
+      decoration: _inputDecoration(),
+      child: TextFormField(
+        controller: _passwordController,
+        obscureText: !_isPasswordVisible,
+        decoration: InputDecoration(
+          prefixIcon:
+              Icon(Icons.lock_outline, color: AppColors.primaryTextColor),
+          suffixIcon: IconButton(
+            icon: Icon(
+              _isPasswordVisible
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              color: AppColors.primaryTextColor,
+            ),
+            onPressed: () =>
+                setState(() => _isPasswordVisible = !_isPasswordVisible),
+          ),
+          hintText: "Password",
+          hintStyle: AppTextStyles.hintText,
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.all(10.0),
+          isDense: true, // Ensures compact layout for the input field
+        ),
+        style: AppTextStyles.inputText,
+      ),
+    );
+  }
+
+  Widget _buildSignInButton() {
+    return Container(
+      width: double.infinity,
+      height: AppDimens.signInButtonHeight,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+        ),
+        onPressed: _signIn,
+        child: Text(
+          "Sign In",
+          style: AppTextStyles.buttonText,
+        ),
+      ),
+    );
+  }
+
+  BoxDecoration _inputDecoration() {
+    return BoxDecoration(
+      color: AppColors.pageBackground,
+      borderRadius: BorderRadius.circular(50.0),
+      border: Border.all(color: AppColors.primaryTextColor, width: 1),
+    );
+  }
+}
