@@ -1,4 +1,5 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Domain.Entities;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
@@ -46,10 +47,6 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
             modelBuilder.Entity<Evaluation>()
                 .HasKey(e => e.EvaluationId);
 
-            // Feedback
-            modelBuilder.Entity<Feedback>()
-                .HasKey(f => f.FeedbackId);
-
             // Report
             modelBuilder.Entity<Report>()
                 .HasKey(r => r.Id);
@@ -57,14 +54,6 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
             // ProfessorAvailability
             modelBuilder.Entity<ProfessorAvailability>()
                 .HasKey(a => a.AvailabilityId);
-
-            // Panel
-            modelBuilder.Entity<Panel>()
-                .HasKey(p => p.Id);
-
-            // TeamPanelAssignment
-            modelBuilder.Entity<TeamPanelAssignment>()
-                .HasKey(pa => pa.Id);
 
             // ProfessorsUsers - eklenen ilişki
             modelBuilder.Entity<ProfessorsUsers>()
@@ -92,12 +81,10 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<ProjectSubmission> ProjectSubmissions { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<Professor> Professors { get; set; }
         public DbSet<ProfessorAvailability> ProfessorAvailability { get; set; }
-        public DbSet<Panel> Panels { get; set; }
-        public DbSet<TeamPanelAssignment> TeamPanelAssignments { get; set; }
+        public DbSet<TeamPresentation> TeamPresentations { get; set; }
     }
 }

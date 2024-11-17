@@ -175,5 +175,21 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
 
             return Ok();
         }
+
+        [Authorize(Roles = "Professor")]
+        [HttpGet("myProfile")]
+        public async Task<ActionResult> MyProfile()
+        {
+            var mailAdress = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(mailAdress))
+            {
+                return Unauthorized("User email is not available.");
+            }
+
+            var professor = await _professorAppService.GetByProfessorAppEmailAsync(mailAdress);
+
+            return Ok(professor);
+        }
     }
 }
