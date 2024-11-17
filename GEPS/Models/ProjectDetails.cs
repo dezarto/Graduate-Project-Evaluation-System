@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
-namespace Graduate-Project-Evalution-System.GEPS.Models
+
+namespace GEPS.Models
 {
     public class ProjectDetails
-{
-        public int ýd { get; set; }
+    {
+        public int Id { get; set; }
 
         public string projectTitle { get; set; }
 
@@ -30,5 +25,5 @@ namespace Graduate-Project-Evalution-System.GEPS.Models
         public string TeamMember3FullName { get; set; }
 
         public string TeamMember3StudentNumber { get; set; }
-}
+    }
 }
