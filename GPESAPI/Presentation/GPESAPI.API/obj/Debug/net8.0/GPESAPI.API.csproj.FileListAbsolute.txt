@@ -1,8 +1,8 @@
-C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\appsettings.json
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\GPESAPI.API.exe
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\GPESAPI.API.deps.json
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\GPESAPI.API.runtimeconfig.json

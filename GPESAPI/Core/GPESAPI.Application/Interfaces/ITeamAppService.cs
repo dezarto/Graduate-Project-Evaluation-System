@@ -1,4 +1,5 @@
 ﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 {
@@ -9,5 +10,6 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task AddTeamAppAsync(TeamDTO teamDto);
         Task UpdateTeamAppAsync(TeamDTO teamDto);
         Task DeleteTeamAppAsync(int id);
+        Task<IEnumerable<TeamDTO>> GetByAdvisorIdTeamAppAsync(int advisorId);
     }
 }

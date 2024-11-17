@@ -26,6 +26,11 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
             return _professorRepository.GetAllAsync();
         }
 
+        public async Task<Professor> GetByProfessorEmailAsync(string email)
+        {
+            return await _professorRepository.GetByEmailAsync(email);
+        }
+
         public async Task<Professor> GetByProfessorIdAsync(int id)
         {
             return await _professorRepository.GetByIdAsync(id);

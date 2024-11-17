@@ -77,7 +77,7 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
 
                     if (isElementPresent)
                     {
-                        var token = _tokenService.GenerateToken(request);
+                        var token = _tokenService.GenerateToken(request, "Test");
                         if (token == null)
                         {
                             throw new Exception("Token generation failed.");

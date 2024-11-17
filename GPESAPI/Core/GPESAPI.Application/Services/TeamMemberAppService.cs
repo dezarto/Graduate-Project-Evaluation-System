@@ -23,12 +23,6 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
             return _mapper.Map<IEnumerable<TeamMemberDTO>>(members);
         }
 
-        public async Task<TeamMemberDTO> GetTeamMemberAppByIdAsync(int id)
-        {
-            var member = await _teamMemberService.GetTeamMemberByIdAsync(id);
-            return _mapper.Map<TeamMemberDTO>(member);
-        }
-
         public async Task AddTeamMemberAppAsync(TeamMemberDTO memberDto)
         {
             var member = _mapper.Map<TeamMember>(memberDto);
@@ -41,9 +35,19 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
             await _teamMemberService.UpdateTeamMemberAsync(member);
         }
 
-        public async Task DeleteTeamMemberAppAsync(int id)
+        public async Task DeleteTeamMemberAppAsync(int teamId)
         {
-            await _teamMemberService.DeleteTeamMemberAsync(id);
+            await _teamMemberService.DeleteTeamMemberAsync(teamId);
+        }
+
+        public async Task<TeamMemberDTO> GetTeamMemberByUserIdAsync(int userId)
+        {
+            var teamMember = await _teamMemberService.GetByUserIdAsync(userId);
+            if (teamMember != null)
+            {
+                return _mapper.Map<TeamMemberDTO>(teamMember);
+            }
+            return null;
         }
     }
 }

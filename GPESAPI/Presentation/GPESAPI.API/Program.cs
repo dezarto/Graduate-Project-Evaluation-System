@@ -1,4 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.API.Mapping;
+﻿using GPESAPI.Domain.Interfaces;
+using GPESAPI.Infrastructure.Repositories;
+using GraduateProjectEvaluationSystemAPI.API.Mapping;
 using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
 using GraduateProjectEvaluationSystemAPI.Application.Services;
 using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
@@ -51,6 +53,7 @@ builder.Services.AddScoped<IProfessorAvailabilityService, ProfessorAvailabilityS
 builder.Services.AddScoped<IProfessorAvailabilityAppService, ProfessorAvailabilityAppService>();
 
 // Team servisleri
+builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 builder.Services.AddScoped<ITeamService, TeamService>();
 builder.Services.AddScoped<ITeamAppService, TeamAppService>();
 
@@ -59,6 +62,7 @@ builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
 
 // TeamMember servisleri
+builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
 

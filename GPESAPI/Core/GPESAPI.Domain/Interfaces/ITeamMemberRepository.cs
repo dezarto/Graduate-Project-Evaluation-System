@@ -1,13 +1,13 @@
 ﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
-namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
+namespace GPESAPI.Domain.Interfaces
 {
-    public interface ITeamMemberService
+    public interface ITeamMemberRepository
     {
         Task<IEnumerable<TeamMember>> GetAllTeamMembersAsync();
-        Task<TeamMember> GetByUserIdAsync(int userId);
         Task AddTeamMemberAsync(TeamMember teamMember);
         Task UpdateTeamMemberAsync(TeamMember teamMember);
         Task DeleteTeamMemberAsync(int teamId);
+        Task<TeamMember> GetByUserIdAsync(int userId);
     }
 }

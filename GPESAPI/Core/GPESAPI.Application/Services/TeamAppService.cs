@@ -47,5 +47,12 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         {
             await _teamService.DeleteTeamAsync(id);
         }
+
+        public async Task<IEnumerable<TeamDTO>> GetByAdvisorIdTeamAppAsync(int advisorId)
+        {
+            var teams = await _teamService.GetByAdvisorIdTeamAsync(advisorId);
+            return _mapper.Map<IEnumerable<TeamDTO>>(teams);
+        }
+
     }
 }

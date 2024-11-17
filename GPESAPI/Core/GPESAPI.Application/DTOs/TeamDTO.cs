@@ -6,5 +6,6 @@
         public string TeamName { get; set; }
         public int ProjectId { get; set; }
         public int AdvisorId { get; set; }
+        public bool isActive { get; set; }
     }
 }
