@@ -1,4 +1,5 @@
 ﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 {
@@ -7,6 +8,8 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task<ProfessorDTO> AddProfessorAppAsync(ProfessorDTO professorDto);
         Task<List<ProfessorDTO>> GetAllProfessorAppAsync();
         Task<ProfessorDTO> GetByProfessorAppIdAsync(int id);
+        Task<ProfessorDTO> GetByProfessorAppEmailAsync(string email);
+
         Task UpdateProfessorAppAsync(ProfessorDTO professorDto);
         Task DeleteProfessorAppAsync(int id);
     }

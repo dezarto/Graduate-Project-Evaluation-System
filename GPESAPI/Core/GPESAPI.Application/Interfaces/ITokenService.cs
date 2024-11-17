@@ -5,7 +5,7 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 {
     public interface ITokenService
     {
-        string GenerateToken(LoginRequestDTO loginRequestDto);
+        string GenerateToken(LoginRequestDTO loginRequestDto, string role);
         RefreshToken GenerateRefreshToken();
     }
 }

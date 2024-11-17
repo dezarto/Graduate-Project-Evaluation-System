@@ -1,42 +1,48 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Domain.Interfaces;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
 
 namespace GraduateProjectEvaluationSystemAPI.Domain.Services
 {
     public class TeamService : ITeamService
     {
-        private readonly IGenericRepository<Team> _teamRepository;
+        private readonly ITeamRepository _teamRepository;
 
-        public TeamService(IGenericRepository<Team> teamRepository)
+        public TeamService(ITeamRepository teamRepository)
         {
             _teamRepository = teamRepository;
         }
 
         public async Task<IEnumerable<Team>> GetAllTeamsAsync()
         {
-            return await _teamRepository.GetAllAsync();
+            return await _teamRepository.GetAllTeamsAsync();
         }
 
         public async Task<Team> GetTeamByIdAsync(int id)
         {
-            return await _teamRepository.GetByIdAsync(id);
+            return await _teamRepository.GetTeamByIdAsync(id);
         }
 
         public async Task AddTeamAsync(Team team)
         {
-            await _teamRepository.AddAsync(team);
+            await _teamRepository.AddTeamAsync(team);
 
             team.TeamId = team.TeamId;
         }
 
         public async Task UpdateTeamAsync(Team team)
         {
-            await _teamRepository.UpdateAsync(team);
+            await _teamRepository.UpdateTeamAsync(team);
         }
 
         public async Task DeleteTeamAsync(int id)
         {
-            await _teamRepository.DeleteAsync(id);
+            await _teamRepository.DeleteTeamAsync(id);
+        }
+
+        public async Task<IEnumerable<Team>> GetByAdvisorIdTeamAsync(int advisorId)
+        {
+            return await _teamRepository.GetByAdvisorIdAsync(advisorId);
         }
     }
 

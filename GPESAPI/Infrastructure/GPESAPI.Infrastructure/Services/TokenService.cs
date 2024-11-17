@@ -3,6 +3,7 @@ using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
 using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -18,7 +19,7 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(LoginRequestDTO loginRequestDto)
+        public string GenerateToken(LoginRequestDTO loginRequestDto, string role)
         {
             if (loginRequestDto == null)
             {
@@ -40,8 +41,9 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Services
 
             var claims = new ClaimsIdentity(new[]
             {
-            new Claim(ClaimTypes.Name, loginRequestDto.Username),
-        });
+                new Claim(ClaimTypes.Name, loginRequestDto.Username),
+                new Claim(ClaimTypes.Role, role)
+            });
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

@@ -7,6 +7,7 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
         Task<Professor> AddProfessorAsync(Professor professor);
         Task<List<Professor>> GetAllProfessorAsync();
         Task<Professor> GetByProfessorIdAsync(int id);
+        Task<Professor> GetByProfessorEmailAsync(string email);
         Task UpdateProfessorAsync(Professor professor);
         Task DeleteProfessorAsync(int id);
     }

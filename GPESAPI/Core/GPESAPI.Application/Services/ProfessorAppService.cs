@@ -26,7 +26,7 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         public async Task<ProfessorDTO> GetByProfessorAppIdAsync(int id)
         {
             var professor = await _professorService.GetByProfessorIdAsync(id);
-            return _mapper.Map<ProfessorDTO>(professor); // Metod adı interface ile uyumlu olmalı
+            return _mapper.Map<ProfessorDTO>(professor);
         }
 
         public async Task<ProfessorDTO> AddProfessorAppAsync(ProfessorDTO professorDto)
@@ -45,6 +45,12 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         public async Task DeleteProfessorAppAsync(int id)
         {
             await _professorService.DeleteProfessorAsync(id);
+        }
+
+        public async Task<ProfessorDTO> GetByProfessorAppEmailAsync(string email)
+        {
+            var professor = await _professorService.GetByProfessorEmailAsync(email);
+            return _mapper.Map<ProfessorDTO>(professor);
         }
     }
 }

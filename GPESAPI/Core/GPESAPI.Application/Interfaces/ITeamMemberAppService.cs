@@ -1,13 +1,14 @@
 ﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 {
     public interface ITeamMemberAppService
     {
         Task<IEnumerable<TeamMemberDTO>> GetAllTeamMemberAppAsync();
-        Task<TeamMemberDTO> GetTeamMemberAppByIdAsync(int id);
+        Task<TeamMemberDTO> GetTeamMemberByUserIdAsync(int userId);
         Task AddTeamMemberAppAsync(TeamMemberDTO teamMemberDto);
         Task UpdateTeamMemberAppAsync(TeamMemberDTO teamMemberDto);
-        Task DeleteTeamMemberAppAsync(int id);
+        Task DeleteTeamMemberAppAsync(int teamId);
     }
 }
