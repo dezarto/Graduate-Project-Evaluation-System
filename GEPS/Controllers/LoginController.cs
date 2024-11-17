@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace YourNamespace.Controllers
+namespace GEPS.Controllers
 {
     public class AuthController : Controller
     {
@@ -24,10 +24,8 @@ namespace YourNamespace.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
-            // API URL'si
             string apiUrl = "https://localhost:7107/api/LoginCats";
 
-            // API'ye gönderilecek veriler
             var loginData = new
             {
                 Username = username,
@@ -36,43 +34,36 @@ namespace YourNamespace.Controllers
 
             try
             {
-                // API'ye POST isteği gönder
                 var response = await _httpClient.PostAsJsonAsync(apiUrl, loginData);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // API yanıtını AuthResult olarak oku
                     var authResult = await response.Content.ReadFromJsonAsync<AuthResult>();
 
                     if (authResult != null && authResult.Success)
                     {
-                        // Başarılıysa, HomePage'e yönlendir
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                        // Başarısızsa, hata mesajlarını göster
                         ViewBag.Errors = authResult?.Errors ?? new[] { "Unknown error occurred." };
                         return View();
                     }
                 }
                 else
                 {
-                    // API yanıtı başarısızsa
                     ViewBag.Errors = new[] { "API call failed with status: " + response.StatusCode };
                     return View();
                 }
             }
             catch (Exception ex)
             {
-                // Hata durumunda mesaj göster
                 ViewBag.Errors = new[] { "An error occurred: " + ex.Message };
                 return View();
             }
         }
     }
 
-    // AuthResult sınıfı
     public class AuthResult
     {
         public string Token { get; set; }
