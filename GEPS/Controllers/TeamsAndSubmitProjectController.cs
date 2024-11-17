@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace GEPS.Controllers
 {
-    public class TeamsAndProjectsController : Controller
+    public class TeamsAndSubmitProjectController : Controller
     {
         private readonly HttpClient _httpClient;
 
-        public TeamsAndProjectsController(HttpClient httpClient)
+        public TeamsAndSubmitProjectController(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         [HttpGet]
-        public IActionResult SubmitProject()
+        public IActionResult SubmitProjectTopics()
         {
             return View(new TeamCreator
             {
@@ -27,7 +27,7 @@ namespace GEPS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitProject(TeamCreator teamCreator)
+        public async Task<IActionResult> SubmitProjectTopics(TeamCreator teamCreator)
         {
             // API URL'si
             string apiUrl = "https://localhost:7107/api/Team/createTeam";
@@ -81,3 +81,4 @@ namespace GEPS.Controllers
         public string StudenNumber { get; set; }
     }
 }
+
