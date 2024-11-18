@@ -12,6 +12,120 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
   bool technicalMeritsSwitch = false;
   bool projectDesignSwitch = false;
 
+  List<Widget> buildEvaluationCriteria() {
+    return evaluationCriteria.map((criteria) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Checkbox(
+                value: false,
+                onChanged: (bool? value) {},
+              ),
+              Expanded(
+                child: Container(
+                  child: Text(
+                    criteria,
+                    maxLines: null,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              SizedBox(
+                height: 40,
+                width: 60,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide:
+                          BorderSide(color: Color(0xFF00B7FF), width: 2.0),
+                    ),
+                    contentPadding: EdgeInsets.all(5),
+                    counterText: '',
+                  ),
+                  keyboardType: TextInputType.number,
+                  maxLength: 2,
+                  onChanged: (value) {
+                    print("$criteria input: $value");
+                  },
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            decoration: const InputDecoration(
+              hintText: "Write your thoughts...",
+              border: OutlineInputBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(10.0)), // Köşeleri yuvarla
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                    Radius.circular(10.0)), // Aktifken de yuvarla
+                borderSide: BorderSide(color: Color(0xFF00B7FF), width: 2.0),
+              ),
+            ),
+            maxLines: 3,
+          ),
+          const SizedBox(height: 20),
+        ],
+      );
+    }).toList();
+  }
+
+  List<Widget> buildProjectChecklist() {
+    return projectChecklist.map((item) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Checkbox(
+                value: false,
+                onChanged: (bool? value) {},
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Text(
+                    item,
+                    maxLines: null,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            decoration: const InputDecoration(
+              hintText: "Write your thoughts...",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(color: Color(0xFF00B7FF), width: 2.0),
+              ),
+            ),
+            maxLines: 3,
+          ),
+          const SizedBox(height: 20),
+        ],
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +147,28 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(color: AppColors.pageBackground),
-        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: AppColors.pageBackground,
+        ),
+        padding: const EdgeInsets.fromLTRB(13.0, 13.0, 13.0, 13.0),
         child: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(
+                color:
+                    const Color.fromARGB(255, 201, 201, 201), // Kenarlık rengi
+                width: 0.7, // Kenarlık kalınlığı
+              ),
+            ),
             child: Container(
               padding: const EdgeInsets.all(13.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "AI Supported Human Resources System\nfor IT Companies",
+                    "AI Supported Human Resources System for IT Companies",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 10),
@@ -67,12 +190,13 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Row(
                             children: [
-                              Icon(Icons.circle, size: 8, color: Colors.blue),
+                              Icon(Icons.circle,
+                                  size: 8, color: Color(0xFF00B7FF)),
                               const SizedBox(width: 4),
                               Text(
                                 "Ready to Evaluate",
                                 style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Color(0xFF00B7FF),
                                     fontWeight: FontWeight.bold),
                               ),
                             ],
@@ -91,8 +215,9 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                   Text("Kiran, Ege - 2000004002"),
                   Text("Kiran, Ege - 2000004002"),
                   Text("Kiran, Ege - 2000004002"),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   CheckboxListTile(
+                    activeColor: AppColors.primary,
                     value: commitmentCheckbox,
                     onChanged: (bool? value) {
                       setState(() {
@@ -105,104 +230,42 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                   Divider(height: 20, thickness: 1),
                   const Text(
                     "Part I - Evaluation Project Graduation Form",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  CheckboxListTile(
-                    value: technicalMeritsSwitch,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        technicalMeritsSwitch = value ?? false;
-                      });
-                    },
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text("Technical Merits (%15)"),
-                      ],
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: "Write your thoughts...",
-                      border: OutlineInputBorder(),
-                    ),
-                    maxLines: 3,
-                  ),
-                  SizedBox(height: 10),
-                  CheckboxListTile(
-                    value: projectDesignSwitch,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        projectDesignSwitch = value ?? false;
-                      });
-                    },
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text("Project Design and Implementation (%40)"),
-                      ],
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: "Write your thoughts...",
-                      border: OutlineInputBorder(),
-                    ),
-                    maxLines: 3,
-                  ),
+                  const SizedBox(height: 14),
+                  ...buildEvaluationCriteria(),
                   Divider(height: 20, thickness: 1),
                   const Text(
                     "Part II - Graduation Project Checklist",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  CheckboxListTile(
-                    value: false,
-                    onChanged: (bool? value) {},
-                    title: const Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-                    controlAffinity: ListTileControlAffinity.leading,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: "Write your thoughts...",
-                      border: OutlineInputBorder(),
-                    ),
-                    maxLines: 3,
-                  ),
+                  ...buildProjectChecklist(),
                   SizedBox(height: 10),
                   CheckboxListTile(
-                    value: false,
-                    onChanged: (bool? value) {},
-                    title: const Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-                    controlAffinity: ListTileControlAffinity.leading,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: "Write your thoughts...",
-                      border: OutlineInputBorder(),
-                    ),
-                    maxLines: 3,
-                  ),
-                  SizedBox(height: 20),
-                  CheckboxListTile(
+                    activeColor: AppColors.primary,
                     value: confirmEvaluationCheckbox,
                     onChanged: (bool? value) {
                       setState(() {
                         confirmEvaluationCheckbox = value ?? false;
                       });
                     },
-                    title: const Text("I confirm my evaluation results."),
+                    title: const Text(
+                      "I confirm my evaluation results.",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
                     controlAffinity: ListTileControlAffinity.leading,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: confirmEvaluationCheckbox ? () {} : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
+                      backgroundColor: confirmEvaluationCheckbox
+                          ? Colors.green
+                          : Colors.grey,
                       padding: EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(40),
                       ),
                     ),
                     child: Center(
@@ -213,6 +276,19 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                       ),
                     ),
                   ),
+                  if (!confirmEvaluationCheckbox)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 8),
+                      child: Text(
+                        "Evaluation can not be performed without confirmation.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),

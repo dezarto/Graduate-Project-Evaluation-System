@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../resources/app_resources.dart';
 import 'package:evaluate_app/pages/evaluate_project.dart';
+import 'package:evaluate_app/pages/view_project_results.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
         : projectName;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
+      padding: const EdgeInsets.only(bottom: 8.0),
       child: Card(
         color: Colors.white, // Pure white color for the card
         shape: RoundedRectangleBorder(
@@ -100,7 +101,6 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // First Column: Team and Project Info
               Expanded(
                 flex: 3,
                 child: Column(
@@ -140,7 +140,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // Second Column: Status and Button
               Expanded(
                 flex: 2,
                 child: Column(
@@ -179,8 +178,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                EvaluateProjectPage(), // Replace with your page class name
+                            builder: (context) => ViewProjectResults(),
                           ),
                         );
                       },

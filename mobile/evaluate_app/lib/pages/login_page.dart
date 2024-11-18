@@ -19,14 +19,22 @@ class _LoginPageState extends State<LoginPage> {
       String email = _emailController.text;
       String password = _passwordController.text;
 
-      if (email == 'test' && password == 'test') {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => MainWrapper()),
-        );
-      } else {
-        _showErrorSnackBar('Invalid email or password');
-      }
+      // Show loading dialog
+      _showLoadingDialog();
+
+      // Simulate a network call or processing
+      Future.delayed(Duration(seconds: 2), () {
+        Navigator.pop(context); // Close the loading dialog after 3 seconds
+
+        if (email == 'test' && password == 'test') {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => MainWrapper()),
+          );
+        } else {
+          _showErrorSnackBar('Invalid email or password');
+        }
+      });
     }
   }
 
@@ -45,6 +53,33 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  void _showLoadingDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Center(
+          child: Material(
+            color: Colors.transparent,
+            child: Container(
+              width: 150.0,
+              height: 150.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.primary,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,15 +94,15 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 150.0),
-                SvgPicture.asset(AppAssets.evaluateRedLogo, width: 270),
+                SvgPicture.asset(AppAssets.evaluateRedLogo, width: 280),
                 SizedBox(height: 70.0),
                 _buildEmailField(),
                 SizedBox(height: 20.0),
                 _buildPasswordField(),
                 SizedBox(height: 20.0),
                 _buildSignInButton(),
-                SizedBox(height: 80.0),
-                SvgPicture.asset(AppAssets.IKULogo, width: 150),
+                SizedBox(height: 120.0),
+                SvgPicture.asset(AppAssets.IKULogo, width: 130),
               ],
             ),
           ),

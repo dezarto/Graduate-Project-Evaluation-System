@@ -1,21 +1,15 @@
-// ignore_for_file: file_names
-
 class User {
-  final String name;
-  final String surname;
-  final String email;
+  final int professorId;
+  final String fullName;
+  final String department;
+  final String mailAddress;
+  final String role;
 
   User({
-    required this.name,
-    required this.surname,
-    required this.email,
+    required this.professorId,
+    required this.fullName,
+    required this.department,
+    required this.mailAddress,
+    required this.role,
   });
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      name: json['name'],
-      surname: json['surname'],
-      email: json['email'],
-    );
-  }
 }
