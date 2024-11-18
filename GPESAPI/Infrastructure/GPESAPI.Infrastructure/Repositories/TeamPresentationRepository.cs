@@ -1,10 +1,11 @@
 ﻿using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 using GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GPESAPI.Infrastructure.Repositories
 {
-    public class TeamPresentationRepository
+    public class TeamPresentationRepository : ITeamPresentationRepository
     {
         private readonly SqlDbContext _dbContext;
 
@@ -13,34 +14,34 @@ namespace GPESAPI.Infrastructure.Repositories
             _dbContext = context;
         }
 
-        // Add a new TeamPresentation record
+        
         public async Task AddTeamPresentationAsync(TeamPresentation teamPresentation)
         {
-            _dbContext.TeamPresentations.Add(teamPresentation);
+            await _dbContext.TeamPresentations.AddAsync(teamPresentation);
             await _dbContext.SaveChangesAsync();
         }
 
-        // Get a single TeamPresentation by ID
+        
         public async Task<TeamPresentation> GetTeamPresentationByIdAsync(int id)
         {
             return await _dbContext.TeamPresentations
                 .FirstOrDefaultAsync(tp => tp.TeamPresentationId == id);
         }
 
-        // Get all TeamPresentations
+        
         public async Task<List<TeamPresentation>> GetAllTeamPresentationsAsync()
         {
             return await _dbContext.TeamPresentations.ToListAsync();
         }
 
-        // Update an existing TeamPresentation
+       
         public async Task UpdateTeamPresentationAsync(TeamPresentation teamPresentation)
         {
             _dbContext.TeamPresentations.Update(teamPresentation);
             await _dbContext.SaveChangesAsync();
         }
 
-        // Delete a TeamPresentation by ID
+        
         public async Task DeleteTeamPresentationAsync(int id)
         {
             var teamPresentation = await GetTeamPresentationByIdAsync(id);
@@ -51,7 +52,7 @@ namespace GPESAPI.Infrastructure.Repositories
             }
         }
 
-        // Get presentations for a specific date
+        
         public async Task<List<TeamPresentation>> GetPresentationsByDateAsync(DateTime date)
         {
             return await _dbContext.TeamPresentations
@@ -59,7 +60,7 @@ namespace GPESAPI.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        // Check if a presentation slot is already taken
+        
         public async Task<bool> IsPresentationSlotTakenAsync(DateTime date, TimeSpan startTime, TimeSpan endTime)
         {
             return await _dbContext.TeamPresentations

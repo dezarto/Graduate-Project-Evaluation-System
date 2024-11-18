@@ -19,16 +19,6 @@ namespace GPESAPI.Domain.Services
 
         public async Task AddTeamPresentationAsync(TeamPresentation teamPresentation)
         {
-            bool isSlotAvailable = await ValidatePresentationSlotAsync(
-                teamPresentation.PresentationDate,
-                teamPresentation.StartTime,
-                teamPresentation.EndTime);
-
-            if (!isSlotAvailable)
-            {
-                throw new Exception("The presentation slot is already taken.");
-            }
-
             await _repository.AddTeamPresentationAsync(teamPresentation);
         }
 
@@ -49,7 +39,7 @@ namespace GPESAPI.Domain.Services
 
         public async Task UpdateTeamPresentationAsync(TeamPresentation teamPresentation)
         {
-            var existingPresentation = await _repository.GetTeamPresentationByIdAsync(teamPresentation.Id);
+            var existingPresentation = await _repository.GetTeamPresentationByIdAsync(teamPresentation.TeamPresentationId);
             if (existingPresentation == null)
             {
                 throw new Exception("TeamPresentation not found.");
@@ -77,6 +67,15 @@ namespace GPESAPI.Domain.Services
             }
 
             await _repository.DeleteTeamPresentationAsync(id);
+        }
+
+        public async Task<List<TeamPresentation>> GetPresentationsByDateAsync(DateTime date)
+        {
+            
+            var presentations = await _repository.GetPresentationsByDateAsync(date);
+
+            
+            return presentations;
         }
     }
 }

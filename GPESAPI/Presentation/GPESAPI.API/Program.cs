@@ -1,4 +1,7 @@
-﻿using GPESAPI.Domain.Interfaces;
+﻿using GPESAPI.Application.Interfaces;
+using GPESAPI.Application.Services;
+using GPESAPI.Domain.Interfaces;
+using GPESAPI.Domain.Services;
 using GPESAPI.Infrastructure.Repositories;
 using GraduateProjectEvaluationSystemAPI.API.Mapping;
 using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
@@ -18,6 +21,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// CORS ayarları
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder
+            .AllowAnyOrigin()    // Tüm kaynaklara izin ver
+            .AllowAnyMethod()    // Tüm HTTP yöntemlerine izin ver
+            .AllowAnyHeader());  // Tüm başlıklara izin ver
+});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -57,6 +70,12 @@ builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 builder.Services.AddScoped<ITeamService, TeamService>();
 builder.Services.AddScoped<ITeamAppService, TeamAppService>();
 
+// TeamPresentation servisleri
+builder.Services.AddScoped<ITeamPresentationAppService, TeamPresentationAppService>();
+builder.Services.AddScoped<ITeamPresentationService, TeamPresentationService>();
+builder.Services.AddScoped<ITeamPresentationRepository, TeamPresentationRepository>();
+
+
 // Project servisleri
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
@@ -65,6 +84,9 @@ builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
 builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
+
+
+
 
 // **JWT Authentication configuration**
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -105,6 +127,9 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+// **CORS Middleware**
+app.UseCors("AllowAllOrigins");
 
 // **JWT Authentication Middleware**
 app.UseAuthentication();

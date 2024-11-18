@@ -1,9 +1,7 @@
-﻿using GPESAPI.Application.Interfaces;
-using GPESAPI.Application.Services;
-using GPESAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GraduateProjectEvaluationSystemAPI.Application.DTOs;
 using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,71 +50,168 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("teams/schedule")]
         public async Task<IActionResult> ScheduleTeamsPresentations()
         {
             try
             {
-                var teams = await _teamAppService.GetAllTeamAppAsync(); // Tüm takımları al
-                var availabilities = await _professorAvailabilityAppService.GetAllProfessorAvailabilityAppAsync(); // Tüm hocaların müsaitliklerini al
-                var presentations = new List<TeamPresentation>();
+                var teams = await _teamAppService.GetAllTeamAppAsync(); 
+                var availabilities = await _professorAvailabilityAppService.GetAllProfessorAvailabilityAppAsync(); 
+                var presentations = new List<TeamPresentationDTO>();
+                var unassignedTeams = new List<TeamDTO>(); 
+
+                var availabilitiesList = availabilities.ToList();
 
                 foreach (var team in teams)
                 {
-                    var advisorAvailability = availabilities
+                    var advisorAvailability = availabilitiesList
                         .Where(a => a.ProfessorId == team.AdvisorId)
                         .OrderBy(a => a.AvailableDate)
                         .ThenBy(a => a.StartTime)
                         .FirstOrDefault();
 
                     if (advisorAvailability == null)
-                        return Conflict(new { message = $"Advisor for Team {team.TeamId} is not available." });
+                    {
+                        unassignedTeams.Add(team);
+                        continue;
+                    }
 
                     var startTime = advisorAvailability.StartTime;
-                    var endTime = startTime.AddMinutes(30);
+                    var endTime = startTime + TimeSpan.FromMinutes(30);
 
-                    var otherProfessors = availabilities
-                        .Where(a => a.ProfessorId != team.AdvisorId && a.AvailableDate == advisorAvailability.AvailableDate)
-                        .Where(a => a.StartTime <= startTime && a.EndTime >= endTime)
-                        .Select(a => a.ProfessorId)
-                        .Distinct()
-                        .Take(2)
-                        .ToList();
-
-                    if (otherProfessors.Count < 2)
-                        return Conflict(new { message = $"Not enough professors available for Team {team.TeamId} on {advisorAvailability.AvailableDate}." });
-
-                    var presentation = new TeamPresentation
+                    if (advisorAvailability.EndTime < endTime)
                     {
-                        TeamId = team.TeamId,
-                        ProjectId = team.ProjectId,
-                        AdvisorId = team.AdvisorId,
-                        Professor1Id = otherProfessors[0],
-                        Professor2Id = otherProfessors[1],
-                        PresentationDate = advisorAvailability.AvailableDate,
-                        StartTime = startTime,
-                        EndTime = endTime
-                    };
+                        unassignedTeams.Add(team); 
+                        continue;
+                    }
 
-                    presentations.Add(presentation);
+                    List<int> otherProfessors = new List<int>();
+                    bool foundSuitableProfessors = false;
 
-                    // Müsaitlik güncellemelerini uygula
-                    await _professorAvailabilityAppService.UpdateAvailabilityAsync(team.AdvisorId, advisorAvailability.AvailableDate, startTime, endTime);
-                    foreach (var professorId in otherProfessors)
+                    
+                    while (!foundSuitableProfessors)
                     {
-                        await _professorAvailabilityAppService.UpdateAvailabilityAsync(professorId, advisorAvailability.AvailableDate, startTime, endTime);
+                        
+                        otherProfessors = availabilitiesList
+                            .Where(a => a.ProfessorId != team.AdvisorId && a.AvailableDate == advisorAvailability.AvailableDate)
+                            .Where(a => a.StartTime <= startTime && a.EndTime >= endTime)
+                            .Select(a => a.ProfessorId)
+                            .Distinct()
+                            .Take(2)
+                            .ToList();
+
+                        if (otherProfessors.Count >= 2)
+                        {
+                            foundSuitableProfessors = true; 
+                        }
+                        else
+                        {
+                            var availableSlotsForSameDay = availabilitiesList
+                                .Where(a => a.ProfessorId != team.AdvisorId && a.AvailableDate == advisorAvailability.AvailableDate)
+                                .Where(a => a.StartTime > startTime && a.StartTime + TimeSpan.FromMinutes(30) <= a.EndTime)
+                                .Select(a => new { a.ProfessorId, a.StartTime, a.EndTime })
+                                .ToList();
+
+                            foreach (var slot in availableSlotsForSameDay)
+                            {
+                                otherProfessors = availabilitiesList
+                                    .Where(a => a.ProfessorId != team.AdvisorId && a.AvailableDate == advisorAvailability.AvailableDate && a.StartTime == slot.StartTime)
+                                    .Select(a => a.ProfessorId)
+                                    .Distinct()
+                                    .Take(2)
+                                    .ToList();
+
+                                if (otherProfessors.Count >= 2)
+                                {
+                                    startTime = slot.StartTime;
+                                    endTime = slot.StartTime + TimeSpan.FromMinutes(30);
+                                    foundSuitableProfessors = true;
+                                    break;
+                                }
+                            }
+
+                            
+                            if (!foundSuitableProfessors)
+                            {
+                                advisorAvailability = availabilitiesList
+                                    .Where(a => a.ProfessorId == team.AdvisorId && a.AvailableDate > advisorAvailability.AvailableDate)
+                                    .OrderBy(a => a.AvailableDate)
+                                    .ThenBy(a => a.StartTime)
+                                    .FirstOrDefault();
+
+                                if (advisorAvailability == null)
+                                {
+                                    unassignedTeams.Add(team);
+                                    break;
+                                }
+
+                                startTime = advisorAvailability.StartTime;
+                                endTime = startTime + TimeSpan.FromMinutes(30);
+                            }
+                        }
+
+                        
+                        if (!foundSuitableProfessors && advisorAvailability == null)
+                        {
+                            unassignedTeams.Add(team);
+                            break;
+                        }
+                    }
+
+                   
+                    if (foundSuitableProfessors)
+                    {
+                        
+                        foreach (var professorId in otherProfessors)
+                        {
+                            var professorAvailability = availabilitiesList
+                                 .Where(a => a.ProfessorId == professorId && a.AvailableDate.Date == advisorAvailability.AvailableDate.Date && a.StartTime == startTime && a.EndTime == endTime)
+                                 .FirstOrDefault();
+
+                            if (professorAvailability != null)
+                            {
+                                availabilitiesList.Remove(professorAvailability);
+                            }
+                        }
+
+                        
+                        var presentationDto = new TeamPresentationDTO
+                        {
+                            TeamId = team.TeamId,
+                            ProjectId = team.ProjectId,
+                            AdvisorId = team.AdvisorId,
+                            Professor1Id = otherProfessors[0],
+                            Professor2Id = otherProfessors[1],
+                            PresentationDate = advisorAvailability.AvailableDate,
+                            StartTime = startTime,
+                            EndTime = endTime
+                        };
+
+                        presentations.Add(presentationDto);
                     }
                 }
+
+                foreach (var presentationDto in presentations) 
+                { 
+                    await _teamPresentationAppService.AddTeamPresentationAsync(presentationDto);
+                }
+
                 
-                await _teamPresentationAppService.SaveAllPresentationsAsync(presentations);
-                return Ok(new { message = "All teams scheduled successfully." });
+                return Ok(new
+                {
+                    message = "Scheduling completed.",
+                    assignedTeams = presentations,
+                    unassignedTeams = unassignedTeams,
+                    availabilitiesList = availabilitiesList,
+                });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "An error occurred while scheduling teams.", error = ex.Message });
             }
         }
+
 
     }
 }

@@ -10,5 +10,6 @@ namespace GPESAPI.Domain.Interfaces
         Task<List<TeamPresentation>> GetAllTeamPresentationsAsync();
         Task UpdateTeamPresentationAsync(TeamPresentation teamPresentation);
         Task DeleteTeamPresentationAsync(int id);
+        Task<List<TeamPresentation>> GetPresentationsByDateAsync(DateTime date);
     }
 }

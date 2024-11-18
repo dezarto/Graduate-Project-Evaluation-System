@@ -7,7 +7,7 @@ namespace GPESAPI.Application.Interfaces
     {
         Task<List<TeamPresentation>> GetAllTeamPresentationsAsync();
         Task<TeamPresentation> GetTeamPresentationByIdAsync(int id);
-        Task CreateTeamPresentationAsync(TeamPresentationDTO teamPresentationDto);
+        Task AddTeamPresentationAsync(TeamPresentationDTO teamPresentationDto);
         Task UpdateTeamPresentationAsync(int id, TeamPresentationDTO teamPresentationDto);
         Task DeleteTeamPresentationAsync(int id);
         Task SaveAllPresentationsAsync(List<TeamPresentation> presentations);

@@ -72,6 +72,9 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
 
             modelBuilder.Entity<TeamMember>()
                 .HasKey(tm => new { tm.TeamId, tm.UserId });
+
+            modelBuilder.Entity<TeamPresentation>()
+                .ToTable("TeamPresentations");
         }
 
         // DbSet Properties for each table

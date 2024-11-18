@@ -1,17 +1,22 @@
-﻿using GPESAPI.Application.DTOs;
+﻿using AutoMapper;
+using GPESAPI.Application.DTOs;
 using GPESAPI.Application.Interfaces;
 using GPESAPI.Domain.Entities;
 using GPESAPI.Domain.Interfaces;
+using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GPESAPI.Application.Services
 {
     public class TeamPresentationAppService : ITeamPresentationAppService
     {
         private readonly ITeamPresentationService _teamPresentationService;
+        private readonly IMapper _mapper;
 
-        public TeamPresentationAppService(ITeamPresentationService teamPresentationService)
+        public TeamPresentationAppService(ITeamPresentationService teamPresentationService, IMapper mapper)
         {
             _teamPresentationService = teamPresentationService;
+            _mapper = mapper;
         }
 
         public async Task<List<TeamPresentation>> GetAllTeamPresentationsAsync()
@@ -24,19 +29,9 @@ namespace GPESAPI.Application.Services
             return await _teamPresentationService.GetTeamPresentationByIdAsync(id);
         }
 
-        public async Task CreateTeamPresentationAsync(TeamPresentationDTO teamPresentationDto)
+        public async Task AddTeamPresentationAsync(TeamPresentationDTO teamPresentationDto)
         {
-            var teamPresentation = new TeamPresentation
-            {
-                TeamId = teamPresentationDto.TeamId,
-                ProjectId = teamPresentationDto.ProjectId,
-                AdvisorId = teamPresentationDto.AdvisorId,
-                Professor1Id = teamPresentationDto.Professor1Id,
-                Professor2Id = teamPresentationDto.Professor2Id,
-                PresentationDate = teamPresentationDto.PresentationDate,
-                StartTime = teamPresentationDto.StartTime,
-                EndTime = teamPresentationDto.EndTime
-            };
+            var teamPresentation = _mapper.Map<TeamPresentation>(teamPresentationDto);
             await _teamPresentationService.AddTeamPresentationAsync(teamPresentation);
         }
 
@@ -44,7 +39,7 @@ namespace GPESAPI.Application.Services
         {
             var teamPresentation = new TeamPresentation
             {
-                Id = id,
+                TeamPresentationId = id,
                 TeamId = teamPresentationDto.TeamId,
                 ProjectId = teamPresentationDto.ProjectId,
                 AdvisorId = teamPresentationDto.AdvisorId,

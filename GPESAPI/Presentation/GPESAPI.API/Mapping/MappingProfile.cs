@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using GPESAPI.Application.DTOs;
+using GPESAPI.Domain.Entities;
 using GraduateProjectEvaluationSystemAPI.Application.DTOs;
 using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
@@ -15,6 +17,7 @@ namespace GraduateProjectEvaluationSystemAPI.API.Mapping
             CreateMap<Team, TeamDTO>().ReverseMap();
             CreateMap<Project, ProjectDTO>().ReverseMap();
             CreateMap<TeamMember, TeamMemberDTO>().ReverseMap();
+            CreateMap<TeamPresentation, TeamPresentationDTO>().ReverseMap();
         }
     }
 }
