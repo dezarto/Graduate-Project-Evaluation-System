@@ -19,14 +19,14 @@ td {
     padding: 1%;
 }
 
-input[type="input"] {
+/*input[type="input"] {
     width: 95%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
     border: 1px solid #777777;
     border-radius: 25px;
-}
+}*/
 
 #projectDescription {
     height: 150px;
@@ -40,4 +40,12 @@ input[type="input"] {
     border: 1px solid red;
     background-color: red;
     color: white;
+}
+.form__field {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #777777;
+    border-radius: 25px;
 }

@@ -3,6 +3,7 @@
     public class TeamMember
     {
         public int TeamMemberId { get; set; }
+        public string TeamMemberName { get; set; }
         public int TeamId { get; set; }
         public int UserId { get; set; }
 
