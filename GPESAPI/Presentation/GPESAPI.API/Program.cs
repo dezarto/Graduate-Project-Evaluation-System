@@ -85,9 +85,6 @@ builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
 
-
-
-
 // **JWT Authentication configuration**
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = jwtSettings["Key"]; // appsettings.json'dan JWT anahtarını al
