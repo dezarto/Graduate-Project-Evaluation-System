@@ -22,7 +22,7 @@ class ViewProjectResults extends StatelessWidget {
                 SizedBox(
                   width: 50,
                   child: const Text(
-                    '16', // Örnek not
+                    '16',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

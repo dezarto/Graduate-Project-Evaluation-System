@@ -1,19 +1,50 @@
 import 'package:evaluate_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import '../resources/app_resources.dart';
+import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:evaluate_app/models/models.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-// User verisi
-User user = User(
-  professorId: 2,
-  fullName: "Akhan Akbulut",
-  department: "CSE",
-  mailAddress: "a.akbulut@iku.edu.tr",
-  role: "Professor",
-);
+Future<User> fetchUser() async {
+  final url = Uri.parse(AppConfig.projectTeamView);
 
-class ProfilePage extends StatelessWidget {
+  try {
+    final response = await await http.get(url);
+
+    if (response.statusCode == 200) {
+      print('${response.statusCode}: User info fetched successfully!');
+      final data = json.decode(response.body);
+      return User(
+        professorId: data['professorId'],
+        fullName: data['fullName'],
+        department: data['department'],
+        mailAddress: data['mailAddress'],
+        role: data['role'],
+      );
+    } else {
+      print('${response.statusCode}: User info could not fetched.');
+      throw Exception('Failed to load user data');
+    }
+  } catch (e) {
+    throw Exception('Error: $e');
+  }
+}
+
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late Future<User> futureUser;
+
+  @override
+  void initState() {
+    super.initState();
+    futureUser = fetchUser();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,119 +61,108 @@ class ProfilePage extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(color: AppColors.pageBackground),
-        padding: const EdgeInsets.all(20),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Profil Fotoğrafı
-              Container(
-                width: 500,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 20.0), // Text etrafına padding
+      body: FutureBuilder<User>(
+        future: futureUser,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (!snapshot.hasData) {
+            return const Center(child: Text('No user data available'));
+          } else {
+            final user = snapshot.data!;
+            return _buildProfilePage(user);
+          }
+        },
+      ),
+    );
+  }
 
-                decoration: BoxDecoration(
-                  color: AppColors.whiteTextColor,
-                  borderRadius:
-                      BorderRadius.circular(10.0), // Kenarları yuvarlatmak için
-                  border: Border.all(
-                    color: const Color.fromARGB(
-                        255, 201, 201, 201), // Kenarlık rengi
-                    width: 0.7, // Kenarlık kalınlığı
-                  ),
+  Widget _buildProfilePage(User user) {
+    return Container(
+      decoration: BoxDecoration(color: AppColors.pageBackground),
+      padding: const EdgeInsets.all(20),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 500,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+              decoration: BoxDecoration(
+                color: AppColors.whiteTextColor,
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(
+                  color: const Color.fromARGB(255, 201, 201, 201),
+                  width: 0.7,
                 ),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                          'https://www.example.com/your-profile-image.jpg'), // Profil fotoğrafı URL
-                      backgroundColor: Colors.blueGrey[100],
+              ),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.blueGrey[100],
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    user.fullName,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const SizedBox(height: 5),
-
-                    // Ad Soyad
-                    Text(
-                      user.fullName,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Text(
+                      user.role,
                       style: const TextStyle(
-                        fontSize: 24,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
+                        color: AppColors.primaryTextColor,
                       ),
                     ),
-
-                    // Rol
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0,
-                          vertical: 4.0), // Text etrafına padding
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(
-                            6.0), // Kenarları yuvarlatmak için
-                      ),
-                      child: Text(
-                        user.role,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primaryTextColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              // Bölüm
-              _ProfileInfoTile(
-                label: 'Department',
-                value: user.department,
-              ),
-
-              // E-posta
-              _ProfileInfoTile(
-                label: 'E-mail',
-                value: user.mailAddress,
-              ),
-
-              // Professor ID
-              _ProfileInfoTile(
-                label: 'Professor ID',
-                value: user.professorId.toString(),
-              ),
-
-              // Sign Out Button
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary, // Butonun arka plan rengi
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 80, vertical: 16), // Butonun iç paddingi
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(30), // Kenarları yuvarlatmak için
                   ),
-                ),
-                child: const Text(
-                  "Sign Out",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.whiteTextColor,
+                ],
+              ),
+            ),
+            _ProfileInfoTile(label: 'Department', value: user.department),
+            _ProfileInfoTile(label: 'E-mail', value: user.mailAddress),
+            _ProfileInfoTile(
+                label: 'Professor ID', value: user.professorId.toString()),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
                   ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primary,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 80, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
                 ),
               ),
-            ],
-          ),
+              child: const Text(
+                "Sign Out",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.whiteTextColor,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

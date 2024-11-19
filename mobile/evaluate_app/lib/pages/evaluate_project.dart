@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../resources/app_resources.dart';
+import 'package:evaluate_app/resources/app_resources.dart';
 
 class EvaluateProjectPage extends StatefulWidget {
   @override
@@ -169,8 +169,13 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                 children: [
                   Text(
                     "AI Supported Human Resources System for IT Companies",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(height: 10),
+                  const Text("Project Description",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                      "Görüntü işleme tekniklerini kullanarak, gerçek zamanlı nesne tanıma ve sınıflandırma sistemi geliştirilmesi."),
                   SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -180,7 +185,7 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         children: [
                           const Text("Evaluating Teacher",
                               style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text("a.akbulut@iku.edu.tr"),
+                          Text("Akhan Akbulut"),
                         ],
                       ),
                       Column(
@@ -240,7 +245,27 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   ...buildProjectChecklist(),
+                  Divider(height: 20, thickness: 1),
                   SizedBox(height: 10),
+                  const Text("General Feedback",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(height: 10),
+                  TextField(
+                    decoration: const InputDecoration(
+                      hintText: "Write your thoughts...",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(10.0)), // Köşeleri yuvarla
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(10.0)), // Aktifken de yuvarla
+                        borderSide:
+                            BorderSide(color: Color(0xFF00B7FF), width: 2.0),
+                      ),
+                    ),
+                    maxLines: 3,
+                  ),
                   CheckboxListTile(
                     activeColor: AppColors.primary,
                     value: confirmEvaluationCheckbox,

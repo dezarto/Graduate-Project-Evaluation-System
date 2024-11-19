@@ -1,7 +1,10 @@
-import 'package:evaluate_app/mainwrapper.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:evaluate_app/resources/app_resources.dart';
+import 'package:evaluate_app/mainwrapper.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,26 +17,84 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  // API login request function
+  Future<void> _loginApiRequest(String username, String password) async {
+    final Uri apiUrl = Uri.parse(AppConfig.LoginCats);
+    final storage = const FlutterSecureStorage();
+
+    try {
+      final response = await http
+          .post(
+            apiUrl,
+            headers: <String, String>{
+              'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: jsonEncode(<String, String>{
+              'username': username,
+              'password': password,
+            }),
+          )
+          .timeout(const Duration(seconds: 80));
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = json.decode(response.body);
+        print('Login successful: ${responseData['token']}');
+        await storage.write(key: 'accessToken', value: responseData['token']);
+        print('User login successfully completed! ');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MainWrapper()),
+        );
+      } else {
+        print('Failed to login: ${response.request}');
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text(
+                'Bunun için üzgünüz!',
+                style: TextStyle(
+                  fontFamily: 'Lexend',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              content: const Text(
+                'Sistemsel bir hatadan dolayı giriş yapılamadı. Lütfen bilgilerinizi kontrol edin ve tekrar deneyin.\nİnternet bağlantınızın olduğundan emin olun.',
+                style: TextStyle(fontFamily: 'Lexend', fontSize: 15),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('Tamam'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+        setState(() {});
+      }
+    } catch (error) {
+      print('${username}  ${password}');
+      print(apiUrl);
+      print('Error occurred: $error'); // Log the error
+      _showErrorSnackBar('An error occurred. Please try again later.');
+    }
+  }
+
   void _signIn() {
     if (_formKey.currentState?.validate() ?? false) {
       String email = _emailController.text;
       String password = _passwordController.text;
 
-      // Show loading dialog
       _showLoadingDialog();
 
-      // Simulate a network call or processing
-      Future.delayed(Duration(seconds: 2), () {
-        Navigator.pop(context); // Close the loading dialog after 3 seconds
+      Future.delayed(Duration(seconds: 3), () {
+        Navigator.pop(context);
 
-        if (email == 'test' && password == 'test') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => MainWrapper()),
-          );
-        } else {
-          _showErrorSnackBar('Invalid email or password');
-        }
+        // Call the API login request
+        _loginApiRequest(email, password);
       });
     }
   }

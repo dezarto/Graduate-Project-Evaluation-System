@@ -1,9 +1,57 @@
 import 'package:flutter/material.dart';
-import '../resources/app_resources.dart';
+import 'package:evaluate_app/resources/app_resources.dart';
+import 'package:evaluate_app/models/models.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:evaluate_app/pages/evaluate_project.dart';
 import 'package:evaluate_app/pages/view_project_results.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Project> projects = [];
+  bool isLoading = true;
+  final storage = const FlutterSecureStorage();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProjects();
+  }
+
+  Future<void> fetchProjects() async {
+    final token = await storage.read(key: 'accessToken');
+    final url = Uri.parse(AppConfig.projectTeamView);
+
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        print('${response.statusCode}: Projects fetched successfully!');
+        final List<dynamic> data = json.decode(response.body);
+        setState(() {
+          projects = data.map((e) => Project.fromJson(e)).toList();
+          isLoading = false;
+        });
+      } else {
+        throw Exception('${response.statusCode}: Failed to load projects.');
+      }
+    } catch (error) {
+      print('Error fetching projects: $error');
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,69 +67,60 @@ class HomeScreen extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(color: AppColors.pageBackground),
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Project Teams',
-              style: TextStyle(
-                color: AppColors.primaryTextColor,
-                fontFamily: 'Inter',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Container(
+              decoration: BoxDecoration(color: AppColors.pageBackground),
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  buildTeamCard(
-                    context, // Pass context here
-                    'Team Name 1',
-                    'A really long project name for graduation project 1 aldjakdj alkdjsalkdj akj alksdks slk ksjdla sldj',
-                    'Ready to Evaluate',
-                    Colors.blue,
-                    'Evaluate',
+                  const Text(
+                    'Project Teams',
+                    style: TextStyle(
+                      color: AppColors.primaryTextColor,
+                      fontFamily: 'Inter',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  buildTeamCard(
-                    context, // Pass context here
-                    'Team Name 2',
-                    'A really long project name for graduation project 1',
-                    'Ready to Evaluate',
-                    Colors.blue,
-                    'Evaluate',
-                  ),
-                  buildTeamCard(
-                    context, // Pass context here
-                    'Team Name 3',
-                    'A really long project name for graduation project 1',
-                    'Result Available',
-                    Colors.green,
-                    'View Result',
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: projects.length,
+                      itemBuilder: (context, index) {
+                        final project = projects[index];
+                        return buildTeamCard(
+                          context,
+                          project.teamName,
+                          project.projectName,
+                          project.isEvaluated
+                              ? 'Result Available'
+                              : 'Ready to Evaluate',
+                          project.isEvaluated ? Colors.green : Colors.blue,
+                          project.isEvaluated ? 'View Result' : 'Evaluate',
+                          project.isEvaluated,
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
     );
   }
 
   Widget buildTeamCard(
-    BuildContext context, // Receive context as a parameter
+    BuildContext context,
     String teamName,
     String projectName,
     String statusText,
     Color statusColor,
     String buttonText,
+    bool isEvaluated,
   ) {
-    const int maxChars = 90; // Set the desired character limit
+    const int maxChars = 90;
 
-    // Truncate the project name and add "..." if it exceeds the limit
     String truncatedProjectName = projectName.length > maxChars
         ? projectName.substring(0, maxChars) + '...'
         : projectName;
@@ -89,7 +128,7 @@ class HomeScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Card(
-        color: Colors.white, // Pure white color for the card
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -178,7 +217,9 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ViewProjectResults(),
+                            builder: (context) => isEvaluated
+                                ? ViewProjectResults()
+                                : EvaluateProjectPage(),
                           ),
                         );
                       },
