@@ -37,5 +37,10 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
         {
             return await _teamMemberRepository.GetByUserIdAsync(userId);
         }
+
+        public async Task<List<TeamMember>> GetByTeamIdAsync(int teamId)
+        {
+            return await _teamMemberRepository.GetByTeamIdAsync(teamId);
+        }
     }
 }

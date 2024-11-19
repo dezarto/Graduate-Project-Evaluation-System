@@ -1,4 +1,5 @@
-﻿using GPESAPI.Application.DTOs;
+﻿using AutoMapper.Execution;
+using GPESAPI.Application.DTOs;
 using GPESAPI.Application.Interfaces;
 using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -16,11 +17,12 @@ namespace GPESAPI.API.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IProfessorAppService _professorAppService;
         private readonly ITeamAppService _teamAppService;
+        private readonly ITeamMemberAppService _teamMemberAppService;
         private readonly IProfessorAvailabilityAppService _professorAvailabilityAppService;
         private readonly ITeamPresentationAppService _teamPresentationAppService;
         private readonly IProjectAppService _projectAppService;
 
-        public MobileController(IProfessorsUsersAppService professorsUsersAppService, IUserAppService userAppService, ITeamAppService teamAppService, IProfessorAvailabilityAppService professorAvailabilityAppService, ITeamPresentationAppService teamPresentationAppService, IProfessorAppService professorAppService, IProjectAppService projectAppService)
+        public MobileController(IProfessorsUsersAppService professorsUsersAppService, IUserAppService userAppService, ITeamAppService teamAppService, IProfessorAvailabilityAppService professorAvailabilityAppService, ITeamPresentationAppService teamPresentationAppService, IProfessorAppService professorAppService, IProjectAppService projectAppService, ITeamMemberAppService teamMemberAppService)
         {
             _professorsUsersAppService = professorsUsersAppService;
             _userAppService = userAppService;
@@ -29,6 +31,7 @@ namespace GPESAPI.API.Controllers
             _teamPresentationAppService = teamPresentationAppService;
             _professorAppService = professorAppService;
             _projectAppService = projectAppService;
+            _teamMemberAppService = teamMemberAppService;
         }
 
         [HttpGet("projectTeamView")]
@@ -59,7 +62,8 @@ namespace GPESAPI.API.Controllers
                     var project = await _projectAppService.GetProjectAppByIdAsync(presentation.ProjectId);
                     var team = await _teamAppService.GetTeamAppByIdAsync(presentation.TeamId);
                     var professorInfos = await _professorAppService.GetByProfessorAppIdAsync(professor.ProfessorId);
-
+                    var teamMembers = await _teamMemberAppService.GetTeamMemberByTeamIdAsync(presentation.TeamId);
+                    
                     var newProjectTeamsMobile = new ProjectTeamsMobile
                     {
                         TeamPresentationId = presentation.TeamPresentationId,
@@ -70,9 +74,25 @@ namespace GPESAPI.API.Controllers
                         isEvaluated = presentation.isEvaluated,
                         EvaluatingTeacherFullName = professorInfos.FullName,
                         EvaluatingTeacherMail = professorInfos.mailAddress,
-
+                        StudentsList = new List<StudentList>()
                     };
 
+                    if (teamMembers != null && teamMembers.Count > 0) 
+                    { 
+                        foreach (var teamMember in teamMembers)
+                        {
+                            var studentInfos = await _userAppService.GetByUserAppIdAsync(teamMember.UserId);
+
+                            var student = new StudentList
+                            {
+                                StudentId = teamMember.UserId,   
+                                StudentFullName = studentInfos.FullName,
+                                StudentNumber = studentInfos.StudentNumber,
+                            };
+
+                            newProjectTeamsMobile.StudentsList.Add(student);
+                        }
+                    }
                     projectTeamsMobileList.Add(newProjectTeamsMobile);
                 }
 

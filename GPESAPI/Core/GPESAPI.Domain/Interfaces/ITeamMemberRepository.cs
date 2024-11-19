@@ -9,5 +9,6 @@ namespace GPESAPI.Domain.Interfaces
         Task UpdateTeamMemberAsync(TeamMember teamMember);
         Task DeleteTeamMemberAsync(int teamId);
         Task<TeamMember> GetByUserIdAsync(int userId);
+        Task<List<TeamMember>> GetByTeamIdAsync(int teamId);
     }
 }

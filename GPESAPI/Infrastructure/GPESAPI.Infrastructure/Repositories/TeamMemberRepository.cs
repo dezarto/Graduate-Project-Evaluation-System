@@ -44,6 +44,11 @@ namespace GPESAPI.Infrastructure.Repositories
                 .FirstOrDefaultAsync(tm => tm.UserId == userId);
         }
 
+        public async Task<List<TeamMember>> GetByTeamIdAsync(int teamId)
+        {
+            return await _dbContext.TeamMembers.Where(tm => tm.TeamId == teamId).ToListAsync();
+        }
+
         public async Task UpdateTeamMemberAsync(TeamMember teamMember)
         {
             _dbContext.TeamMembers.Update(teamMember);

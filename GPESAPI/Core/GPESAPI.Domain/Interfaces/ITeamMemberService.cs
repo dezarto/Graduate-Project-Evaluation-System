@@ -6,6 +6,7 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
     {
         Task<IEnumerable<TeamMember>> GetAllTeamMembersAsync();
         Task<TeamMember> GetByUserIdAsync(int userId);
+        Task<List<TeamMember>> GetByTeamIdAsync(int teamId);
         Task AddTeamMemberAsync(TeamMember teamMember);
         Task UpdateTeamMemberAsync(TeamMember teamMember);
         Task DeleteTeamMemberAsync(int teamId);
