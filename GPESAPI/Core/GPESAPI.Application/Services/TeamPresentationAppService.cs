@@ -3,8 +3,6 @@ using GPESAPI.Application.DTOs;
 using GPESAPI.Application.Interfaces;
 using GPESAPI.Domain.Entities;
 using GPESAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
 namespace GPESAPI.Application.Services
 {
@@ -19,14 +17,16 @@ namespace GPESAPI.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<TeamPresentation>> GetAllTeamPresentationsAsync()
+        public async Task<List<TeamPresentationDTO>> GetAllTeamPresentationsAsync()
         {
-            return await _teamPresentationService.GetAllTeamPresentationsAsync();
+            var allTeamPresentations = await _teamPresentationService.GetAllTeamPresentationsAsync();
+            return _mapper.Map<List<TeamPresentationDTO>>(allTeamPresentations);
         }
 
-        public async Task<TeamPresentation> GetTeamPresentationByIdAsync(int id)
+        public async Task<List<TeamPresentationDTO>> GetTeamPresentationByIdAsync(int id)
         {
-            return await _teamPresentationService.GetTeamPresentationByIdAsync(id);
+            var teamPresentations = await _teamPresentationService.GetTeamPresentationByIdAsync(id);
+            return _mapper.Map<List<TeamPresentationDTO>>(teamPresentations);
         }
 
         public async Task AddTeamPresentationAsync(TeamPresentationDTO teamPresentationDto)
@@ -37,19 +37,8 @@ namespace GPESAPI.Application.Services
 
         public async Task UpdateTeamPresentationAsync(int id, TeamPresentationDTO teamPresentationDto)
         {
-            var teamPresentation = new TeamPresentation
-            {
-                TeamPresentationId = id,
-                TeamId = teamPresentationDto.TeamId,
-                ProjectId = teamPresentationDto.ProjectId,
-                AdvisorId = teamPresentationDto.AdvisorId,
-                Professor1Id = teamPresentationDto.Professor1Id,
-                Professor2Id = teamPresentationDto.Professor2Id,
-                PresentationDate = teamPresentationDto.PresentationDate,
-                StartTime = teamPresentationDto.StartTime,
-                EndTime = teamPresentationDto.EndTime
-            };
-
+            var teamPresentation = _mapper.Map<TeamPresentation>(teamPresentationDto);
+            teamPresentation.TeamPresentationId = id;
             await _teamPresentationService.UpdateTeamPresentationAsync(teamPresentation);
         }
 
@@ -58,9 +47,10 @@ namespace GPESAPI.Application.Services
             await _teamPresentationService.DeleteTeamPresentationAsync(id);
         }
 
-        public async Task SaveAllPresentationsAsync(List<TeamPresentation> presentations)
+        public async Task SaveAllPresentationsAsync(List<TeamPresentationDTO> presentations)
         {
-            foreach (var presentation in presentations)
+            var teamPresentations = _mapper.Map<List<TeamPresentation>>(presentations);
+            foreach (var presentation in teamPresentations)
             {
                 await _teamPresentationService.AddTeamPresentationAsync(presentation);
             }

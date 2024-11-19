@@ -7,6 +7,5 @@
         public int ProjectId { get; set; }
         public int AdvisorId { get; set; }
         public bool isActive { get; set; }
-        public bool isEvaluated { get; set; }
     }
 }

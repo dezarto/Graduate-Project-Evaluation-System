@@ -21,14 +21,17 @@ namespace GPESAPI.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        
-        public async Task<TeamPresentation> GetTeamPresentationByIdAsync(int id)
+
+        public async Task<List<TeamPresentation>> GetTeamPresentationByIdAsync(int id)
         {
             return await _dbContext.TeamPresentations
-                .FirstOrDefaultAsync(tp => tp.TeamPresentationId == id);
+                .Where(p => p.AdvisorId == id
+                         || p.Professor1Id == id
+                         || p.Professor2Id == id)
+                .ToListAsync();
         }
 
-        
+
         public async Task<List<TeamPresentation>> GetAllTeamPresentationsAsync()
         {
             return await _dbContext.TeamPresentations.ToListAsync();
@@ -41,10 +44,10 @@ namespace GPESAPI.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        
+
         public async Task DeleteTeamPresentationAsync(int id)
         {
-            var teamPresentation = await GetTeamPresentationByIdAsync(id);
+            var teamPresentation = (await GetTeamPresentationByIdAsync(id)).FirstOrDefault();
             if (teamPresentation != null)
             {
                 _dbContext.TeamPresentations.Remove(teamPresentation);
@@ -52,7 +55,8 @@ namespace GPESAPI.Infrastructure.Repositories
             }
         }
 
-        
+
+
         public async Task<List<TeamPresentation>> GetPresentationsByDateAsync(DateTime date)
         {
             return await _dbContext.TeamPresentations

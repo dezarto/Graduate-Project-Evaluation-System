@@ -5,7 +5,7 @@ namespace GPESAPI.Domain.Interfaces
     public interface ITeamPresentationRepository
     {
         Task AddTeamPresentationAsync(TeamPresentation teamPresentation);
-        Task<TeamPresentation> GetTeamPresentationByIdAsync(int id);
+        Task<List<TeamPresentation>> GetTeamPresentationByIdAsync(int id);
         Task<List<TeamPresentation>> GetAllTeamPresentationsAsync();
         Task UpdateTeamPresentationAsync(TeamPresentation teamPresentation);
         Task DeleteTeamPresentationAsync(int id);

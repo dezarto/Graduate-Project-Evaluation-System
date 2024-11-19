@@ -22,13 +22,10 @@ namespace GPESAPI.Domain.Services
             await _repository.AddTeamPresentationAsync(teamPresentation);
         }
 
-        public async Task<TeamPresentation> GetTeamPresentationByIdAsync(int id)
+        public async Task<List<TeamPresentation>> GetTeamPresentationByIdAsync(int id)
         {
             var presentation = await _repository.GetTeamPresentationByIdAsync(id);
-            if (presentation == null)
-            {
-                throw new Exception("TeamPresentation not found.");
-            }
+            
             return presentation;
         }
 

@@ -11,5 +11,6 @@
         public DateTime PresentationDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
+        public bool isEvaluated { get; set; }
     }
 }
