@@ -7,7 +7,5 @@
         public int TeamId { get; set; }
         public string FilePath { get; set; }
         public DateTime ReportDate { get; set; }
-
-        public Team Team { get; set; }
     }
 }

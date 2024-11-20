@@ -49,5 +49,15 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
             }
             return null;
         }
+
+        public async Task<List<TeamMemberDTO>> GetTeamMemberByTeamIdAsync(int teamId)
+        {
+            var teamMembers = await _teamMemberService.GetByTeamIdAsync(teamId);
+            if (teamMembers != null && teamMembers.Count > 0)
+            {
+                return _mapper.Map<List<TeamMemberDTO>>(teamMembers);
+            }
+            return null;
+        }
     }
 }
