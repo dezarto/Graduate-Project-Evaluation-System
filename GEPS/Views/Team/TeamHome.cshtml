@@ -2,7 +2,7 @@
     Layout = null; // Eğer bir Layout kullanıyorsanız, burada Layout yolunu belirtebilirsiniz.
 }
 
-@model GEPS.Models.HomeForStu
+@model GEPS.Models.StudentProjectTeamsWeb
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluate</title>
-    <link rel="stylesheet" href="~/css/HomeForStu.css" />
+    <link rel="stylesheet" href="~/css/SubmitProjectTopics.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
@@ -32,10 +32,16 @@
                 </div>
             </div>
 
-            <div class="create-project">
+            <div class="create-project" onclick="redirectToCreateProject()">
                 <i class="fa fa-plus"></i>
                 <h4>Create Graduation Project</h4>
             </div>
+
+            <script>
+                function redirectToCreateProject() {
+                    window.location.href = "/Team/ProjectCreate";
+                }
+            </script>
 
 
             <div>
@@ -49,21 +55,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var project in Model.ProjectName)
-                        {
-                            <tr>
-                                <td>@project.ProjectName</td>
-                                <td>@string.Join(", ", project.TeamMembers)</td>
-                                <td>@project.Date.ToString("yyyy-MM-dd")</td>
-                                <td><button class="action-btn" onclick="editProject(@project.Id)">Edit</button> </td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>@Model.ProjectName</td>
+                            <td>
+                                <ul>
+                                    @foreach (var member in Model.TeamMembers)
+                                    {
+                                        <li>@member.StudentFullName - @member.StudentNumber</li>
+                                    }
+                                </ul>
+                            </td>
+                            <td>Empty</td>
+                            <td><button class="action-btn" onclick="editProject(@Model.TeamId)">Edit</button></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
-
 
 </body>
 

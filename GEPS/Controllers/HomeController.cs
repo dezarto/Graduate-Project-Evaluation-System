@@ -18,12 +18,17 @@ namespace GEPS.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult SubmitProjectTopics()
         {
             return View();
         }
 
-        public IActionResult ProjectCreate()
+        public IActionResult DisplayProjectTopics()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }

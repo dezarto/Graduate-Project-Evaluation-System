@@ -1,7 +1,6 @@
 ﻿html, body {
     height: 100%;
     margin: 0;
-    display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     background-color: #E8E8E8;
@@ -12,7 +11,7 @@
     width: 80%;
     max-width: 1000px;
     padding: 20px;
-    margin-top: 250px;
+    margin-top: 3%;
 }
 
 td {
@@ -41,6 +40,7 @@ td {
     background-color: red;
     color: white;
 }
+
 .form__field {
     width: 95%;
     padding: 10px;
