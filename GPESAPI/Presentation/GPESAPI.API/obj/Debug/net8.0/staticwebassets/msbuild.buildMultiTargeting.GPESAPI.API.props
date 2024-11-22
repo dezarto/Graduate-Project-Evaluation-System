@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GPESAPI.API.props" />
+</Project>
