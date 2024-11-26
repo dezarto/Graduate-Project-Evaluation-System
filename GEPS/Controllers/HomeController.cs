@@ -17,13 +17,18 @@ namespace GEPS.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
         }
 
         public IActionResult ProjectCreate()
+        {
+            return View();
+        }
+
+        public IActionResult TeacherviewResult()
         {
             return View();
         }

@@ -1,0 +1,160 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "TeacherViewResult";
+}
+
+@using GEPS.Models  <!-- Burada doğru namespace'i ekliyoruz -->
+@model GEPS.Models.TeacherViewResultModel
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/TeacherViewResult.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="TeamData.js"></script>
+
+    <title>TeacherViewResult</title>
+</head>
+<body>
+    <div class="mainTeacherViewResult">
+        <section class="infoTeacherViewResult">
+            <h3>View Result</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project. </p>
+        </section>
+        <section class="resultPart">
+            <div class="inlinePadding">
+                <h4>AI Supported Human Resources System for IT Companies AI Supported Human Resources System for IT Companies</h4>
+                <section class="teamInfo">
+                    <table class="tableOfTeamInfo">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>Team</p>
+                                </th>
+                                <th>
+                                    <p>Status</p>
+                                </th>
+                                <th>
+                                    <p>Evaluating Teacher</p>
+                                </th>
+                                <th>
+                                    <p>Team Members</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamTableBody">
+                            <tr>
+                                <td>
+                                    <p>@Model.Team.TeamName</p>
+                                </td>
+                                <td>
+                                    <p>@Model.Team.TeamStatus</p>
+                                </td>
+                                <td>
+                                    <p>@Model.Team.AdvisorId</p>
+                                </td>
+                                <td>
+                                    @*<p>team member1</p>*@ 
+                                    @foreach (var member in Model.Team.TeamMemberIds)
+                                    {
+                                            <p>@member</p>
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="resultTable">
+                    <table class="tableOfResult">
+                        <tr>
+                            <th>
+                                <p>Evaluation</p>
+                            </th>
+                            <th>
+                                <p>Grades</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Technical Merits (%15) <br>
+                                    <b>Feedback:</b>
+                                </p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Project Design and Implementation (%40) <br>
+                                    <b>Feedback: </b> 
+                                </p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Report (Completeness and Content) (%15) <br>
+                                    <b>Feedback:</b> 
+                                </p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Presentation (%10) <br>
+                                    <b>Feedback:</b> 
+                                </p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Demo (%10) <br>
+                                    <b>Feedback:</b> 
+                                </p>
+                            </td>
+                            <td>
+                                <p>7</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Papers (%10) <br>
+                                    <b>Feedback:</b> 
+                                </p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Total Score (%100)</p>
+                            </td>
+                            <td>
+                                <p>@Model.Evaluation.EvaluationScore</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <p><b>General Feedback</b> </p>
+                </section>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

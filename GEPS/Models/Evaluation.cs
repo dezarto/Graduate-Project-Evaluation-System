@@ -6,7 +6,7 @@
         public int TeamId { get; set; }
         public int ProfessorId { get; set; }
         public int EvaluationScore { get; set; }
-        public string Comments { get; set; }
+        public string Comments { get; set; } = String.Empty;
         public DateTime Date { get; set; }
     }
 }

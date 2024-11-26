@@ -5,7 +5,7 @@
         public int FeedbackId { get; set; }
         public int TeamId { get; set; }
         public int ProfessorId { get; set; }
-        public string Comments { get; set; }
+        public string Comments { get; set; } = String.Empty;
         public DateTime Date { get; set; }
     }
 }
