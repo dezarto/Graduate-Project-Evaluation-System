@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
     ViewBag.Title = "TeacherViewResult";
 }
@@ -47,20 +45,20 @@
                         <tbody id="teamTableBody">
                             <tr>
                                 <td>
-                                    <p>@Model.Team.TeamName</p>
+                                    <p> team name@*@Model.Team.TeamName*@</p>
                                 </td>
                                 <td>
-                                    <p>@Model.Team.TeamStatus</p>
+                                    <p> status @*@Model.Team.TeamStatus*@</p>
                                 </td>
                                 <td>
-                                    <p>@Model.Team.AdvisorId</p>
+                                    <p>advisor @*@Model.Team.AdvisorId*@</p>
                                 </td>
                                 <td>
-                                    @*<p>team member1</p>*@ 
-                                    @foreach (var member in Model.Team.TeamMemberIds)
+                                    <p>team member1</p>*
+                                    @*@foreach (var member in Model.Team.TeamMemberIds)
                                     {
-                                            <p>@member</p>
-                                    }
+                                        <p>@member</p>
+                                    }*@
                                 </td>
                             </tr>
                         </tbody>
@@ -84,47 +82,47 @@
                                 </p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>1@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>
                                     Project Design and Implementation (%40) <br>
-                                    <b>Feedback: </b> 
+                                    <b>Feedback: </b>
                                 </p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>2@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>
                                     Report (Completeness and Content) (%15) <br>
-                                    <b>Feedback:</b> 
+                                    <b>Feedback:</b>
                                 </p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>
                                     Presentation (%10) <br>
-                                    <b>Feedback:</b> 
+                                    <b>Feedback:</b>
                                 </p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>3@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>
                                     Demo (%10) <br>
-                                    <b>Feedback:</b> 
+                                    <b>Feedback:</b>
                                 </p>
                             </td>
                             <td>
@@ -135,11 +133,11 @@
                             <td>
                                 <p>
                                     Papers (%10) <br>
-                                    <b>Feedback:</b> 
+                                    <b>Feedback:</b>
                                 </p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>2@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                         <tr>
@@ -147,7 +145,7 @@
                                 <p>Total Score (%100)</p>
                             </td>
                             <td>
-                                <p>@Model.Evaluation.EvaluationScore</p>
+                                <p>5@*@Model.Evaluation.EvaluationScore*@</p>
                             </td>
                         </tr>
                     </table>
