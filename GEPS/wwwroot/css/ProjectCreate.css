@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    background-color: #E8E8E8;
+    background-color: #F2F2F2;
     font-family: 'Inter', sans-serif;
 }
 
@@ -37,8 +37,8 @@ td {
     width: 30%;
     height: 40px;
     border-radius: 25px;
-    border: 1px solid red;
-    background-color: red;
+    border: 1px solid #C1272D;
+    background-color: #C1272D;
     color: white;
 }
 .form__field {
