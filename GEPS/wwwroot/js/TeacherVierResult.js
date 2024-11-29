@@ -32,3 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Tüm butonları seç
+    const buttons = document.querySelectorAll(".actionButton");
+
+    // Her butona tıklama olayı ekle
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Önce tüm butonlardan 'clicked' sınıfını kaldır
+            buttons.forEach(btn => btn.classList.remove("clicked"));
+            // Tıklanan butona 'clicked' sınıfını ekle
+            button.classList.add("clicked");
+        });
+    });
+});

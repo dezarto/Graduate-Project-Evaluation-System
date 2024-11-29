@@ -11,7 +11,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/css/TeacherViewResult.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" src="TeamData.js"></script>
+    <script type="module" src="TeacherVierResult.js"></script>
 
     <title>TeacherViewResult</title>
 </head>
@@ -20,6 +20,12 @@
         <section class="infoTeacherViewResult">
             <h3>View Result</h3>
             <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project. </p>
+        </section>
+        <section class="teacherSelection">
+            <button class="actionButton redButton">Akhan Akbulut(Me)</button>
+            <button class="actionButton redButton">Murat Taylı</button>
+            <button class="actionButton redButton">Öznur Şengel</button>
+            <button class="actionButton greenButton">Average Result</button>
         </section>
         <section class="resultPart">
             <div class="inlinePadding">
@@ -54,7 +60,7 @@
                                     <p>advisor @*@Model.Team.AdvisorId*@</p>
                                 </td>
                                 <td>
-                                    <p>team member1</p>*
+                                    <p>team member1</p>
                                     @*@foreach (var member in Model.Team.TeamMemberIds)
                                     {
                                         <p>@member</p>
@@ -156,3 +162,56 @@
     </div>
 </body>
 </html>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Team status hücresini seç
+        const teamStatusElement = document.querySelector("#teamTableBody td:nth-child(2) p");
+
+        if (teamStatusElement) {
+            const status = teamStatusElement.textContent.trim();
+
+
+            switch (status) {
+                case "READY TO EVALUATE":
+                    teamStatusElement.style.color = "blue";
+                    teamStatusElement.style.fontWeight = "bold";
+                    teamStatusElement.textContent = " Ready to Evaluate";
+                    break;
+
+                case "NO RESULT":
+                    teamStatusElement.style.color = "red";
+                    teamStatusElement.style.fontWeight = "bold";
+                    teamStatusElement.textContent = "❌ No Result";
+                    break;
+
+                case "RESULT AVAILABLE":
+                    teamStatusElement.style.color = "green";
+                    teamStatusElement.style.fontWeight = "bold";
+                    teamStatusElement.textContent = "✅ Result Available";
+                    break;
+
+                default:
+                    teamStatusElement.style.color = "black";
+                    teamStatusElement.textContent = "Unknown Status";
+                    break;
+            }
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Tüm butonları seç
+        const buttons = document.querySelectorAll(".actionButton");
+
+        // Her butona tıklama olayı ekle
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                // Önce tüm butonlardan 'clicked' sınıfını kaldır
+                buttons.forEach(btn => btn.classList.remove("clicked"));
+                // Tıklanan butona 'clicked' sınıfını ekle
+                button.classList.add("clicked");
+            });
+        });
+    });
+</script>
