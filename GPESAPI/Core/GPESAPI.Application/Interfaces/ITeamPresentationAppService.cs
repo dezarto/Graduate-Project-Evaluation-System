@@ -1,5 +1,4 @@
 ﻿using GPESAPI.Application.DTOs;
-using GPESAPI.Domain.Entities;
 
 namespace GPESAPI.Application.Interfaces
 {

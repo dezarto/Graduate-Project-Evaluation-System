@@ -3,14 +3,9 @@ using GPESAPI.Application.Services;
 using GPESAPI.Domain.Interfaces;
 using GPESAPI.Domain.Services;
 using GPESAPI.Infrastructure.Repositories;
-using GraduateProjectEvaluationSystemAPI.API.Mapping;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Application.Services;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Services;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Repositories;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Services;
+using GPESAPI.API.Mapping;
+using GPESAPI.Infrastructure.Persistence;
+using GPESAPI.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -75,7 +70,6 @@ builder.Services.AddScoped<ITeamPresentationAppService, TeamPresentationAppServi
 builder.Services.AddScoped<ITeamPresentationService, TeamPresentationService>();
 builder.Services.AddScoped<ITeamPresentationRepository, TeamPresentationRepository>();
 
-
 // Project servisleri
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
@@ -84,6 +78,16 @@ builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
 builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
+
+//
+builder.Services.AddScoped<IChecklistItemDetailService, ChecklistItemDetailService>();
+builder.Services.AddScoped<IChecklistItemsService, ChecklistItemsService>();
+builder.Services.AddScoped<IEvaluationCriteriaDetailService, EvaluationCriteriaDetailService>();
+builder.Services.AddScoped<IEvaluationCriteriaService, EvaluationCriteriaService>();
+builder.Services.AddScoped<IEvaluationService, EvaluationService>();
+builder.Services.AddScoped<IEvaluationAppService, EvaluationAppService>();
+builder.Services.AddScoped<IEvaluationCriteriaAppService, EvaluationCriteriaAppService>();
+builder.Services.AddScoped<IChecklistItemsAppService, ChecklistItemsAppService>();
 
 // **JWT Authentication configuration**
 var jwtSettings = builder.Configuration.GetSection("Jwt");

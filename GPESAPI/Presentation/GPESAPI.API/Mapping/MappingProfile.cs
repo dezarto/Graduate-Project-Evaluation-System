@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using GPESAPI.Application.DTOs;
 using GPESAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 
-namespace GraduateProjectEvaluationSystemAPI.API.Mapping
+namespace GPESAPI.API.Mapping
 {
     public class MappingProfile : Profile
     {
@@ -18,6 +16,11 @@ namespace GraduateProjectEvaluationSystemAPI.API.Mapping
             CreateMap<Project, ProjectDTO>().ReverseMap();
             CreateMap<TeamMember, TeamMemberDTO>().ReverseMap();
             CreateMap<TeamPresentation, TeamPresentationDTO>().ReverseMap();
+            CreateMap<ChecklistItem, ChecklistItemDTO>().ReverseMap();
+            CreateMap<ChecklistItemDetail, ChecklistItemDetailDTO>().ReverseMap();
+            CreateMap<Evaluation, EvaluationDTO>().ReverseMap();
+            CreateMap<EvaluationCriteria, EvaluationCriteriaDTO>().ReverseMap();
+            CreateMap<EvaluationCriteriaDetail, EvaluationCriteriaDetailDTO>().ReverseMap();
         }
     }
 }

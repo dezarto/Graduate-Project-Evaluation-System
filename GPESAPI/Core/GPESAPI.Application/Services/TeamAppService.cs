@@ -1,20 +1,80 @@
 ﻿using AutoMapper;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Services
+namespace GPESAPI.Application.Services
 {
     public class TeamAppService : ITeamAppService
     {
+        private readonly IUserService _userService;
         private readonly ITeamService _teamService;
+        private readonly IProjectService _projectService;
+        private readonly ITeamMemberService _teamMemberService;
         private readonly IMapper _mapper;
 
-        public TeamAppService(ITeamService teamService, IMapper mapper)
+        public TeamAppService(IUserService userService, ITeamService teamService, IProjectService projectService, ITeamMemberService teamMemberService, IMapper mapper)
         {
+            _userService = userService;
             _teamService = teamService;
+            _projectService = projectService;
+            _teamMemberService = teamMemberService;
             _mapper = mapper;
+        }
+
+        public async Task<object> CreateTeamAsync(string username, TeamCreator teamCreator)
+        {
+            var student = await _userService.GetByStudentNumberAsync(username);
+
+            if (await _teamMemberService.GetByUserIdAsync(student.UserId) != null)
+            {
+                throw new Exception("You already have a team.");
+            }
+
+            var newProject = new Project
+            {
+                Description = teamCreator.Description,
+                ProjectName = teamCreator.ProjectName,
+            };
+            await _projectService.AddProjectAsync(newProject);
+
+            var project = await _projectService.GetProjectByIdAsync(newProject.ProjectId);
+
+            if (project == null)
+            {
+                throw new Exception("Project creation failed.");
+            }
+
+            var newTeam = new Team
+            {
+                TeamName = teamCreator.TeamName,
+                AdvisorId = student.ProfessorId,
+                ProjectId = project.ProjectId,
+                isActive = false,
+            };
+            await _teamService.AddTeamAsync(newTeam);
+
+            foreach (var studentUsername in teamCreator.StudentList)
+            {
+                var studentL = await _userService.GetByStudentNumberAsync(studentUsername.StudenNumber);
+
+                if (studentL == null)
+                {
+                    Console.WriteLine($"Student not found: {studentUsername.StudenNumber}");
+                    continue;
+                }
+
+                var newTeamMember = new TeamMember
+                {
+                    TeamId = newTeam.TeamId,
+                    UserId = studentL.UserId,
+                };
+
+                await _teamMemberService.AddTeamMemberAsync(newTeamMember);
+            }
+
+            return new { TeamId = newTeam.TeamId, ProjectId = project.ProjectId, Message = "Team created successfully" };
         }
 
         public async Task<IEnumerable<TeamDTO>> GetAllTeamAppAsync()

@@ -1,8 +1,7 @@
 ﻿using GPESAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
+namespace GPESAPI.Infrastructure.Persistence
 {
     public class SqlDbContext : DbContext
     {
@@ -59,7 +58,21 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
             modelBuilder.Entity<ProfessorsUsers>()
                 .HasKey(pu => new { pu.ProfessorId, pu.UserId });
 
-            // İlişkiler burada tanımlanabilir (örneğin)
+            //ChecklistItem
+            modelBuilder.Entity<ChecklistItem>()
+                .HasKey(ci => ci.ItemId);
+
+            modelBuilder.Entity<ChecklistItemDetail>()
+                .HasNoKey();
+
+            modelBuilder.Entity<EvaluationCriteriaDetail>()
+                .HasNoKey();
+
+            //EvaluationCriteria
+            modelBuilder.Entity<EvaluationCriteria>()
+                .HasKey(ci => ci.CriteriaId);
+
+            // İlişkiler
             modelBuilder.Entity<ProfessorsUsers>()
                 .HasOne<Professor>()
                 .WithMany()
@@ -75,6 +88,48 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
 
             modelBuilder.Entity<TeamPresentation>()
                 .ToTable("TeamPresentations");
+
+            modelBuilder.Entity<ChecklistItem>()
+                    .Property(c => c.ItemId)
+                    .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Evaluation>()
+                    .Property(c => c.EvaluationId)
+                    .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<EvaluationCriteria>()
+                    .Property(c => c.CriteriaId)
+                    .ValueGeneratedOnAdd();
+
+            // Evaluation ve EvaluationCriteriaDetail arasındaki ilişkiyi belirtmek
+            modelBuilder.Entity<EvaluationCriteriaDetail>()
+                .HasKey(e => new { e.EvaluationId, e.CriteriaId });
+
+            // Foreign Key ilişkilerini belirtmek
+            modelBuilder.Entity<EvaluationCriteriaDetail>()
+                .HasOne<Evaluation>()
+                .WithMany() // Evaluation ile ilişki
+                .HasForeignKey(e => e.EvaluationId);
+
+            modelBuilder.Entity<EvaluationCriteriaDetail>()
+                .HasOne<EvaluationCriteria>()
+                .WithMany() // EvaluationCriteria ile ilişki
+                .HasForeignKey(e => e.CriteriaId);
+
+            // ChecklistItemDetail ile ChecklistItem ve Evaluation arasındaki ilişkiyi belirtmek
+            modelBuilder.Entity<ChecklistItemDetail>()
+                .HasKey(ci => new { ci.EvaluationId, ci.ItemId }); // Kompozit anahtar oluşturuluyor
+
+            // Foreign Key ilişkilerini belirtmek
+            modelBuilder.Entity<ChecklistItemDetail>()
+                .HasOne<Evaluation>() // Evaluation ile ilişki
+                .WithMany() // Evaluation ile birden çok ilişki olabilir
+                .HasForeignKey(ci => ci.EvaluationId);
+
+            modelBuilder.Entity<ChecklistItemDetail>()
+                .HasOne<ChecklistItem>() // ChecklistItem ile ilişki
+                .WithMany() // ChecklistItem ile birden çok ilişki olabilir
+                .HasForeignKey(ci => ci.ItemId);
         }
 
         // DbSet Properties for each table
@@ -89,5 +144,9 @@ namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence
         public DbSet<Professor> Professors { get; set; }
         public DbSet<ProfessorAvailability> ProfessorAvailability { get; set; }
         public DbSet<TeamPresentation> TeamPresentations { get; set; }
+        public DbSet<EvaluationCriteria> EvaluationCriterias { get; set; }
+        public DbSet<ChecklistItem> ChecklistItems { get; set; }
+        public DbSet<EvaluationCriteriaDetail> EvaluationCriteriaDetails { get; set; }
+        public DbSet<ChecklistItemDetail> ChecklistItemDetails { get; set; }
     }
 }

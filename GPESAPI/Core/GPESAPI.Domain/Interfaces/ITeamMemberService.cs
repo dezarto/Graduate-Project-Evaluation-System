@@ -1,6 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Domain.Entities;
 
-namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
+namespace GPESAPI.Domain.Interfaces
 {
     public interface ITeamMemberService
     {

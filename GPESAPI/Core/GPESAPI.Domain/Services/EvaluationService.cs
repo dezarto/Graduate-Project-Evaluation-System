@@ -1,7 +1,7 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+﻿using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Domain.Services
+namespace GPESAPI.Domain.Services
 {
     public class EvaluationService : IEvaluationService
     {
@@ -35,6 +35,11 @@ namespace GraduateProjectEvaluationSystemAPI.Domain.Services
         public async Task DeleteEvaluationAsync(int id)
         {
             await _evaluationRepository.DeleteAsync(id);
+        }
+
+        public async Task<List<Evaluation>> GetEvaluationByTeamIdAsync(int id)
+        {
+            return await _evaluationRepository.GetByFieldAsync("TeamId" , id);
         }
     }
 }

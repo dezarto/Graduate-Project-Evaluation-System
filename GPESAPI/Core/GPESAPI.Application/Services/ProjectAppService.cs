@@ -1,20 +1,226 @@
 ﻿using AutoMapper;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
+using GPESAPI.Domain.Services;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Services
+namespace GPESAPI.Application.Services
 {
     public class ProjectAppService : IProjectAppService
     {
         private readonly IProjectService _projectService;
+        private readonly IUserService _userService;
+        private readonly IProfessorsUsersService _professorsUsersService;
+        private readonly IProfessorService _professorService;
+        private readonly ITeamService _teamService;
+        private readonly ITeamMemberService _teamMemberService;
+        private readonly IProfessorAvailabilityService _professorAvailabilityService;
+        private readonly ITeamPresentationService _teamPresentationService;
+        private readonly IEvaluationService _evaluationService;
+        private readonly IEvaluationCriteriaDetailService _evaluationCriteriaDetailService;
         private readonly IMapper _mapper;
 
-        public ProjectAppService(IProjectService projectService, IMapper mapper)
+        public ProjectAppService(IProjectService projectService, IUserService userService, IProfessorsUsersService professorsUsersService, ITeamService teamService, IProfessorAvailabilityService professorAvailabilityService, ITeamPresentationService teamPresentationService, IProfessorService professorService, ITeamMemberService teamMemberService, IEvaluationService evaluationService, IEvaluationCriteriaDetailService evaluationCriteriaDetailService, IMapper mapper)
         {
             _projectService = projectService;
+            _userService = userService;
+            _professorsUsersService = professorsUsersService;
+            _teamService = teamService;
+            _professorAvailabilityService = professorAvailabilityService;
+            _teamPresentationService = teamPresentationService;
+            _professorService = professorService;
+            _teamMemberService = teamMemberService;
+            _evaluationService = evaluationService;
+            _evaluationCriteriaDetailService = evaluationCriteriaDetailService;
             _mapper = mapper;
+        }
+
+        public async Task<StudentProjectTeams> StudentProjectTeamView(string studentNumber)
+        {
+            var student = await _userService.GetByStudentNumberAsync(studentNumber);
+            var teamId = await _teamMemberService.GetByUserIdAsync(student.UserId);
+            var team = await _teamService.GetTeamByIdAsync(teamId.TeamId);
+            var project = await _projectService.GetProjectByIdAsync(team.ProjectId);
+            var teamMembers = await _teamMemberService.GetByTeamIdAsync(team.TeamId);
+
+            var newStudentProjectTeams = new StudentProjectTeams
+            {
+                TeamId = team.TeamId,
+                ProjectId = team.ProjectId,
+                AdvisorId = team.AdvisorId,
+                isActive = team.isActive,
+                TeamName = team.TeamName,
+                ProjectName = project.ProjectName,
+                Description = project.Description,
+                Members = new List<GPESAPI.Application.DTOs.MemberList>()
+            };
+
+            if (teamMembers != null && teamMembers.Count > 0)
+            {
+                foreach (var teamMember in teamMembers)
+                {
+                    var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
+
+                    var studentDatas = new GPESAPI.Application.DTOs.MemberList
+                    {
+                        StudentId = teamMember.UserId,
+                        StudentFullName = studentInfos.FullName,
+                        StudentNumber = studentInfos.StudentNumber,
+                    };
+
+                    newStudentProjectTeams.Members.Add(studentDatas);
+                }
+            }
+
+            return newStudentProjectTeams;
+        }
+
+        public async Task<List<ProjectTeams>> ProfessorProjectTeamView(string professorMail)
+        {
+            var professor = await _professorService.GetByProfessorEmailAsync(professorMail);
+
+            var presentations = await _teamPresentationService.GetTeamPresentationByIdAsync(professor.ProfessorId);
+
+            if (presentations == null || presentations.Count == 0)
+            {
+                throw new Exception("No presentations found for the given professor ID.");
+            }
+
+            var projectTeamsList = new List<ProjectTeams>();
+
+            foreach (var presentation in presentations)
+            {
+                var project = await _projectService.GetProjectByIdAsync(presentation.ProjectId);
+                var team = await _teamService.GetTeamByIdAsync(presentation.TeamId);
+                var professorInfos = await _professorService.GetByProfessorIdAsync(professor.ProfessorId);
+                var teamMembers = await _teamMemberService.GetByTeamIdAsync(presentation.TeamId);
+
+                var newProjectTeams = new ProjectTeams
+                {
+                    TeamPresentationId = presentation.TeamPresentationId,
+                    TeamId = presentation.TeamId,
+                    ProjectName = project.ProjectName,
+                    Description = project.Description,
+                    TeamName = team.TeamName,
+                    isEvaluated = presentation.isEvaluated,
+                    EvaluatingTeacherFullName = professorInfos.FullName,
+                    EvaluatingTeacherMail = professorInfos.mailAddress,
+                    isApproval = team.isActive,
+                    PresentationDate = presentation.PresentationDate,
+                    StartTime = presentation.StartTime,
+                    EndTime = presentation.EndTime,
+                    Members = new List<StudentList>()
+                };
+
+                if (teamMembers != null && teamMembers.Count > 0)
+                {
+                    foreach (var teamMember in teamMembers)
+                    {
+                        var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
+
+                        var student = new StudentList
+                        {
+                            StudentId = teamMember.UserId,
+                            StudentFullName = studentInfos.FullName,
+                            StudentNumber = studentInfos.StudentNumber,
+                        };
+
+                        newProjectTeams.Members.Add(student);
+                    }
+                }
+                projectTeamsList.Add(newProjectTeams);
+            }
+
+            return projectTeamsList;
+        }
+
+        public async Task<ProjectTeamResult> ProfessorProjectTeamResult(string professorMail, int teamId)
+        {
+            var professor = await _professorService.GetByProfessorEmailAsync(professorMail);
+            if (professor == null)
+            {
+                throw new Exception($"Professor with email {professorMail} not found.");
+            }
+
+            var teamPresentation = await _teamPresentationService.GetTeamPresentationByTeamIdAsync(teamId);
+            if (teamPresentation == null)
+            {
+                throw new Exception($"Team presentation for Team ID {teamId} not found.");
+            }
+
+            var team = await _teamService.GetTeamByIdAsync(teamPresentation.TeamId);
+            if (team == null)
+            {
+                throw new Exception($"Team with ID {teamPresentation.TeamId} not found.");
+            }
+
+            var project = await _projectService.GetProjectByIdAsync(team.ProjectId);
+            if (project == null)
+            {
+                throw new Exception($"Project with ID {team.ProjectId} not found.");
+            }
+
+            var evaluations = await _evaluationService.GetEvaluationByTeamIdAsync(teamId);
+
+            var professorsTeams = new List<ProfessorList>();
+
+            foreach (var professorId in new[] { teamPresentation.AdvisorId, teamPresentation.Professor1Id, teamPresentation.Professor2Id })
+            {
+                var prof = await _professorService.GetByProfessorIdAsync(professorId);
+                if (prof == null)
+                {
+                    continue;
+                }
+
+                var professorEvaluations = evaluations
+                    .Where(e => e.ProfessorId == prof.ProfessorId)
+                    .ToList();
+
+                double averageScore = professorEvaluations.Any()
+                    ? professorEvaluations.Average(e => e.EvaluationScore)
+                    : 0.0;
+
+                string generalComments = string.Join(" | ", professorEvaluations
+                    .Where(e => !string.IsNullOrWhiteSpace(e.GeneralComments))
+                    .Select(e => e.GeneralComments));
+
+                var evaluationCriteriaResultList = new List<EvaluationCriteriaResult>();
+
+                foreach (var evaluation in professorEvaluations)
+                {
+                    var evaluationCriterias = await _evaluationCriteriaDetailService.GetEvaluationCriteriaDetailByIdAsync(evaluation.EvaluationId);
+                    if (evaluationCriterias != null)
+                    {
+                        evaluationCriteriaResultList.AddRange(evaluationCriterias.Select(ec => new EvaluationCriteriaResult
+                        {
+                            CriteriaId = ec.CriteriaId,
+                            Feedback = ec.Feedback,
+                            isChecked = ec.isChecked,
+                            Score = ec.Score,
+                        }));
+                    }
+                }
+
+                professorsTeams.Add(new ProfessorList
+                {
+                    ProfessorId = prof.ProfessorId,
+                    FullName = prof.FullName,
+                    mailAddress = prof.mailAddress,
+                    EvaluationScore = averageScore,
+                    GeneralComments = generalComments,
+                    EvaluationCriterias = evaluationCriteriaResultList,
+                });
+            }
+
+            return new ProjectTeamResult
+            {
+                TeamId = teamId,
+                TeamName = team.TeamName,
+                ProjectName = project.ProjectName,
+                ProjectDescription = project.Description,
+                ProfessorsTeams = professorsTeams,
+            };
         }
 
         public async Task<IEnumerable<ProjectDTO>> GetAllProjectAppAsync()

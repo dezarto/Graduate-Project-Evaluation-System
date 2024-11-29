@@ -1,11 +1,11 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-namespace GraduateProjectEvaluationSystembAPI.API.Controllers
+namespace GPESAPI.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

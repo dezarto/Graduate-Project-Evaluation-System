@@ -1,6 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface IProfessorAvailabilityAppService
     {
@@ -10,5 +10,6 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task UpdateProfessorAvailabilityAppAsync(ProfessorAvailabilityDTO professorAvailabilityDto);
         Task DeleteProfessorAvailabilityAppAsync(int id);
         Task<bool> CheckExistingAvailabilityAppAsync(int professorId, DateTime availableDate, TimeSpan startTime, TimeSpan endTime);
+        Task AddProfessorAvailabilityBatchAsync(int professorId, List<ProfessorAvailabilityDTO> availabilities);
     }
 }

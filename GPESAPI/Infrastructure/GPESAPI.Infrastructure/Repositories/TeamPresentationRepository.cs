@@ -1,6 +1,6 @@
 ﻿using GPESAPI.Domain.Entities;
 using GPESAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence;
+using GPESAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GPESAPI.Infrastructure.Repositories
@@ -72,6 +72,13 @@ namespace GPESAPI.Infrastructure.Repositories
                                 ((tp.StartTime <= startTime && tp.EndTime > startTime) ||
                                  (tp.StartTime < endTime && tp.EndTime >= endTime) ||
                                  (tp.StartTime >= startTime && tp.EndTime <= endTime)));
+        }
+
+        public async Task<TeamPresentation> GetTeamPresentationByTeamIdAsync(int id)
+        {
+            return await _dbContext.TeamPresentations
+                 .Where(p => p.TeamId == id)
+                 .FirstOrDefaultAsync();
         }
     }
 }

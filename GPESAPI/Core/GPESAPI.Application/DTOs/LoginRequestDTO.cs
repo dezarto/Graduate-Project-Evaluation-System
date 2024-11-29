@@ -1,4 +1,4 @@
-﻿namespace GraduateProjectEvaluationSystemAPI.Application.DTOs
+﻿namespace GPESAPI.Application.DTOs
 {
     public class LoginRequestDTO
     {

@@ -1,9 +1,9 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence;
+﻿using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
+using GPESAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Repositories
+namespace GPESAPI.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {

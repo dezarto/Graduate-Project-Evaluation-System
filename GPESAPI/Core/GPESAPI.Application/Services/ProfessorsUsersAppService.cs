@@ -1,7 +1,7 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+﻿using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Services
+namespace GPESAPI.Application.Services
 {
     public class ProfessorsUsersAppService : IProfessorsUsersAppService
     {

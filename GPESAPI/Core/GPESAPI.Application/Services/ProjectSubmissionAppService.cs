@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Services
+namespace GPESAPI.Application.Services
 {
     public class ProjectSubmissionAppService : IProjectSubmissionAppService
     {

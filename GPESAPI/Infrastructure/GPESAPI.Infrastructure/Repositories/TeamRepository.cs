@@ -1,6 +1,6 @@
 ﻿using GPESAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Infrastructure.Persistence;
+using GPESAPI.Domain.Entities;
+using GPESAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GPESAPI.Infrastructure.Repositories

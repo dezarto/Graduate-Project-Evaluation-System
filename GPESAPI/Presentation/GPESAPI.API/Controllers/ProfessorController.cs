@@ -1,183 +1,92 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OpenQA.Selenium.BiDi.Modules.Script;
 using System.Security.Claims;
 
-namespace GraduateProjectEvaluationSystemAPI.API.Controllers
+namespace GPESAPI.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Professor")]
     public class ProfessorController : Controller
     {
         private readonly IProfessorAppService _professorAppService;
-        private readonly ITeamAppService _teamAppService;
+        private readonly IEvaluationAppService _evaluationAppService;
         private readonly IProjectAppService _projectAppService;
-        private readonly ITeamMemberAppService _teamMemberAppService;
         private readonly IProfessorAvailabilityAppService _professorAvailabilityAppService;
 
-        public ProfessorController(IProfessorAppService professorAppService, IProfessorAvailabilityAppService professorAvailabilityAppService, ITeamAppService teamAppService, IProjectAppService projectAppService, ITeamMemberAppService teamMemberAppService)
+        public ProfessorController(IProfessorAppService professorAppService, IEvaluationAppService evaluationAppService, IProjectAppService projectAppService, IProfessorAvailabilityAppService professorAvailabilityAppService)
         {
             _professorAppService = professorAppService;
-            _professorAvailabilityAppService = professorAvailabilityAppService;
-            _teamAppService = teamAppService;
+            _evaluationAppService = evaluationAppService;
             _projectAppService = projectAppService;
-            _teamMemberAppService = teamMemberAppService;
+            _professorAvailabilityAppService = professorAvailabilityAppService;
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<ActionResult<ProfessorDTO>> CreateProfessor([FromBody] ProfessorDTO professorDto)
-        {
-            await _professorAppService.AddProfessorAppAsync(professorDto);
-            return Ok(professorDto);
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpGet("getAllProfessors")]
-        public async Task<ActionResult<List<ProfessorDTO>>> GetAllProfessors()
-        {
-            return await _professorAppService.GetAllProfessorAppAsync();
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProfessorDTO>> GetProfessorById(int id)
-        {
-            var professor = await _professorAppService.GetByProfessorAppIdAsync(id);
-            if (professor == null)
-            {
-                return NotFound();
-            }
-            return professor;
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProfessor(int id, [FromBody] ProfessorDTO professorDto)
-        {
-            if (id != professorDto.ProfessorId)
-            {
-                return BadRequest();
-            }
-
-            await _professorAppService.UpdateProfessorAppAsync(professorDto);
-            return Ok(professorDto);
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProfessor(int id)
-        {
-            await _professorAppService.DeleteProfessorAppAsync(id);
-            return Ok("Successful");
-        }
-
-        [Authorize(Roles = "Student,Professor")]
         [HttpPost("{professorId}/availability")]
         public async Task<ActionResult> AddProfessorAvailability(int professorId, [FromBody] List<ProfessorAvailabilityDTO> availabilities)
         {
             try
             {
-                foreach (var availabilityDto in availabilities)
-                {
-                    // ProfessorId zaten mevcut, her availability kaydında set ediyoruz
-                    availabilityDto.ProfessorId = professorId;
-
-                    // 1. Adım: Veritabanında belirtilen tarih ve saat aralığında bir kaydın olup olmadığını kontrol ediyoruz
-                    var existingAvailability = await _professorAvailabilityAppService.CheckExistingAvailabilityAppAsync(
-                        professorId, availabilityDto.AvailableDate, availabilityDto.StartTime, availabilityDto.EndTime);
-
-                    if (existingAvailability)
-                    {
-                        // Eğer aynı zaman diliminde zaten bir kayıt varsa, hata döndürüyoruz
-                        return Conflict(new { message = "An availability record already exists for the specified date and time range." });
-                    }
-
-                    // 2. Adım: Eğer kayıt yoksa, Availability kaydediliyor
-                    await _professorAvailabilityAppService.AddProfessorAvailabilityAppAsync(availabilityDto);
-                }
-
+                await _professorAvailabilityAppService.AddProfessorAvailabilityBatchAsync(professorId, availabilities);
                 return Ok(new { message = "Availability data added successfully." });
             }
             catch (Exception ex)
             {
+                if (ex.Message.Contains("already exists"))
+                {
+                    return Conflict(new { message = ex.Message });
+                }
+
                 return StatusCode(500, new { message = "An error occurred while adding availability data.", error = ex.Message });
             }
         }
 
-        [Authorize(Roles = "Professor")]
-        [HttpGet("approval-teams-view")]
+        [HttpGet("get-approval-teams-view")]
         public async Task<ActionResult> ProfessorApprovalTeamsView()
         {
-            var mailAdress = User.FindFirst(ClaimTypes.Name)?.Value;
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
 
-            if (string.IsNullOrEmpty(mailAdress))
+            if (string.IsNullOrEmpty(professorMail))
             {
                 return Unauthorized("User email is not available.");
             }
 
-            var finProfessor = await _professorAppService.GetByProfessorAppEmailAsync(mailAdress);
-
-            if (finProfessor == null)
+            try
             {
-                return NotFound("Resource not found.");
+                var result = await _professorAppService.ProfessorApprovalTeamsView(professorMail);
+                return Ok(result);
             }
-
-            var teamInfos = await _teamAppService.GetByAdvisorIdTeamAppAsync(finProfessor.ProfessorId);
-
-            if (teamInfos == null || !teamInfos.Any())
+            catch (Exception ex)
             {
-                return NotFound("No teams found.");
+                return BadRequest(new { message = ex.Message });
             }
-
-            var enrichedTeamInfos = teamInfos.Select(team => new TeamDTO
-            {
-                TeamId = team.TeamId,
-                TeamName = team.TeamName,
-                ProjectId = team.ProjectId,
-                AdvisorId = team.AdvisorId,
-                isActive = team.isActive
-            }).ToList();
-
-            return Ok(enrichedTeamInfos);
         }
 
-        [Authorize(Roles = "Professor")]
-        [HttpPost("approval-teams")]
+        [HttpPost("post-approval-teams")]
         public async Task<ActionResult> ProfessorApprovalTeams(int teamId, bool approval)
         {
-            var mailAdress = User.FindFirst(ClaimTypes.Name)?.Value;
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
 
-            if (string.IsNullOrEmpty(mailAdress))
+            if (string.IsNullOrEmpty(professorMail))
             {
                 return Unauthorized("User email is not available.");
             }
 
-            var teamInfo = await _teamAppService.GetTeamAppByIdAsync(teamId);
-
-            if (teamInfo == null)
+            try
             {
-                return NotFound("No teams found.");
+                var result = await _professorAppService.ProfessorApprovalTeams(teamId, approval);
+                return Ok(result);
             }
-
-            if (approval)
+            catch (Exception ex)
             {
-                teamInfo.isActive = true;
-                await _teamAppService.UpdateTeamAppAsync(teamInfo);
+                return BadRequest(new { message = ex.Message });
             }
-            else
-            {
-                await _teamMemberAppService.DeleteTeamMemberAppAsync(teamInfo.TeamId);
-                await _teamAppService.DeleteTeamAppAsync(teamId);
-                await _projectAppService.DeleteProjectAppAsync(teamInfo.ProjectId);
-            }
-
-            return Ok();
         }
 
-        [Authorize(Roles = "Professor")]
-        [HttpGet("myProfile")]
+        [HttpGet("get-my-profile")]
         public async Task<ActionResult> MyProfile()
         {
             var mailAdress = User.FindFirst(ClaimTypes.Name)?.Value;
@@ -190,6 +99,84 @@ namespace GraduateProjectEvaluationSystemAPI.API.Controllers
             var professor = await _professorAppService.GetByProfessorAppEmailAsync(mailAdress);
 
             return Ok(professor);
+        }
+
+        [HttpGet("get-project-team-view")]
+        public async Task<IActionResult> ProjectTeamView()
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var result = await _projectAppService.ProfessorProjectTeamView(professorMail);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPost("submit-evaluation")]
+        public async Task<IActionResult> SubmitEvaluation([FromBody] EvaluateReasult evaluateResult)
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized();
+            }
+
+            if (evaluateResult == null)
+                return BadRequest("Evaluation result is null.");
+
+            var result = await _evaluationAppService.SubmitEvaluationSave(evaluateResult, professorMail);
+
+            return Ok("Evaluation submitted successfully.");
+        }
+
+        [HttpGet("get-evaluation/{evaluationId}")]
+        public async Task<IActionResult> GetEvaluation(int evaluationId)
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized();
+            }
+
+            if (evaluationId == 0)
+                return BadRequest("Evaluation result is null.");
+
+            var result = await _evaluationAppService.GetEvaluationResult(evaluationId);
+
+            return Ok(result);
+        }
+
+        [HttpGet("get-project-team-result/{teamId}")]
+        public async Task<IActionResult> ProjectTeamResult(int teamId)
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var result = await _projectAppService.ProfessorProjectTeamResult(professorMail, teamId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }

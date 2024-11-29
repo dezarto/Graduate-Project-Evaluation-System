@@ -1,4 +1,4 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Domain.Entities;
 
 namespace GPESAPI.Domain.Interfaces
 {
