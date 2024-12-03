@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\logincatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\logincatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\manuelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\manuelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\logincatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\logincatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 429,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LoginCatsController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\LoginCatsController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\LoginCatsController.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\LoginCatsController.cs",
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\LoginCatsController.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAowAAAAAAAAAAA",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAkwGEAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T13:38:46.14Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T13:38:46.14Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ManuelController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
-              "ViewState": "AQIAAMECAAAAAAAAAAAAAMYCAAAgAAAA",
+              "ViewState": "AgIAANQAAAAAAAAAAIAwwEwCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T19:56:41.491Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T19:13:08.724Z"
             }
           ]
         }

@@ -31,9 +31,23 @@ namespace GPESAPI.Application.Services
                     throw new Exception("An availability record already exists for the specified date and time range.");
                 }
 
-                var availability = _mapper.Map<ProfessorAvailability>(availabilityDto);
+                TimeSpan startTime = availabilityDto.StartTime;
+                TimeSpan endTime = availabilityDto.EndTime;
 
-                await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
+                while (startTime < endTime)
+                {
+                    var availability = new ProfessorAvailability
+                    {
+                        ProfessorId = professorId,
+                        AvailableDate = availabilityDto.AvailableDate,
+                        StartTime = startTime,
+                        EndTime = startTime + TimeSpan.FromMinutes(30)
+                    };
+
+                    await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
+
+                    startTime = startTime + TimeSpan.FromMinutes(30);
+                }
             }
         }
 

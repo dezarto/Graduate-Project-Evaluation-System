@@ -927,12 +927,18 @@
           "GPESAPI.Domain": "1.0.0"
         },
         "runtime": {
-          "GPESAPI.Application.dll": {}
+          "GPESAPI.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "GPESAPI.Domain/1.0.0": {
         "runtime": {
-          "GPESAPI.Domain.dll": {}
+          "GPESAPI.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
