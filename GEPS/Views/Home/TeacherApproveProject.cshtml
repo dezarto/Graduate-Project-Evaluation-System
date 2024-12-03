@@ -1,0 +1,166 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/TeacherApproveProject.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="TeamStatusData.js"></script>
+
+    <title>TeacherApproveProject</title>
+</head>
+<body>
+    <div class="mainTeacherApproveProject">
+        <section class="infoTeacherApproveProject">
+            <h3>Approve Project</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project.  </p>
+        </section>
+        <div class="whiteBox">
+            <section class="projectInfo">
+                <section class="projectContent">
+                    <h4>AI Supported Human Resources System for IT Companies AI Supported Human Resources System for IT Companies</h4>
+                    <section class="teamInfo">
+                        <table class="tableOfTeamInfo">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Team</p>
+                                    </th>
+                                    <th>
+                                        <p>Status</p>
+                                    </th>
+                                    <th>
+                                        <p>Evaluating Teacher</p>
+                                    </th>
+                                    <th>
+                                        <p>Team Members</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamTableBody">
+                                <tr>
+                                    <td>
+                                        <p>Team Name 1</p>
+                                    </td>
+                                    <td>
+                                        <p>Ready to Evaluate</p>
+                                    </td>
+                                    <td>
+                                        <p>a@iku.edu.tr</p>
+                                    </td>
+                                    <td>
+                                        <p>team member1</p>
+                                       @* <!--   @foreach (var member in team.TeamMembers)
+                                        {
+                                                <p>@member</p>
+                                        }-->*@
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+                <div class="choiceContainer">
+                    <button class="choiceButton approve" id="approveButton">
+                        <img src="~/approve.png" alt="Approve" class="icon" />
+                    </button>
+                    <button class="choiceButton reject" id="rejectButton">
+                        <img src="~/cross.png" alt="Reject" class="icon" />
+                    </button>
+                </div>
+                <div id="resultMessage" class="resultMessage"></div>
+            </section>
+        </div>
+        <div class="whiteBox">
+            <section class="projectInfo">
+                <section class="projectContent">
+                    <h4>AI Supported Human Resources System for IT Companies AI Supported Human Resources System for IT Companies</h4>
+                    <section class="teamInfo">
+                        <table class="tableOfTeamInfo">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Team</p>
+                                    </th>
+                                    <th>
+                                        <p>Status</p>
+                                    </th>
+                                    <th>
+                                        <p>Evaluating Teacher</p>
+                                    </th>
+                                    <th>
+                                        <p>Team Members</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamTableBody">
+                                <tr>
+                                    <td>
+                                        <p>Team Name 1</p>
+                                    </td>
+                                    <td>
+                                        <p>Ready to Evaluate</p>
+                                    </td>
+                                    <td>
+                                        <p>a@iku.edu.tr</p>
+                                    </td>
+                                    <td>
+                                        <p>team member1</p>
+                                       @* <!--   @foreach (var member in team.TeamMembers)
+                                        {
+                                                <p>@member</p>
+                                        }-->*@
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+                <div class="choiceContainer">
+                    <button class="choiceButton approve" id="approveButton">
+                        <img src="~/approve.png" alt="Approve" class="icon" />
+                    </button>
+                    <button class="choiceButton reject" id="rejectButton">
+                        <img src="~/cross.png" alt="Reject" class="icon" />
+                    </button>
+                </div>
+                <div id="resultMessage" class="resultMessage"></div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+     
+        const choiceContainers = document.querySelectorAll(".choiceContainer");
+
+        choiceContainers.forEach((container) => {
+            const approveButton = container.querySelector(".approve");
+            const rejectButton = container.querySelector(".reject");
+            const resultMessage = container.nextElementSibling;
+
+            approveButton.addEventListener("click", function () {
+                showApprovedMessage(container, resultMessage, "Approved Project", "approved");
+            });
+
+            rejectButton.addEventListener("click", function () {
+                showApprovedMessage(container, resultMessage, "Project Rejected", "rejected");
+            });
+        });
+
+        function showApprovedMessage(container, resultMessage, message, statusClass) {
+            // Butonları gizle
+            container.style.display = "none";
+
+            // Mesajı göster ve sınıfını ayarla
+            resultMessage.textContent = message;
+            resultMessage.className = `resultMessage ${statusClass}`;
+            resultMessage.style.display = "block";
+        }
+    });
+</script>
