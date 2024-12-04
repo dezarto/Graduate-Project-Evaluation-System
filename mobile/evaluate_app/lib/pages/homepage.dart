@@ -52,10 +52,58 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void approveProject(int teamId) async {
+    final token = await storage.read(key: 'accessToken');
+    final url =
+        Uri.parse('${AppConfig.approveProject}?teamId=$teamId&approval=true');
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        print('Team with ID $teamId approved successfully!');
+        fetchProjects();
+      } else {
+        throw Exception('Failed to approve team with ID $teamId.');
+      }
+    } catch (error) {
+      print('Error approving team: $error');
+    }
+  }
+
+  void rejectProject(int teamId) async {
+    final token = await storage.read(key: 'accessToken');
+    final url =
+        Uri.parse('${AppConfig.approveProject}?teamId=$teamId&approval=false');
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        print('Team with ID $teamId rejected successfully!');
+        fetchProjects();
+      } else {
+        throw Exception('Failed to reject team with ID $teamId.');
+      }
+    } catch (error) {
+      print('Error rejecting team: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text('Home'),
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -63,8 +111,15 @@ class _HomeScreenState extends State<HomeScreen> {
         titleTextStyle: const TextStyle(
           color: AppColors.whiteTextColor,
           fontFamily: 'Inter',
-          fontSize: 30,
+          fontSize: 36,
           fontWeight: FontWeight.bold,
+        ),
+        leading: null,
+        toolbarHeight: 100,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
         ),
       ),
       body: isLoading
@@ -84,7 +139,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 16),
                   Expanded(
                     child: ListView.builder(
                       itemCount: projects.length,
@@ -100,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           project.isEvaluated ? Colors.green : Colors.blue,
                           project.isEvaluated ? 'View Result' : 'Evaluate',
                           project.isEvaluated,
+                          !project.isApproval,
                         );
                       },
                     ),
@@ -118,6 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Color statusColor,
     String buttonText,
     bool isEvaluated,
+    bool isApproval,
   ) {
     const int maxChars = 90;
 
@@ -212,30 +268,77 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => isEvaluated
-                                ? ViewProjectResults()
-                                : EvaluateProjectPage(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text(
-                        buttonText,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    isEvaluated
+                        ? ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ViewProjectResults(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primary,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: Text(
+                              buttonText,
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
+                        : isApproval
+                            ? ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          EvaluateProjectPage(),
+                                    ),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColors.primary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                                child: Text(
+                                  buttonText,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      // Onaylama işlemi
+                                      print('Project approved');
+                                    },
+                                    icon: const Icon(Icons.check_circle),
+                                    color: Colors.green,
+                                    iconSize: 36,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  IconButton(
+                                    onPressed: () {
+                                      // Reddetme işlemi
+                                      print('Project rejected');
+                                    },
+                                    icon: const Icon(Icons.cancel),
+                                    color: Colors.red,
+                                    iconSize: 36,
+                                  ),
+                                ],
+                              ),
                   ],
                 ),
               ),

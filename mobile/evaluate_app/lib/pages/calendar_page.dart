@@ -17,6 +17,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text('Calendar'),
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -24,8 +26,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
         titleTextStyle: const TextStyle(
           color: AppColors.whiteTextColor,
           fontFamily: 'Inter',
-          fontSize: 30,
+          fontSize: 36,
           fontWeight: FontWeight.bold,
+        ),
+        leading: null,
+        toolbarHeight: 60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
         ),
       ),
       body: Container(

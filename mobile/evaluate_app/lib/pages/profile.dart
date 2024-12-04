@@ -4,12 +4,20 @@ import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:evaluate_app/models/models.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 Future<User> fetchUser() async {
-  final url = Uri.parse(AppConfig.projectTeamView);
+  final url = Uri.parse(AppConfig.profileView);
+  final storage = const FlutterSecureStorage();
+  final token = await storage.read(key: 'accessToken');
 
   try {
-    final response = await await http.get(url);
+    final response = await await http.get(
+      url,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+    );
 
     if (response.statusCode == 200) {
       print('${response.statusCode}: User info fetched successfully!');
@@ -50,6 +58,8 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text('Profile'),
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -57,8 +67,15 @@ class _ProfilePageState extends State<ProfilePage> {
         titleTextStyle: const TextStyle(
           color: AppColors.whiteTextColor,
           fontFamily: 'Inter',
-          fontSize: 30,
+          fontSize: 36,
           fontWeight: FontWeight.bold,
+        ),
+        leading: null,
+        toolbarHeight: 60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
         ),
       ),
       body: FutureBuilder<User>(
@@ -93,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
               decoration: BoxDecoration(
                 color: AppColors.whiteTextColor,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(20.0),
                 border: Border.all(
                   color: const Color.fromARGB(255, 201, 201, 201),
                   width: 0.7,

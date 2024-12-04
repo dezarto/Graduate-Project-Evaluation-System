@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // API login request function
   Future<void> _loginApiRequest(String username, String password) async {
-    final Uri apiUrl = Uri.parse(AppConfig.LoginCats);
+    final Uri apiUrl = Uri.parse(AppConfig.loginCats);
     final storage = const FlutterSecureStorage();
 
     try {
@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
         print('User login successfully completed! ');
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MainWrapper()),
+          MaterialPageRoute(builder: (context) => MainWrapper()),
         );
       } else {
         print('Failed to login: ${response.request}');
