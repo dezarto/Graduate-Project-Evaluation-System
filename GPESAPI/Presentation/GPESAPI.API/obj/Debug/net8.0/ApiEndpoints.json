@@ -409,38 +409,8 @@
   },
   {
     "ContainingType": "GPESAPI.API.Controllers.ManuelController",
-    "Method": "ScheduleTeamsPresentations",
-    "RelativePath": "api/Manuel/schedule-teams-presentations",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GPESAPI.API.Controllers.ManuelController",
-    "Method": "ScheduleTeamsPresentationsOptimized",
-    "RelativePath": "api/Manuel/schedule-teams-presentations-optimized",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GPESAPI.API.Controllers.ManuelController",
     "Method": "ScheduleTeamsPresentationsOptimizedBacktracking",
     "RelativePath": "api/Manuel/schedule-teams-presentations-optimized-backtracking",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GPESAPI.API.Controllers.ManuelController",
-    "Method": "ScheduleTeamsPresentationsOptimizedTest",
-    "RelativePath": "api/Manuel/schedule-teams-presentations-optimized-test",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -502,6 +472,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "EvaluationsCriteriaAndCheckListDatas",
+    "RelativePath": "api/Professor/get-evaluations-criteria-and-check-list-datas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -601,6 +581,47 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "UploadProject",
+    "RelativePath": "api/Student/project-upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   }
 ]

@@ -13,14 +13,18 @@ namespace GPESAPI.Application.Services
         private readonly IProfessorService _professorService;
         private readonly IEvaluationCriteriaDetailService _evaluationCriteriaDetailService;
         private readonly IChecklistItemDetailService _checklistItemDetailService;
+        private readonly IEvaluationCriteriaAppService _evaluationCriteriaAppService;
+        private readonly IChecklistItemsAppService _checklistItemsAppService;
         private readonly IMapper _mapper;
 
-        public EvaluationAppService(IEvaluationService evaluationService, IProfessorService professorService, IEvaluationCriteriaDetailService evaluationCriteriaDetailService, IChecklistItemDetailService checklistItemDetailService, IMapper mapper)
+        public EvaluationAppService(IEvaluationService evaluationService, IProfessorService professorService, IEvaluationCriteriaDetailService evaluationCriteriaDetailService, IChecklistItemDetailService checklistItemDetailService, IEvaluationCriteriaAppService evaluationCriteriaAppService, IChecklistItemsAppService checklistItemsAppService, IMapper mapper)
         {
             _evaluationService = evaluationService;
             _professorService = professorService;
             _evaluationCriteriaDetailService = evaluationCriteriaDetailService;
             _checklistItemDetailService = checklistItemDetailService;
+            _evaluationCriteriaAppService = evaluationCriteriaAppService;
+            _checklistItemsAppService = checklistItemsAppService;
             _mapper = mapper;
         }
 
@@ -135,6 +139,20 @@ namespace GPESAPI.Application.Services
             };
 
             return evaluationResult;
+        }
+
+        public async Task<AllCriterias> GetAllCriterias()
+        {
+            var criteria = (await _evaluationCriteriaAppService.GetAllEvaluationCriteriaAsync()).ToList();
+            var items = (await _checklistItemsAppService.GetAllChecklistItemsAsync()).ToList();
+
+            var newAllCriterias = new AllCriterias
+            {
+                ChecklistItemDatas = items,
+                EvaluationCriteriaDatas = criteria
+            };
+
+            return newAllCriterias;
         }
     }
 }

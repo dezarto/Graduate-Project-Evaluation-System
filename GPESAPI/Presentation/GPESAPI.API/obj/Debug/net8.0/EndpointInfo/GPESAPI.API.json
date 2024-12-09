@@ -723,42 +723,6 @@
         }
       }
     },
-    "/api/Manuel/schedule-teams-presentations": {
-      "post": {
-        "tags": [
-          "Manuel"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Manuel/schedule-teams-presentations-optimized": {
-      "post": {
-        "tags": [
-          "Manuel"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Manuel/schedule-teams-presentations-optimized-test": {
-      "post": {
-        "tags": [
-          "Manuel"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/Manuel/schedule-teams-presentations-optimized-backtracking": {
       "post": {
         "tags": [
@@ -964,6 +928,18 @@
         }
       }
     },
+    "/api/Professor/get-evaluations-criteria-and-check-list-datas": {
+      "get": {
+        "tags": [
+          "Professor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Student/project-team-view": {
       "get": {
         "tags": [
@@ -996,6 +972,74 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/TeamCreator"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Student/project-upload": {
+      "post": {
+        "tags": [
+          "Student"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ContentType": {
+                    "type": "string"
+                  },
+                  "ContentDisposition": {
+                    "type": "string"
+                  },
+                  "Headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "Length": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "FileName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ContentType": {
+                  "style": "form"
+                },
+                "ContentDisposition": {
+                  "style": "form"
+                },
+                "Headers": {
+                  "style": "form"
+                },
+                "Length": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "FileName": {
+                  "style": "form"
+                }
               }
             }
           }

@@ -11,5 +11,6 @@ namespace GPESAPI.Application.Interfaces
         Task DeleteEvaluationAppAsync(int id);
         Task<bool> SubmitEvaluationSave(EvaluateReasult evaluateResult, string professorMail);
         Task<EvaluateReasult> GetEvaluationResult(int evaluateId);
+        Task<AllCriterias> GetAllCriterias();
     }
 }

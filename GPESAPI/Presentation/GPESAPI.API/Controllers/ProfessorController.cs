@@ -1,5 +1,6 @@
 ﻿using GPESAPI.Application.DTOs;
 using GPESAPI.Application.Interfaces;
+using GPESAPI.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OpenQA.Selenium.BiDi.Modules.Script;
@@ -171,6 +172,28 @@ namespace GPESAPI.API.Controllers
             try
             {
                 var result = await _projectAppService.ProfessorProjectTeamResult(professorMail, teamId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet("get-evaluations-criteria-and-check-list-datas")]
+        public async Task<IActionResult> EvaluationsCriteriaAndCheckListDatas()
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var result = await _evaluationAppService.GetAllCriterias();
+
                 return Ok(result);
             }
             catch (Exception ex)

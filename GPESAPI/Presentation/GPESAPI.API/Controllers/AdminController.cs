@@ -22,7 +22,7 @@ namespace GPESAPI.API.Controllers
             _evaluationCriteriaAppService = evaluationCriteriaAppService;
             _checklistItemsAppService = checklistItemsAppService;
         }
-
+        //Professor endpoints
         [HttpPost("create-professor")]
         public async Task<ActionResult<ProfessorDTO>> CreateProfessor([FromBody] ProfessorDTO professorDto)
         {
@@ -65,7 +65,7 @@ namespace GPESAPI.API.Controllers
             await _professorAppService.DeleteProfessorAppAsync(id);
             return Ok("Successful");
         }
-
+        //Student endpoints
         [HttpPost("create-student")]
         public async Task<ActionResult<UserDTO>> CreateStudent([FromBody] UserDTO userDto)
         {
@@ -109,7 +109,7 @@ namespace GPESAPI.API.Controllers
             return Ok("Successful");
         }
 
-        //Evaluation Criteria
+        //Evaluation Criteria endpoints
         [HttpGet("get-all-evaluation-criteria")]
         public async Task<IActionResult> GetAllEvaluationCriteria()
         {

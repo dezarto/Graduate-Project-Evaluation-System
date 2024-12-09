@@ -1,4 +1,5 @@
 ﻿using GPESAPI.Application.DTOs;
+using Microsoft.AspNetCore.Http;
 
 namespace GPESAPI.Application.Interfaces
 {
@@ -9,5 +10,6 @@ namespace GPESAPI.Application.Interfaces
         Task AddReportAppAsync(ReportDTO reportDto);
         Task UpdateReportAppAsync(ReportDTO reportDto);
         Task DeleteReportAppAsync(int id);
+        Task<bool> UploadReport(IFormFile file, string studentNumber);
     }
 }

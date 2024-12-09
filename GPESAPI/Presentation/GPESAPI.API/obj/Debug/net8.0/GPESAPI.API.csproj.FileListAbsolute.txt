@@ -160,3 +160,4 @@ C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\obj\Debug\net8.0\GP
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\obj\Debug\net8.0\GPESAPI.API.genruntimeconfig.cache
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\obj\Debug\net8.0\ref\GPESAPI.API.dll
 C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Semir\source\repos\GPESAPI\Presentation\GPESAPI.API\bin\Debug\net8.0\MongoDB.Bson.dll

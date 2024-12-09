@@ -10,11 +10,6 @@ namespace GPESAPI.Infrastructure.Persistence
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-10K0RM5\\SQLEXPRESS;Database=GPES;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=True;TrustServerCertificate=True;");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -48,7 +43,7 @@ namespace GPESAPI.Infrastructure.Persistence
 
             // Report
             modelBuilder.Entity<Report>()
-                .HasKey(r => r.Id);
+                .HasKey(r => r.ReportId);
 
             // ProfessorAvailability
             modelBuilder.Entity<ProfessorAvailability>()

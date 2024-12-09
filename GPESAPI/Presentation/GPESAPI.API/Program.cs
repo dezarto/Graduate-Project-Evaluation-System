@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,11 @@ builder.Services.AddCors(options =>
             .AllowAnyOrigin()    // Tüm kaynaklara izin ver
             .AllowAnyMethod()    // Tüm HTTP yöntemlerine izin ver
             .AllowAnyHeader());  // Tüm başlıklara izin ver
+});
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 209715200; // 200 MB
 });
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -88,6 +94,10 @@ builder.Services.AddScoped<IEvaluationService, EvaluationService>();
 builder.Services.AddScoped<IEvaluationAppService, EvaluationAppService>();
 builder.Services.AddScoped<IEvaluationCriteriaAppService, EvaluationCriteriaAppService>();
 builder.Services.AddScoped<IChecklistItemsAppService, ChecklistItemsAppService>();
+builder.Services.AddScoped<IReportAppService, ReportAppService>();
+builder.Services.AddScoped<IReportService, ReportService>();
+
+
 
 // **JWT Authentication configuration**
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -117,9 +127,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// **CORS Middleware**
+app.UseCors("AllowAllOrigins");
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -127,10 +141,9 @@ if (app.Environment.IsDevelopment())
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-// **CORS Middleware**
-app.UseCors("AllowAllOrigins");
+
 
 // **JWT Authentication Middleware**
 app.UseAuthentication();
