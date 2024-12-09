@@ -1,10 +1,10 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface ITeamAppService
     {
+        Task<object> CreateTeamAsync(string username, TeamCreator teamCreator);
         Task<IEnumerable<TeamDTO>> GetAllTeamAppAsync();
         Task<TeamDTO> GetTeamAppByIdAsync(int id);
         Task AddTeamAppAsync(TeamDTO teamDto);

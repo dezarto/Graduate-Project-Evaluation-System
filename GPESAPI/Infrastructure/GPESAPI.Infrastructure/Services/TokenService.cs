@@ -1,14 +1,13 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace GraduateProjectEvaluationSystemAPI.Infrastructure.Services
+namespace GPESAPI.Infrastructure.Services
 {
     public class TokenService : ITokenService
     {

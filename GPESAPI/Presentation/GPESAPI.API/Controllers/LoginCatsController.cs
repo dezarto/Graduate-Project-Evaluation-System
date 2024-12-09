@@ -1,11 +1,11 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-namespace GraduateProjectEvaluationSystembAPI.API.Controllers
+namespace GPESAPI.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -56,7 +56,7 @@ namespace GraduateProjectEvaluationSystembAPI.API.Controllers
 
             var allowedUsernames = new HashSet<string>
             {
-                "2000004562", "2000003225", "2100000000", "2000003710", "2012456789", "2019654321", "2018675432", "2016789543", "2013894576", "2013948276", "2018432679",
+                "2000004562", "2000003225", "2100000000", "2012456789", "2019654321", "2018675432", "2016789543", "2013894576", "2013948276", "2018432679",
             };
 
             if (allowedUsernames.Contains(request.Username))

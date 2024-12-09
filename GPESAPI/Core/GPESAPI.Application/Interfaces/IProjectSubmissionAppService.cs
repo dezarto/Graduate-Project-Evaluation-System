@@ -1,6 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface IProjectSubmissionAppService
     {

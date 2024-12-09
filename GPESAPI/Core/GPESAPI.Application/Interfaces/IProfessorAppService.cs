@@ -1,7 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface IProfessorAppService
     {
@@ -12,5 +11,7 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
 
         Task UpdateProfessorAppAsync(ProfessorDTO professorDto);
         Task DeleteProfessorAppAsync(int id);
+        Task<string> ProfessorApprovalTeams(int teamId, bool approval);
+        Task<List<TeamDTO>> ProfessorApprovalTeamsView(string professorMail);
     }
 }

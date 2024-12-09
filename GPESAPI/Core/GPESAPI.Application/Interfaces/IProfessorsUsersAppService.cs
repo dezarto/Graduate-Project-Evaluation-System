@@ -1,4 +1,4 @@
-﻿namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+﻿namespace GPESAPI.Application.Interfaces
 {
     public interface IProfessorsUsersAppService
     {

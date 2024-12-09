@@ -1,4 +1,4 @@
-﻿namespace GraduateProjectEvaluationSystemAPI.Domain.Entities
+﻿namespace GPESAPI.Domain.Entities
 {
     public class Professor
     {

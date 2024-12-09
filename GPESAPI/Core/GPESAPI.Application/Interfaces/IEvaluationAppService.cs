@@ -1,6 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface IEvaluationAppService
     {
@@ -9,5 +9,8 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task AddEvaluationAppAsync(EvaluationDTO evaluationDto);
         Task UpdateEvaluationAppAsync(EvaluationDTO evaluationDto);
         Task DeleteEvaluationAppAsync(int id);
+        Task<bool> SubmitEvaluationSave(EvaluateReasult evaluateResult, string professorMail);
+        Task<EvaluateReasult> GetEvaluationResult(int evaluateId);
+        Task<AllCriterias> GetAllCriterias();
     }
 }

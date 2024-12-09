@@ -1,8 +1,7 @@
 ﻿using GPESAPI.Domain.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+using GPESAPI.Domain.Entities;
 
-namespace GraduateProjectEvaluationSystemAPI.Domain.Services
+namespace GPESAPI.Domain.Services
 {
     public class TeamService : ITeamService
     {

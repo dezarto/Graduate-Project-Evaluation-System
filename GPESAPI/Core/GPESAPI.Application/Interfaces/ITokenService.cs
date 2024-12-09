@@ -1,7 +1,7 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
+using GPESAPI.Domain.Entities;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface ITokenService
     {

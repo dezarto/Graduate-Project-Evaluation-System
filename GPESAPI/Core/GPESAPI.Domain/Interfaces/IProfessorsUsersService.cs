@@ -1,6 +1,4 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-
-namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
+﻿namespace GPESAPI.Domain.Interfaces
 {
     public interface IProfessorsUsersService
     {

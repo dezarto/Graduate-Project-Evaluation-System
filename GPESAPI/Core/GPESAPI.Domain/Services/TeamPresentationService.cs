@@ -71,8 +71,14 @@ namespace GPESAPI.Domain.Services
             
             var presentations = await _repository.GetPresentationsByDateAsync(date);
 
-            
             return presentations;
+        }
+
+        public async Task<TeamPresentation> GetTeamPresentationByTeamIdAsync(int id)
+        {
+            var presentation = await _repository.GetTeamPresentationByTeamIdAsync(id);
+
+            return presentation;
         }
     }
 }

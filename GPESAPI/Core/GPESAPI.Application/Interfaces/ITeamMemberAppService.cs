@@ -1,7 +1,6 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
+﻿using GPESAPI.Application.DTOs;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface ITeamMemberAppService
     {

@@ -1,7 +1,7 @@
-﻿using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+﻿using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Domain.Services
+namespace GPESAPI.Domain.Services
 {
     public class ProjectSubmissionService : IProjectSubmissionService
     {

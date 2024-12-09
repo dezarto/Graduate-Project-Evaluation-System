@@ -1,4 +1,4 @@
-﻿namespace GraduateProjectEvaluationSystemAPI.Domain.Interfaces
+﻿namespace GPESAPI.Domain.Interfaces
 {
     public interface IProfessorAvailabilityRepository
     {

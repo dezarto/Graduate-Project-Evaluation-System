@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using GraduateProjectEvaluationSystemAPI.Application.DTOs;
-using GraduateProjectEvaluationSystemAPI.Application.Interfaces;
-using GraduateProjectEvaluationSystemAPI.Domain.Entities;
-using GraduateProjectEvaluationSystemAPI.Domain.Interfaces;
+using GPESAPI.Application.DTOs;
+using GPESAPI.Application.Interfaces;
+using GPESAPI.Domain.Entities;
+using GPESAPI.Domain.Interfaces;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Services
+namespace GPESAPI.Application.Services
 {
     public class ProfessorAvailabilityAppService : IProfessorAvailabilityAppService
     {
@@ -15,6 +15,40 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Services
         {
             _professorAvailabilityService = professorAvailabilityService;
             _mapper = mapper;
+        }
+
+        public async Task AddProfessorAvailabilityBatchAsync(int professorId, List<ProfessorAvailabilityDTO> availabilities)
+        {
+            foreach (var availabilityDto in availabilities)
+            {
+                availabilityDto.ProfessorId = professorId;
+
+                var existingAvailability = await _professorAvailabilityService.CheckExistingAvailabilityAsync(
+                    professorId, availabilityDto.AvailableDate, availabilityDto.StartTime, availabilityDto.EndTime);
+
+                if (existingAvailability)
+                {
+                    throw new Exception("An availability record already exists for the specified date and time range.");
+                }
+
+                TimeSpan startTime = availabilityDto.StartTime;
+                TimeSpan endTime = availabilityDto.EndTime;
+
+                while (startTime < endTime)
+                {
+                    var availability = new ProfessorAvailability
+                    {
+                        ProfessorId = professorId,
+                        AvailableDate = availabilityDto.AvailableDate,
+                        StartTime = startTime,
+                        EndTime = startTime + TimeSpan.FromMinutes(30)
+                    };
+
+                    await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
+
+                    startTime = startTime + TimeSpan.FromMinutes(30);
+                }
+            }
         }
 
         public async Task<IEnumerable<ProfessorAvailabilityDTO>> GetAllProfessorAvailabilityAppAsync()

@@ -1,6 +1,7 @@
-﻿using GraduateProjectEvaluationSystemAPI.Application.DTOs;
+﻿using GPESAPI.Application.DTOs;
+using Microsoft.AspNetCore.Http;
 
-namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
+namespace GPESAPI.Application.Interfaces
 {
     public interface IReportAppService
     {
@@ -9,5 +10,6 @@ namespace GraduateProjectEvaluationSystemAPI.Application.Interfaces
         Task AddReportAppAsync(ReportDTO reportDto);
         Task UpdateReportAppAsync(ReportDTO reportDto);
         Task DeleteReportAppAsync(int id);
+        Task<bool> UploadReport(IFormFile file, string studentNumber);
     }
 }
