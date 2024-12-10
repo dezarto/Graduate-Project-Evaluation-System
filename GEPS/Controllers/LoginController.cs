@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace GEPS.Controllers
 {
-    public class AuthController : Controller
+    [Route("Login")]
+    public class LoginController : Controller
     {
         private readonly HttpClient _httpClient;
 
-        public AuthController(HttpClient httpClient)
+        public LoginController()
         {
-            _httpClient = httpClient;
+            _httpClient = new HttpClient();
         }
 
         [HttpGet]
@@ -22,19 +23,13 @@ namespace GEPS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(Login login)
         {
             string apiUrl = "https://localhost:7107/api/LoginCats";
 
-            var loginData = new
-            {
-                Username = username,
-                Password = password
-            };
-
             try
             {
-                var response = await _httpClient.PostAsJsonAsync(apiUrl, loginData);
+                var response = await _httpClient.PostAsJsonAsync(apiUrl, login);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -42,7 +37,15 @@ namespace GEPS.Controllers
 
                     if (authResult != null && authResult.Success)
                     {
-                        return RedirectToAction("Index", "Home");
+                        HttpContext.Session.SetString("BearerToken", authResult.Token);
+                        if (login.Username.Contains("@iku.edu.tr")) 
+                        {
+                            return RedirectToAction("TeamHomeProfessor", "Professor");
+                        }
+                        else
+                        {
+                            return RedirectToAction("TeamHome", "Student");
+                        }
                     }
                     else
                     {
@@ -62,13 +65,6 @@ namespace GEPS.Controllers
                 return View();
             }
         }
-    }
 
-    public class AuthResult
-    {
-        public string Token { get; set; }
-        public string RefreshToken { get; set; }
-        public bool Success { get; set; }
-        public IEnumerable<string> Errors { get; set; }
     }
 }

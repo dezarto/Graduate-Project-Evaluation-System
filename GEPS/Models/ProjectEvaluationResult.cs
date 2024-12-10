@@ -7,6 +7,9 @@
         public int ProjectId { get; set; }
         public int AdvisorId { get; set; }
         public bool IsActive { get; set; }
+
+        public List<ProfessorTeam> EvaluationCriteria { get; set; }
+
     }
 
 
@@ -19,7 +22,9 @@
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
         public List<ProfessorTeam> ProfessorsTeams { get; set; }
+
     }
+
 
     public class ProfessorTeam
     {

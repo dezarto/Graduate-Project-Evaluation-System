@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "ProjectDetails";
+    ViewData["Title"] = "Submit Project";
+}
+
+@using GEPS.Models
+@model GEPS.Models.TeamCreator
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/ProjectCreate.css" />
+    <title>projectCreate</title>
+</head>
+<body>
+    <div class="mainProjectCreate">
+        @using (Html.BeginForm("CreateTeam", "Student", FormMethod.Post, new { id = "form1" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            <b>Create Graduation Project </b>
+                            <br> Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Title</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form__field", placeholder = "Enter Project Title", required = "required" })
+
+                        @Html.ValidationMessageFor(m => m.ProjectName)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Description (max. 500 words)</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(m => m.Description, new { @class = "form__field", placeholder = "Enter Project Description", required = "required" })
+
+                        @Html.ValidationMessageFor(m => m.Description)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Team Name</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(m => m.TeamName, new { @class = "form__field", placeholder = "Enter Project Team Name", required = "required" })
+
+                        @Html.ValidationMessageFor(m => m.TeamName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Project Advisory </h5>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.AdvisorName, new { @class = "form__field", placeholder = "Enter Project Advisory", required = "required" })
+
+                        @Html.ValidationMessageFor(m => m.AdvisorName)
+                    </td>
+                </tr>
+                @for (int i = 0; i < 3; i++)
+                {
+                    <tr>
+                        <td>
+                            <h5>Team Member</h5>
+                        </td>
+                        <td>
+                            <h5>Student Number</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(m => m.StudentList[i].StudentFullName, new { @class = "form__field", placeholder = "Enter Team Member's Full Name", required = "required" })
+                            @Html.ValidationMessageFor(m => m.StudentList[i].StudentFullName)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.StudentList[i].StudenNumber, new { @class = "form__field", placeholder = "Enter Team Member's Student Number", required = "required" })
+                            @Html.ValidationMessageFor(m => m.StudentList[i].StudenNumber)
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" value="Create" class="submitProject-button">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
