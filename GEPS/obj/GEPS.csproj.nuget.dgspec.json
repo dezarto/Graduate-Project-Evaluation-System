@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\GEPS.csproj": {}
+    "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\GEPS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\GEPS.csproj": {
+    "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\GEPS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\GEPS.csproj",
+        "projectUniqueName": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\GEPS.csproj",
         "projectName": "GEPS",
-        "projectPath": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\GEPS.csproj",
+        "projectPath": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\GEPS.csproj",
         "packagesPath": "C:\\Users\\Semir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\obj\\",
+        "outputPath": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Semir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,12 +42,19 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

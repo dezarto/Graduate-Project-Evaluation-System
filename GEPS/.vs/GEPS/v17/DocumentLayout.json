@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\",
+  "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\views\\team\\teamhome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\team\\teamhome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\models\\projectevaluationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:models\\projectevaluationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\models\\projectcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:models\\projectcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\views\\team\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\team\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps onur\\geps\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TeamHome.cshtml",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Team\\TeamHome.cshtml",
-              "RelativeDocumentMoniker": "Views\\Team\\TeamHome.cshtml",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Team\\TeamHome.cshtml",
-              "RelativeToolTip": "Views\\Team\\TeamHome.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T00:08:06.288Z",
+              "DocumentIndex": 1,
+              "Title": "ProjectEvaluationResult.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Models\\ProjectEvaluationResult.cs",
+              "RelativeDocumentMoniker": "Models\\ProjectEvaluationResult.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Models\\ProjectEvaluationResult.cs",
+              "RelativeToolTip": "Models\\ProjectEvaluationResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T14:15:48.372Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAACYAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T00:07:10Z",
+              "DocumentIndex": 0,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowBQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T11:38:20.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProjectCreateModel.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Models\\ProjectCreateModel.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectCreateModel.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Models\\ProjectCreateModel.cs",
-              "RelativeToolTip": "Models\\ProjectCreateModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:02:24.86Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "ProjectCreate.cshtml",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Team\\ProjectCreate.cshtml",
-              "RelativeDocumentMoniker": "Views\\Team\\ProjectCreate.cshtml",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Views\\Team\\ProjectCreate.cshtml",
-              "RelativeToolTip": "Views\\Team\\ProjectCreate.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAHAAAA",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
+              "RelativeDocumentMoniker": "Views\\Student\\ProjectCreate.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
+              "RelativeToolTip": "Views\\Student\\ProjectCreate.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T00:00:51.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:59:30.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TeamController.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\TeamController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TeamController.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\TeamController.cs",
-              "RelativeToolTip": "Controllers\\TeamController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowDcAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:58:44.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS ONUR\\GEPS\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:44:28.149Z",
+              "WhenOpened": "2024-12-10T11:33:11.393Z",
               "EditorCaption": ""
             }
           ]

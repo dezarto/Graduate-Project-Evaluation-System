@@ -40,11 +40,11 @@ namespace GEPS.Controllers
                         HttpContext.Session.SetString("BearerToken", authResult.Token);
                         if (login.Username.Contains("@iku.edu.tr")) 
                         {
-                            return RedirectToAction("TeamHomeProfessor", "Team");
+                            return RedirectToAction("TeamHomeProfessor", "Professor");
                         }
                         else
                         {
-                            return RedirectToAction("TeamHome", "Team");
+                            return RedirectToAction("TeamHome", "Student");
                         }
                     }
                     else

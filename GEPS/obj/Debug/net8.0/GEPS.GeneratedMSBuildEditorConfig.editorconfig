@@ -9,55 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GEPS
 build_property.RootNamespace = GEPS
-build_property.ProjectDir = C:\Users\Semir\Desktop\GEPS ONUR\GEPS\
+build_property.ProjectDir = C:\Users\Semir\Desktop\GEPS\GEPS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Semir\Desktop\GEPS ONUR\GEPS
+build_property.MSBuildProjectDirectory = C:\Users\Semir\Desktop\GEPS\GEPS
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Login/Login.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Shared/Error.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Professor/TeacherApproveProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXFRlYWNoZXJBcHByb3ZlUHJvamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Professor/TeacherEvaluateProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXFRlYWNoZXJFdmFsdWF0ZVByb2plY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Professor/TeacherViewResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXFRlYWNoZXJWaWV3UmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Professor/TeamHomeProfessor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXFRlYW1Ib21lUHJvZmVzc29yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Team/ProjectCreate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxQcm9qZWN0Q3JlYXRlLmNzaHRtbA==
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Student/ProjectCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxQcm9qZWN0Q3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Team/TeamHome.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxUZWFtSG9tZS5jc2h0bWw=
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Student/TeamHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxUZWFtSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Team/TeamHomeProfessor.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxUZWFtSG9tZVByb2Zlc3Nvci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/_ViewImports.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/_ViewStart.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Semir/Desktop/GEPS ONUR/GEPS/Views/Shared/_Layout.cshtml]
+[C:/Users/Semir/Desktop/GEPS/GEPS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-jqrxn0m8fh
