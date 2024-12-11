@@ -32,7 +32,7 @@
              <input type="file" id="fileInput" class="fileInput" />--> *@
         </section>
         <section class="submitFile">
-            <button class="submitFileButton">Submit File</button>
+            <button class="submitFileButton" id="submitFileButton">Submit File</button>
         </section>
     </div>
 </body>
@@ -73,6 +73,23 @@
         const files = event.target.files;
         if (files.length > 0) {
             console.log('Selected files:', files);
+        }
+    });
+
+    // submit button alert
+    const submitButton = document.getElementById('submitFileButton');
+
+
+    submitButton.addEventListener('click', () => {
+
+        const userConfirmed = confirm("Are you sure you want to submit the file?");
+
+
+        if (userConfirmed) {
+            alert("File submitted successfully!");
+
+        } else {
+            alert("File submission cancelled.");
         }
     });
 </script>
