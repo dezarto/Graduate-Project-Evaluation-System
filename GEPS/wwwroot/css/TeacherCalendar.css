@@ -71,3 +71,25 @@ body{
 .whiteBox{
     padding-top:2%;
 }
+
+.dynamicButton {
+    background-color: #E30613; /* Kırmızı */
+    color: white; /* Beyaz yazı */
+    border: none; /* Kenarlık yok */
+    border-radius: 25px; /* Yuvarlak köşeler */
+    padding: 10px 20px; /* İçerik boşlukları */
+    font-size: 16px; /* Yazı boyutu */
+    cursor: pointer; /* Tıklama işareti */
+    transition: background-color 0.3s ease; /* Hover efekti */
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+    .dynamicButton:hover {
+        background-color: #C1272D; /* Daha koyu kırmızı */
+    }
+
+    .dynamicButton:disabled {
+        background-color: #ccc; /* Gri renk */
+        cursor: not-allowed; /* Etkisiz göstergesi */
+    }

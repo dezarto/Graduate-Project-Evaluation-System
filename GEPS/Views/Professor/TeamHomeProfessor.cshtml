@@ -85,6 +85,8 @@
                             </table>
                         </section>
                     </div>
+                    <div class="evaluateButtonContainer">
+                    </div>
                 </section>
             </div>
            
@@ -95,3 +97,32 @@
     </div>
 </body>
 </html>
+
+
+<script>
+    
+    const containers = document.querySelectorAll('.evaluateButtonContainer');
+
+    
+    containers.forEach(container => {
+        
+        const projectStatus = container.previousElementSibling.querySelector('td:nth-child(2) p').textContent.trim(); //proje statüsünün alındığı yer burası kodda değişiklik yapılabilir
+
+      
+        const button = document.createElement('button');
+        button.className = "dynamicButton";
+
+        
+        if (projectStatus === "Ready to Evaluate") { //burası modelden çekilecek şekilde değişecek
+            button.textContent = "Evaluate";
+        } else if (projectStatus === "Result Available") {
+            button.textContent = "View Result";
+        } else {
+            button.textContent = "No Action";
+            button.disabled = true; 
+        }
+
+       
+        container.appendChild(button);
+    });
+</script>
