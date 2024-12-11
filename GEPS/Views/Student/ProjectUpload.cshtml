@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/loadProject.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>UploadProject</title>
+</head>
+<body>
+    <div class="mainLoadProject">
+        <section class="infoLoadProject">
+            <h3>Load Project</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project.  </p>
+        </section>
+        <section class="uploadFile">
+            <div class="container">
+                <div class="drag-box" id="drag-box">
+                    <label for="file-upload">Drag</label>
+                    <input type="file" id="file-upload" accept=".pdf,.rar">
+                </div>
+                <div class="or">or</div>
+                <button class="import-button" id="import-button">Import File</button>
+                <div class="note">(only .pdf .rar files are accepted)</div>
+            </div>
+           @* <!-- <label for="fileInput" class="fileLabel">Import File</label> ikinci yol 
+             <input type="file" id="fileInput" class="fileInput" />--> *@
+        </section>
+        <section class="submitFile">
+            <button class="submitFileButton">Submit File</button>
+        </section>
+    </div>
+</body>
+</html>
+
+<script>  
+    const dragBox = document.getElementById('drag-box');
+    const fileInput = document.getElementById('file-upload');
+
+    // Prevent default behavior when dragging files over
+    dragBox.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dragBox.style.backgroundColor = "#e0e0e0"; // Görsel olarak kullanıcıya drag işlemi olduğunu göster
+    });
+
+    dragBox.addEventListener('dragleave', () => {
+        dragBox.style.backgroundColor = "#f9f9f9"; // Drag alanından çıkıldığında geri normal haline döner
+    });
+
+    // Handle file drop
+    dragBox.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dragBox.style.backgroundColor = "#f9f9f9"; // Drag alanına bırakıldığında renk değişimi
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files; // Seçilen dosyaları file input'a atıyoruz
+        }
+    });
+
+    // "Import File" button click event
+    const importButton = document.getElementById('import-button');
+    importButton.addEventListener('click', () => {
+        fileInput.click(); // Butona tıklanması durumunda dosya yükleme penceresini aç
+    });
+
+    // Optional: Handle file selection directly from the file input
+    fileInput.addEventListener('change', (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+            console.log('Selected files:', files);
+        }
+    });
+</script>
