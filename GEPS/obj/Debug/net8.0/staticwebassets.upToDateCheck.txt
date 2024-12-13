@@ -1,7 +1,9 @@
 wwwroot\approve.png
 wwwroot\cross.png
 wwwroot\css\HomeForStu.css
+wwwroot\css\loadProject.css
 wwwroot\css\Login.css
+wwwroot\css\navbar.css
 wwwroot\css\ProjectCreate.css
 wwwroot\css\site.css
 wwwroot\css\SubmitProjectTopics.css
@@ -69,3 +71,5 @@ wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\logored2.png
+wwwroot\logout.png
+wwwroot\sidebar.png
