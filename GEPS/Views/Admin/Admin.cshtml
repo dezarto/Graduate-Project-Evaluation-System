@@ -1,0 +1,117 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="~/css/admin.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <title>AdminPannel</title>
+    </head>
+    <body>
+        <div class="mainAdmin">
+            <section>
+
+            </section>
+            <section>
+
+            </section>
+            <section class="criterias">
+                <h3>Criterias</h3>
+                <button class="addNew" id="addNewCriteria">Add New <br>Criteria</button>
+                    <table class="criteriaTable">
+                       <thead>
+                            <tr>
+                                <th>
+                                    <p>Criteria</p>
+                                </th>
+                                <th>
+                                    <p>Percentage (%)</p>
+                                </th>
+                                <th>
+                                    <p>Action</p>
+                                </th>
+                            </tr>
+                       </thead>
+                       <tbody>
+                            <!--foreach gelecek modele göre @foreach(Criteria item in Model)-->
+                            <tr>
+                                <td>
+                                    <p>Technical Merits</p>
+                                </td>
+                                <td>
+                                    <p>15</p>
+                                </td>
+                                <td>
+                                    <button class="editForCriteria">Edit</button>
+                                    <button class="deleteForCriteria">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Technical Merits</p>
+                                </td>
+                                <td>
+                                    <p>15</p>
+                                </td>
+                                <td>
+                                    <button class="editForCriteria">Edit</button>
+                                    <button class="deleteForCriteria">Delete</button>
+                                </td>
+                            </tr>
+                       </tbody>
+                    </table>
+            </section>
+            <section class="checklistItems">
+                <h3>Check List Items</h3>
+                <button class="addNew" id="addNewItem">Add New <br>Items</button>
+                    <table class="checklistItemsTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>Item No</p>
+                                </th>
+                                <th>
+                                    <p>Item</p>
+                                </th>
+                                <th>
+                                    <p>Action</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <!--foreach gelecek modele göre @foreach(Items item in Model) içerik de modelden gelecek @item.model-->
+                             <tr>
+                                <td>
+                                    <p>1</p>
+                                </td>
+                                <td>
+                                    <p>The project contains all the parts that Computer Engineering Department requires (usually Abstract</p>
+                                </td>
+                                <td>
+                                    <button class="editForItem">Edit</button>
+                                    <button class="deleteForItem">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>1</p>
+                                </td>
+                                <td>
+                                    <p>The project contains all the parts that Computer Engineering Department requires (usually Abstract</p>
+                                </td>
+                                <td>
+                                    <button class="editForItem">Edit</button>
+                                    <button class="deleteForItem">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+        </div>
+    </body>
+</html>
