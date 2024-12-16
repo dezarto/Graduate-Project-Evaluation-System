@@ -439,27 +439,6 @@
   },
   {
     "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
-    "Method": "AddProfessorAvailability",
-    "RelativePath": "api/Professor/{professorId}/availability",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "professorId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "availabilities",
-        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorAvailabilityDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
     "Method": "ProfessorApprovalTeamsView",
     "RelativePath": "api/Professor/get-approval-teams-view",
     "HttpMethod": "GET",
@@ -471,17 +450,11 @@
   {
     "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
     "Method": "GetProfessorAvailability",
-    "RelativePath": "api/Professor/get-availability-by-professor-id/{professorId}",
+    "RelativePath": "api/Professor/get-availability-by-professor-auth",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "professorId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -563,6 +536,22 @@
         "Name": "approval",
         "Type": "System.Boolean",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "AddProfessorAvailability",
+    "RelativePath": "api/Professor/post-availability-by-professor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "availabilities",
+        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorAvailabilityDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

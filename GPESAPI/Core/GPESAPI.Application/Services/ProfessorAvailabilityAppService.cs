@@ -9,22 +9,26 @@ namespace GPESAPI.Application.Services
     public class ProfessorAvailabilityAppService : IProfessorAvailabilityAppService
     {
         private readonly IProfessorAvailabilityService _professorAvailabilityService;
+        private readonly IProfessorService _professorService;
         private readonly IMapper _mapper;
 
-        public ProfessorAvailabilityAppService(IProfessorAvailabilityService professorAvailabilityService, IMapper mapper)
+        public ProfessorAvailabilityAppService(IProfessorAvailabilityService professorAvailabilityService, IProfessorService professorService , IMapper mapper)
         {
             _professorAvailabilityService = professorAvailabilityService;
+            _professorService = professorService;
             _mapper = mapper;
         }
 
-        public async Task AddProfessorAvailabilityBatchAsync(int professorId, List<ProfessorAvailabilityDTO> availabilities)
+        public async Task AddProfessorAvailabilityBatchAsync(string professorMail, List<ProfessorAvailabilityDTO> availabilities)
         {
+            var professor = await _professorService.GetByProfessorEmailAsync(professorMail);
+
             foreach (var availabilityDto in availabilities)
             {
-                availabilityDto.ProfessorId = professorId;
+                availabilityDto.ProfessorId = professor.ProfessorId;
 
                 var existingAvailability = await _professorAvailabilityService.CheckExistingAvailabilityAsync(
-                    professorId, availabilityDto.AvailableDate, availabilityDto.StartTime, availabilityDto.EndTime);
+                    professor.ProfessorId, availabilityDto.AvailableDate, availabilityDto.StartTime, availabilityDto.EndTime);
 
                 if (existingAvailability)
                 {
@@ -38,7 +42,7 @@ namespace GPESAPI.Application.Services
                 {
                     var availability = new ProfessorAvailability
                     {
-                        ProfessorId = professorId,
+                        ProfessorId = professor.ProfessorId,
                         AvailableDate = availabilityDto.AvailableDate,
                         StartTime = startTime,
                         EndTime = startTime + TimeSpan.FromMinutes(30)
@@ -57,9 +61,10 @@ namespace GPESAPI.Application.Services
             return _mapper.Map<IEnumerable<ProfessorAvailabilityDTO>>(availabilities);
         }
 
-        public async Task<List<ProfessorAvailabilityDTO>> GetProfessorAvailabilityAppByIdAsync(int id)
+        public async Task<List<ProfessorAvailabilityDTO>> GetProfessorAvailabilityAppByEmailAsync(string professorMail)
         {
-            var availability = await _professorAvailabilityService.GetProfessorAvailabilityByIdAsync(id);
+            var professor = await _professorService.GetByProfessorEmailAsync(professorMail);
+            var availability = await _professorAvailabilityService.GetProfessorAvailabilityByIdAsync(professor.ProfessorId);
             return _mapper.Map<List<ProfessorAvailabilityDTO>>(availability);
         }
 

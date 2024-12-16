@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.application\\services\\professoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|solutionrelative:core\\gpesapi.application\\services\\professoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.domain\\services\\professoravailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|solutionrelative:core\\gpesapi.domain\\services\\professoravailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.application\\interfaces\\iprofessoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|solutionrelative:core\\gpesapi.application\\interfaces\\iprofessoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.application\\services\\professoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|solutionrelative:core\\gpesapi.application\\services\\professoravailabilityappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.domain\\interfaces\\iprofessoravailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|solutionrelative:core\\gpesapi.domain\\interfaces\\iprofessoravailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.domain\\services\\checklistitemdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|solutionrelative:core\\gpesapi.domain\\services\\checklistitemdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,85 +26,33 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IProfessorAvailabilityAppService.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Interfaces\\IProfessorAvailabilityAppService.cs",
-              "RelativeDocumentMoniker": "Core\\GPESAPI.Application\\Interfaces\\IProfessorAvailabilityAppService.cs",
-              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Interfaces\\IProfessorAvailabilityAppService.cs",
-              "RelativeToolTip": "Core\\GPESAPI.Application\\Interfaces\\IProfessorAvailabilityAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:59:38.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProfessorAvailabilityAppService.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Services\\ProfessorAvailabilityAppService.cs",
               "RelativeDocumentMoniker": "Core\\GPESAPI.Application\\Services\\ProfessorAvailabilityAppService.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Services\\ProfessorAvailabilityAppService.cs",
               "RelativeToolTip": "Core\\GPESAPI.Application\\Services\\ProfessorAvailabilityAppService.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAlwD8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAvwDcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T19:59:18.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IProfessorAvailabilityService.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Interfaces\\IProfessorAvailabilityService.cs",
-              "RelativeDocumentMoniker": "Core\\GPESAPI.Domain\\Interfaces\\IProfessorAvailabilityService.cs",
-              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Interfaces\\IProfessorAvailabilityService.cs",
-              "RelativeToolTip": "Core\\GPESAPI.Domain\\Interfaces\\IProfessorAvailabilityService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:58:09.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfessorAvailabilityService.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\ProfessorAvailabilityService.cs",
-              "RelativeDocumentMoniker": "Core\\GPESAPI.Domain\\Services\\ProfessorAvailabilityService.cs",
-              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\ProfessorAvailabilityService.cs",
-              "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\ProfessorAvailabilityService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAuwBUAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:54:08.1Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ChecklistItemDetailService.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\ChecklistItemDetailService.cs",
-              "RelativeDocumentMoniker": "Core\\GPESAPI.Domain\\Services\\ChecklistItemDetailService.cs",
-              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\ChecklistItemDetailService.cs",
-              "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\ChecklistItemDetailService.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAlwCoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:53:09.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ProfessorController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\ProfessorController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAgwCEAAAB0AAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAUwDcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T19:45:36.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",

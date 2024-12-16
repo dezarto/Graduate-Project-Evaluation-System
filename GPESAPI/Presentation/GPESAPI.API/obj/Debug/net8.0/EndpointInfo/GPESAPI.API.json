@@ -739,21 +739,10 @@
         }
       }
     },
-    "/api/Professor/get-availability-by-professor-id/{professorId}": {
+    "/api/Professor/get-availability-by-professor-auth": {
       "get": {
         "tags": [
           "Professor"
-        ],
-        "parameters": [
-          {
-            "name": "professorId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -762,21 +751,10 @@
         }
       }
     },
-    "/api/Professor/{professorId}/availability": {
+    "/api/Professor/post-availability-by-professor": {
       "post": {
         "tags": [
           "Professor"
-        ],
-        "parameters": [
-          {
-            "name": "professorId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {

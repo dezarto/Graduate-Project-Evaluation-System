@@ -26,12 +26,19 @@ namespace GPESAPI.API.Controllers
             _professorAvailabilityAppService = professorAvailabilityAppService;
         }
 
-        [HttpGet("get-availability-by-professor-id/{professorId}")]
-        public async Task<ActionResult> GetProfessorAvailability(int professorId)
+        [HttpGet("get-availability-by-professor-auth")]
+        public async Task<ActionResult> GetProfessorAvailability()
         {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized("User email is not available.");
+            }
+
             try
             {
-                var availabilityResult = await _professorAvailabilityAppService.GetProfessorAvailabilityAppByIdAsync(professorId);
+                var availabilityResult = await _professorAvailabilityAppService.GetProfessorAvailabilityAppByEmailAsync(professorMail);
                 
                 return Ok(availabilityResult);
             }
@@ -46,12 +53,19 @@ namespace GPESAPI.API.Controllers
             }
         }
 
-        [HttpPost("{professorId}/availability")]
-        public async Task<ActionResult> AddProfessorAvailability(int professorId, [FromBody] List<ProfessorAvailabilityDTO> availabilities)
+        [HttpPost("post-availability-by-professor")]
+        public async Task<ActionResult> AddProfessorAvailability([FromBody] List<ProfessorAvailabilityDTO> availabilities)
         {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized("User email is not available.");
+            }
+
             try
             {
-                await _professorAvailabilityAppService.AddProfessorAvailabilityBatchAsync(professorId, availabilities);
+                await _professorAvailabilityAppService.AddProfessorAvailabilityBatchAsync(professorMail, availabilities);
                 return Ok(new { message = "Availability data added successfully." });
             }
             catch (Exception ex)
