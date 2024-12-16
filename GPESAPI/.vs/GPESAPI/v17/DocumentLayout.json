@@ -50,8 +50,7 @@
               "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Persistence\\SqlDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:39:31.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T17:39:31.807Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\TeamService.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAkwCYAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:09:18.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T17:09:18.018Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Core\\GPESAPI.Application\\Services\\TeamAppService.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAIwHIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:57:29.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T16:57:29.638Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\ChecklistItemsService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:50:44.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T16:50:44.546Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\ChecklistItemsRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:47:51.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T16:47:51.704Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAMIAAAAAAAAAAAAwwNYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T10:49:07.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T10:49:07.183Z"
             }
           ]
         }
