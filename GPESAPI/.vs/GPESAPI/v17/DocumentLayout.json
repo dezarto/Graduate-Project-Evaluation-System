@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\repositories\\teampresentationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\repositories\\teampresentationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +26,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 463,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAEwGwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T18:27:04.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAD4vyoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T18:27:04.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TeamPresentationRepository.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamPresentationRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamPresentationRepository.cs",
@@ -35,7 +69,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ManuelController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
@@ -43,8 +77,7 @@
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\ManuelController.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAvwHMAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T18:15:30.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T18:15:30.781Z"
             }
           ]
         }
