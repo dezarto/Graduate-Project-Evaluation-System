@@ -26,6 +26,26 @@ namespace GPESAPI.API.Controllers
             _professorAvailabilityAppService = professorAvailabilityAppService;
         }
 
+        [HttpGet("get-availability-by-professor-id/{professorId}")]
+        public async Task<ActionResult> GetProfessorAvailability(int professorId)
+        {
+            try
+            {
+                var availabilityResult = await _professorAvailabilityAppService.GetProfessorAvailabilityAppByIdAsync(professorId);
+                
+                return Ok(availabilityResult);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("already exists"))
+                {
+                    return Conflict(new { message = ex.Message });
+                }
+
+                return StatusCode(500, new { message = "An error occurred while adding availability data.", error = ex.Message });
+            }
+        }
+
         [HttpPost("{professorId}/availability")]
         public async Task<ActionResult> AddProfessorAvailability(int professorId, [FromBody] List<ProfessorAvailabilityDTO> availabilities)
         {

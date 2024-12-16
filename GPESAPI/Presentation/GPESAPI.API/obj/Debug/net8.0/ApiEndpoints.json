@@ -470,6 +470,22 @@
   },
   {
     "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "GetProfessorAvailability",
+    "RelativePath": "api/Professor/get-availability-by-professor-id/{professorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "professorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
     "Method": "GetEvaluation",
     "RelativePath": "api/Professor/get-evaluation/{evaluationId}",
     "HttpMethod": "GET",

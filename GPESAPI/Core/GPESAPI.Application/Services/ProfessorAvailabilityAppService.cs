@@ -57,10 +57,10 @@ namespace GPESAPI.Application.Services
             return _mapper.Map<IEnumerable<ProfessorAvailabilityDTO>>(availabilities);
         }
 
-        public async Task<ProfessorAvailabilityDTO> GetProfessorAvailabilityAppByIdAsync(int id)
+        public async Task<List<ProfessorAvailabilityDTO>> GetProfessorAvailabilityAppByIdAsync(int id)
         {
             var availability = await _professorAvailabilityService.GetProfessorAvailabilityByIdAsync(id);
-            return _mapper.Map<ProfessorAvailabilityDTO>(availability);
+            return _mapper.Map<List<ProfessorAvailabilityDTO>>(availability);
         }
 
         public async Task AddProfessorAvailabilityAppAsync(ProfessorAvailabilityDTO availabilityDto)

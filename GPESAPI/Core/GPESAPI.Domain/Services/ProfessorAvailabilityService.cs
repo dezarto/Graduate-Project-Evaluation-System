@@ -19,9 +19,13 @@ namespace GPESAPI.Domain.Services
             return await _professorAvailabilityRepository.GetAllAsync();
         }
 
-        public async Task<ProfessorAvailability> GetProfessorAvailabilityByIdAsync(int id)
+        public async Task<List<ProfessorAvailability>> GetProfessorAvailabilityByIdAsync(int id)
         {
-            return await _professorAvailabilityRepository.GetByIdAsync(id);
+            var detail = await _professorAvailabilityRepository.GetByFieldAsync("ProfessorId", id);
+            if (detail == null)
+                throw new KeyNotFoundException($"ChecklistItemDetail with ID {id} not found.");
+
+            return detail;
         }
 
         public async Task AddProfessorAvailabilityAsync(ProfessorAvailability professorAvailability)

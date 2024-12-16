@@ -739,6 +739,29 @@
         }
       }
     },
+    "/api/Professor/get-availability-by-professor-id/{professorId}": {
+      "get": {
+        "tags": [
+          "Professor"
+        ],
+        "parameters": [
+          {
+            "name": "professorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Professor/{professorId}/availability": {
       "post": {
         "tags": [
