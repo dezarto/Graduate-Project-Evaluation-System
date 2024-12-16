@@ -14,11 +14,17 @@ namespace GPESAPI.Infrastructure.Repositories
             _dbContext = context;
         }
 
-        
+
         public async Task AddTeamPresentationAsync(TeamPresentation teamPresentation)
         {
-            await _dbContext.TeamPresentations.AddAsync(teamPresentation);
-            await _dbContext.SaveChangesAsync();
+            var existingTeamPresentation = await _dbContext.TeamPresentations
+                .FirstOrDefaultAsync(tp => tp.TeamId == teamPresentation.TeamId);
+
+            if (existingTeamPresentation == null)
+            {
+                await _dbContext.TeamPresentations.AddAsync(teamPresentation);
+                await _dbContext.SaveChangesAsync();
+            }
         }
 
 

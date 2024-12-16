@@ -77,6 +77,11 @@ namespace GPESAPI.API.Controllers
                     ref currentIndex,
                     ref sonKont))
                 {
+                    foreach (var item in presentationsResult)
+                    {
+                        await _teamPresentationAppService.AddTeamPresentationAsync(item);
+                    }
+
                     return Ok(new
                     {
                         message = "Scheduling completed with backtracking.",
@@ -106,6 +111,11 @@ namespace GPESAPI.API.Controllers
                     ref currentIndex,
                     ref sonKont))
                     {
+                        foreach (var item in presentationsResult)
+                        {
+                            await _teamPresentationAppService.AddTeamPresentationAsync(item);
+                        }
+
                         return Ok(new
                         {
                             message = "Scheduling completed with backtracking.",
