@@ -38,6 +38,7 @@ namespace GEPS.Controllers
                     if (authResult != null && authResult.Success)
                     {
                         HttpContext.Session.SetString("BearerToken", authResult.Token);
+                        TempData["Token"] = authResult.Token;
                         if (login.Username.Contains("@iku.edu.tr")) 
                         {
                             return RedirectToAction("TeamHomeProfessor", "Professor");

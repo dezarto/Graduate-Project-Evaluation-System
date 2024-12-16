@@ -6,7 +6,7 @@
     {
         public int CriteriaId { get; set; }
         public string CriteriaName { get; set; }
-        public int Percent { get; set; }
+        public int Precent { get; set; }
     }
 
     public class AdminChecklistItem

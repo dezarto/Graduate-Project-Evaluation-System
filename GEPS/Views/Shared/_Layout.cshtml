@@ -7,34 +7,36 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GEPS.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css">
 </head>
 <body>
-    @*<header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GEPS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>*@ 
+
     <header class="customHeader">
         <div class="logoContainer">
             <img src="~/logored2.png" alt="Logo" class="logo" />
         </div>
     </header>
+    <button class="toggleButton" onclick="toggleSidebar()"> <img src="~/sidebar.png" alt="sidebar" class="sidebaricon" /></button>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div>
+                <h4>Hello,</h4>
+                <h3>Kullanıcı Adı</h3>
+            </div>
+
+            <button class="logout">
+                <img src="~/logout.png" alt="logout" class="logouticon" />
+            </button>
+        </div>
+
+        <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
+        <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
+        <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
+        <a href="@Url.Action("TeamHomeProfessor", "Professor")">Team Home Professor</a>
+        <a href="@Url.Action("ProjectCreate", "Student")">Project Create</a>
+        <a href="@Url.Action("ProjectUpload", "Student")">Project Upload</a>
+        <a href="@Url.Action("TeamHome", "Student")">Team Home</a>
+    </aside>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -52,22 +54,11 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-<style>
-        .customHeader {
-        background-color: #C1272D; /* Arka plan rengi */
-        height: 80px; /* Header yüksekliği */
-        display: flex; /* Flexbox ile hizalama */
-        justify-content: center; /* Yatayda ortalama */
-        align-items: center; /* Dikeyde ortalama */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
     }
 
-    .logoContainer {
-        text-align: center; /* Logo metni veya görüntüsünün merkezlenmesi */
-    }
-
-    .logo {
-        height: 50px; /* Logonun yüksekliği */
-        width: auto; /* Oranlarını korur */
-    }
-</style>
+</script>

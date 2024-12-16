@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\",
+  "WorkspaceRootPath": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\models\\projectevaluationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:models\\projectevaluationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\geps\\views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:648089431:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProjectEvaluationResult.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Models\\ProjectEvaluationResult.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectEvaluationResult.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Models\\ProjectEvaluationResult.cs",
-              "RelativeToolTip": "Models\\ProjectEvaluationResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T14:15:48.372Z",
+              "Title": "UpdateCheckListItem.cshtml",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\UpdateCheckListItem.cshtml",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
+              "RelativeToolTip": "Views\\Admin\\UpdateCheckListItem.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T19:03:39.125Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "Controllers\\StudentController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowBQAAAAIAAAAAAAAAA==",
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAAP4BAAAAAAAAAAAgwCYCAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T11:38:20.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProjectCreate.cshtml",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
-              "RelativeDocumentMoniker": "Views\\Student\\ProjectCreate.cshtml",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
-              "RelativeToolTip": "Views\\Student\\ProjectCreate.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T11:33:11.393Z",
+              "WhenOpened": "2024-12-13T14:12:24.852Z",
               "EditorCaption": ""
             }
           ]

@@ -1,0 +1,69 @@
+body{
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+}
+.mainAdmin{
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 8%;
+    width: 80%;
+}
+.criterias, .checklistItems{
+    width: 100%;
+    position: relative; /* Button için referans noktası */
+    margin-bottom: 40px;
+}
+.addNew{
+    background-color: #0DBF00;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.5;
+}
+.criteriaTable, .checklistItemsTable {
+    width: 100%;
+    margin-top: 60px; /* Butonun üstte kalması için boşluk bırak */
+    border-collapse: collapse;
+}
+.criteriaTable th, .checklistItemsTable th, 
+.criteriaTable td, .checklistItemsTable td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.criteriaTable tr:hover, .checklistItemsTable tr:hover {
+    background-color: #f9f9f9; /* Satır üzerine gelince açık renk arka plan */
+}
+
+button.editForCriteria, button.deleteForCriteria,
+button.editForItem, button.deleteForItem {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block; /* Yan yana gösterim için */
+    margin-right: 10px;
+}
+button.editForCriteria,
+button.editForItem{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color:#00B7FF;
+}
+button.deleteForCriteria,
+button.deleteForItem{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color:#E30613;
+}
+
+

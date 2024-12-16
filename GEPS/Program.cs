@@ -30,3 +30,20 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "POST" && context.Request.Form["_method"] == "PUT")
+    {
+        context.Request.Method = "PUT";
+    }
+    await next();
+});
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Evaluation Criteria</title>
+    <link rel="stylesheet" href="~/css/editstudent.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Evaluation Criteria</h2>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div> <!-- Hata/Sonuc Mesajı -->
+
+        <form id="CreateEvaluationCriteriaForm">
+            <div class="form-group">
+                <label for="CriteriaName">Criteria Name</label>
+                <input type="text" id="CriteriaName" name="CriteriaName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Percent">Percent</label>
+                <input type="number" id="Percent" name="Percent" class="form-control" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Save Button Tıklama Olayı
+            $('#saveButton').click(function () {
+                // Formdaki Alanları Oku
+                var criteriaName = $('#CriteriaName').val();
+                var percent = $('#Percent').val();
+
+                // Alanların Dolu Olduğunu Kontrol Et
+                if (!criteriaName || !percent) {
+                    $('#responseMessage').html('<div class="alert alert-warning">Please fill in all fields.</div>');
+                    return;
+                }
+
+                // Veri Nesnesi
+                var criteria = {
+                    CriteriaName: criteriaName,
+                    Percent: parseFloat(percent) // Yüzdelik değeri sayıya çeviriyoruz
+                };
+
+                // AJAX İsteği
+                $.ajax({
+                    url: '/Admin/CreateEvaluationCriteria', // Controller Adresi
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(criteria),
+                    beforeSend: function (xhr) {
+                        // Token Ekleme (Varsa)
+                        var token = sessionStorage.getItem("BearerToken");
+                        if (token) {
+                            xhr.setRequestHeader("Authorization", "Bearer " + token);
+                        }
+                    },
+                    
+                    success: function (response) {
+                        if (response.success) {
+                            $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria created successfully!</div>');
+                            $('#CriteriaName').val(''); // Formu Temizle
+                            $('#Percent').val('');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + (response.errorMessage || 'Unknown error') + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.responseJSON && xhr.responseJSON.errorMessage
+                            ? xhr.responseJSON.errorMessage
+                            : 'An error occurred while creating the Evaluation Criteria.';
+                        $('#responseMessage').html('<div class="alert alert-danger">' + errorMessage + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

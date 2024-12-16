@@ -4,6 +4,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GEPS.Controllers
 {
@@ -18,68 +21,869 @@ namespace GEPS.Controllers
         }
 
 
-        // Admin.cs içierisinde yer alan AdminChecklistItem modelini kullanır. 
-        [HttpGet("get-all-checklist-items")]
-        public async Task<IActionResult> GetAllChecklistItems()
+
+        //Tamamlandı
+        [HttpPost("PostCreateProfessor")]
+        public async Task<IActionResult> PostCreateProfessor([FromBody] Professor professor)
         {
-            string apiUrl = "https://localhost:7107/api/Admin/get-all-checklist-items";
+            string apiUrl = "https://localhost:7107/api/Admin/create-professor";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
 
             try
             {
-                var response = await _httpClient.GetAsync(apiUrl);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(professor), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var checklistItems = await response.Content.ReadFromJsonAsync<List<AdminChecklistItem>>();
-
-                    return View("ChecklistItems", checklistItems);
+                    return Json(new { success = true });
                 }
                 else
                 {
-                    ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+        //Tamamlandı
+        [HttpGet("PostCreateProfessor")]
+        public IActionResult PostCreateProfessor()
+        {
+            return View();
+        }
+
+             //Tamamlandı
+        [HttpGet("GetAllProfessor")]
+        public async Task<IActionResult> GetAllProfessor()
+        {
+            string  apiUrl = "https://localhost:7107/api/Admin/get-all-professor";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // API'den gelen JSON verisini deserialize etme
+                    var content = await response.Content.ReadAsStringAsync();
+                    var professorList = JsonConvert.DeserializeObject<List<Professor>>(content);
+
+                    // Veriyi View'a gönderme
+                    return View(professorList);
+                }
+                else
+                {
+                    // Hata durumunda detaylı mesaj loglama
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Profesör bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<Professor>()); // Boş liste ile döner
+                }
+            }
+            catch (Exception ex)
+            {
+                // Beklenmeyen hata durumlarını yakalama
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<Professor>()); // Boş liste ile döner
+            }
+        }
+
+         //Tamamlandı
+        [HttpPost("UpdateProfessor/{id}")]
+        public async Task<IActionResult> UpdateProfessor(int id, [FromBody] Professor professor)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/update-professor-by-id/{id}";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(professor), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+        //Tamamlandı
+        [HttpGet("UpdateProfessor/{id}")]
+        public async Task<IActionResult> UpdateProfessor(int id)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/get-professor-by-id/{id}";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var professor = JsonConvert.DeserializeObject<Professor>(content);
+
+                    return View(professor);  // Professor modelini View'a gönder
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Profesör bilgileri alınırken bir hata oluştu: {errorMessage}";
                     return View("Error");
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
                 return View("Error");
             }
         }
 
 
+
+        //  Tamamlandı
+        [HttpPost("DeleteProfessor")]
+        public async Task<IActionResult> DeleteProfessor(int id)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/delete-professor-by-id/{id}";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Profesör başarıyla silindi!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Profesör silinirken bir hata oluştu.";
+            }
+
+            return RedirectToAction("GetAllProfessor");
+        }
+
+
+        //Role Kısmı default girilmeli
+        //Tamamlandı
+        [HttpPost("CreateStudent")]
+        public async Task<IActionResult> CreateStudent([FromBody] Student student)
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/create-student";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(student), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+        //Tamamlandı
+        [HttpGet("CreateStudent")]
+        public IActionResult CreateStudent()
+        {
+            return View();
+        }
+
+                //Tamamlandı
+        [HttpGet("GetAllStudent")]
+        public async Task<IActionResult> GetAllStudent()
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/get-all-student";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // API'den gelen JSON verisini deserialize etme
+                    var content = await response.Content.ReadAsStringAsync();
+                    var studentList = JsonConvert.DeserializeObject<List<Student>>(content);
+
+                    // Veriyi View'a gönderme
+                    return View(studentList);
+                }
+                else
+                {
+                    // Hata durumunda detaylı mesaj loglama
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Öğrenci bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<Student>()); // Boş liste ile döner
+                }
+            }
+            catch (Exception ex)
+            {
+                // Beklenmeyen hata durumlarını yakalama
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<Student>()); // Boş liste ile döner
+            }
+        }
+
+        //Tamamlandı
+        [HttpGet("UpdateStudent/{id}")]
+        public async Task<IActionResult> UpdateStudent(int id)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/get-student-by-id/{id}";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var student = JsonConvert.DeserializeObject<Student>(content);
+
+                    // View'a öğrenci bilgisini gönder
+                    return View(student);
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Öğrenci bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View();
+            }
+        }
+
+        //Tamamlandı
+        [HttpPost("UpdateStudent/{id}")]
+        public async Task<IActionResult> UpdateStudent(int id, [FromBody] Student student)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/update-student/{id}";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                // ID kontrolü yapılır, çünkü gelen student'ın ID'si ile URL'deki ID'nin eşleşmesi gerekir
+                if (id != student.UserId)
+                {
+                    return Json(new { success = false, errorMessage = "Student ID mismatch." });
+                }
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl)  // PUT kullanmamız doğru olacak çünkü güncelleme işlemi yapıyoruz
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(student), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+
+        //Tamamlandı
+        [HttpDelete("DeleteStudent/{id}")]
+        public async Task<IActionResult> DeleteStudent(int id)
+        {
+            // API URL'sini oluştur
+            var apiUrl = $"https://localhost:7107/api/Admin/delete-student/{id}";
+
+            // Token'ı alın
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            // DELETE isteği için HttpRequestMessage oluştur
+            var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // İsteği gönder
+            var response = await _httpClient.SendAsync(request);
+
+            // Yanıtı kontrol et
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.SuccessMessage = "Değerlendirme kriteri başarıyla silindi!";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Değerlendirme kriteri silinirken bir hata oluştu.";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+        }
+
+
+        //Tamamlandııı
         // GET: /Admin/GetAllEvaluationCriteria
         //Admin.cs içierisinde yer alan AdminEvaluationCriteria modelini kullanır.
-        [HttpGet("get-all-evaluation-criteria")]
+        [HttpGet("GetAllEvaluationCriteria")]
         public async Task<IActionResult> GetAllEvaluationCriteria()
         {
             string apiUrl = "https://localhost:7107/api/Admin/get-all-evaluation-criteria";
 
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
             try
             {
-                var response = await _httpClient.GetAsync(apiUrl);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var evaluationCriteria = await response.Content.ReadFromJsonAsync<List<AdminEvaluationCriteria>>();
+                    var content = await response.Content.ReadAsStringAsync();
+                    var evaluationCriteriaList = JsonConvert.DeserializeObject<List<AdminEvaluationCriteria>>(content);
 
-                    return View("EvaluationCriteria", evaluationCriteria);
+                    return View(evaluationCriteriaList);  // AdminEvaluationCriteria türünde veri gönderiyoruz
                 }
                 else
                 {
-                    ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Değerlendirme kriterleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<AdminEvaluationCriteria>()); // Boş liste döndür
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<AdminEvaluationCriteria>()); // Boş liste döndür
+            }
+        }
+
+        //Tamamlandııı
+        [HttpGet("CreateEvaluationCriteria")]
+        public IActionResult CreateEvaluationCriteria()
+        {
+            return View();
+        }
+        
+        //Tamamlandııı
+        [HttpPost("CreateEvaluationCriteria")]
+        public async Task<IActionResult> CreateEvaluationCriteria([FromBody] AdminEvaluationCriteria criteria)
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/post-add-evaluation-criteria";
+
+            // Session'dan token alınıyor
+            var token = HttpContext.Session.GetString("BearerToken");
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                // API'ye istek gönderme
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(criteria), Encoding.UTF8, "application/json")
+                };
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An unexpected error occurred: {ex.Message}" });
+            }
+        }
+
+
+
+        [HttpGet("UpdateEvaluationCriteria/{id}")]
+        public async Task<IActionResult> UpdateEvaluationCriteria(int id)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/get-evaluation-criteria-by-id/{id}";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var evaluationCriteria = JsonConvert.DeserializeObject<AdminEvaluationCriteria>(content);
+
+                    return View(evaluationCriteria);  // AdminEvaluationCriteria modelini View'a gönder
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Evaluation criteria could not be retrieved: {errorMessage}";
                     return View("Error");
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                ViewBag.ErrorMessage = $"An error occurred: {ex.Message}";
                 return View("Error");
             }
         }
 
+        [HttpPost("UpdateEvaluationCriteria/{id}")]
+        public async Task<IActionResult> UpdateEvaluationCriteria(int id, [FromBody] AdminEvaluationCriteria criteria)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/put-update-evaluation-criteria/{id}";
 
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                criteria.CriteriaId = id;
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl) // PUT methodunu kullanıyoruz
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(criteria), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+
+            //Tamamlandııı
+        [HttpDelete("DeleteEvaluationCriteria/{id}")]
+        public async Task<IActionResult> DeleteEvaluationCriteria(int id)
+        {
+            // API URL'sini oluştur
+            var apiUrl = $"https://localhost:7107/api/Admin/delete-evaluation-criteria/{id}";
+
+            // Token'ı alın
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            // DELETE isteği için HttpRequestMessage oluştur
+            var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // İsteği gönder
+            var response = await _httpClient.SendAsync(request);
+
+            // Yanıtı kontrol et
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.SuccessMessage = "Değerlendirme kriteri başarıyla silindi!";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Değerlendirme kriteri silinirken bir hata oluştu.";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+        }
+
+        //Tamamlandı
+        // Admin.cs içierisinde yer alan AdminChecklistItem modelini kullanır. 
+        [HttpGet("GetAllChecklistItems")]
+        public async Task<IActionResult> GetAllChecklistItems()
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/get-all-checklist-items";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var checklistItems = JsonConvert.DeserializeObject<List<AdminChecklistItem>>(content);
+
+                    return View(checklistItems);  // AdminChecklistItem türünde veri gönderiyoruz
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Checklist öğeleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<AdminChecklistItem>()); // Boş liste döndür
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<AdminChecklistItem>()); // Boş liste döndür
+            }
+        }
+
+        //Tamamlandı
+        [HttpGet("PostAddCheckListItem")]
+        public IActionResult PostAddCheckListItem()
+        {
+            return View();
+        }
+
+        //Tamamlandı
+        [HttpPost("PostAddCheckListItem")] // URL burada uyumlu olmalı
+        public async Task<IActionResult> PostAddCheckListItem([FromBody] AdminChecklistItem checklistItem)
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/post-add-checklist-item";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(checklistItem), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+
+
+        //Tamamlandı
+        [HttpGet("UpdateCheckListItem/{id}")]
+        public async Task<IActionResult> UpdateCheckListItem(int id)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/get-checklist-item-by-id/{id}";
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Account"); // Token yoksa login sayfasına yönlendir.
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var checklistItem = JsonConvert.DeserializeObject<AdminChecklistItem>(content);
+
+                    return View(checklistItem); // Modeli View'a gönder.
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Error while fetching checklist item details: {errorMessage}";
+                    return View("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"An error occurred: {ex.Message}";
+                return View("Error");
+            }
+        }
+
+        //Tamamlandı
+        [HttpPost("UpdateCheckListItem/{id}")]
+        public async Task<IActionResult> UpdateCheckListItem(int id, [FromBody] AdminChecklistItem checklistItem)
+        {
+            string apiUrl = $"https://localhost:7107/api/Admin/put-update-checklist-item/{id}";
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(checklistItem), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    errorMessage = $"An error occurred: {ex.Message}, InnerException: {ex.InnerException?.Message}"
+                });
+            }
+        }
+
+
+
+
+        //Tamamlandı
+        [HttpDelete("DeleteCheckListItem/{id}")]
+        public async Task<IActionResult> DeleteCheckListItem(int id)
+        {
+            // API URL'sini oluştur
+            var apiUrl = $"https://localhost:7107/api/Admin/delete-checklist-item/{id}";
+
+            // Token'ı alın
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            // DELETE isteği için HttpRequestMessage oluştur
+            var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // İsteği gönder
+            var response = await _httpClient.SendAsync(request);
+
+            // Yanıtı kontrol et
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.SuccessMessage = "Delete Check List Item başarıyla silindi!";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Delete Check List Item silinirken bir hata oluştu.";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+        }
 
 
     }
