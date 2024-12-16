@@ -76,11 +76,13 @@
                     url: apiUrl,
                     type: 'DELETE',
                     success: function (result) {
+                        window.location.href = '@Url.Action("GetAllStudent", "Admin")';
                         alert('öğrenciyi başarıyla silindi!');
                         location.reload(); // Sayfayı yenile
                     },
+                    
                     error: function () {
-                        alert('öğrenciyi silinirken bir hata oluştu.');
+                        window.location.href = '@Url.Action("GetAllStudent", "Admin")';
                     }
                 });
             }

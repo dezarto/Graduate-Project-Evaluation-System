@@ -70,7 +70,7 @@
                         location.reload(); // Sayfayı yenile
                     },
                     error: function () {
-                        alert('öğrenciyi silinirken bir hata oluştu.');
+                        window.location.href = '@Url.Action("GetAllTeams", "Admin")';
                     }
                 });
             }

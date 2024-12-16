@@ -1,5 +1,6 @@
 ﻿using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -234,6 +235,39 @@ namespace GEPS.Controllers
         // ********************************************************   Teacher Approve Project Page (ApproveRejectProject bu kısma dahildir.)  *************************************
 
 
+        [HttpPost]
+        public async Task<IActionResult> TeacherApproveProject(int projectId, bool approval)
+        {
+            try
+            {
+                // Tek bir URL üzerinden onaylama veya reddetme/silme işlemi yapılacak
+                string apiUrl = $"https://localhost:7107/api/Professor/approval-teams?teamId={projectId}&approval={approval}";
+
+                var content = new StringContent(string.Empty); // Boş içerik
+                var response = await _httpClient.PostAsync(apiUrl, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Message"] = approval
+                        ? "Project approved successfully!"
+                        : "Project rejected/deleted successfully!";
+                }
+                else
+                {
+                    ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
+                    return View("Error");
+                }
+
+                // Başarılı işlem sonrası sayfayı yenile
+                return RedirectToAction("TeacherApproveProject");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                return View("Error");
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> TeacherApproveProject()
         {
@@ -251,7 +285,6 @@ namespace GEPS.Controllers
 
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
 
-
                 if (projectTeams == null || !projectTeams.Any())
                 {
                     ViewBag.ErrorMessage = "No teams found.";
@@ -268,43 +301,134 @@ namespace GEPS.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> ApproveRejectProject(int teamId, bool approval)
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> TeacherCalendar()
         {
-            string apiUrl = $"https://localhost:7107/api/Professor/post-approval-teams?teamId={teamId}&approval={approval}";
+            string apiUrl = "https://localhost:7107/api/Professor/get-availability-by-professor-auth";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
             try
             {
-                var response = await _httpClient.PostAsync(apiUrl, null);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["Message"] = approval ? "Project approved successfully!" : "Project rejected successfully!";
-                    return RedirectToAction("TeacherApproveProject");
+                    var content = await response.Content.ReadAsStringAsync();
+                    var professorAvailability = JsonConvert.DeserializeObject<List<ProfessorAvailability>>(content);
+
+                    return View(professorAvailability);
                 }
                 else
                 {
-                    ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
-                    return View("Error");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Değerlendirme kriterleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<AdminEvaluationCriteria>());
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-                return View("Error");
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<AdminEvaluationCriteria>());
             }
         }
 
-
-
-
-
-
-        public IActionResult TeacherCalendar()
+        [HttpGet]
+        public IActionResult CreateTeacherCalendar()
         {
             return View();
         }
 
-        
+        [HttpPost]
+        public async Task<IActionResult> CreateTeacherCalendar(ProfessorAvailability professorAvailability)
+        {
+            string apiUrl = "https://localhost:7107/api/Professor/post-availability-by-professor";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { success = false, errorMessage = "Authorization token is missing." });
+            }
+
+            try
+            {
+                professorAvailability.ProfessorId = 0;  // Varsayılan bir değer eklenmiş
+                professorAvailability.AvailabilityId = 0;  // Varsayılan bir değer eklenmiş (gerekli ise)
+
+                // professorAvailability'yi bir listeye sarıyoruz
+                var availabilitiesList = new List<ProfessorAvailability> { professorAvailability };
+
+                // JSON formatını doğrudan doğru şekilde gönderiyoruz
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(availabilitiesList), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("TeacherCalendar");
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, errorMessage = errorContent });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteTeacherCalendar(int id)
+        {
+            var apiUrl = $"https://localhost:7107/api/Professor/delete-availability-by-id/{id}";
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _httpClient.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.SuccessMessage = "Tarih başarıyla silindi!";
+                return RedirectToAction("TeacherCalendar");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Tarih silinirken bir hata oluştu.";
+                return RedirectToAction("TeacherCalendar");
+            }
+        }
+
+
 
         // ********************************************************   Teacher Evaluate Page  *************************************
 

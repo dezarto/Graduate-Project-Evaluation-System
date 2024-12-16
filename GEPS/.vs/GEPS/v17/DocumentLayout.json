@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\getallteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\getallteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\professor\\teacherevaluateproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teacherevaluateproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,41 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetAllStudent.cshtml",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllStudent.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\GetAllStudent.cshtml",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllStudent.cshtml",
-              "RelativeToolTip": "Views\\Admin\\GetAllStudent.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAEMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T20:01:01.724Z",
+              "DocumentIndex": 1,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Controllers\\ProfessorController.cs",
+              "ViewState": "AQIAAG4BAAAAAAAAAAAuwMgAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:49:24.641Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetAllTeams.cshtml",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllTeams.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\GetAllTeams.cshtml",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllTeams.cshtml",
-              "RelativeToolTip": "Views\\Admin\\GetAllTeams.cshtml",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAUwCwAAAAdAAAA",
+              "DocumentIndex": 2,
+              "Title": "TeacherEvaluateProject.cshtml",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "RelativeDocumentMoniker": "Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "RelativeToolTip": "Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAABgAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T19:42:31.913Z",
+              "WhenOpened": "2024-12-16T22:23:58.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAHYDAAAAAAAAAADgv8QDAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T14:12:24.852Z",
+              "Title": "TeacherApproveProject.cshtml",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
+              "RelativeDocumentMoniker": "Views\\Professor\\TeacherApproveProject.cshtml",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
+              "RelativeToolTip": "Views\\Professor\\TeacherApproveProject.cshtml",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAiwGoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T22:20:11.299Z",
               "EditorCaption": ""
             }
           ]

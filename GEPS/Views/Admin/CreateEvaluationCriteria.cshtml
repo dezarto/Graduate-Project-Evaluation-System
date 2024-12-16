@@ -20,8 +20,8 @@
             </div>
 
             <div class="form-group">
-                <label for="Percent">Percent</label>
-                <input type="number" id="Percent" name="Percent" class="form-control" required>
+                <label for="Precent">Precent</label>
+                <input type="number" id="Precent" name="Precent" class="form-control" required>
             </div>
 
             <div class="form-actions">
@@ -36,10 +36,10 @@
             $('#saveButton').click(function () {
                 // Formdaki Alanları Oku
                 var criteriaName = $('#CriteriaName').val();
-                var percent = $('#Percent').val();
+                var Precent = $('#Precent').val();
 
                 // Alanların Dolu Olduğunu Kontrol Et
-                if (!criteriaName || !percent) {
+                if (!criteriaName || !Precent) {
                     $('#responseMessage').html('<div class="alert alert-warning">Please fill in all fields.</div>');
                     return;
                 }
@@ -47,7 +47,7 @@
                 // Veri Nesnesi
                 var criteria = {
                     CriteriaName: criteriaName,
-                    Percent: parseFloat(percent) // Yüzdelik değeri sayıya çeviriyoruz
+                    Precent: parseFloat(Precent) // Yüzdelik değeri sayıya çeviriyoruz
                 };
 
                 // AJAX İsteği
@@ -68,7 +68,8 @@
                         if (response.success) {
                             $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria created successfully!</div>');
                             $('#CriteriaName').val(''); // Formu Temizle
-                            $('#Percent').val('');
+                            $('#Precent').val('');
+
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + (response.errorMessage || 'Unknown error') + '</div>');
                         }
@@ -80,7 +81,13 @@
                         $('#responseMessage').html('<div class="alert alert-danger">' + errorMessage + '</div>');
                     }
                 });
+                window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';
+                setTimeout(() => {
+                    window.location.reload(); // Yenilemeyi zorlar
+                }, 50);
+
             });
+
         });
     </script>
 </body>

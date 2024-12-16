@@ -13,7 +13,8 @@
         public string EvaluatingTeacherFullName { get; set; }
         public string EvaluatingTeacherMail { get; set; }
         public string ProjectName { get; set; }
-        public string Status { get; set; } 
+        public string Status { get; set; }
+        public bool IsActive { get; set; }
     }
 
     public class StudentInfo

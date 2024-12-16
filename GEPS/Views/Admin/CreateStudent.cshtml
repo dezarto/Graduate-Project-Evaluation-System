@@ -64,6 +64,7 @@
                     data: JSON.stringify(student),
                     success: function (response) {
                         if (response.success) {
+                            window.location.href = '@Url.Action("GetAllStudent", "Admin")';
                             $('#responseMessage').html('<div class="alert alert-success">Student created successfully!</div>');
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
