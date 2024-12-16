@@ -40,17 +40,24 @@ namespace GPESAPI.Application.Services
 
                 while (startTime < endTime)
                 {
+                    TimeSpan potentialEndTime = startTime + TimeSpan.FromMinutes(30);
+
+                    if (potentialEndTime > endTime)
+                    {
+                        break;
+                    }
+
                     var availability = new ProfessorAvailability
                     {
                         ProfessorId = professor.ProfessorId,
                         AvailableDate = availabilityDto.AvailableDate,
                         StartTime = startTime,
-                        EndTime = startTime + TimeSpan.FromMinutes(30)
+                        EndTime = potentialEndTime
                     };
 
                     await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
 
-                    startTime = startTime + TimeSpan.FromMinutes(30);
+                    startTime = potentialEndTime;
                 }
             }
         }
