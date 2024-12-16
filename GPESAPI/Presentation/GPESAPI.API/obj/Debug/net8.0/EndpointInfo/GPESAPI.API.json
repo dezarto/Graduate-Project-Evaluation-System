@@ -791,6 +791,29 @@
         }
       }
     },
+    "/api/Professor/delete-availability-by-id/{id}": {
+      "delete": {
+        "tags": [
+          "Professor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Professor/get-approval-teams-view": {
       "get": {
         "tags": [

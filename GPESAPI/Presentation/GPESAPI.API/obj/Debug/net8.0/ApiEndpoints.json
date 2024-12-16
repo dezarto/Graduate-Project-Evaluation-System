@@ -439,6 +439,22 @@
   },
   {
     "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "AddProfessorAvailability",
+    "RelativePath": "api/Professor/delete-availability-by-id/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
     "Method": "ProfessorApprovalTeamsView",
     "RelativePath": "api/Professor/get-approval-teams-view",
     "HttpMethod": "GET",

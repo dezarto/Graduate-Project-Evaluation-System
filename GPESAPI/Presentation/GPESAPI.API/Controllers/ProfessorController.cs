@@ -79,6 +79,33 @@ namespace GPESAPI.API.Controllers
             }
         }
 
+        [HttpDelete("delete-availability-by-id/{id}")]
+        public async Task<ActionResult> AddProfessorAvailability(int id)
+        {
+            var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(professorMail))
+            {
+                return Unauthorized("User email is not available.");
+            }
+
+            try
+            {
+                await _professorAvailabilityAppService.DeleteProfessorAvailabilityAppAsync(id);
+                
+                return Ok(new { message = "Availability deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("already exists"))
+                {
+                    return Conflict(new { message = ex.Message });
+                }
+
+                return StatusCode(500, new { message = "An error occurred while adding availability data.", error = ex.Message });
+            }
+        }
+
         [HttpGet("get-approval-teams-view")]
         public async Task<ActionResult> ProfessorApprovalTeamsView()
         {
