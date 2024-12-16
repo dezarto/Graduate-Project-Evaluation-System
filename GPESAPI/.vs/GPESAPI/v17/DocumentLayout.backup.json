@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\repositories\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\repositories\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6288BDDD-7A25-4AD3-A7CC-B27BCB39D076}|Presentation\\GPESAPI.API\\GPESAPI.API.csproj|solutionrelative:presentation\\gpesapi.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\persistence\\sqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\persistence\\sqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.application\\services\\teamappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|solutionrelative:core\\gpesapi.application\\services\\teamappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.domain\\services\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|solutionrelative:core\\gpesapi.domain\\services\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.application\\services\\teamappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B2A1E19-5E84-4C60-A7FC-6DC052B2023B}|Core\\GPESAPI.Application\\GPESAPI.Application.csproj|solutionrelative:core\\gpesapi.application\\services\\teamappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\repositories\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\repositories\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\infrastructure\\gpesapi.infrastructure\\persistence\\sqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6729C8E7-B224-4D0C-84F9-6BA140046296}|Infrastructure\\GPESAPI.Infrastructure\\GPESAPI.Infrastructure.csproj|solutionrelative:infrastructure\\gpesapi.infrastructure\\persistence\\sqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A12181F4-B28F-4CE5-8D21-9EC3F5BF0262}|Core\\GPESAPI.Domain\\GPESAPI.Domain.csproj|c:\\users\\semir\\source\\repos\\gpesapi\\core\\gpesapi.domain\\services\\checklistitemsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 463,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SqlDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Persistence\\SqlDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\GPESAPI.Infrastructure\\Persistence\\SqlDbContext.cs",
@@ -50,44 +50,43 @@
               "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Persistence\\SqlDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:39:31.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T17:39:31.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TeamRepository.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamRepository.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamRepository.cs",
               "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\TeamRepository.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAEwFQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAEwG4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T17:09:22.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "TeamService.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\TeamService.cs",
               "RelativeDocumentMoniker": "Core\\GPESAPI.Domain\\Services\\TeamService.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Domain\\Services\\TeamService.cs",
               "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\TeamService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwCYAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAEwCcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T17:09:18.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "TeamAppService.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Services\\TeamAppService.cs",
               "RelativeDocumentMoniker": "Core\\GPESAPI.Application\\Services\\TeamAppService.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Core\\GPESAPI.Application\\Services\\TeamAppService.cs",
               "RelativeToolTip": "Core\\GPESAPI.Application\\Services\\TeamAppService.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAIwHIAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAEwHMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T16:57:29.638Z",
               "EditorCaption": ""
@@ -102,8 +101,7 @@
               "RelativeToolTip": "Core\\GPESAPI.Domain\\Services\\ChecklistItemsService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:50:44.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T16:50:44.546Z"
             },
             {
               "$type": "Document",
@@ -115,18 +113,17 @@
               "RelativeToolTip": "Infrastructure\\GPESAPI.Infrastructure\\Repositories\\ChecklistItemsRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:47:51.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T16:47:51.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\Semir\\source\\repos\\GPESAPI\\Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Presentation\\GPESAPI.API\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAwwNYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAvwNsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T10:49:07.183Z",
               "EditorCaption": ""

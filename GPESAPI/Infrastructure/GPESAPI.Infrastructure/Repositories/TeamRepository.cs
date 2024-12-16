@@ -30,7 +30,6 @@ namespace GPESAPI.Infrastructure.Repositories
                 {
                     try
                     {
-                        // 1. İlgili TeamPresentation kayıtlarını sil
                         var teamPresentations = await _dbContext.TeamPresentations
                             .Where(tp => tp.TeamId == id)
                             .ToListAsync();
@@ -39,7 +38,6 @@ namespace GPESAPI.Infrastructure.Repositories
                             _dbContext.TeamPresentations.RemoveRange(teamPresentations);
                         }
 
-                        // 2. İlgili TeamMembers kayıtlarını sil
                         var teamMembers = await _dbContext.TeamMembers
                             .Where(tm => tm.TeamId == id)
                             .ToListAsync();
@@ -48,7 +46,6 @@ namespace GPESAPI.Infrastructure.Repositories
                             _dbContext.TeamMembers.RemoveRange(teamMembers);
                         }
 
-                        // 3. İlgili Reports kayıtlarını sil
                         var reports = await _dbContext.Reports
                             .Where(r => r.TeamId == id)
                             .ToListAsync();
@@ -57,14 +54,12 @@ namespace GPESAPI.Infrastructure.Repositories
                             _dbContext.Reports.RemoveRange(reports);
                         }
 
-                        // 4. İlgili Evaluations kayıtlarını sil
                         var evaluations = await _dbContext.Evaluations
                             .Where(e => e.TeamId == id)
                             .ToListAsync();
 
                         foreach (var evaluation in evaluations)
                         {
-                            // 4.1. İlgili EvaluationCriteriaDetails kayıtlarını sil
                             var evaluationCriteriaDetails = await _dbContext.EvaluationCriteriaDetails
                                 .Where(ecr => ecr.EvaluationId == evaluation.EvaluationId)
                                 .ToListAsync();
@@ -73,7 +68,6 @@ namespace GPESAPI.Infrastructure.Repositories
                                 _dbContext.EvaluationCriteriaDetails.RemoveRange(evaluationCriteriaDetails);
                             }
 
-                            // 4.2. İlgili ChecklistItemDetails kayıtlarını sil
                             var checklistItemDetails = await _dbContext.ChecklistItemDetails
                                 .Where(c => c.EvaluationId == evaluation.EvaluationId)
                                 .ToListAsync();
@@ -83,35 +77,27 @@ namespace GPESAPI.Infrastructure.Repositories
                             }
                         }
 
-                        // 5. Evaluations tablosundaki kayıtları sil
                         if (evaluations.Any())
                         {
                             _dbContext.Evaluations.RemoveRange(evaluations);
                         }
-
-                        // 6. Team kaydını sil
+                        await _dbContext.SaveChangesAsync();
+                        
                         _dbContext.Teams.Remove(team);
 
-                        // 7. Değişiklikleri kaydet
                         await _dbContext.SaveChangesAsync();
 
-                        // Eğer her şey başarılıysa işlemi onayla
                         await transaction.CommitAsync();
                     }
                     catch (Exception ex)
                     {
-                        // Hata durumunda işlemi geri al
                         await transaction.RollbackAsync();
 
-                        // Hata mesajını daha anlamlı hale getirebiliriz
-                        throw new InvalidOperationException("Ekip silinirken bir hata oluştu.", ex);
+                        throw new InvalidOperationException("An error occurred while deleting the team.", ex);
                     }
                 }
             }
         }
-
-
-
 
         public async Task<IEnumerable<Team>> GetAllTeamsAsync()
         {
