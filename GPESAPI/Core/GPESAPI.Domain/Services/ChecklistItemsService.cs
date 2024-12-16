@@ -5,10 +5,10 @@ namespace GPESAPI.Domain.Services
 {
     public class ChecklistItemsService : IChecklistItemsService
     {
-        private readonly IGenericRepository<ChecklistItem> _reportRepository;
-        public ChecklistItemsService(IGenericRepository<ChecklistItem> genericRepository)
+        private readonly IChecklistItemsRepository _reportRepository;
+        public ChecklistItemsService(IChecklistItemsRepository checklistItemsRepository)
         {
-            _reportRepository = genericRepository;
+            _reportRepository = checklistItemsRepository;
         }
 
         public async Task AddChecklistItemsAsync(ChecklistItem checklistItems)

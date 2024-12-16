@@ -5,9 +5,9 @@ namespace GPESAPI.Domain.Services
 {
     public class EvaluationCriteriaService : IEvaluationCriteriaService
     {
-        private readonly IGenericRepository<EvaluationCriteria> _reportRepository;
+        private readonly IEvaluationCriteriaRepository _reportRepository;
 
-        public EvaluationCriteriaService(IGenericRepository<EvaluationCriteria> genericRepository)
+        public EvaluationCriteriaService(IEvaluationCriteriaRepository genericRepository)
         {
             _reportRepository = genericRepository;
         }

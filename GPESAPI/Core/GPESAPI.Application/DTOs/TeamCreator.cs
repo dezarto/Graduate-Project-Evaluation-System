@@ -5,6 +5,7 @@
         public string ProjectName { get; set; }
         public string Description { get; set; }
         public string TeamName { get; set; }
+        public int AdvisorId { get; set; }
         public List<StudenLists> StudentList { get; set; }
     }
 

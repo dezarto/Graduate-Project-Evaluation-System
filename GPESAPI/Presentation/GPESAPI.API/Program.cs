@@ -9,99 +9,42 @@ using GPESAPI.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.AspNetCore.Http.Features;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 
+// 1. **Controllers & CORS**
 builder.Services.AddControllers();
 
-// CORS ayarları
+// CORS configuration
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder => builder
-            .AllowAnyOrigin()    // Tüm kaynaklara izin ver
-            .AllowAnyMethod()    // Tüm HTTP yöntemlerine izin ver
-            .AllowAnyHeader());  // Tüm başlıklara izin ver
+    options.AddPolicy("AllowAllOrigins", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 });
 
+// File upload settings
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 209715200; // 200 MB
 });
 
+// 2. **Database Setup**
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<SqlDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// AutoMapper konfigürasyonu
+// 3. **AutoMapper Configuration**
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// JWT token servisi
-builder.Services.AddScoped<ITokenService, TokenService>();
-
-// Kullanıcı servisleri
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserAppService, UserAppService>();
-
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-// Profesör servisleri
-builder.Services.AddScoped<IProfessorRepository, ProfessorRepository>();
-builder.Services.AddScoped<IProfessorService, ProfessorService>();
-builder.Services.AddScoped<IProfessorAppService, ProfessorAppService>();
-
-// Profesör-Kullanıcı ilişkisi servisleri
-builder.Services.AddScoped<IProfessorsUsersRepository, ProfessorsUsersRepository>();
-builder.Services.AddScoped<IProfessorsUsersService, ProfessorsUsersService>();
-builder.Services.AddScoped<IProfessorsUsersAppService, ProfessorsUsersAppService>();
-
-// ProfessorAvailability
-builder.Services.AddScoped<IProfessorAvailabilityRepository, ProfessorAvailabilityRepository>();
-builder.Services.AddScoped<IProfessorAvailabilityService, ProfessorAvailabilityService>();
-builder.Services.AddScoped<IProfessorAvailabilityAppService, ProfessorAvailabilityAppService>();
-
-// Team servisleri
-builder.Services.AddScoped<ITeamRepository, TeamRepository>();
-builder.Services.AddScoped<ITeamService, TeamService>();
-builder.Services.AddScoped<ITeamAppService, TeamAppService>();
-
-// TeamPresentation servisleri
-builder.Services.AddScoped<ITeamPresentationAppService, TeamPresentationAppService>();
-builder.Services.AddScoped<ITeamPresentationService, TeamPresentationService>();
-builder.Services.AddScoped<ITeamPresentationRepository, TeamPresentationRepository>();
-
-// Project servisleri
-builder.Services.AddScoped<IProjectService, ProjectService>();
-builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
-
-// TeamMember servisleri
-builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
-builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
-builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
-
-//
-builder.Services.AddScoped<IChecklistItemDetailService, ChecklistItemDetailService>();
-builder.Services.AddScoped<IChecklistItemsService, ChecklistItemsService>();
-builder.Services.AddScoped<IEvaluationCriteriaDetailService, EvaluationCriteriaDetailService>();
-builder.Services.AddScoped<IEvaluationCriteriaService, EvaluationCriteriaService>();
-builder.Services.AddScoped<IEvaluationService, EvaluationService>();
-builder.Services.AddScoped<IEvaluationAppService, EvaluationAppService>();
-builder.Services.AddScoped<IEvaluationCriteriaAppService, EvaluationCriteriaAppService>();
-builder.Services.AddScoped<IChecklistItemsAppService, ChecklistItemsAppService>();
-builder.Services.AddScoped<IReportAppService, ReportAppService>();
-builder.Services.AddScoped<IReportService, ReportService>();
-
-
-
-// **JWT Authentication configuration**
+// 4. **JWT Authentication Setup**
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = jwtSettings["Key"]; // appsettings.json'dan JWT anahtarını al
+var key = jwtSettings["Key"];
 
 builder.Services.AddAuthentication(options =>
 {
@@ -121,16 +64,104 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Swagger/OpenAPI yapılandırması
+// 5. **Dependency Injection - Scoped Services**
+// User services
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserAppService, UserAppService>();
+
+// Generic repository
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// Professor services
+builder.Services.AddScoped<IProfessorRepository, ProfessorRepository>();
+builder.Services.AddScoped<IProfessorService, ProfessorService>();
+builder.Services.AddScoped<IProfessorAppService, ProfessorAppService>();
+
+// Professors-Users relationship services
+builder.Services.AddScoped<IProfessorsUsersRepository, ProfessorsUsersRepository>();
+builder.Services.AddScoped<IProfessorsUsersService, ProfessorsUsersService>();
+builder.Services.AddScoped<IProfessorsUsersAppService, ProfessorsUsersAppService>();
+
+// ProfessorAvailability services
+builder.Services.AddScoped<IProfessorAvailabilityRepository, ProfessorAvailabilityRepository>();
+builder.Services.AddScoped<IProfessorAvailabilityService, ProfessorAvailabilityService>();
+builder.Services.AddScoped<IProfessorAvailabilityAppService, ProfessorAvailabilityAppService>();
+
+// Team services
+builder.Services.AddScoped<ITeamRepository, TeamRepository>();
+builder.Services.AddScoped<ITeamService, TeamService>();
+builder.Services.AddScoped<ITeamAppService, TeamAppService>();
+
+// TeamPresentation services
+builder.Services.AddScoped<ITeamPresentationAppService, TeamPresentationAppService>();
+builder.Services.AddScoped<ITeamPresentationService, TeamPresentationService>();
+builder.Services.AddScoped<ITeamPresentationRepository, TeamPresentationRepository>();
+
+// Project services
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IProjectAppService, ProjectAppService>();
+
+// TeamMember services
+builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
+builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
+builder.Services.AddScoped<ITeamMemberAppService, TeamMemberAppService>();
+
+// Checklist services
+builder.Services.AddScoped<IChecklistItemDetailService, ChecklistItemDetailService>();
+builder.Services.AddScoped<IChecklistItemsService, ChecklistItemsService>();
+builder.Services.AddScoped<IChecklistItemsRepository, ChecklistItemsRepository>();
+builder.Services.AddScoped<IChecklistItemsAppService, ChecklistItemsAppService>();
+
+// Evaluation criteria services
+builder.Services.AddScoped<IEvaluationCriteriaDetailService, EvaluationCriteriaDetailService>();
+builder.Services.AddScoped<IEvaluationCriteriaService, EvaluationCriteriaService>();
+builder.Services.AddScoped<IEvaluationCriteriaRepository, EvaluationCriteriaRepository>();
+
+// Evaluation services
+builder.Services.AddScoped<IEvaluationService, EvaluationService>();
+builder.Services.AddScoped<IEvaluationAppService, EvaluationAppService>();
+builder.Services.AddScoped<IEvaluationCriteriaAppService, EvaluationCriteriaAppService>();
+
+// Report services
+builder.Services.AddScoped<IReportAppService, ReportAppService>();
+builder.Services.AddScoped<IReportService, ReportService>();
+
+// 6. **Swagger / OpenAPI Configuration**
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Description = "JWT Bearer token ile giriş yapın",
+        Name = "Authorization",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 
 var app = builder.Build();
 
-// **CORS Middleware**
+// **Middleware Configuration**
 app.UseCors("AllowAllOrigins");
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -138,17 +169,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
-//app.UseHttpsRedirection();
-
-
-
-// **JWT Authentication Middleware**
+// Enable authentication and authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Configure endpoints
 app.MapControllers();
 
 app.Run();

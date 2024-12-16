@@ -649,30 +649,11 @@
         }
       }
     },
-    "/api/LoginCats": {
-      "post": {
+    "/api/Admin/get-all-teams": {
+      "get": {
         "tags": [
-          "LoginCats"
+          "Admin"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequestDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequestDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequestDTO"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success"
@@ -680,10 +661,33 @@
         }
       }
     },
-    "/api/LoginOrion": {
+    "/api/Admin/delete-team-by-id/{id}": {
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/LoginCats": {
       "post": {
         "tags": [
-          "LoginOrion"
+          "LoginCats"
         ],
         "requestBody": {
           "content": {
@@ -1257,6 +1261,10 @@
             "type": "string",
             "nullable": true
           },
+          "advisorId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "studentList": {
             "type": "array",
             "items": {
@@ -1377,6 +1385,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Bearer token ile giriş yapın",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

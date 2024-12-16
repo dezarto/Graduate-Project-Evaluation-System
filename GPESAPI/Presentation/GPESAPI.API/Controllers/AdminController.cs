@@ -14,13 +14,14 @@ namespace GPESAPI.API.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IEvaluationCriteriaAppService _evaluationCriteriaAppService;
         private readonly IChecklistItemsAppService _checklistItemsAppService;
-
-        public AdminController(IProfessorAppService professorAppService, IUserAppService userAppService, IEvaluationCriteriaAppService evaluationCriteriaService, IEvaluationCriteriaAppService evaluationCriteriaAppService, IChecklistItemsAppService checklistItemsAppService)
+        private readonly ITeamAppService _teamAppService;
+        public AdminController(IProfessorAppService professorAppService, IUserAppService userAppService, IEvaluationCriteriaAppService evaluationCriteriaService, IEvaluationCriteriaAppService evaluationCriteriaAppService, IChecklistItemsAppService checklistItemsAppService, ITeamAppService teamAppService)
         {
             _professorAppService = professorAppService;
             _userAppService = userAppService;
             _evaluationCriteriaAppService = evaluationCriteriaAppService;
             _checklistItemsAppService = checklistItemsAppService;
+            _teamAppService = teamAppService;
         }
         //Professor endpoints
         [HttpPost("create-professor")]
@@ -199,6 +200,20 @@ namespace GPESAPI.API.Controllers
         {
             await _checklistItemsAppService.DeleteChecklistItemsAsync(id);
             return NoContent();
+        }
+
+        [HttpGet("get-all-teams")]
+        public async Task<IActionResult> GetAllTeams()
+        {
+            var teams = await _teamAppService.GetAllTeamAppAsync();
+            return Ok(teams);
+        }
+
+        [HttpDelete("delete-team-by-id/{id}")]
+        public async Task<IActionResult> DeleteTeamById(int id)
+        {
+            await _teamAppService.DeleteTeamAppAsync(id);
+            return Ok();
         }
     }
 }

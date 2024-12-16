@@ -33,10 +33,6 @@ namespace GPESAPI.Infrastructure.Persistence
             modelBuilder.Entity<TeamMember>()
                 .HasNoKey();
 
-            // ProjectSubmission
-            modelBuilder.Entity<ProjectSubmission>()
-                .HasKey(ps => ps.SubmissionId);
-
             // Evaluation
             modelBuilder.Entity<Evaluation>()
                 .HasKey(e => e.EvaluationId);
@@ -125,6 +121,7 @@ namespace GPESAPI.Infrastructure.Persistence
                 .HasOne<ChecklistItem>() // ChecklistItem ile ilişki
                 .WithMany() // ChecklistItem ile birden çok ilişki olabilir
                 .HasForeignKey(ci => ci.ItemId);
+        
         }
 
         // DbSet Properties for each table
@@ -134,7 +131,6 @@ namespace GPESAPI.Infrastructure.Persistence
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
-        public DbSet<ProjectSubmission> ProjectSubmissions { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<Professor> Professors { get; set; }
         public DbSet<ProfessorAvailability> ProfessorAvailability { get; set; }

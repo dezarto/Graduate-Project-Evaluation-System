@@ -23,8 +23,27 @@ namespace GPESAPI.Infrastructure.Repositories
         public async Task DeleteAsync(int id)
         {
             var user = await GetByIdAsync(id);
-            if (user != null) 
+            if (user != null)
             {
+                // ProfessorsUsers tablosundaki ilişkili kaydı sil
+                var professorUser = await _dbContext.ProfessorsUsers
+                                                     .Where(pu => pu.UserId == id)
+                                                     .ToListAsync();
+                if (professorUser.Any())
+                {
+                    _dbContext.ProfessorsUsers.RemoveRange(professorUser);
+                }
+
+                // TeamMembers tablosundaki ilişkili kaydı sil
+                var teamMembers = await _dbContext.TeamMembers
+                                                   .Where(tm => tm.UserId == id)
+                                                   .ToListAsync();
+                if (teamMembers.Any())
+                {
+                    _dbContext.TeamMembers.RemoveRange(teamMembers);
+                }
+
+                // Kullanıcıyı Users tablosundan sil
                 _dbContext.Users.Remove(user);
                 await _dbContext.SaveChangesAsync();
             }

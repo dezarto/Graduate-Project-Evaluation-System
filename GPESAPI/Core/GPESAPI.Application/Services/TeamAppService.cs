@@ -72,6 +72,13 @@ namespace GPESAPI.Application.Services
                 };
 
                 await _teamMemberService.AddTeamMemberAsync(newTeamMember);
+
+                var newUser = new User
+                {
+                    ProfessorId = teamCreator.AdvisorId,
+                };
+
+                await _userService.UpdateUserAsync(newUser);
             }
 
             return new { TeamId = newTeam.TeamId, ProjectId = project.ProjectId, Message = "Team created successfully" };
