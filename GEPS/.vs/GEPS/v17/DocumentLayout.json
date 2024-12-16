@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\getallteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\getallteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\admin\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateCheckListItem.cshtml",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\UpdateCheckListItem.cshtml",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
-              "RelativeToolTip": "Views\\Admin\\UpdateCheckListItem.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAGAAAA",
+              "DocumentIndex": 2,
+              "Title": "GetAllStudent.cshtml",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllStudent.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\GetAllStudent.cshtml",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllStudent.cshtml",
+              "RelativeToolTip": "Views\\Admin\\GetAllStudent.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAEMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T19:03:39.125Z",
+              "WhenOpened": "2024-12-16T20:01:01.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetAllTeams.cshtml",
+              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllTeams.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\GetAllTeams.cshtml",
+              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Admin\\GetAllTeams.cshtml",
+              "RelativeToolTip": "Views\\Admin\\GetAllTeams.cshtml",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAUwCwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T19:42:31.913Z",
               "EditorCaption": ""
             },
             {
@@ -49,7 +66,7 @@
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAP4BAAAAAAAAAAAgwCYCAAAAAAAA",
+              "ViewState": "AQIAAHYDAAAAAAAAAADgv8QDAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:12:24.852Z",
               "EditorCaption": ""

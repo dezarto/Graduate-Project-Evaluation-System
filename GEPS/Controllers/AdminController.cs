@@ -548,7 +548,7 @@ namespace GEPS.Controllers
         }
 
 
-
+        //Tamamlandııı
         [HttpGet("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id)
         {
@@ -591,6 +591,7 @@ namespace GEPS.Controllers
             }
         }
 
+        //Tamamlandııı
         [HttpPost("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id, [FromBody] AdminEvaluationCriteria criteria)
         {
@@ -846,9 +847,6 @@ namespace GEPS.Controllers
             }
         }
 
-
-
-
         //Tamamlandı
         [HttpDelete("DeleteCheckListItem/{id}")]
         public async Task<IActionResult> DeleteCheckListItem(int id)
@@ -885,6 +883,85 @@ namespace GEPS.Controllers
             }
         }
 
+
+
+        [HttpGet("GetAllTeams")]
+        public async Task<IActionResult> GetAllTeams()
+        {
+            string apiUrl = "https://localhost:7107/api/Admin/get-all-teams";
+
+            // Token'ı session'dan al
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var Teams = JsonConvert.DeserializeObject<List<Teams>>(content);
+
+                    return View(Teams);  // TeamCreator türünde veri gönderiyoruz
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $" API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<Teams>()); // Boş liste döndür
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<Teams>()); // Boş liste döndür
+            }
+        }
+
+        //Tamamlandı
+        [HttpDelete("DeleteTeams/{id}")]
+        public async Task<IActionResult> DeleteTeams(int id)
+        {
+            // API URL'sini oluştur
+            var apiUrl = $"https://localhost:7107/api/Admin/delete-team-by-id/{id}";
+
+            // Token'ı alın
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            // DELETE isteği için HttpRequestMessage oluştur
+            var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // İsteği gönder
+            var response = await _httpClient.SendAsync(request);
+
+            // Yanıtı kontrol et
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.SuccessMessage = "Delete Teams ";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Delete Teams Error.";
+                return RedirectToAction("GetAllEvaluationCriteria");
+            }
+        }
 
     }
 

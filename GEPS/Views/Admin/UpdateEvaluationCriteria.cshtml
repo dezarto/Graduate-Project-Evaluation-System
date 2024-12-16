@@ -60,6 +60,7 @@
                     data: JSON.stringify(criteria),  // JSON formatında veri gönder
                     success: function (response) {
                         if (response.success) {
+                            window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';  // Yönlendirme URL'i
                             $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria updated successfully!</div>');
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');

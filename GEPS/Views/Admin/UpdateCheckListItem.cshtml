@@ -42,6 +42,7 @@
                     data: JSON.stringify(checklistItem),
                     success: function (response) {
                         if (response.success) {
+                            window.location.href = '@Url.Action("GetAllCheckListItem", "Admin")';  // Yönlendirme URL'i
                             $('#responseMessage').html('<div class="alert alert-success">Checklist item updated successfully!</div>');
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
