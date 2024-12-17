@@ -19,46 +19,43 @@ namespace GPESAPI.Application.Services
             _mapper = mapper;
         }
 
-        public async Task AddProfessorAvailabilityBatchAsync(string professorMail, List<ProfessorAvailabilityDTO> availabilities)
+        public async Task AddProfessorAvailabilityBatchAsync(string professorMail, ProfessorAvailabilityDTO availabilities)
         {
             var professor = await _professorService.GetByProfessorEmailAsync(professorMail);
 
-            foreach (var availabilityDto in availabilities)
+            availabilities.ProfessorId = professor.ProfessorId;
+
+            var existingAvailability = await _professorAvailabilityService.CheckExistingAvailabilityAsync(
+                professor.ProfessorId, availabilities.AvailableDate, availabilities.StartTime, availabilities.EndTime);
+
+            if (existingAvailability)
             {
-                availabilityDto.ProfessorId = professor.ProfessorId;
+                throw new Exception("An availability record already exists for the specified date and time range.");
+            }
 
-                var existingAvailability = await _professorAvailabilityService.CheckExistingAvailabilityAsync(
-                    professor.ProfessorId, availabilityDto.AvailableDate, availabilityDto.StartTime, availabilityDto.EndTime);
+            TimeSpan startTime = availabilities.StartTime;
+            TimeSpan endTime = availabilities.EndTime;
 
-                if (existingAvailability)
+            while (startTime < endTime)
+            {
+                TimeSpan potentialEndTime = startTime + TimeSpan.FromMinutes(30);
+
+                if (potentialEndTime > endTime)
                 {
-                    throw new Exception("An availability record already exists for the specified date and time range.");
+                    break;
                 }
 
-                TimeSpan startTime = availabilityDto.StartTime;
-                TimeSpan endTime = availabilityDto.EndTime;
-
-                while (startTime < endTime)
+                var availability = new ProfessorAvailability
                 {
-                    TimeSpan potentialEndTime = startTime + TimeSpan.FromMinutes(30);
+                    ProfessorId = professor.ProfessorId,
+                    AvailableDate = availabilities.AvailableDate,
+                    StartTime = startTime,
+                    EndTime = potentialEndTime
+                };
 
-                    if (potentialEndTime > endTime)
-                    {
-                        break;
-                    }
+                await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
 
-                    var availability = new ProfessorAvailability
-                    {
-                        ProfessorId = professor.ProfessorId,
-                        AvailableDate = availabilityDto.AvailableDate,
-                        StartTime = startTime,
-                        EndTime = potentialEndTime
-                    };
-
-                    await _professorAvailabilityService.AddProfessorAvailabilityAsync(availability);
-
-                    startTime = potentialEndTime;
-                }
+                startTime = potentialEndTime;
             }
         }
 

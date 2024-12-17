@@ -566,7 +566,7 @@
     "Parameters": [
       {
         "Name": "availabilities",
-        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorAvailabilityDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "GPESAPI.Application.DTOs.ProfessorAvailabilityDTO",
         "IsRequired": true
       }
     ],

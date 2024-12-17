@@ -760,26 +760,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
-                }
+                "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
               }
             },
             "text/json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
-                }
+                "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
-                }
+                "$ref": "#/components/schemas/ProfessorAvailabilityDTO"
               }
             }
           }

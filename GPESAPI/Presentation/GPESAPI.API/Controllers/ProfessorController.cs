@@ -54,7 +54,7 @@ namespace GPESAPI.API.Controllers
         }
 
         [HttpPost("post-availability-by-professor")]
-        public async Task<ActionResult> AddProfessorAvailability([FromBody] List<ProfessorAvailabilityDTO> availabilities)
+        public async Task<ActionResult> AddProfessorAvailability([FromBody] ProfessorAvailabilityDTO availabilities)
         {
             var professorMail = User.FindFirst(ClaimTypes.Name)?.Value;
 

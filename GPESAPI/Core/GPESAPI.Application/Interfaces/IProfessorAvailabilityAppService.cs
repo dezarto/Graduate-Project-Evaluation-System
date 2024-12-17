@@ -10,6 +10,6 @@ namespace GPESAPI.Application.Interfaces
         Task UpdateProfessorAvailabilityAppAsync(ProfessorAvailabilityDTO professorAvailabilityDto);
         Task DeleteProfessorAvailabilityAppAsync(int id);
         Task<bool> CheckExistingAvailabilityAppAsync(int professorId, DateTime availableDate, TimeSpan startTime, TimeSpan endTime);
-        Task AddProfessorAvailabilityBatchAsync(string professorMail, List<ProfessorAvailabilityDTO> availabilities);
+        Task AddProfessorAvailabilityBatchAsync(string professorMail, ProfessorAvailabilityDTO availabilities);
     }
 }
