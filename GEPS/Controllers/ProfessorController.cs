@@ -390,11 +390,9 @@ namespace GEPS.Controllers
                 professorAvailability.ProfessorId = 0;  
                 professorAvailability.AvailabilityId = 0; 
 
-                var availabilitiesList = new List<ProfessorAvailability> { professorAvailability };
-
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
                 {
-                    Content = new StringContent(JsonConvert.SerializeObject(availabilitiesList), Encoding.UTF8, "application/json")
+                    Content = new StringContent(JsonConvert.SerializeObject(professorAvailability), Encoding.UTF8, "application/json")
                 };
 
                 requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
