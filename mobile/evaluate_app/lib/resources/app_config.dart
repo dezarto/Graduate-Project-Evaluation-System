@@ -28,4 +28,8 @@ class AppConfig {
 
   // POST Approve Team
   static const String approveProject = '$baseUrl/Professor/post-approval-teams';
+
+  // POST Available Time
+  static const String availableTime =
+      '$baseUrl/Professor/post-availability-by-professor';
 }
