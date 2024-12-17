@@ -1,9 +1,11 @@
 ﻿using GEPS.Filter;
 using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Text;
 
 namespace GEPS.Controllers
 {
@@ -16,54 +18,6 @@ namespace GEPS.Controllers
         {
             _httpClient = httpClient;
         }
-
-        // ************************************  Student Create Team   ************************************
-
-        [HttpPost]
-        public async Task<IActionResult> CreateTeam(TeamCreator teamCreator)
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            string apiUrl = "https://localhost:7107/api/Student/create-team";
-
-            var token = HttpContext.Session.GetString("BearerToken");
-
-            if (string.IsNullOrEmpty(token))
-            {
-                ViewBag.Errors = new[] { "Authorization token is missing." };
-                return View("Error");
-            }
-
-            try
-            {
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
-                {
-                    Content = JsonContent.Create(teamCreator)
-                };
-
-                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-
-                var response = await _httpClient.SendAsync(requestMessage);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["SuccessMessage"] = "Project submitted successfully!";
-                    return RedirectToAction("TeamHome");
-                }
-                else
-                {
-                    ViewBag.Errors = new[] { "API call failed with status: " + response.StatusCode };
-                    return View(teamCreator);
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Errors = new[] { "An error occurred: " + ex.Message };
-                return View(teamCreator);
-            }
-        }
-
 
         // ************************************   Student Go to TeamHome (Home page)   ************************************
         [HttpGet]
@@ -100,6 +54,7 @@ namespace GEPS.Controllers
                         ProjectId = 0,
                         ProjectName = string.Empty,
                         TeamName = string.Empty,
+                        ReportId = 0,
                     };
 
                     return View(newEmptyList);
@@ -113,7 +68,6 @@ namespace GEPS.Controllers
                 return View();
             }
         }
-
 
         // ************************************   Student Create Project Topics    ************************************
 
@@ -196,66 +150,124 @@ namespace GEPS.Controllers
             }
         }
 
-        // ************************************   Student Upload Project    ************************************
-
         [HttpPost]
-        public async Task<IActionResult> ProjectUpload(IFormFile file)
+        public async Task<IActionResult> CreateTeam(TeamCreator teamCreator)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
-            if (file == null || file.Length == 0)
-            {
-                ViewBag.Message = "Please select a file to upload.";
-                return View();
-            }
+            string apiUrl = "https://localhost:7107/api/Student/create-team";
 
-            string apiUrl = "https://localhost:7107/api/Student/project-upload";
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
 
             try
             {
-                using (var formContent = new MultipartFormDataContent())
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
                 {
-                    using (var fileStream = file.OpenReadStream())
-                    {
-                        var fileContent = new StreamContent(fileStream);
-                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-                        formContent.Add(fileContent, "file", file.FileName);
-                    }
+                    Content = JsonContent.Create(teamCreator)
+                };
 
-                    string token = HttpContext.Session.GetString("AuthToken"); // Token'ın burada saklandığını varsayıyoruz
-                    if (!string.IsNullOrEmpty(token))
-                    {
-                        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                    }
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-                    var response = await _httpClient.PostAsync(apiUrl, formContent);
+                var response = await _httpClient.SendAsync(requestMessage);
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        ViewBag.Message = "File uploaded successfully!";
-                        return View();
-                    }
-                    else
-                    {
-                        ViewBag.Message = $"File upload failed. Status code: {response.StatusCode}";
-                        return View("Error");
-                    }
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["SuccessMessage"] = "Project submitted successfully!";
+                    return RedirectToAction("TeamHome");
+                }
+                else
+                {
+                    ViewBag.Errors = new[] { "API call failed with status: " + response.StatusCode };
+                    return View(teamCreator);
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Message = $"An error occurred: {ex.Message}";
-                return View("Error");
+                ViewBag.Errors = new[] { "An error occurred: " + ex.Message };
+                return View(teamCreator);
             }
         }
 
-        //Display project Topics sayfası olacak mı ??
+        // ************************************   Student Upload Project    ************************************
 
-        //public IActionResult DisplayProjectTopics()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult ProjectUpload()
+        {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
+            return View();
+        }
+
+        [HttpPost("project-upload")]
+        public async Task<IActionResult> ProjectUpload([FromForm] ProjectUpload request)
+        {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
+            if (request.File == null || request.File.Length == 0)
+            {
+                return BadRequest("No file uploaded.");
+            }
+            
+            try
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                var objectId = ObjectId.GenerateNewId().ToString();
+                var fileExtension = Path.GetExtension(request.File.FileName);
+                var fullName = objectId + fileExtension;
+                var filePath = Path.Combine(uploadPath, fullName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await request.File.CopyToAsync(stream);
+                }
+
+                var apiUrl = $"https://localhost:7107/api/Student/project-upload/{Uri.EscapeDataString(fullName)}";
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl);
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["SuccessMessage"] = "Project submitted successfully!";
+                    return RedirectToAction("TeamHome");
+                }
+                else
+                {
+                    ViewBag.Errors = new[] { "API call failed with status: " + response.StatusCode };
+                    return View(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred during the file upload.", error = ex.Message });
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

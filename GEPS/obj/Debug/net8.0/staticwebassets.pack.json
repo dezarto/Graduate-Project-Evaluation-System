@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\css\\navbar.css"
     },
     {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
       "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -347,6 +351,18 @@
     {
       "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\sidebar.png",
       "PackagePath": "staticwebassets\\sidebar.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761d10696140a07cd7d3d05.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761d184245a2a9cf67efdac.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761e877cb66080a0b308d5b.pdf"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

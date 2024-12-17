@@ -1,8 +1,6 @@
 ﻿using GEPS.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
 
 namespace GEPS.Controllers
 {
@@ -14,6 +12,14 @@ namespace GEPS.Controllers
         public LoginController()
         {
             _httpClient = new HttpClient();
+        }
+
+        [HttpGet("LogoutSystem")]
+        public IActionResult LogoutSystem()
+        {
+            HttpContext.SignOutAsync();
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Login");
         }
 
         [HttpGet]
@@ -69,6 +75,5 @@ namespace GEPS.Controllers
                 return View();
             }
         }
-
     }
 }

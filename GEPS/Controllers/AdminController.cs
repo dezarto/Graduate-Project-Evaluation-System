@@ -17,7 +17,17 @@ namespace GEPS.Controllers
             _httpClient = httpClient;
         }
 
-        //Tamamlandı
+        // ******************** Professor Area ********************
+
+        [HttpGet("PostCreateProfessor")]
+        public IActionResult PostCreateProfessor()
+        {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
+            return View();
+        }
+
         [HttpPost("PostCreateProfessor")]
         public async Task<IActionResult> PostCreateProfessor([FromBody] Professor professor)
         {
@@ -60,17 +70,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
-        [HttpGet("PostCreateProfessor")]
-        public IActionResult PostCreateProfessor()
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            return View();
-        }
-
-        //Tamamlandı
         [HttpGet("GetAllProfessor")]
         public async Task<IActionResult> GetAllProfessor()
         {
@@ -114,8 +113,7 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
-        [HttpPost("UpdateProfessor/{id}")]
+        [HttpPut("UpdateProfessor/{id}")]
         public async Task<IActionResult> UpdateProfessor(int id, [FromBody] Professor professor)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
@@ -132,7 +130,7 @@ namespace GEPS.Controllers
 
             try
             {
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl)
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(professor), Encoding.UTF8, "application/json")
                 };
@@ -148,7 +146,7 @@ namespace GEPS.Controllers
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
-                    return Json(new { success = false, errorMessage = errorContent });
+                    return Json(new { success = false, errorMessage = $"API call failed with status: {response.StatusCode}, {errorContent}" });
                 }
             }
             catch (Exception ex)
@@ -157,7 +155,7 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
+
         [HttpGet("UpdateProfessor/{id}")]
         public async Task<IActionResult> UpdateProfessor(int id)
         {
@@ -202,7 +200,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //  Tamamlandı
         [HttpPost("DeleteProfessor")]
         public async Task<IActionResult> DeleteProfessor(int id)
         {
@@ -236,8 +233,17 @@ namespace GEPS.Controllers
             return RedirectToAction("GetAllProfessor");
         }
 
-        //Role Kısmı default girilmeli
-        //Tamamlandı
+        // ******************** Student Area ********************
+
+        [HttpGet("CreateStudent")]
+        public IActionResult CreateStudent()
+        {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
+            return View();
+        }
+
         [HttpPost("CreateStudent")]
         public async Task<IActionResult> CreateStudent([FromBody] Student student)
         {
@@ -246,7 +252,6 @@ namespace GEPS.Controllers
 
             string apiUrl = "https://localhost:7107/api/Admin/create-student";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -281,17 +286,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
-        [HttpGet("CreateStudent")]
-        public IActionResult CreateStudent()
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            return View();
-        }
-
-        //Tamamlandı
         [HttpGet("GetAllStudent")]
         public async Task<IActionResult> GetAllStudent()
         {
@@ -336,7 +330,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpGet("UpdateStudent/{id}")]
         public async Task<IActionResult> UpdateStudent(int id)
         {
@@ -381,7 +374,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpPost("UpdateStudent/{id}")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] Student student)
         {
@@ -429,7 +421,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpDelete("DeleteStudent/{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
@@ -463,7 +454,8 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
+        // ******************** Evaluation Criteria Area ********************
+
         [HttpGet("GetAllEvaluationCriteria")]
         public async Task<IActionResult> GetAllEvaluationCriteria()
         {
@@ -508,7 +500,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandııı
         [HttpGet("CreateEvaluationCriteria")]
         public IActionResult CreateEvaluationCriteria()
         {
@@ -518,7 +509,6 @@ namespace GEPS.Controllers
             return View();
         }
         
-        //Tamamlandııı
         [HttpPost("CreateEvaluationCriteria")]
         public async Task<IActionResult> CreateEvaluationCriteria([FromBody] AdminEvaluationCriteria criteria)
         {
@@ -559,7 +549,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandııı
         [HttpGet("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id)
         {
@@ -604,7 +593,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandııı
         [HttpPost("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id, [FromBody] AdminEvaluationCriteria criteria)
         {
@@ -648,8 +636,6 @@ namespace GEPS.Controllers
             }
         }
 
-
-        //Tamamlandııı
         [HttpDelete("DeleteEvaluationCriteria/{id}")]
         public async Task<IActionResult> DeleteEvaluationCriteria(int id)
         {
@@ -683,7 +669,8 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
+        // ******************** Checklist Items Area ********************
+
         [HttpGet("GetAllChecklistItems")]
         public async Task<IActionResult> GetAllChecklistItems()
         {
@@ -728,7 +715,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpGet("PostAddCheckListItem")]
         public IActionResult PostAddCheckListItem()
         {
@@ -738,7 +724,6 @@ namespace GEPS.Controllers
             return View();
         }
 
-        //Tamamlandı
         [HttpPost("PostAddCheckListItem")]
         public async Task<IActionResult> PostAddCheckListItem([FromBody] AdminChecklistItem checklistItem)
         {
@@ -781,7 +766,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpGet("UpdateCheckListItem/{id}")]
         public async Task<IActionResult> UpdateCheckListItem(int id)
         {
@@ -824,7 +808,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpPost("UpdateCheckListItem/{id}")]
         public async Task<IActionResult> UpdateCheckListItem(int id, [FromBody] AdminChecklistItem checklistItem)
         {
@@ -870,7 +853,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpDelete("DeleteCheckListItem/{id}")]
         public async Task<IActionResult> DeleteCheckListItem(int id)
         {
@@ -904,7 +886,7 @@ namespace GEPS.Controllers
             }
         }
 
-
+        // ******************** Teams Area ********************
 
         [HttpGet("GetAllTeams")]
         public async Task<IActionResult> GetAllTeams()
@@ -950,7 +932,6 @@ namespace GEPS.Controllers
             }
         }
 
-        //Tamamlandı
         [HttpDelete("DeleteTeams/{id}")]
         public async Task<IActionResult> DeleteTeams(int id)
         {

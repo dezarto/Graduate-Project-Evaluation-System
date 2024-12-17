@@ -34,7 +34,6 @@
                     <h4>Required Documents</h4>
                 </div>
 
-
                 <div class="create-project" onclick="redirectToCreateProject()">
                     <i class="fa fa-plus"></i>
                     <h4>Create Graduation Project</h4>
@@ -44,8 +43,20 @@
                     function redirectToCreateProject() {
                         window.location.href = "/Student/ProjectCreate";
                     }
-                </script>
 
+                    // Koşulu kontrol et ve butonu devre dışı bırak
+                    window.onload = function() {
+                        var reportId = @Model.ReportId;  // Model'den gelen ReportId'yi alıyoruz
+
+                        // Eğer ReportId != 0 ise butonu devre dışı bırak
+                        var uploadButton = document.getElementById("uploadButton");
+                        if (reportId !== 0) {
+                            uploadButton.disabled = true;  // Butonu devre dışı bırak
+                            uploadButton.style.backgroundColor = "#cccccc";  // Gri renkte yap
+                            uploadButton.style.cursor = "not-allowed";  // Fare imleci yasaklı
+                        }
+                    };
+                </script>
 
                 <div>
                     <table class="table-a">
@@ -71,8 +82,13 @@
                                 <td>Empty</td>
 
                                 <td class="load-report">
-                                    <i class="fa fa-upload"></i>
-                                    <p>Load<br>Report</p>
+                                    <!-- Butonu tıklanamaz yapacak koşulu kontrol et -->
+                                    <a href="/Student/ProjectUpload" style="text-decoration: none; color: inherit;">
+                                        <button id="uploadButton" class="upload-button">
+                                            <i class="fa fa-upload"></i>
+                                            <p>Load<br>Report</p>
+                                        </button>
+                                    </a>
                                 </td>
 
                             </tr>

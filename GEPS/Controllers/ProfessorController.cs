@@ -20,7 +20,7 @@ namespace GEPS.Controllers
         // ************************************  Professor Profile Page  ************************************
 
         [HttpGet]
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> ProfessorProfile()
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
@@ -29,12 +29,30 @@ namespace GEPS.Controllers
 
             try
             {
+                string bearerToken = HttpContext.Session.GetString("BearerToken");
+
+                if (string.IsNullOrEmpty(bearerToken))
+                {
+                    return Unauthorized("Bearer token is missing.");
+                }
+
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
+
                 var response = await _httpClient.GetAsync(apiUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var professorProfile = await response.Content.ReadFromJsonAsync<Profile>();
-                    return View(professorProfile);
+
+                    if (professorProfile != null)
+                    {
+                        return View(professorProfile);
+                    }
+                    else
+                    {
+                        ViewBag.Errors = new[] { "Professor profile data is empty." };
+                        return View("Error");
+                    }
                 }
                 else
                 {

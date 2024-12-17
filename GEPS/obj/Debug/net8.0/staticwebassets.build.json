@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LgQEPLuO+rnO+X5hjHhII6sIh1KQSAZzy4TAx7IxEN4=",
+  "Hash": "dOl/B2mArjSyk9YRhHic+RU+GeybZOWWLmg6bq48ZFY=",
   "Source": "GEPS",
   "BasePath": "_content/GEPS",
   "Mode": "Default",
@@ -330,6 +330,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\navbar.css"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\profile.css",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "css/profile#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m3pobcwu3z",
+      "Integrity": "7k8IjvbbA37BHcdcy9WcaaZybJj2aFCNCCduiepRkIU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\profile.css"
     },
     {
       "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
@@ -1863,6 +1884,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sidebar.png"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6761d10696140a07cd7d3d05#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zw3alhdsdn",
+      "Integrity": "UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6761d184245a2a9cf67efdac#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zw3alhdsdn",
+      "Integrity": "UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6761e877cb66080a0b308d5b#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zw3alhdsdn",
+      "Integrity": "UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf"
     }
   ],
   "Endpoints": [
@@ -2933,6 +3017,88 @@
       ]
     },
     {
+      "Route": "css/profile.css",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\profile.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7k8IjvbbA37BHcdcy9WcaaZybJj2aFCNCCduiepRkIU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 21:16:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7k8IjvbbA37BHcdcy9WcaaZybJj2aFCNCCduiepRkIU="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile.m3pobcwu3z.css",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\profile.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7k8IjvbbA37BHcdcy9WcaaZybJj2aFCNCCduiepRkIU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 21:16:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m3pobcwu3z"
+        },
+        {
+          "Name": "label",
+          "Value": "css/profile.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7k8IjvbbA37BHcdcy9WcaaZybJj2aFCNCCduiepRkIU="
+        }
+      ]
+    },
+    {
       "Route": "css/ProjectCreate.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
       "Selectors": [],
@@ -3857,7 +4023,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:38:11 GMT"
+          "Value": "Tue, 17 Dec 2024 18:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3902,7 +4068,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:38:11 GMT"
+          "Value": "Tue, 17 Dec 2024 18:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3947,7 +4113,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:38:11 GMT"
+          "Value": "Tue, 17 Dec 2024 18:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3984,7 +4150,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:38:11 GMT"
+          "Value": "Tue, 17 Dec 2024 18:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9079,6 +9245,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-3aa3MT3rKfnT2uz/UE8drT+mCrRIJ3UbjrGhgTgkh3U="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761d10696140a07cd7d3d05.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 19:29:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761d10696140a07cd7d3d05.zw3alhdsdn.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 19:29:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zw3alhdsdn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6761d10696140a07cd7d3d05.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761d184245a2a9cf67efdac.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 19:31:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761d184245a2a9cf67efdac.zw3alhdsdn.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 19:31:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zw3alhdsdn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6761d184245a2a9cf67efdac.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761e877cb66080a0b308d5b.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 21:09:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761e877cb66080a0b308d5b.zw3alhdsdn.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2699058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 21:09:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zw3alhdsdn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6761e877cb66080a0b308d5b.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
         }
       ]
     }

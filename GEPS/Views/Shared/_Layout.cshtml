@@ -25,9 +25,12 @@
                 <h3>@User.Identity.Name</h3>
             </div>
 
-            <button class="logout">
-                <img src="~/logout.png" alt="logout" class="logouticon" />
-            </button>
+            <form asp-controller="Login" asp-action="LogoutSystem" method="get" style="display: inline;">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="logout">
+                    <img src="~/logout.png" alt="logout" class="logouticon" />
+                </button>
+            </form>
         </div>
         @if (ViewBag.UserRole == "Admin")
         {
@@ -39,7 +42,7 @@
         }
         else if (ViewBag.UserRole == "Professor")
         {
-            <a href="@Url.Action("Profile", "Professor")">My Profile</a>
+            <a href="@Url.Action("ProfessorProfile", "Professor")">My Profile</a>
             <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
             <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Evaluate Project</a>
             <a href="@Url.Action("TeacherViewResult", "Professor")">View Result</a>

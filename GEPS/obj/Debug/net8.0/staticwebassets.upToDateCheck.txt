@@ -11,6 +11,7 @@ wwwroot\css\HomeForStu.css
 wwwroot\css\loadProject.css
 wwwroot\css\Login.css
 wwwroot\css\navbar.css
+wwwroot\css\profile.css
 wwwroot\css\ProjectCreate.css
 wwwroot\css\site.css
 wwwroot\css\SubmitProjectTopics.css
@@ -84,3 +85,6 @@ wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\logored2.png
 wwwroot\logout.png
 wwwroot\sidebar.png
+wwwroot\uploads\6761d10696140a07cd7d3d05.pdf
+wwwroot\uploads\6761d184245a2a9cf67efdac.pdf
+wwwroot\uploads\6761e877cb66080a0b308d5b.pdf
