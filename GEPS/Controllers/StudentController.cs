@@ -1,6 +1,8 @@
 ﻿using GEPS.Filter;
 using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
 namespace GEPS.Controllers
@@ -25,14 +27,29 @@ namespace GEPS.Controllers
 
             string apiUrl = "https://localhost:7107/api/Student/create-team";
 
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+
             try
             {
-                var response = await _httpClient.PostAsJsonAsync(apiUrl, teamCreator);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = JsonContent.Create(teamCreator)
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
                     TempData["SuccessMessage"] = "Project submitted successfully!";
-                    return RedirectToAction("Success");
+                    return RedirectToAction("TeamHome");
                 }
                 else
                 {
@@ -46,6 +63,7 @@ namespace GEPS.Controllers
                 return View(teamCreator);
             }
         }
+
 
         // ************************************   Student Go to TeamHome (Home page)   ************************************
         [HttpGet]
@@ -101,26 +119,81 @@ namespace GEPS.Controllers
 
         [HttpGet]
         [Route("Student/ProjectCreate")]
-        public IActionResult ProjectCreate()
+        public async Task<IActionResult> ProjectCreate()
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
-            var newTeamCreator = new TeamCreator
-            {
-                AdvisorName = "",
-                Description = "",
-                ProjectName = "",
-                StudentList = new List<StudenLists>
-                {
-                    new StudenLists { StudenNumber = "", StudentFullName = "" },
-                    new StudenLists { StudenNumber = "", StudentFullName = "" },
-                    new StudenLists { StudenNumber = "", StudentFullName = "" }
-                },
-                TeamName = ""
-            };
+            string apiUrl = "https://localhost:7107/api/Student/get-all-professor";
 
-            return View(newTeamCreator);
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.Errors = new[] { "Authorization token is missing." };
+                return View("Error");
+            }
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var professorList = JsonConvert.DeserializeObject<List<Professor>>(content);
+
+                    if(professorList != null)
+                    {    
+                        var newTeamCreator = new TeamCreator
+                        {
+                            Description = "",
+                            ProjectName = "",
+                            StudentList = new List<StudenLists>
+                            {
+                                new StudenLists { StudenNumber = "", StudentFullName = "" },
+                                new StudenLists { StudenNumber = "", StudentFullName = "" },
+                                new StudenLists { StudenNumber = "", StudentFullName = "" }
+                            },
+                            ProfessorList = professorList ?? new List<Professor>(),
+                            TeamName = "",
+                            SelectedProfessorId = null
+                        };
+                        return View(newTeamCreator);
+                    }
+                    else
+                    {
+                        var newTeamCreator = new TeamCreator
+                        {
+                            Description = "",
+                            ProjectName = "",
+                            StudentList = new List<StudenLists>
+                            {
+                                new StudenLists { StudenNumber = "", StudentFullName = "" },
+                                new StudenLists { StudenNumber = "", StudentFullName = "" },
+                                new StudenLists { StudenNumber = "", StudentFullName = "" }
+                            },
+                            ProfessorList = new List<Professor>(),
+                            TeamName = "",
+                            SelectedProfessorId = null
+                        };
+                        return View(newTeamCreator);
+                    }
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Profesör bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new List<Professor>());
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
+                return View(new List<Professor>());
+            }
         }
 
         // ************************************   Student Upload Project    ************************************

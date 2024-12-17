@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj": {}
+    "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj": {
+    "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj",
+        "projectUniqueName": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS.csproj",
         "projectName": "GEPS",
-        "projectPath": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj",
+        "projectPath": "C:\\Users\\Semir\\Desktop\\GEPS\\GEPS.csproj",
         "packagesPath": "C:\\Users\\Semir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\obj\\",
+        "outputPath": "C:\\Users\\Semir\\Desktop\\GEPS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -74,11 +74,25 @@
                 </tr>
                 <tr>
                     <td>
-                        @Html.TextBoxFor(m => m.AdvisorName, new { @class = "form__field", placeholder = "Enter Project Advisory", required = "required" })
-
-                        @Html.ValidationMessageFor(m => m.AdvisorName)
+                        @if (Model.ProfessorList == null || !Model.ProfessorList.Any())
+                        {
+                            <div class="alert alert-warning">Profesör listesi yüklenemedi. Lütfen daha sonra tekrar deneyin.</div>
+                        }
+                        else
+                        {
+                            @Html.DropDownListFor(
+                                     m => m.SelectedProfessorId,
+                                     Model.ProfessorList != null && Model.ProfessorList.Any()
+                                     ? new SelectList(Model.ProfessorList, "ProfessorId", "FullName") 
+                                     : new SelectList(Enumerable.Empty<SelectListItem>()), 
+                                     "Select a professor",
+                                     new { @class = "form__field", required = "required" } 
+                                     )
+                            @Html.ValidationMessageFor(m => m.SelectedProfessorId)
+                        }
                     </td>
                 </tr>
+
                 @for (int i = 0; i < 3; i++)
                 {
                     <tr>

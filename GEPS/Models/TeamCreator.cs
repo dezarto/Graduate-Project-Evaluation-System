@@ -5,8 +5,9 @@
         public string ProjectName { get; set; }
         public string Description { get; set; }
         public string TeamName { get; set; }
-        public string AdvisorName { get; set; }
         public List<StudenLists> StudentList { get; set; }
+        public List<Professor> ProfessorList { get; set; }
+        public int? SelectedProfessorId { get; set; }
     }
 
     public class StudenLists
