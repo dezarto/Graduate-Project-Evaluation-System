@@ -5,9 +5,7 @@ body {
 }
 
 .mainTeacherViewResult {
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 5%;
+    padding:8%;
 }
 
 .resultPart {
@@ -15,6 +13,7 @@ body {
     border-radius: 15px;
     /*border: 1px solid #777777;*/
     box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
 }
 
 .inlinePadding {
@@ -29,6 +28,10 @@ body {
     margin: 10px 0;
 }
 
+.tableOfTeamInfo p {
+    font-size:16px;
+}
+
     .tableOfTeamInfo td, .tableOfTeamInfo th {
         padding: 10px;
         text-align: left;
@@ -37,7 +40,6 @@ body {
 
     .tableOfTeamInfo th {
         font-weight: bold;
-        font-size: 15px;
     }
 
 
@@ -45,9 +47,6 @@ body {
         background-color: #f1f1f1;
     }
 
-    .tableOfTeamInfo p {
-        font-size: 10px;
-    }
 
 .tableOfResult {
     width: 100%;

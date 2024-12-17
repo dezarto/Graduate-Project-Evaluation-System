@@ -1,22 +1,28 @@
-﻿@ -0,0 +1,148 @@ .all-boxes {
+﻿body {
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+}
+
+.all-boxes {
     display: flex;
-    flex-direction: column; /* İçerikleri dikey düzenle */
-    align-items: center; /* Kapsayıcı içeriği yatayda ortala */
-    justify-content: center; /* Kapsayıcı içeriği dikeyde ortala */
-    width: 100%;
+    flex-direction: column;
+    padding: 8%;
 }
 
 .intro {
-    width: 80%;
+    width: 100%;
 }
 
 .box-1 {
-    width: 80%;
+    width: 100%;
     height: auto;
     background-color: white;
-    border: 0.1px solid #0056b3;
+    border: 0.1px solid white;
     border-radius: 35px;
-    padding: 8px;
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:2%;
 }
 
 .box h4 {
@@ -24,8 +30,9 @@
 }
 
 .tableOfTeamInfo {
-    width: 60%;
+    width: 100%;
     margin: 10px 0;
+
 }
 
     .tableOfTeamInfo td, .tableOfTeamInfo th {
@@ -44,7 +51,7 @@
     }
 
     .tableOfTeamInfo p {
-        font-size: 10px;
+        font-size: 16px;
     }
 
 .container {

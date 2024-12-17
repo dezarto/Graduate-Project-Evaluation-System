@@ -1,5 +1,4 @@
 ﻿html, body {
-    height: 100%;
     margin: 0;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
@@ -8,10 +7,9 @@
 }
 
 .mainProjectCreate {
-    width: 80%;
-    max-width: 1000px;
-    padding: 20px;
+    width: 100%;
     margin-top: 3%;
+    padding:8%;
 }
 
 td {
@@ -36,8 +34,8 @@ td {
     width: 30%;
     height: 40px;
     border-radius: 25px;
-    border: 1px solid red;
-    background-color: red;
+    border: 1px solid #C1272D;
+    background-color: #C1272D;
     color: white;
 }
 

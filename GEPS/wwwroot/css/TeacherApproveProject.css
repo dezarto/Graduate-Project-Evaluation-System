@@ -4,9 +4,7 @@ body{
     font-family: 'Inter', sans-serif;
 }
 .mainTeacherApproveProject{
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 5%;
+    padding:8%;
 }
 
 .tableOfTeamInfo {
@@ -23,11 +21,10 @@ body{
 
 .tableOfTeamInfo th {
     font-weight: bold;
-    font-size: 15px;
 }
 
 .tableOfTeamInfo p{
-    font-size: 10px;
+    font-size: 16px;
 }
 .projectInfo{
     width: 100%;
@@ -38,7 +35,26 @@ body{
     display: flex;
     align-items: flex-start;
     gap: 20px; 
+    padding-top:2%;
+    padding-left:3%;
 }
+
+.projectContent{
+    width:70%;
+}
+
+.tableOfTeamInfo{
+    width:70%;
+}
+
+#teamTableBody{
+    width:50%;
+}
+
+#teamTableBody p {
+    font-size:16px;
+}
+
 .choiceContainer {
     width:20%;
     align-items: center;

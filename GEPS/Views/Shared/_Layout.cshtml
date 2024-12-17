@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GEPS.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/navbar.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+
 </head>
 <body>
     <header class="customHeader">
@@ -37,12 +39,12 @@
         }
         else if (ViewBag.UserRole == "Professor")
         {
-            <a href="@Url.Action("Profile", "Professor")">My Profile</a>
-            <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
-            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Evaluate Project</a>
-            <a href="@Url.Action("TeacherViewResult", "Professor")">View Result</a>
-            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Presentation Schedule</a>
-            <a href="@Url.Action("TeacherCalendar", "Professor")">Calendar</a>
+            <a href="@Url.Action("Profile", "Professor")">
+                My Profile</a>
+            <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
+            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
+            <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
+            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Team Home Professor</a>
         }
         else if (ViewBag.UserRole == "Student")
         {
@@ -57,10 +59,22 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - GEPS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <img src="~/IKULogo.svg" alt="T.C. İstanbul Kültür Üniversitesi">
         </div>
+
+        <div class="footer-title">
+            <img src="~/EvaluateGrey.svg" alt="Evaluate Logo">
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Documentation</a>
+            <a href="#" class="feedback-link">Give Feedback</a>
+        </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
