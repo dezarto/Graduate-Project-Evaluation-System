@@ -10,6 +10,6 @@ namespace GPESAPI.Application.Interfaces
         Task AddReportAppAsync(ReportDTO reportDto);
         Task UpdateReportAppAsync(ReportDTO reportDto);
         Task DeleteReportAppAsync(int id);
-        Task<bool> UploadReport(IFormFile file, string studentNumber);
+        Task<bool> UploadReport(string filePath, string studentNumber);
     }
 }

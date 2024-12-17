@@ -13,20 +13,16 @@ namespace GPESAPI.Application.Services
         private readonly IReportService _reportService;
         private readonly IUserService _userService;
         private readonly ITeamMemberService _teamMemberService;
+        private readonly ITeamService _teamService;
         private readonly IMapper _mapper;
-        private readonly string _uploadFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "UploadedProjects");
 
-        public ReportAppService(IReportService reportService, ITeamMemberService teamMemberService, IUserService userService, IMapper mapper)
+        public ReportAppService(IReportService reportService, ITeamMemberService teamMemberService, IUserService userService, ITeamService teamService , IMapper mapper)
         {
             _reportService = reportService;
             _userService = userService;
             _teamMemberService = teamMemberService;
+            _teamService = teamService;
             _mapper = mapper;
-
-            if (!Directory.Exists(_uploadFolderPath))
-            {
-                Directory.CreateDirectory(_uploadFolderPath);
-            }
         }
 
         public async Task<IEnumerable<ReportDTO>> GetAllReportAppAsync()
@@ -58,7 +54,7 @@ namespace GPESAPI.Application.Services
             await _reportService.DeleteReportAsync(id);
         }
 
-        public async Task<bool> UploadReport(IFormFile file, string studentNumber)
+        public async Task<bool> UploadReport(string filePath, string studentNumber)
         {
             try
             {
@@ -68,20 +64,13 @@ namespace GPESAPI.Application.Services
                 var teamMember = await _teamMemberService.GetByUserIdAsync(user.UserId);
                 if (teamMember == null) return false;
 
-                var objectId = ObjectId.GenerateNewId().ToString();
-                var fileExtension = Path.GetExtension(file.FileName);
-                var fullName = objectId + fileExtension;
-                var filePath = Path.Combine(_uploadFolderPath, fullName);
-                await using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
+                var team = await _teamService.GetTeamByIdAsync(teamMember.UserId);
 
                 var newReport = new Report
                 {
                     ReportDate = DateTime.Now,
                     TeamId = teamMember.TeamId,
-                    FilePath = fullName,
+                    FilePath = filePath,
                 };
 
                 await _reportService.UpdateReportAsync(newReport);

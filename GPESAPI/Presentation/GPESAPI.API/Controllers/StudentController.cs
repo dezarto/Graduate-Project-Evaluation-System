@@ -68,8 +68,8 @@ namespace GPESAPI.API.Controllers
             }
         }
 
-        [HttpPost("project-upload")]
-        public async Task<IActionResult> UploadProject([FromForm] IFormFile file)
+        [HttpPost("project-upload/{filePath}")]
+        public async Task<IActionResult> UploadProject(string filePath)
         {
             var studentNumber = User.FindFirst(ClaimTypes.Name)?.Value;
 
@@ -78,20 +78,19 @@ namespace GPESAPI.API.Controllers
                 return Unauthorized();
             }
 
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("File is missing or empty.");
-            }
-
             try
             {
-                var result = await _reportAppService.UploadReport(file, studentNumber);
-
-                if (result)
+                if (filePath != null)
                 {
-                    return Ok(new { Message = "File uploaded successfully." });
-                }
+                    var result = await _reportAppService.UploadReport(filePath, studentNumber);
 
+                    if (result)
+                    {
+                        return Ok(new { Message = "File uploaded successfully." });
+                    }
+
+                    return BadRequest();
+                }
                 return BadRequest();
             }
             catch (Exception ex)

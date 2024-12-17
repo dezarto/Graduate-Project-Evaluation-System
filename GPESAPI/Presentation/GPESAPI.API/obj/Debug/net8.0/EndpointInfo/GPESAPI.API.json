@@ -1002,67 +1002,21 @@
         }
       }
     },
-    "/api/Student/project-upload": {
+    "/api/Student/project-upload/{filePath}": {
       "post": {
         "tags": [
           "Student"
         ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "ContentType": {
-                    "type": "string"
-                  },
-                  "ContentDisposition": {
-                    "type": "string"
-                  },
-                  "Headers": {
-                    "type": "object",
-                    "additionalProperties": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "Length": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "Name": {
-                    "type": "string"
-                  },
-                  "FileName": {
-                    "type": "string"
-                  }
-                }
-              },
-              "encoding": {
-                "ContentType": {
-                  "style": "form"
-                },
-                "ContentDisposition": {
-                  "style": "form"
-                },
-                "Headers": {
-                  "style": "form"
-                },
-                "Length": {
-                  "style": "form"
-                },
-                "Name": {
-                  "style": "form"
-                },
-                "FileName": {
-                  "style": "form"
-                }
-              }
+        "parameters": [
+          {
+            "name": "filePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"

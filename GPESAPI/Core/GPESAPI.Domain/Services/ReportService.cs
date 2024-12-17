@@ -30,11 +30,22 @@ namespace GPESAPI.Domain.Services
         public async Task UpdateReportAsync(Report report)
         {
             await _reportRepository.UpdateAsync(report);
+
+            report.ReportId = report.ReportId;
         }
 
         public async Task DeleteReportAsync(int id)
         {
              await _reportRepository.DeleteAsync(id);
+        }
+
+        public async Task<Report> GetReportByTeamId(int id)
+        {
+            var detail = await _reportRepository.GetByFieldAsync("TeamId", id);
+            if (detail == null)
+                return null;
+
+            return detail.FirstOrDefault();
         }
     }
 

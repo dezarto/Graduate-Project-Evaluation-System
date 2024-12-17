@@ -9,5 +9,6 @@ namespace GPESAPI.Domain.Interfaces
         Task AddReportAsync(Report report);
         Task UpdateReportAsync(Report report);
         Task DeleteReportAsync(int id);
+        Task<Report> GetReportByTeamId(int id);
     }
 }

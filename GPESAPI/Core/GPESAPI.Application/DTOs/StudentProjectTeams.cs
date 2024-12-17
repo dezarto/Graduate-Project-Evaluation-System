@@ -10,6 +10,7 @@
         public string? TeamName { get; set; }
         public string? Description { get; set; }
         public string? ProjectName { get; set; }
+        public int? ReportId { get; set; }
     }
 
     public class MemberList
