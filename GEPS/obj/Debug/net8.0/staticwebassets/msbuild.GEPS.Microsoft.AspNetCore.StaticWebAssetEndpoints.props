@@ -1092,5 +1092,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zw3alhdsdn"},{"Name":"integrity","Value":"sha256-UxsiaeLxW\u002BwYZmXkCsX3\u002Bg3v/KnOBpKV/EAKtxGGREg="},{"Name":"label","Value":"_content/GEPS/uploads/6761e877cb66080a0b308d5b.pdf"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2699058"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022UxsiaeLxW\u002BwYZmXkCsX3\u002Bg3v/KnOBpKV/EAKtxGGREg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 21:09:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GEPS/uploads/6761f782e75427da20c70976.aeswq8o3vl.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6761f782e75427da20c70976.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"aeswq8o3vl"},{"Name":"integrity","Value":"sha256-Pu6hMWN2T\u002BvwZX2\u002Bwrrjq0ASUXLcFv\u002BHNQFBBhjLxV4="},{"Name":"label","Value":"_content/GEPS/uploads/6761f782e75427da20c70976.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1989830"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022Pu6hMWN2T\u002BvwZX2\u002Bwrrjq0ASUXLcFv\u002BHNQFBBhjLxV4=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 22:13:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GEPS/uploads/6761f782e75427da20c70976.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6761f782e75427da20c70976.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Pu6hMWN2T\u002BvwZX2\u002Bwrrjq0ASUXLcFv\u002BHNQFBBhjLxV4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1989830"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022Pu6hMWN2T\u002BvwZX2\u002Bwrrjq0ASUXLcFv\u002BHNQFBBhjLxV4=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 22:13:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjectTeamResponse>
+﻿@model List<ProjectTeamResponse>
 
 <!DOCTYPE html>
 <html>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/css/TeacherApproveProject.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>TeacherApproveProject</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="mainTeacherApproveProject">
@@ -24,31 +25,17 @@
                             <table class="tableOfTeamInfo">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <p>Team</p>
-                                        </th>
-                                        <th>
-                                            <p>Status</p>
-                                        </th>
-                                        <th>
-                                            <p>Evaluating Teacher</p>
-                                        </th>
-                                        <th>
-                                            <p>Team Members</p>
-                                        </th>
+                                        <th><p>Team</p></th>
+                                        <th><p>Status</p></th>
+                                        <th><p>Evaluating Teacher</p></th>
+                                        <th><p>Team Members</p></th>
                                     </tr>
                                 </thead>
                                 <tbody id="teamTableBody">
                                     <tr>
-                                        <td>
-                                            <p>@ProjectTeamResponse.TeamId</p>
-                                        </td>
-                                        <td>
-                                            <p>@ProjectTeamResponse.IsActive</p>
-                                        </td>
-                                        <td>
-                                            <p>@ProjectTeamResponse.EvaluatingTeacherMail</p>
-                                        </td>
+                                        <td><p>@ProjectTeamResponse.TeamId</p></td>
+                                        <td><p>@ProjectTeamResponse.IsActive</p></td>
+                                        <td><p>@ProjectTeamResponse.EvaluatingTeacherMail</p></td>
                                         <td>
                                             @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
                                             {
@@ -89,43 +76,42 @@
         const approveButtons = document.querySelectorAll(".approve");
         const rejectButtons = document.querySelectorAll(".reject");
 
-        // Onaylama butonu tıklama
+        // Approve button click
         approveButtons.forEach(button => {
             button.addEventListener("click", function () {
                 const projectId = this.getAttribute("data-project-id");
-                handleProjectAction(projectId, true);  // true -> approve
+                handleProjectAction(projectId, true); // true -> approve
             });
         });
 
-        // Reddetme butonu tıklama (aynı zamanda silme işlemi de yapılacak)
+        // Reject button click
         rejectButtons.forEach(button => {
             button.addEventListener("click", function () {
                 const projectId = this.getAttribute("data-project-id");
-                handleProjectAction(projectId, false);  // false -> reject / delete
+                handleProjectAction(projectId, false); // false -> reject/delete
             });
         });
 
+        // Function to handle project action
         function handleProjectAction(projectId, isApproved) {
-            const apiUrl = `/Teacher/TeacherApproveProject?projectId=${projectId}&approval=${isApproved}`;
+            const apiUrl = `/Professor/TeacherApproveProject?projectId=${projectId}&approval=${isApproved}`;
 
             $.ajax({
                 url: apiUrl,
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (response) {
-                    let message = isApproved ? "Project approved successfully!" : "Project rejected/deleted successfully!";
-                    alert(message);
-                    location.reload(); // Sayfayı yeniler
+                    const message = isApproved ? "Project approved successfully!" : "Project rejected/deleted successfully!";
+                    alert(message); // Show success message to the user
+                    location.reload(); // Reload the page to reflect changes
                 },
                 error: function (xhr, status, error) {
                     console.error("Error:", error);
-                    alert("An unexpected error occurred.");
+                    alert("An unexpected error occurred. Please try again.");
                 }
             });
         }
     });
-
 </script>
-
 
 </html>

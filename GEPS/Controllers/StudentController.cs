@@ -185,13 +185,13 @@ namespace GEPS.Controllers
                 else
                 {
                     ViewBag.Errors = new[] { "API call failed with status: " + response.StatusCode };
-                    return View(teamCreator);
+                    return View("Error");
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.Errors = new[] { "An error occurred: " + ex.Message };
-                return View(teamCreator);
+                return View("Error");
             }
         }
 

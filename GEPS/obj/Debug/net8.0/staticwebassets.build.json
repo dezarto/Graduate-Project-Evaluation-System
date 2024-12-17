@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dOl/B2mArjSyk9YRhHic+RU+GeybZOWWLmg6bq48ZFY=",
+  "Hash": "LipFhdjccPsuciQuU6o8+oQKCciLjtVEs0HN+jE5aO8=",
   "Source": "GEPS",
   "BasePath": "_content/GEPS",
   "Mode": "Default",
@@ -1947,6 +1947,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761f782e75427da20c70976.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6761f782e75427da20c70976#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aeswq8o3vl",
+      "Integrity": "Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6761f782e75427da20c70976.pdf"
     }
   ],
   "Endpoints": [
@@ -9491,6 +9512,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-UxsiaeLxW+wYZmXkCsX3+g3v/KnOBpKV/EAKtxGGREg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761f782e75427da20c70976.aeswq8o3vl.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761f782e75427da20c70976.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1989830"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 22:13:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aeswq8o3vl"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6761f782e75427da20c70976.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6761f782e75427da20c70976.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761f782e75427da20c70976.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1989830"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 22:13:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4="
         }
       ]
     }

@@ -266,47 +266,13 @@ namespace GEPS.Controllers
 
         // ************************************   Teacher Approve Project Page ************************************
 
-        [HttpPost]
-        public async Task<IActionResult> TeacherApproveProject(int projectId, bool approval)
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            try
-            {
-                string apiUrl = $"https://localhost:7107/api/Professor/approval-teams?teamId={projectId}&approval={approval}";
-
-                var content = new StringContent(string.Empty); // Boş içerik
-                var response = await _httpClient.PostAsync(apiUrl, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["Message"] = approval
-                        ? "Project approved successfully!"
-                        : "Project rejected/deleted successfully!";
-                }
-                else
-                {
-                    ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
-                    return View("Error");
-                }
-
-                return RedirectToAction("TeacherApproveProject");
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-                return View("Error");
-            }
-        }
-
         [HttpGet]
         public async Task<IActionResult> TeacherApproveProject()
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
-            string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
+            string apiUrl = "https://localhost:7107/api/Professor/get-approval-teams-view";
             try
             {
                 string bearerToken = HttpContext.Session.GetString("BearerToken");
@@ -334,6 +300,51 @@ namespace GEPS.Controllers
                 return View();
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> TeacherApproveProject(int projectId, bool approval)
+        {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
+            try
+            {
+                string apiUrl = $"https://localhost:7107/api/Professor/post-approval-teams?teamId={projectId}&approval={approval}";
+
+                string bearerToken = HttpContext.Session.GetString("BearerToken");
+
+                if (string.IsNullOrEmpty(bearerToken))
+                {
+                    return Unauthorized("Bearer token is missing.");
+                }
+
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
+
+                var content = new StringContent(string.Empty); // Boş içerik
+                var response = await _httpClient.PostAsync(apiUrl, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Message"] = approval
+                        ? "Project approved successfully!"
+                        : "Project rejected/deleted successfully!";
+                }
+                else
+                {
+                    ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
+                    return View("Error");
+                }
+
+                return RedirectToAction("TeacherApproveProject");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                return View("Error");
+            }
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> TeacherCalendar()
