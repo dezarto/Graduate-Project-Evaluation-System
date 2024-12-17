@@ -1,5 +1,11 @@
 wwwroot\approve.png
 wwwroot\cross.png
+wwwroot\css\admin.css
+wwwroot\css\admin1.css
+wwwroot\css\Calendar.css
+wwwroot\css\editForCriteria.css
+wwwroot\css\editForItem.css
+wwwroot\css\editprof.css
 wwwroot\css\HomeForStu.css
 wwwroot\css\loadProject.css
 wwwroot\css\Login.css
@@ -11,7 +17,10 @@ wwwroot\css\TeacherApproveProject.css
 wwwroot\css\TeacherCalendar.css
 wwwroot\css\TeacherEvaluateProject.css
 wwwroot\css\TeacherViewResult.css
+wwwroot\EvaluateGrey.svg
+wwwroot\EvaluateRed.svg
 wwwroot\favicon.ico
+wwwroot\IKULogo.svg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

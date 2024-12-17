@@ -1,9 +1,6 @@
 ﻿using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Text;
 
 namespace GEPS.Controllers
@@ -18,12 +15,14 @@ namespace GEPS.Controllers
             _httpClient = httpClient;
         }
 
-
-        // ********************************************************  Professor Profile Page  *************************************
+        // ************************************  Professor Profile Page  ************************************
 
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-my-profile";
 
             try
@@ -48,10 +47,14 @@ namespace GEPS.Controllers
             }
         }
 
-        // ******************************************************** Get  Evaulation   *************************************
+        // ************************************ Get  Evaulation   ************************************
+
         [HttpGet("GetEvaluation/{evaluationId}")]
         public async Task<IActionResult> GetEvaluation(int evaluationId)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Professor/get-evaluation/{evaluationId}";
 
             try
@@ -77,10 +80,14 @@ namespace GEPS.Controllers
         }
 
 
-        // ********************************************************  Post Submit Evaluation   *************************************
+        // ************************************  Post Submit Evaluation   ************************************
+
         [HttpPost("SubmitEvaluation")]
         public async Task<IActionResult> SubmitEvaluation(ProjectEvaluationSubmit evaluationSubmitModel)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
 
             try
@@ -106,22 +113,23 @@ namespace GEPS.Controllers
         }
 
 
-        // ******************************************************** Get Project Team Result Evaluation   *************************************
+        // ************************************ Get Project Team Result Evaluation   ************************************
         [HttpGet("GetProjectTeamResult/{teamId}")]
         public async Task<IActionResult> GetProjectTeamResult(int teamId)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Professor/get-project-team-result/{teamId}";
 
             try
             {
-                // GET isteği gönder
                 var response = await _httpClient.GetAsync(apiUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // JSON yanıtını modele dönüştür
                     var teamResult = await response.Content.ReadFromJsonAsync<ProjectTeamResult>();
-                    return View("ProjectTeamResult", teamResult); // "ProjectTeamResult" bir view olacak
+                    return View("ProjectTeamResult", teamResult);
                 }
                 else
                 {
@@ -136,10 +144,13 @@ namespace GEPS.Controllers
             }
         }
 
-        // ******************************************************** Post Approval Team Evaluation   *************************************
+        // ************************************ Post Approval Team Evaluation   ************************************
         [HttpPost]
         public async Task<IActionResult> PostApprovalTeam(int teamId, bool approval)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Professor/post-approval-teams?teamId={teamId}&approval={approval}";
 
             try
@@ -166,11 +177,14 @@ namespace GEPS.Controllers
 
 
 
-        // ******************************************************** Get Approval Teams View    *************************************
+        // ************************************ Get Approval Teams View    ************************************
 
         [HttpGet]
         public async Task<IActionResult> getapprovalteamsview()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-approval-teams-view";
 
             try
@@ -195,12 +209,15 @@ namespace GEPS.Controllers
             }
         }
 
-        // ********************************************************  Professor Home Page  *************************************
+        // ************************************  Professor Home Page  ************************************
 
         [HttpGet]
         [Route("Professor/TeamHomeProfessor")]
         public async Task<IActionResult> TeamHomeProfessor()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
 
             try
@@ -215,7 +232,6 @@ namespace GEPS.Controllers
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
 
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl); 
-
 
                 if (projectTeams == null || !projectTeams.Any())
                 {
@@ -232,15 +248,17 @@ namespace GEPS.Controllers
             }
         }
 
-        // ********************************************************   Teacher Approve Project Page (ApproveRejectProject bu kısma dahildir.)  *************************************
+        // ************************************   Teacher Approve Project Page ************************************
 
 
         [HttpPost]
         public async Task<IActionResult> TeacherApproveProject(int projectId, bool approval)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             try
             {
-                // Tek bir URL üzerinden onaylama veya reddetme/silme işlemi yapılacak
                 string apiUrl = $"https://localhost:7107/api/Professor/approval-teams?teamId={projectId}&approval={approval}";
 
                 var content = new StringContent(string.Empty); // Boş içerik
@@ -258,7 +276,6 @@ namespace GEPS.Controllers
                     return View("Error");
                 }
 
-                // Başarılı işlem sonrası sayfayı yenile
                 return RedirectToAction("TeacherApproveProject");
             }
             catch (Exception ex)
@@ -271,6 +288,9 @@ namespace GEPS.Controllers
         [HttpGet]
         public async Task<IActionResult> TeacherApproveProject()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
             try
             {
@@ -300,14 +320,12 @@ namespace GEPS.Controllers
             }
         }
 
-
-
-
-
-
         [HttpGet]
         public async Task<IActionResult> TeacherCalendar()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-availability-by-professor-auth";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -349,12 +367,18 @@ namespace GEPS.Controllers
         [HttpGet]
         public IActionResult CreateTeacherCalendar()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateTeacherCalendar(ProfessorAvailability professorAvailability)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/post-availability-by-professor";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -366,13 +390,11 @@ namespace GEPS.Controllers
 
             try
             {
-                professorAvailability.ProfessorId = 0;  // Varsayılan bir değer eklenmiş
-                professorAvailability.AvailabilityId = 0;  // Varsayılan bir değer eklenmiş (gerekli ise)
+                professorAvailability.ProfessorId = 0;  
+                professorAvailability.AvailabilityId = 0; 
 
-                // professorAvailability'yi bir listeye sarıyoruz
                 var availabilitiesList = new List<ProfessorAvailability> { professorAvailability };
 
-                // JSON formatını doğrudan doğru şekilde gönderiyoruz
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(availabilitiesList), Encoding.UTF8, "application/json")
@@ -401,6 +423,9 @@ namespace GEPS.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteTeacherCalendar(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = $"https://localhost:7107/api/Professor/delete-availability-by-id/{id}";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -428,13 +453,14 @@ namespace GEPS.Controllers
             }
         }
 
-
-
-        // ********************************************************   Teacher Evaluate Page  *************************************
+        // *************************************   Teacher Evaluate Page  *************************************
 
         [HttpGet]
         public async Task<IActionResult> TeacherEvaluateProject()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
 
             try
@@ -449,7 +475,6 @@ namespace GEPS.Controllers
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
 
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
-
 
                 if (projectTeams == null || !projectTeams.Any())
                 {
@@ -470,37 +495,40 @@ namespace GEPS.Controllers
         [HttpPost]
         public async Task<IActionResult> PostTeacherEvaluateProject(ProjectEvaluationSubmit evaluationModel)
         {
-            
-                string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
 
-                try
+            string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
+
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationModel);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationModel);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        ViewBag.Message = "Evaluation submitted successfully!";
-                        return RedirectToAction("TeamHomeProfessor"); 
-                    }
-                    else
-                    {
-                        ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
-                        return View("Error");
-                    }
+                    ViewBag.Message = "Evaluation submitted successfully!";
+                    return RedirectToAction("TeamHomeProfessor"); 
                 }
-                catch (Exception ex)
+                else
                 {
-                   
-                    ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                    ViewBag.Errors = new[] { $"API Error: {response.StatusCode}" };
                     return View("Error");
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                   
+                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+                return View("Error");
+            }
         }
-
 
 
         public async Task<IActionResult> TeacherViewResult()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
 
             try
@@ -515,7 +543,6 @@ namespace GEPS.Controllers
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
 
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
-
 
                 if (projectTeams == null || !projectTeams.Any())
                 {

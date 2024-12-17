@@ -1,18 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\",
+  "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\onur\\onedrive\\masa\u00FCst\u00FC\\geps\\views\\professor\\teacherevaluateproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\filter\\rolemiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:filter\\rolemiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\filter\\rolefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:filter\\rolefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\professor\\teamhomeprofessor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teamhomeprofessor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\professor\\teacherevaluateproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teacherevaluateproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teacherapproveproject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,54 +53,156 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 250,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 258,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:648089431:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfessorController.cs",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\ProfessorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Controllers\\ProfessorController.cs",
-              "RelativeToolTip": "Controllers\\ProfessorController.cs",
-              "ViewState": "AQIAAG4BAAAAAAAAAAAuwMgAAAAuAAAA",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T22:49:24.641Z",
+              "WhenOpened": "2024-12-17T00:19:46.819Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "TeamHomeProfessor.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeamHomeProfessor.cshtml",
+              "RelativeDocumentMoniker": "Views\\Professor\\TeamHomeProfessor.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeamHomeProfessor.cshtml",
+              "RelativeToolTip": "Views\\Professor\\TeamHomeProfessor.cshtml",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAcwGgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T00:15:33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T23:58:37.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAowDkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T23:34:15.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "TeacherEvaluateProject.cshtml",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
               "RelativeDocumentMoniker": "Views\\Professor\\TeacherEvaluateProject.cshtml",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeacherEvaluateProject.cshtml",
               "RelativeToolTip": "Views\\Professor\\TeacherEvaluateProject.cshtml",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAABgAAAAGAAAA",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-16T22:23:58.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "TeacherApproveProject.cshtml",
-              "DocumentMoniker": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
               "RelativeDocumentMoniker": "Views\\Professor\\TeacherApproveProject.cshtml",
-              "ToolTip": "C:\\Users\\Onur\\OneDrive\\Masa\u00FCst\u00FC\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\TeacherApproveProject.cshtml",
               "RelativeToolTip": "Views\\Professor\\TeacherApproveProject.cshtml",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAiwGoAAAAAAAAA",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAiwGoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-16T22:20:11.299Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 242,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Controllers\\ProfessorController.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAAAIwNwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:49:24.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAUwDIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T00:12:28.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoleFilter.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Filter\\RoleFilter.cs",
+              "RelativeDocumentMoniker": "Filter\\RoleFilter.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Filter\\RoleFilter.cs",
+              "RelativeToolTip": "Filter\\RoleFilter.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAvwAsAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T00:11:34.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Filter\\RoleMiddleware.cs",
+              "RelativeDocumentMoniker": "Filter\\RoleMiddleware.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Filter\\RoleMiddleware.cs",
+              "RelativeToolTip": "Filter\\RoleMiddleware.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBQAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T00:07:59.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAMYBAAAAAAAAAAAEwNoBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T23:51:51.87Z",
               "EditorCaption": ""
             }
           ]

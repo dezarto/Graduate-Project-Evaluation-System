@@ -94,4 +94,33 @@
         </section>
     </div>
 </body>
+@section Scripts
+{
+    <script>
+        const token = '@TempData["Token"]';
+        if (token) {
+            sessionStorage.setItem('Token', token);
+        }
+
+        // Token'i sessionStorage'dan al
+        var token = sessionStorage.getItem("Token");
+
+        // Token varsa, başlık olarak backend'e gönderebilirsiniz
+        if (token) {
+            fetch('https://your-api-url', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // API'den gelen veriyi işleme
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+}
 </html>

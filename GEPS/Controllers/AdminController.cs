@@ -1,15 +1,12 @@
-﻿using GEPS.Models;
+﻿using GEPS.Filter;
+using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 
 namespace GEPS.Controllers
 {
+    [ServiceFilter(typeof(RoleFilter))]
     [Route("Admin")]
     public class AdminController : Controller
     {
@@ -20,15 +17,15 @@ namespace GEPS.Controllers
             _httpClient = httpClient;
         }
 
-
-
         //Tamamlandı
         [HttpPost("PostCreateProfessor")]
         public async Task<IActionResult> PostCreateProfessor([FromBody] Professor professor)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/create-professor";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -67,16 +64,21 @@ namespace GEPS.Controllers
         [HttpGet("PostCreateProfessor")]
         public IActionResult PostCreateProfessor()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return View();
         }
 
-             //Tamamlandı
+        //Tamamlandı
         [HttpGet("GetAllProfessor")]
         public async Task<IActionResult> GetAllProfessor()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string  apiUrl = "https://localhost:7107/api/Admin/get-all-professor";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -93,36 +95,34 @@ namespace GEPS.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // API'den gelen JSON verisini deserialize etme
                     var content = await response.Content.ReadAsStringAsync();
                     var professorList = JsonConvert.DeserializeObject<List<Professor>>(content);
 
-                    // Veriyi View'a gönderme
                     return View(professorList);
                 }
                 else
                 {
-                    // Hata durumunda detaylı mesaj loglama
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $"Profesör bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<Professor>()); // Boş liste ile döner
+                    return View(new List<Professor>());
                 }
             }
             catch (Exception ex)
             {
-                // Beklenmeyen hata durumlarını yakalama
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<Professor>()); // Boş liste ile döner
+                return View(new List<Professor>());
             }
         }
 
-         //Tamamlandı
+        //Tamamlandı
         [HttpPost("UpdateProfessor/{id}")]
         public async Task<IActionResult> UpdateProfessor(int id, [FromBody] Professor professor)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/update-professor-by-id/{id}";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -161,6 +161,9 @@ namespace GEPS.Controllers
         [HttpGet("UpdateProfessor/{id}")]
         public async Task<IActionResult> UpdateProfessor(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/get-professor-by-id/{id}";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -183,7 +186,7 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var professor = JsonConvert.DeserializeObject<Professor>(content);
 
-                    return View(professor);  // Professor modelini View'a gönder
+                    return View(professor);
                 }
                 else
                 {
@@ -199,12 +202,13 @@ namespace GEPS.Controllers
             }
         }
 
-
-
         //  Tamamlandı
         [HttpPost("DeleteProfessor")]
         public async Task<IActionResult> DeleteProfessor(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/delete-professor-by-id/{id}";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -232,12 +236,14 @@ namespace GEPS.Controllers
             return RedirectToAction("GetAllProfessor");
         }
 
-
         //Role Kısmı default girilmeli
         //Tamamlandı
         [HttpPost("CreateStudent")]
         public async Task<IActionResult> CreateStudent([FromBody] Student student)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/create-student";
 
             // Token'ı session'dan al
@@ -274,20 +280,26 @@ namespace GEPS.Controllers
                 return Json(new { success = false, errorMessage = $"An error occurred: {ex.Message}" });
             }
         }
+
         //Tamamlandı
         [HttpGet("CreateStudent")]
         public IActionResult CreateStudent()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return View();
         }
 
-                //Tamamlandı
+        //Tamamlandı
         [HttpGet("GetAllStudent")]
         public async Task<IActionResult> GetAllStudent()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/get-all-student";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -305,26 +317,22 @@ namespace GEPS.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // API'den gelen JSON verisini deserialize etme
                     var content = await response.Content.ReadAsStringAsync();
                     var studentList = JsonConvert.DeserializeObject<List<Student>>(content);
 
-                    // Veriyi View'a gönderme
                     return View(studentList);
                 }
                 else
                 {
-                    // Hata durumunda detaylı mesaj loglama
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $"Öğrenci bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<Student>()); // Boş liste ile döner
+                    return View(new List<Student>());
                 }
             }
             catch (Exception ex)
             {
-                // Beklenmeyen hata durumlarını yakalama
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<Student>()); // Boş liste ile döner
+                return View(new List<Student>());
             }
         }
 
@@ -332,9 +340,11 @@ namespace GEPS.Controllers
         [HttpGet("UpdateStudent/{id}")]
         public async Task<IActionResult> UpdateStudent(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/get-student-by-id/{id}";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -355,7 +365,6 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var student = JsonConvert.DeserializeObject<Student>(content);
 
-                    // View'a öğrenci bilgisini gönder
                     return View(student);
                 }
                 else
@@ -376,6 +385,9 @@ namespace GEPS.Controllers
         [HttpPost("UpdateStudent/{id}")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] Student student)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/update-student/{id}";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -387,13 +399,12 @@ namespace GEPS.Controllers
 
             try
             {
-                // ID kontrolü yapılır, çünkü gelen student'ın ID'si ile URL'deki ID'nin eşleşmesi gerekir
                 if (id != student.UserId)
                 {
                     return Json(new { success = false, errorMessage = "Student ID mismatch." });
                 }
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl)  // PUT kullanmamız doğru olacak çünkü güncelleme işlemi yapıyoruz
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl)
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(student), Encoding.UTF8, "application/json")
                 };
@@ -418,15 +429,15 @@ namespace GEPS.Controllers
             }
         }
 
-
         //Tamamlandı
         [HttpDelete("DeleteStudent/{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
-            // API URL'sini oluştur
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = $"https://localhost:7107/api/Admin/delete-student/{id}";
 
-            // Token'ı alın
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -435,14 +446,11 @@ namespace GEPS.Controllers
                 return View("Error");
             }
 
-            // DELETE isteği için HttpRequestMessage oluştur
             var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            // İsteği gönder
             var response = await _httpClient.SendAsync(request);
 
-            // Yanıtı kontrol et
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.SuccessMessage = "Değerlendirme kriteri başarıyla silindi!";
@@ -455,13 +463,13 @@ namespace GEPS.Controllers
             }
         }
 
-
-        //Tamamlandııı
-        // GET: /Admin/GetAllEvaluationCriteria
-        //Admin.cs içierisinde yer alan AdminEvaluationCriteria modelini kullanır.
+        //Tamamlandı
         [HttpGet("GetAllEvaluationCriteria")]
         public async Task<IActionResult> GetAllEvaluationCriteria()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/get-all-evaluation-criteria";
 
             var token = HttpContext.Session.GetString("BearerToken");
@@ -484,19 +492,19 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var evaluationCriteriaList = JsonConvert.DeserializeObject<List<AdminEvaluationCriteria>>(content);
 
-                    return View(evaluationCriteriaList);  // AdminEvaluationCriteria türünde veri gönderiyoruz
+                    return View(evaluationCriteriaList);
                 }
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $"Değerlendirme kriterleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<AdminEvaluationCriteria>()); // Boş liste döndür
+                    return View(new List<AdminEvaluationCriteria>());
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<AdminEvaluationCriteria>()); // Boş liste döndür
+                return View(new List<AdminEvaluationCriteria>());
             }
         }
 
@@ -504,6 +512,9 @@ namespace GEPS.Controllers
         [HttpGet("CreateEvaluationCriteria")]
         public IActionResult CreateEvaluationCriteria()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return View();
         }
         
@@ -511,9 +522,11 @@ namespace GEPS.Controllers
         [HttpPost("CreateEvaluationCriteria")]
         public async Task<IActionResult> CreateEvaluationCriteria([FromBody] AdminEvaluationCriteria criteria)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/post-add-evaluation-criteria";
 
-            // Session'dan token alınıyor
             var token = HttpContext.Session.GetString("BearerToken");
             if (string.IsNullOrEmpty(token))
             {
@@ -522,7 +535,6 @@ namespace GEPS.Controllers
 
             try
             {
-                // API'ye istek gönderme
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(criteria), Encoding.UTF8, "application/json")
@@ -547,14 +559,15 @@ namespace GEPS.Controllers
             }
         }
 
-
         //Tamamlandııı
         [HttpGet("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/get-evaluation-criteria-by-id/{id}";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -575,7 +588,7 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var evaluationCriteria = JsonConvert.DeserializeObject<AdminEvaluationCriteria>(content);
 
-                    return View(evaluationCriteria);  // AdminEvaluationCriteria modelini View'a gönder
+                    return View(evaluationCriteria);
                 }
                 else
                 {
@@ -595,9 +608,11 @@ namespace GEPS.Controllers
         [HttpPost("UpdateEvaluationCriteria/{id}")]
         public async Task<IActionResult> UpdateEvaluationCriteria(int id, [FromBody] AdminEvaluationCriteria criteria)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/put-update-evaluation-criteria/{id}";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -608,7 +623,7 @@ namespace GEPS.Controllers
             try
             {
                 criteria.CriteriaId = id;
-                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl) // PUT methodunu kullanıyoruz
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl) 
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(criteria), Encoding.UTF8, "application/json")
                 };
@@ -634,14 +649,15 @@ namespace GEPS.Controllers
         }
 
 
-            //Tamamlandııı
+        //Tamamlandııı
         [HttpDelete("DeleteEvaluationCriteria/{id}")]
         public async Task<IActionResult> DeleteEvaluationCriteria(int id)
         {
-            // API URL'sini oluştur
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+            
             var apiUrl = $"https://localhost:7107/api/Admin/delete-evaluation-criteria/{id}";
 
-            // Token'ı alın
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -650,14 +666,11 @@ namespace GEPS.Controllers
                 return View("Error");
             }
 
-            // DELETE isteği için HttpRequestMessage oluştur
             var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            // İsteği gönder
             var response = await _httpClient.SendAsync(request);
 
-            // Yanıtı kontrol et
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.SuccessMessage = "Değerlendirme kriteri başarıyla silindi!";
@@ -671,13 +684,14 @@ namespace GEPS.Controllers
         }
 
         //Tamamlandı
-        // Admin.cs içierisinde yer alan AdminChecklistItem modelini kullanır. 
         [HttpGet("GetAllChecklistItems")]
         public async Task<IActionResult> GetAllChecklistItems()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/get-all-checklist-items";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -698,19 +712,19 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var checklistItems = JsonConvert.DeserializeObject<List<AdminChecklistItem>>(content);
 
-                    return View(checklistItems);  // AdminChecklistItem türünde veri gönderiyoruz
+                    return View(checklistItems);
                 }
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $"Checklist öğeleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<AdminChecklistItem>()); // Boş liste döndür
+                    return View(new List<AdminChecklistItem>());
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<AdminChecklistItem>()); // Boş liste döndür
+                return View(new List<AdminChecklistItem>());
             }
         }
 
@@ -718,16 +732,21 @@ namespace GEPS.Controllers
         [HttpGet("PostAddCheckListItem")]
         public IActionResult PostAddCheckListItem()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return View();
         }
 
         //Tamamlandı
-        [HttpPost("PostAddCheckListItem")] // URL burada uyumlu olmalı
+        [HttpPost("PostAddCheckListItem")]
         public async Task<IActionResult> PostAddCheckListItem([FromBody] AdminChecklistItem checklistItem)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/post-add-checklist-item";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -762,18 +781,19 @@ namespace GEPS.Controllers
             }
         }
 
-
-
         //Tamamlandı
         [HttpGet("UpdateCheckListItem/{id}")]
         public async Task<IActionResult> UpdateCheckListItem(int id)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/get-checklist-item-by-id/{id}";
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
             {
-                return RedirectToAction("Login", "Account"); // Token yoksa login sayfasına yönlendir.
+                return RedirectToAction("Login", "Account");
             }
 
             try
@@ -788,7 +808,7 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var checklistItem = JsonConvert.DeserializeObject<AdminChecklistItem>(content);
 
-                    return View(checklistItem); // Modeli View'a gönder.
+                    return View(checklistItem);
                 }
                 else
                 {
@@ -808,6 +828,9 @@ namespace GEPS.Controllers
         [HttpPost("UpdateCheckListItem/{id}")]
         public async Task<IActionResult> UpdateCheckListItem(int id, [FromBody] AdminChecklistItem checklistItem)
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = $"https://localhost:7107/api/Admin/put-update-checklist-item/{id}";
             var token = HttpContext.Session.GetString("BearerToken");
 
@@ -851,10 +874,11 @@ namespace GEPS.Controllers
         [HttpDelete("DeleteCheckListItem/{id}")]
         public async Task<IActionResult> DeleteCheckListItem(int id)
         {
-            // API URL'sini oluştur
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = $"https://localhost:7107/api/Admin/delete-checklist-item/{id}";
 
-            // Token'ı alın
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -863,14 +887,11 @@ namespace GEPS.Controllers
                 return View("Error");
             }
 
-            // DELETE isteği için HttpRequestMessage oluştur
             var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            // İsteği gönder
             var response = await _httpClient.SendAsync(request);
 
-            // Yanıtı kontrol et
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.SuccessMessage = "Delete Check List Item başarıyla silindi!";
@@ -888,9 +909,11 @@ namespace GEPS.Controllers
         [HttpGet("GetAllTeams")]
         public async Task<IActionResult> GetAllTeams()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             string apiUrl = "https://localhost:7107/api/Admin/get-all-teams";
 
-            // Token'ı session'dan al
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -911,19 +934,19 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var Teams = JsonConvert.DeserializeObject<List<Teams>>(content);
 
-                    return View(Teams);  // TeamCreator türünde veri gönderiyoruz
+                    return View(Teams);
                 }
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $" API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<Teams>()); // Boş liste döndür
+                    return View(new List<Teams>());
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<Teams>()); // Boş liste döndür
+                return View(new List<Teams>());
             }
         }
 
@@ -931,10 +954,11 @@ namespace GEPS.Controllers
         [HttpDelete("DeleteTeams/{id}")]
         public async Task<IActionResult> DeleteTeams(int id)
         {
-            // API URL'sini oluştur
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = $"https://localhost:7107/api/Admin/delete-team-by-id/{id}";
 
-            // Token'ı alın
             var token = HttpContext.Session.GetString("BearerToken");
 
             if (string.IsNullOrEmpty(token))
@@ -943,14 +967,11 @@ namespace GEPS.Controllers
                 return View("Error");
             }
 
-            // DELETE isteği için HttpRequestMessage oluştur
             var request = new HttpRequestMessage(HttpMethod.Delete, apiUrl);
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            // İsteği gönder
             var response = await _httpClient.SendAsync(request);
 
-            // Yanıtı kontrol et
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.SuccessMessage = "Delete Teams ";
@@ -962,7 +983,5 @@ namespace GEPS.Controllers
                 return RedirectToAction("GetAllEvaluationCriteria");
             }
         }
-
     }
-
 }

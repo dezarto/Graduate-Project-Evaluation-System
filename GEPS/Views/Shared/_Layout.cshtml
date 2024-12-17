@@ -21,7 +21,7 @@
         <div class="sidebar-header">
             <div>
                 <h4>Hello,</h4>
-                <h3>Kullanıcı Adı</h3>
+                <h3>@User.Identity.Name</h3> <!-- Kullanıcı adı burada görüntülenebilir -->
             </div>
 
             <button class="logout">
@@ -29,13 +29,26 @@
             </button>
         </div>
 
-        <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
-        <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
-        <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
-        <a href="@Url.Action("TeamHomeProfessor", "Professor")">Team Home Professor</a>
-        <a href="@Url.Action("ProjectCreate", "Student")">Project Create</a>
-        <a href="@Url.Action("ProjectUpload", "Student")">Project Upload</a>
-        <a href="@Url.Action("TeamHome", "Student")">Team Home</a>
+        <!-- Sidebar içeriğini kullanıcı türüne göre dinamik hale getirme -->
+        @if (ViewBag.UserRole == "Admin")
+        {
+            <a href="@Url.Action("GetAllProfessor", "Admin")">Professor</a>
+            <a href="@Url.Action("ManageUsers", "Admin")">Manage Users</a>
+            <a href="@Url.Action("Settings", "Admin")">Settings</a>
+        }
+        else if (ViewBag.UserRole == "Professor")
+        {
+            <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
+            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
+            <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
+            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Team Home Professor</a>
+        }
+        else if (ViewBag.UserRole == "Student")
+        {
+            <a href="@Url.Action("ProjectCreate", "Student")">Project Create</a>
+            <a href="@Url.Action("ProjectUpload", "Student")">Project Upload</a>
+            <a href="@Url.Action("TeamHome", "Student")">Team Home</a>
+        }
     </aside>
     <div class="container">
         <main role="main" class="pb-3">

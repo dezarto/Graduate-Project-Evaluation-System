@@ -3,6 +3,170 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
+      "Route": "EvaluateGrey.jay0w2tl5d.svg",
+      "AssetFile": "EvaluateGrey.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18804"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"myUDGJQL4AM7CTev80fVcVDhIT72AXRyC/vprvl7abk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jay0w2tl5d"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-myUDGJQL4AM7CTev80fVcVDhIT72AXRyC/vprvl7abk="
+        },
+        {
+          "Name": "label",
+          "Value": "EvaluateGrey.svg"
+        }
+      ]
+    },
+    {
+      "Route": "EvaluateGrey.svg",
+      "AssetFile": "EvaluateGrey.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18804"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"myUDGJQL4AM7CTev80fVcVDhIT72AXRyC/vprvl7abk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-myUDGJQL4AM7CTev80fVcVDhIT72AXRyC/vprvl7abk="
+        }
+      ]
+    },
+    {
+      "Route": "EvaluateRed.im3pj7fv29.svg",
+      "AssetFile": "EvaluateRed.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18318"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mv3EQr9tygszxX+eqAexmn3CWJe9W2km/5vjH7j+9Kc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "im3pj7fv29"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mv3EQr9tygszxX+eqAexmn3CWJe9W2km/5vjH7j+9Kc="
+        },
+        {
+          "Name": "label",
+          "Value": "EvaluateRed.svg"
+        }
+      ]
+    },
+    {
+      "Route": "EvaluateRed.svg",
+      "AssetFile": "EvaluateRed.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18318"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mv3EQr9tygszxX+eqAexmn3CWJe9W2km/5vjH7j+9Kc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mv3EQr9tygszxX+eqAexmn3CWJe9W2km/5vjH7j+9Kc="
+        }
+      ]
+    },
+    {
       "Route": "GEPS.693dqlujtg.styles.css",
       "AssetFile": "GEPS.styles.css",
       "Selectors": [],
@@ -29,7 +193,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -74,13 +238,95 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
           "Value": "sha256-RkDtnIVYUi+942oH1+4xUdRPqf5ilri/zdaje6FZg18="
+        }
+      ]
+    },
+    {
+      "Route": "IKULogo.ngqm65fd7o.svg",
+      "AssetFile": "IKULogo.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iaY+DbDD7hLaGqyEZiw2zp90FdrAnq/mtz4YVz81fxQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ngqm65fd7o"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iaY+DbDD7hLaGqyEZiw2zp90FdrAnq/mtz4YVz81fxQ="
+        },
+        {
+          "Name": "label",
+          "Value": "IKULogo.svg"
+        }
+      ]
+    },
+    {
+      "Route": "IKULogo.svg",
+      "AssetFile": "IKULogo.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iaY+DbDD7hLaGqyEZiw2zp90FdrAnq/mtz4YVz81fxQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iaY+DbDD7hLaGqyEZiw2zp90FdrAnq/mtz4YVz81fxQ="
         }
       ]
     },
@@ -111,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -148,7 +394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -193,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -238,13 +484,95 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
           "Value": "sha256-YK3HF2FRbCIojYFbGm0lfTPvNQyMDTBT27sOttfMFvU="
+        }
+      ]
+    },
+    {
+      "Route": "css/Calendar.css",
+      "AssetFile": "css/Calendar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "679"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY="
+        }
+      ]
+    },
+    {
+      "Route": "css/Calendar.z05syrf03r.css",
+      "AssetFile": "css/Calendar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "679"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z05syrf03r"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/Calendar.css"
         }
       ]
     },
@@ -275,7 +603,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -312,7 +640,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -331,6 +659,51 @@
       ]
     },
     {
+      "Route": "css/Login.by9bsyn149.css",
+      "AssetFile": "css/Login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ixsg6VsFSSEiY+zNywJi97mwRKcxuXiPvd6vDjdywGQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "by9bsyn149"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ixsg6VsFSSEiY+zNywJi97mwRKcxuXiPvd6vDjdywGQ="
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login.css"
+        }
+      ]
+    },
+    {
       "Route": "css/Login.css",
       "AssetFile": "css/Login.css",
       "Selectors": [],
@@ -345,7 +718,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2140"
+          "Value": "1915"
         },
         {
           "Name": "Content-Type",
@@ -353,62 +726,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"isMM8UIHSC8SOR4pXUZ94f2ktRZ28yefuHAUOTha9Wo=\""
+          "Value": "\"Ixsg6VsFSSEiY+zNywJi97mwRKcxuXiPvd6vDjdywGQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-isMM8UIHSC8SOR4pXUZ94f2ktRZ28yefuHAUOTha9Wo="
-        }
-      ]
-    },
-    {
-      "Route": "css/Login.yyub2caj0v.css",
-      "AssetFile": "css/Login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2140"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"isMM8UIHSC8SOR4pXUZ94f2ktRZ28yefuHAUOTha9Wo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yyub2caj0v"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-isMM8UIHSC8SOR4pXUZ94f2ktRZ28yefuHAUOTha9Wo="
-        },
-        {
-          "Name": "label",
-          "Value": "css/Login.css"
+          "Value": "sha256-Ixsg6VsFSSEiY+zNywJi97mwRKcxuXiPvd6vDjdywGQ="
         }
       ]
     },
@@ -439,7 +767,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -476,7 +804,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -521,7 +849,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -558,7 +886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -603,7 +931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -640,7 +968,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -685,7 +1013,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -730,7 +1058,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -767,7 +1095,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -812,7 +1140,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -849,7 +1177,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -886,7 +1214,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -901,6 +1229,416 @@
         {
           "Name": "label",
           "Value": "css/TeacherViewResult.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/admin.css",
+      "AssetFile": "css/admin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c06lGXOFiw7jriinALbwDxwy2XZaJQCrc5fJq2ATGP8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c06lGXOFiw7jriinALbwDxwy2XZaJQCrc5fJq2ATGP8="
+        }
+      ]
+    },
+    {
+      "Route": "css/admin.p5o11kp61n.css",
+      "AssetFile": "css/admin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c06lGXOFiw7jriinALbwDxwy2XZaJQCrc5fJq2ATGP8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p5o11kp61n"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c06lGXOFiw7jriinALbwDxwy2XZaJQCrc5fJq2ATGP8="
+        },
+        {
+          "Name": "label",
+          "Value": "css/admin.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/admin1.css",
+      "AssetFile": "css/admin1.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z5vfKssj8nFV3g3B4a/WZZbsbU8eVC2SNT+J3TZhjh0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5vfKssj8nFV3g3B4a/WZZbsbU8eVC2SNT+J3TZhjh0="
+        }
+      ]
+    },
+    {
+      "Route": "css/admin1.fouaysp4xt.css",
+      "AssetFile": "css/admin1.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z5vfKssj8nFV3g3B4a/WZZbsbU8eVC2SNT+J3TZhjh0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fouaysp4xt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5vfKssj8nFV3g3B4a/WZZbsbU8eVC2SNT+J3TZhjh0="
+        },
+        {
+          "Name": "label",
+          "Value": "css/admin1.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/editForCriteria.css",
+      "AssetFile": "css/editForCriteria.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "711"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oK2AXNjzhXt6J8xmXKgp5WpeTfOPT+nTncucMpjY+Ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK2AXNjzhXt6J8xmXKgp5WpeTfOPT+nTncucMpjY+Ng="
+        }
+      ]
+    },
+    {
+      "Route": "css/editForCriteria.gwx8gkfq70.css",
+      "AssetFile": "css/editForCriteria.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "711"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oK2AXNjzhXt6J8xmXKgp5WpeTfOPT+nTncucMpjY+Ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gwx8gkfq70"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK2AXNjzhXt6J8xmXKgp5WpeTfOPT+nTncucMpjY+Ng="
+        },
+        {
+          "Name": "label",
+          "Value": "css/editForCriteria.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/editForItem.css",
+      "AssetFile": "css/editForItem.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "707"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9aNxZz7QQd00CBmCz0BBh4XCMVHo7yDVLEBuqC/3tUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9aNxZz7QQd00CBmCz0BBh4XCMVHo7yDVLEBuqC/3tUk="
+        }
+      ]
+    },
+    {
+      "Route": "css/editForItem.tyhon3135x.css",
+      "AssetFile": "css/editForItem.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "707"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9aNxZz7QQd00CBmCz0BBh4XCMVHo7yDVLEBuqC/3tUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tyhon3135x"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9aNxZz7QQd00CBmCz0BBh4XCMVHo7yDVLEBuqC/3tUk="
+        },
+        {
+          "Name": "label",
+          "Value": "css/editForItem.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/editprof.css",
+      "AssetFile": "css/editprof.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S8alnQ+vECKvnMu77XX9dS6hE0drEzRrPcwNxZyNy5g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S8alnQ+vECKvnMu77XX9dS6hE0drEzRrPcwNxZyNy5g="
+        }
+      ]
+    },
+    {
+      "Route": "css/editprof.tqzv3ob2t6.css",
+      "AssetFile": "css/editprof.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S8alnQ+vECKvnMu77XX9dS6hE0drEzRrPcwNxZyNy5g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tqzv3ob2t6"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S8alnQ+vECKvnMu77XX9dS6hE0drEzRrPcwNxZyNy5g="
+        },
+        {
+          "Name": "label",
+          "Value": "css/editprof.css"
         }
       ]
     },
@@ -931,7 +1669,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -968,7 +1706,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1013,7 +1751,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1058,7 +1796,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1095,7 +1833,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1140,7 +1878,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1177,7 +1915,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1222,7 +1960,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1259,7 +1997,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1296,7 +2034,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1341,7 +2079,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1378,7 +2116,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1423,7 +2161,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1460,7 +2198,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1497,7 +2235,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1542,7 +2280,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1587,7 +2325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1624,7 +2362,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1669,7 +2407,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1706,7 +2444,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1751,7 +2489,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1788,7 +2526,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1833,7 +2571,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1870,7 +2608,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1915,7 +2653,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1952,7 +2690,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1989,7 +2727,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2034,7 +2772,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2079,7 +2817,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2116,7 +2854,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2161,7 +2899,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2198,7 +2936,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2235,7 +2973,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2272,7 +3010,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2317,7 +3055,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2362,7 +3100,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2407,7 +3145,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2452,7 +3190,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2489,7 +3227,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2534,7 +3272,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2571,7 +3309,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2608,7 +3346,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2645,7 +3383,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2690,7 +3428,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2735,7 +3473,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2772,7 +3510,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2817,7 +3555,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2854,7 +3592,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2899,7 +3637,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2936,7 +3674,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2973,7 +3711,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3018,7 +3756,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3055,7 +3793,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3100,7 +3838,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3137,7 +3875,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3174,7 +3912,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3219,7 +3957,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3256,7 +3994,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3301,7 +4039,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3346,7 +4084,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3391,7 +4129,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3428,7 +4166,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3473,7 +4211,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3510,7 +4248,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3555,7 +4293,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3592,7 +4330,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3637,7 +4375,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3674,7 +4412,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3719,7 +4457,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3756,7 +4494,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3801,7 +4539,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3838,7 +4576,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3883,7 +4621,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3928,7 +4666,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -3965,7 +4703,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4010,7 +4748,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4047,7 +4785,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4092,7 +4830,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4137,7 +4875,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4174,7 +4912,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4219,7 +4957,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4256,7 +4994,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4301,7 +5039,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4338,7 +5076,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4383,7 +5121,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4420,7 +5158,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4457,7 +5195,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4502,7 +5240,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4539,7 +5277,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4584,7 +5322,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4621,7 +5359,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4658,7 +5396,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4703,7 +5441,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4748,7 +5486,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4785,7 +5523,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4830,7 +5568,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4867,7 +5605,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4912,7 +5650,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4949,7 +5687,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -4986,7 +5724,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5031,7 +5769,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5076,7 +5814,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5113,7 +5851,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5158,7 +5896,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5195,7 +5933,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5240,7 +5978,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5277,7 +6015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5314,7 +6052,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5359,7 +6097,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5404,7 +6142,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5441,7 +6179,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5486,7 +6224,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5523,7 +6261,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5568,7 +6306,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5605,7 +6343,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5642,7 +6380,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5687,7 +6425,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5732,7 +6470,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5769,7 +6507,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5814,7 +6552,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5851,7 +6589,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5896,7 +6634,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5941,7 +6679,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5978,7 +6716,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6015,7 +6753,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6060,7 +6798,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6097,7 +6835,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6134,7 +6872,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6179,7 +6917,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
@@ -6224,7 +6962,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Dec 2024 14:25:36 GMT"
+          "Value": "Mon, 16 Dec 2024 23:30:17 GMT"
         }
       ],
       "EndpointProperties": [
