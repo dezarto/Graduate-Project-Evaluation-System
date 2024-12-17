@@ -53,6 +53,29 @@ namespace GPESAPI.API.Controllers
 
                 return Ok(authResult);
             }
+            else if (request.Username == "admin@iku.edu.tr")
+            {
+                var token = _tokenService.GenerateToken(request, "Admin");
+                if (token == null)
+                {
+                    throw new Exception("Token generation failed.");
+                }
+
+                var refreshToken = _tokenService.GenerateRefreshToken();
+                if (refreshToken == null)
+                {
+                    throw new Exception("Refresh token generation failed.");
+                }
+
+                var authResult = new AuthResult
+                {
+                    Success = true,
+                    Token = token,
+                    RefreshToken = refreshToken.Token
+                };
+
+                return Ok(authResult);
+            }
 
             var allowedUsernames = new HashSet<string>
             {

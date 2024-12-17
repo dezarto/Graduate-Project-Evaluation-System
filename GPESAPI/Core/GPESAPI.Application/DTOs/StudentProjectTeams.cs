@@ -2,14 +2,14 @@
 {
     public class StudentProjectTeams
     {
-        public int TeamId { get; set; }
-        public int ProjectId { get; set; }
-        public int AdvisorId { get; set; }
-        public bool isActive { get; set; }
+        public int? TeamId { get; set; }
+        public int? ProjectId { get; set; }
+        public int? AdvisorId { get; set; }
+        public bool? isActive { get; set; }
         public List<MemberList> Members { get; set; }
-        public string TeamName { get; set; }
-        public string Description { get; set; }
-        public string ProjectName { get; set; }
+        public string? TeamName { get; set; }
+        public string? Description { get; set; }
+        public string? ProjectName { get; set; }
     }
 
     public class MemberList
