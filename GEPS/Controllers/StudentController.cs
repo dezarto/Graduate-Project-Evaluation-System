@@ -70,10 +70,21 @@ namespace GEPS.Controllers
 
                 var projectTeam = await _httpClient.GetFromJsonAsync<StudentProjectTeamsWeb>(apiUrl);
 
-                if (projectTeam == null)
+                if (projectTeam.TeamId == null)
                 {
-                    ViewBag.ErrorMessage = "No teams found.";
-                    return View();
+                    var newEmptyList = new StudentProjectTeamsWeb
+                    {
+                        TeamId = 0,
+                        AdvisorId = 0,
+                        Description = string.Empty,
+                        isActive = false,
+                        Members = new List<MemberList>(),
+                        ProjectId = 0,
+                        ProjectName = string.Empty,
+                        TeamName = string.Empty,
+                    };
+
+                    return View(newEmptyList);
                 }
 
                 return View(projectTeam);
