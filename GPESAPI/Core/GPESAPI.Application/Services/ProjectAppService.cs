@@ -162,6 +162,7 @@ namespace GPESAPI.Application.Services
                     TeamPresentationId = presentation.TeamPresentationId,
                     TeamId = presentation.TeamId,
                     ProjectName = project.ProjectName,
+                    ProjectId = project.ProjectId,
                     Description = project.Description,
                     TeamName = team.TeamName,
                     isEvaluated = presentation.isEvaluated,

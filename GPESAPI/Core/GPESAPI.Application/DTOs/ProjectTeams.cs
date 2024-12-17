@@ -11,6 +11,7 @@
         public string EvaluatingTeacherFullName { get; set; }
         public string EvaluatingTeacherMail { get; set; }
         public string ProjectName { get; set; }
+        public int ProjectId { get; set; }
         public bool isApproval { get; set; }
         public DateTime PresentationDate { get; set; }
         public TimeSpan StartTime { get; set; }
