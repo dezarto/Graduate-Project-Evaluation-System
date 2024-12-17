@@ -410,11 +410,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\GEPS.csproj",
+      "projectUniqueName": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj",
       "projectName": "GEPS",
-      "projectPath": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\GEPS.csproj",
+      "projectPath": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\GEPS.csproj",
       "packagesPath": "C:\\Users\\Semir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\obj\\",
+      "outputPath": "C:\\Users\\Semir\\Desktop\\asdads\\GEPS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

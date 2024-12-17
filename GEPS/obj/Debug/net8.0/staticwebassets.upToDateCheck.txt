@@ -6,6 +6,7 @@ wwwroot\css\Calendar.css
 wwwroot\css\editForCriteria.css
 wwwroot\css\editForItem.css
 wwwroot\css\editprof.css
+wwwroot\css\footer.css
 wwwroot\css\HomeForStu.css
 wwwroot\css\loadProject.css
 wwwroot\css\Login.css
@@ -13,6 +14,7 @@ wwwroot\css\navbar.css
 wwwroot\css\ProjectCreate.css
 wwwroot\css\site.css
 wwwroot\css\SubmitProjectTopics.css
+wwwroot\css\SubmitProjectTopics1.css
 wwwroot\css\TeacherApproveProject.css
 wwwroot\css\TeacherCalendar.css
 wwwroot\css\TeacherEvaluateProject.css

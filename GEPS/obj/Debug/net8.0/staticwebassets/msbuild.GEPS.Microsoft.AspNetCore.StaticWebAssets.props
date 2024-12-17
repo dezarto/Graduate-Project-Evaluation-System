@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>wlcj961wv8</Fingerprint>
-      <Integrity>lFfqekLBnv9TFAcjWyL2jwA/i1aa/cKMPRumpKF5xfE=</Integrity>
+      <Fingerprint>p5o11kp61n</Fingerprint>
+      <Integrity>c06lGXOFiw7jriinALbwDxwy2XZaJQCrc5fJq2ATGP8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\admin.css'))</OriginalItemSpec>
@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>weszsxam63</Fingerprint>
-      <Integrity>aKVnwyCDQqzhbZGi8cJlItzSBD3hWGXdnHgr36RLnco=</Integrity>
+      <Fingerprint>fouaysp4xt</Fingerprint>
+      <Integrity>z5vfKssj8nFV3g3B4a/WZZbsbU8eVC2SNT+J3TZhjh0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\admin1.css'))</OriginalItemSpec>
@@ -143,6 +143,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\editprof.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\footer.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>GEPS</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GEPS</BasePath>
+      <RelativePath>css/footer.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>wwb3onhwem</Fingerprint>
+      <Integrity>8LzzaGegEn/KHVE73DBs2qCP9rqVhzm+BAdZG/GzKXQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\footer.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\HomeForStu.css'))">
       <SourceType>Package</SourceType>
@@ -228,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>txq6f42u4k</Fingerprint>
-      <Integrity>4WxdGScwThoI6pZLFM1aEPHsf0zGpDxLz9+O/4z4E7A=</Integrity>
+      <Fingerprint>yczeg5qxgp</Fingerprint>
+      <Integrity>gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ProjectCreate.css'))</OriginalItemSpec>
@@ -270,6 +288,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SubmitProjectTopics.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SubmitProjectTopics1.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>GEPS</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GEPS</BasePath>
+      <RelativePath>css/SubmitProjectTopics1.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0cioperud8</Fingerprint>
+      <Integrity>MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SubmitProjectTopics1.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\TeacherApproveProject.css'))">
       <SourceType>Package</SourceType>
       <SourceId>GEPS</SourceId>
@@ -282,8 +318,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tws4zy5ova</Fingerprint>
-      <Integrity>XYaGUC1/TgwrC3+KkK1ofzlJwvze2OjnNa+xf0dbvMU=</Integrity>
+      <Fingerprint>tnnbh1mxza</Fingerprint>
+      <Integrity>d77M0V/k/gruqVY/8BZABfGrAON6fjJWs4ubjW8k8nc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\TeacherApproveProject.css'))</OriginalItemSpec>
@@ -300,8 +336,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6xu7x00n4g</Fingerprint>
-      <Integrity>tubAeT8i2/zNc69ajOgX1lPxgI+shmRll4OV9K9451o=</Integrity>
+      <Fingerprint>sc046fnerv</Fingerprint>
+      <Integrity>NNNKmWDPvbfCu6ttyXv1OigXB0Pu28mulQ5AVE/Vv/g=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\TeacherCalendar.css'))</OriginalItemSpec>
@@ -318,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5lc07w1zaj</Fingerprint>
-      <Integrity>ufbfIJT7hxc9NS3yv5q1q27N7PYIG5FfCQ1AQsmpPQA=</Integrity>
+      <Fingerprint>7tbhg02488</Fingerprint>
+      <Integrity>9Xn6fVikyzCXH7OYLJVCQLnKQn1tIggLY1FOHXWwA2Q=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\TeacherEvaluateProject.css'))</OriginalItemSpec>
@@ -336,8 +372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>leo0e31wv1</Fingerprint>
-      <Integrity>jUVx7Fw1EjxnCQf69hX5L0l+BScm3b1PvguBvvLkIdc=</Integrity>
+      <Fingerprint>40mq47p9ou</Fingerprint>
+      <Integrity>HD4zw11hUdaa2LF2u0lZRR5+g/e2KQ1vo5Xtp27duo4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\TeacherViewResult.css'))</OriginalItemSpec>
