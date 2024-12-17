@@ -75,7 +75,12 @@ namespace GPESAPI.Application.Services
 
                 var newUser = new User
                 {
-                    ProfessorId = teamCreator.AdvisorId,
+                    UserId = studentL.UserId,
+                    Email = studentL.Email,
+                    FullName = studentL.FullName,
+                    StudentNumber = studentL.StudentNumber,
+                    Role = "Student",
+                    ProfessorId = teamCreator.SelectedProfessorId,
                 };
 
                 await _userService.UpdateUserAsync(newUser);

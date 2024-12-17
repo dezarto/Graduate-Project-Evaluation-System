@@ -1078,6 +1078,44 @@
           }
         }
       }
+    },
+    "/api/Student/get-all-professor": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProfessorDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProfessorDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProfessorDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1285,16 +1323,16 @@
             "type": "string",
             "nullable": true
           },
-          "advisorId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "studentList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/StudenLists"
             },
             "nullable": true
+          },
+          "selectedProfessorId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

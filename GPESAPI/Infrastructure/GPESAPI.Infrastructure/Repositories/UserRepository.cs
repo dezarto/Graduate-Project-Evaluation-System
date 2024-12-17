@@ -58,9 +58,17 @@ namespace GPESAPI.Infrastructure.Repositories
 
         public async Task UpdateAsync(User user)
         {
+            var existingUser = await _dbContext.Users.FindAsync(user.UserId);
+
+            if (existingUser != null)
+            {
+                _dbContext.Entry(existingUser).State = EntityState.Detached;
+            }
+
             _dbContext.Users.Update(user);
             await _dbContext.SaveChangesAsync();
         }
+
         public async Task<bool> ExistsByStudentNumberAsync(string studentNumber)
         {
             return await _dbContext.Users.AnyAsync(u => u.StudentNumber == studentNumber);

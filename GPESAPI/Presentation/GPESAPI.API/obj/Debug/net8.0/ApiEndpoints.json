@@ -606,6 +606,26 @@
   },
   {
     "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "GetAllProfessors",
+    "RelativePath": "api/Student/get-all-professor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
     "Method": "ProjectTeamView",
     "RelativePath": "api/Student/project-team-view",
     "HttpMethod": "GET",

@@ -1,5 +1,6 @@
 ﻿using GPESAPI.Application.DTOs;
 using GPESAPI.Application.Interfaces;
+using GPESAPI.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -15,13 +16,14 @@ namespace GPESAPI.API.Controllers
         private readonly IReportAppService _reportAppService;
         private readonly ITeamAppService _teamAppService;
         private readonly IProjectAppService _projectAppService;
-
-        public StudentController(IUserAppService userAppService, IReportAppService reportAppService, ITeamAppService teamAppService, IProjectAppService projectAppService)
+        private readonly IProfessorAppService _professorAppService;
+        public StudentController(IUserAppService userAppService, IReportAppService reportAppService, ITeamAppService teamAppService, IProjectAppService projectAppService, IProfessorAppService professorAppService)
         {
             _userAppService = userAppService;
             _teamAppService = teamAppService;
             _projectAppService = projectAppService;
             _reportAppService = reportAppService;
+            _professorAppService = professorAppService;
         }
 
         [HttpGet("project-team-view")]
@@ -96,6 +98,12 @@ namespace GPESAPI.API.Controllers
             {
                 return StatusCode(500, new { Message = "An error occurred while uploading the file.", Error = ex.Message });
             }
+        }
+
+        [HttpGet("get-all-professor")]
+        public async Task<ActionResult<List<ProfessorDTO>>> GetAllProfessors()
+        {
+            return await _professorAppService.GetAllProfessorAppAsync();
         }
     }
 }
