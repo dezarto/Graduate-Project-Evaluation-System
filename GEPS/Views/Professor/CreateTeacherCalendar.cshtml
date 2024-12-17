@@ -1,99 +1,27 @@
-﻿@model List<ProfessorAvailability>
-
-<!DOCTYPE html>
-<html>
-
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
 <head>
-    <link rel="stylesheet" href="~/css/admin1.css">
+    <link rel="stylesheet" href="~/css/Calendar.css">
     <title>Teacher Availability Calendar</title>
 </head>
 
-<body>
-    <h2>Teacher Availability</h2>
+<div class="calendar">
+    <!-- Yeni tarih ve zaman seçimi -->
+    <form asp-action="CreateTeacherCalendar" method="post">
+        <label for="availableDate">Select Date:</label>
+        <input type="date" id="availableDate" name="AvailableDate" required />
 
-    <div class="container">
-        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-        {
-            <div class="error">
-                <p>@ViewBag.ErrorMessage</p>
-            </div>
-        }
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="StartTime" required />
 
-        <div class="header">
-            <h1>Professors</h1>
-            <a href="@Url.Action("CreateTeacherCalendar", "Professor")" class="add-btn">Add New Date</a>
-        </div>
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="EndTime" required />
 
-        @if (Model != null && Model.Count > 0)
-        {
-            <table>
-                <thead>
-                    <tr>
-                        <th>Available Date</th>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
-                    {
-                        foreach (var availability in Model)
-                        {
-                            <tr>
-                                <td>@availability.AvailableDate.ToString("yyyy-MM-dd")</td>
-                                <td>@availability.StartTime</td>
-                                <td>@availability.EndTime</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <div class="action-buttons">
-                                            <input type="hidden" name="id" value="@availability.AvailabilityId" />
-                                            <button class="delete-btn"
-                                                    data-id="@availability.AvailabilityId"
-                                                    onclick="DeleteCalendar(this)">
-                                                Delete
-                                            </button>
-                                        </div>
+        <input type="hidden" name="ProfessorId" value="1" /> <!-- Varsayılan olarak bir değer ekleniyor -->
 
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="5" class="no-data">No Professors Found</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        }
-        else
-        {
-            <p>No availability data to display.</p>
-        }
-    </div>
-
-    <script>
-        function DeleteCalendar(button) {
-            if (confirm('Bu tarihi silmek istediğinizden emin misiniz?')) {
-                const id = $(button).data('id');
-                const apiUrl = "@Url.Action("DeleteTeacherCalendar", "Professor")/" + id;
-
-                $.ajax({
-                    url: apiUrl,
-                    type: 'DELETE',
-                    success: function (result) {
-                        alert('tarih başarıyla silindi!');
-                        location.reload();
-                    },
-                    error: function () {
-                        alert('tarih silinirken bir hata oluştu.');
-                    }
-                });
-            }
-        }
-    </script>
-</body>
-
-</html>
+        <button type="submit">Submit</button>
+    </form>
+</div>
