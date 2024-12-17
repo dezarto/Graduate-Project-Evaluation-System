@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\views\\professor\\createteachercalendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\createteachercalendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\son\\geps\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAACCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T13:12:24.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateTeacherCalendar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\CreateTeacherCalendar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Professor\\CreateTeacherCalendar.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Views\\Professor\\CreateTeacherCalendar.cshtml",
+              "RelativeToolTip": "Views\\Professor\\CreateTeacherCalendar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T13:10:51.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\Son\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Controllers\\ProfessorController.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAAwHEBAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T12:49:15.093Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

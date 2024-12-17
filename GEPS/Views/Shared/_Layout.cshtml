@@ -37,12 +37,12 @@
         }
         else if (ViewBag.UserRole == "Professor")
         {
-            <a href="@Url.Action("Profile", "Professor")">
-                My Profile</a>
-            <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
-            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
-            <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
-            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Team Home Professor</a>
+            <a href="@Url.Action("Profile", "Professor")">My Profile</a>
+            <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
+            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Evaluate Project</a>
+            <a href="@Url.Action("TeacherViewResult", "Professor")">View Result</a>
+            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Presentation Schedule</a>
+            <a href="@Url.Action("TeacherCalendar", "Professor")">Calendar</a>
         }
         else if (ViewBag.UserRole == "Student")
         {
