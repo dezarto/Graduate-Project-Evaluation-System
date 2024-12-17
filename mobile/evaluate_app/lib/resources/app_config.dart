@@ -32,4 +32,12 @@ class AppConfig {
   // POST Available Time
   static const String availableTime =
       '$baseUrl/Professor/post-availability-by-professor';
+
+  // GET Available Time
+  static const String getAvailTimes =
+      '$baseUrl/Professor/get-availability-by-professor-auth';
+
+  // DELETE Available Time
+  static const String deleteAvailTimes =
+      '$baseUrl/Professor/delete-availability-by-id';
 }

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:evaluate_app/models/models.dart';
+import 'package:intl/intl.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({Key? key}) : super(key: key);
@@ -12,55 +12,71 @@ class CalendarScreen extends StatefulWidget {
   _CalendarScreenState createState() => _CalendarScreenState();
 }
 
-Future<User> fetchUser() async {
-  final url = Uri.parse(AppConfig.profileView);
-  final storage = const FlutterSecureStorage();
-  final token = await storage.read(key: 'accessToken');
-
-  try {
-    final response = await await http.get(
-      url,
-      headers: {
-        'Authorization': 'Bearer $token',
-      },
-    );
-
-    if (response.statusCode == 200) {
-      print('${response.statusCode}: User info fetched successfully!');
-      final data = json.decode(response.body);
-      return User(
-        professorId: data['professorId'],
-        fullName: data['fullName'],
-        department: data['department'],
-        mailAddress: data['mailAddress'],
-        role: data['role'],
-      );
-    } else {
-      print('${response.statusCode}: User info could not fetched.');
-      throw Exception('Failed to load user data');
-    }
-  } catch (e) {
-    throw Exception('Error: $e');
-  }
-}
-
 class _CalendarScreenState extends State<CalendarScreen> {
   DateTime? _selectedDate;
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
 
-  // JSON verisini endpoint'e POST isteği ile gönder
+  List<Map<String, dynamic>> _availableTimes = [];
+
+  Future<void> fetchTimes() async {
+    final storage = const FlutterSecureStorage();
+    final token = await storage.read(key: 'accessToken');
+
+    try {
+      final response = await http.get(
+        Uri.parse(AppConfig.getAvailTimes),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final List<dynamic> data = jsonDecode(response.body);
+        setState(() {
+          _availableTimes = data.map((item) {
+            return {
+              "availabilityId": item["availabilityId"],
+              "date": DateTime.parse(item["availableDate"]),
+              "startTime": TimeOfDay(
+                hour: int.parse(item["startTime"].split(":")[0]),
+                minute: int.parse(item["startTime"].split(":")[1]),
+              ),
+              "endTime": TimeOfDay(
+                hour: int.parse(item["endTime"].split(":")[0]),
+                minute: int.parse(item["endTime"].split(":")[1]),
+              ),
+            };
+          }).toList();
+        });
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Failed to fetch availability!"),
+            backgroundColor: AppColors.falseRed,
+          ),
+        );
+        print('Status Code: ${response.statusCode}');
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Error connecting to the server!"),
+          backgroundColor: AppColors.falseRed,
+        ),
+      );
+    }
+  }
+
   Future<void> _sendAvailability() async {
+    final storage = const FlutterSecureStorage();
+    final token = await storage.read(key: 'accessToken');
     if (_selectedDate != null && _startTime != null && _endTime != null) {
       try {
-        // Fetch user data to get professorId
-        final user = await fetchUser();
-        final professorId = user.professorId;
-
         final availabilityData = [
           {
             "availabilityId": 0,
-            "professorId": 0, // Use professorId here
+            "professorId": 0,
             "availableDate":
                 "${_selectedDate!.toIso8601String().split('T')[0]}T00:00:00",
             "startTime":
@@ -70,32 +86,40 @@ class _CalendarScreenState extends State<CalendarScreen> {
           }
         ];
 
-        print(availabilityData);
-
         final response = await http.post(
           Uri.parse(AppConfig.availableTime),
           headers: {
             "Content-Type": "application/json",
+            'Authorization': 'Bearer $token',
           },
           body: jsonEncode(availabilityData),
         );
 
         if (response.statusCode == 200 || response.statusCode == 201) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Availability Added Successfully!")),
+            const SnackBar(
+              content: Text("Availability Added Successfully!"),
+              backgroundColor: AppColors.trueGreen,
+            ),
           );
-          print("Response: ${response.body}");
+
+          // Refresh available times
+          fetchTimes();
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Failed to add availability!")),
+            const SnackBar(
+              content: Text("Failed to add availability!"),
+              backgroundColor: AppColors.falseRed,
+            ),
           );
-          print("Error: ${response.statusCode}, ${response.body}");
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Error connecting to the server!")),
+          const SnackBar(
+            content: Text("Error connecting to the server!"),
+            backgroundColor: AppColors.falseRed,
+          ),
         );
-        print("Exception: $e");
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -104,10 +128,70 @@ class _CalendarScreenState extends State<CalendarScreen> {
     }
   }
 
-  // Tarih seçici
+  Future<void> _deleteAvailability(int availabilityId) async {
+    final storage = const FlutterSecureStorage();
+    final token = await storage.read(key: 'accessToken');
+
+    final confirmed = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text("Confirm Deletion"),
+            content: const Text(
+                "Are you sure you want to delete this availability? This operation can not be undone."),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text("Delete"),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+
+    if (confirmed) {
+      try {
+        final response = await http.delete(
+          Uri.parse("${AppConfig.deleteAvailTimes}/$availabilityId"),
+          headers: {
+            'Authorization': 'Bearer $token',
+          },
+        );
+
+        if (response.statusCode == 200) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Availability Deleted Successfully!"),
+              backgroundColor: AppColors.trueGreen,
+            ),
+          );
+
+          // Refresh available times
+          fetchTimes();
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Failed to delete availability!"),
+              backgroundColor: AppColors.falseRed,
+            ),
+          );
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Error connecting to the server!"),
+            backgroundColor: AppColors.falseRed,
+          ),
+        );
+      }
+    }
+  }
+
   Future<void> _pickDate() async {
     final DateTime? pickedDate = await showDatePicker(
-      barrierColor: AppColors.primary,
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime.now(),
@@ -121,7 +205,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
     }
   }
 
-  // Saat seçici
   Future<TimeOfDay?> _pickTime() async {
     return await showTimePicker(
       context: context,
@@ -129,19 +212,34 @@ class _CalendarScreenState extends State<CalendarScreen> {
     );
   }
 
-  // Arayüz
+  @override
+  void initState() {
+    super.initState();
+    fetchTimes(); // Fetch times when the screen is loaded
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text('Calendar'),
         backgroundColor: AppColors.primary,
+        elevation: 0,
         centerTitle: false,
         titleTextStyle: const TextStyle(
           color: AppColors.whiteTextColor,
           fontFamily: 'Inter',
           fontSize: 36,
           fontWeight: FontWeight.bold,
+        ),
+        leading: null,
+        toolbarHeight: 60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
         ),
       ),
       body: Container(
@@ -158,79 +256,104 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 color: AppColors.primaryTextColor,
               ),
             ),
-            const SizedBox(height: 16),
-            // Tarih Seçici Butonu
-            ListTile(
-              title: Text(
-                _selectedDate == null
-                    ? 'Select Date'
-                    : 'Date: ${_selectedDate!.toLocal()}'.split(' ')[0],
+            const SizedBox(height: 8),
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.whiteTextColor,
+                borderRadius: BorderRadius.circular(20.0),
               ),
-              trailing: const Icon(Icons.calendar_today),
-              onTap: _pickDate,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      _selectedDate == null
+                          ? 'Select Date'
+                          : 'Date: ${_selectedDate!.toLocal()}'.split(' ')[0],
+                    ),
+                    trailing: const Icon(Icons.calendar_today),
+                    onTap: _pickDate,
+                  ),
+                  const SizedBox(height: 8),
+                  ListTile(
+                    title: Text(
+                      _startTime == null
+                          ? 'Select Start Time'
+                          : 'Start Time: ${_startTime!.format(context)}',
+                    ),
+                    trailing: const Icon(Icons.access_time),
+                    onTap: () async {
+                      final time = await _pickTime();
+                      if (time != null) {
+                        setState(() {
+                          _startTime = time;
+                        });
+                      }
+                    },
+                  ),
+                  ListTile(
+                    title: Text(
+                      _endTime == null
+                          ? 'Select End Time'
+                          : 'End Time: ${_endTime!.format(context)}',
+                    ),
+                    trailing: const Icon(Icons.access_time),
+                    onTap: () async {
+                      final time = await _pickTime();
+                      if (time != null) {
+                        setState(() {
+                          _endTime = time;
+                        });
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: _sendAvailability,
+                    child: const Text('Add Availability'),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+              ),
             ),
             const SizedBox(height: 8),
-            // Başlangıç Saati Seçici
-            ListTile(
-              title: Text(
-                _startTime == null
-                    ? 'Select Start Time'
-                    : 'Start Time: ${_startTime!.format(context)}',
-              ),
-              trailing: const Icon(Icons.access_time),
-              onTap: () async {
-                final time = await _pickTime();
-                if (time != null) {
-                  setState(() {
-                    _startTime = time;
-                  });
-                }
-              },
-            ),
-            // Bitiş Saati Seçici
-            ListTile(
-              title: Text(
-                _endTime == null
-                    ? 'Select End Time'
-                    : 'End Time: ${_endTime!.format(context)}',
-              ),
-              trailing: const Icon(Icons.access_time),
-              onTap: () async {
-                final time = await _pickTime();
-                if (time != null) {
-                  setState(() {
-                    _endTime = time;
-                  });
-                }
-              },
-            ),
-            const SizedBox(height: 20),
-            // "Add Available Time" Butonu
-            Center(
-              child: ElevatedButton(
-                onPressed: _sendAvailability,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                ),
-                child: const Text(
-                  'Add Available Time',
-                  style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
             const Text(
-              'My Available Times',
+              'Available Times',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primaryTextColor,
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _availableTimes.length,
+                itemBuilder: (context, index) {
+                  final availability = _availableTimes[index];
+                  return Container(
+                    child: ListTile(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${DateFormat.yMMMd().format(availability['date'])}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Text(
+                              '${availability['startTime'].format(context)} - ${availability['endTime'].format(context)}'),
+                        ],
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.delete,
+                          color: AppColors.falseRed,
+                        ),
+                        onPressed: () =>
+                            _deleteAvailability(availability['availabilityId']),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
