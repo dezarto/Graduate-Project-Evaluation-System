@@ -42,6 +42,7 @@
 .sidebar.open {
     left: 0; /* Açıldığında görünür */
     display: block;
+    width:17%;
 }
 
 .sidebar h3 {
