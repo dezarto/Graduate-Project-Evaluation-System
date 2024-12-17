@@ -15,10 +15,9 @@ namespace GEPS.Filter
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
-            // Eğer token yoksa, frontend'in gönderdiğinden emin olmalısınız
             if (string.IsNullOrEmpty(token))
             {
-                token = context.Session.GetString("BearerToken"); // Eğer frontend'den gelmediyse, session'dan alınabilir
+                token = context.Session.GetString("BearerToken");
             }
 
             if (!string.IsNullOrEmpty(token))
@@ -26,12 +25,11 @@ namespace GEPS.Filter
                 var jwtHandler = new JwtSecurityTokenHandler();
                 var jsonToken = jwtHandler.ReadToken(token) as JwtSecurityToken;
 
-                // Token'ın içinden rolü çıkartıyoruz
                 var role = jsonToken?.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
 
                 if (!string.IsNullOrEmpty(role))
                 {
-                    context.Items["UserRole"] = role; // Rol bilgisini HttpContext.Items'e kaydediyoruz
+                    context.Items["UserRole"] = role;
                 }
             }
 

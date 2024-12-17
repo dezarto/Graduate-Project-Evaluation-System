@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GEPS.Controllers
 {
-    [ServiceFilter(typeof(RoleFilter))]
+    [RoleFilter("Admin")]
     [Route("Admin")]
     public class AdminController : Controller
     {

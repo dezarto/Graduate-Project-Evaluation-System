@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace GEPS.Controllers
 {
-    [ServiceFilter(typeof(RoleFilter))]
+    [RoleFilter("Student")]
     public class StudentController : Controller
     {
         private readonly HttpClient _httpClient;

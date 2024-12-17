@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="~/css/navbar.css">
 </head>
 <body>
-
     <header class="customHeader">
         <div class="logoContainer">
             <img src="~/logored2.png" alt="Logo" class="logo" />
@@ -21,23 +20,25 @@
         <div class="sidebar-header">
             <div>
                 <h4>Hello,</h4>
-                <h3>@User.Identity.Name</h3> <!-- Kullanıcı adı burada görüntülenebilir -->
+                <h3>@User.Identity.Name</h3>
             </div>
 
             <button class="logout">
                 <img src="~/logout.png" alt="logout" class="logouticon" />
             </button>
         </div>
-
-        <!-- Sidebar içeriğini kullanıcı türüne göre dinamik hale getirme -->
         @if (ViewBag.UserRole == "Admin")
         {
-            <a href="@Url.Action("GetAllProfessor", "Admin")">Professor</a>
-            <a href="@Url.Action("ManageUsers", "Admin")">Manage Users</a>
-            <a href="@Url.Action("Settings", "Admin")">Settings</a>
+            <a href="@Url.Action("GetAllProfessor", "Admin")">Professor List</a>
+            <a href="@Url.Action("GetAllStudent", "Admin")">All Student</a>
+            <a href="@Url.Action("GetAllEvaluationCriteria", "Admin")">Evaluation Criterias</a>
+            <a href="@Url.Action("GetAllChecklistItems", "Admin")">Checklist Items</a>
+            <a href="@Url.Action("GetAllTeams", "Admin")">All Teams</a>
         }
         else if (ViewBag.UserRole == "Professor")
         {
+            <a href="@Url.Action("Profile", "Professor")">
+                My Profile</a>
             <a href="@Url.Action("TeacherApproveProject", "Professor")">Teacher Approve Project</a>
             <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Teacher Evaluate Project</a>
             <a href="@Url.Action("TeacherViewResult", "Professor")">Teacher View Result</a>
@@ -73,5 +74,4 @@
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('open');
     }
-
 </script>

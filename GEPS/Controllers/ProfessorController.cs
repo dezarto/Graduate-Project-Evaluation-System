@@ -1,10 +1,12 @@
-﻿using GEPS.Models;
+﻿using GEPS.Filter;
+using GEPS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace GEPS.Controllers
 {
+    [RoleFilter("Professor")]
     public class ProfessorController : Controller
     {
 
@@ -79,7 +81,6 @@ namespace GEPS.Controllers
             }
         }
 
-
         // ************************************  Post Submit Evaluation   ************************************
 
         [HttpPost("SubmitEvaluation")]
@@ -111,7 +112,6 @@ namespace GEPS.Controllers
                 return View("SubmitEvaluation", evaluationSubmitModel);
             }
         }
-
 
         // ************************************ Get Project Team Result Evaluation   ************************************
         [HttpGet("GetProjectTeamResult/{teamId}")]
@@ -174,8 +174,6 @@ namespace GEPS.Controllers
                 return View("Error");
             }
         }
-
-
 
         // ************************************ Get Approval Teams View    ************************************
 
@@ -249,7 +247,6 @@ namespace GEPS.Controllers
         }
 
         // ************************************   Teacher Approve Project Page ************************************
-
 
         [HttpPost]
         public async Task<IActionResult> TeacherApproveProject(int projectId, bool approval)
@@ -491,7 +488,6 @@ namespace GEPS.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<IActionResult> PostTeacherEvaluateProject(ProjectEvaluationSubmit evaluationModel)
         {
@@ -522,7 +518,6 @@ namespace GEPS.Controllers
                 return View("Error");
             }
         }
-
 
         public async Task<IActionResult> TeacherViewResult()
         {
