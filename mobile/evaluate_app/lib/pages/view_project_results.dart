@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import '../resources/app_resources.dart';
+import 'package:evaluate_app/models/models.dart';
 
 class ViewProjectResults extends StatelessWidget {
-  const ViewProjectResults({Key? key}) : super(key: key);
+  final Project project;
+
+  const ViewProjectResults({Key? key, required this.project}) : super(key: key);
 
   List<Widget> buildEvaluationCriteria() {
     return evaluationCriteria.map((criteria) {
@@ -48,7 +51,7 @@ class ViewProjectResults extends StatelessWidget {
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
-        title: const Text("Team Name 1"),
+        title: const Text('asds'),
         leading: IconButton(
           color: AppColors.whiteTextColor,
           icon: const Icon(Icons.arrow_back),

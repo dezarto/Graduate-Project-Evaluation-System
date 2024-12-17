@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:evaluate_app/models/models.dart';
 
 final storage = const FlutterSecureStorage();
 
-Future<List<dynamic>> fetchEvaluationCriteria() async {
+Future<Map<String, dynamic>> fetchEvaluationCriteria() async {
   final token = await storage.read(key: 'accessToken');
-  final url = Uri.parse(AppConfig.evaluationCriterias);
+  final url = Uri.parse(AppConfig.CriteriaAndItems);
 
   try {
     final response = await http.get(
@@ -19,43 +20,23 @@ Future<List<dynamic>> fetchEvaluationCriteria() async {
     );
     if (response.statusCode == 200) {
       print('${response.statusCode}: Criterias fetched successfully!');
-      final List<dynamic> data = json.decode(response.body);
+      final Map<String, dynamic> data = json.decode(response.body);
       return data;
     } else {
-      throw Exception('${response.statusCode}: Failed to load criterias.');
+      throw Exception('${response.statusCode}: Failed to load criteria.');
     }
   } catch (error) {
-    print('Error fetching projects: $error');
-    return [];
-  }
-}
-
-Future<List<dynamic>> fetchChecklistItems() async {
-  final token = await storage.read(key: 'accessToken');
-  final url = Uri.parse(AppConfig.checklistItems);
-
-  try {
-    final response = await http.get(
-      url,
-      headers: {
-        'Authorization': 'Bearer $token',
-      },
-    );
-    if (response.statusCode == 200) {
-      print('${response.statusCode}: Checklist items fetched successfully!');
-      final List<dynamic> data = json.decode(response.body);
-      return data;
-    } else {
-      throw Exception(
-          '${response.statusCode}: Failed to load checklist items.');
-    }
-  } catch (error) {
-    print('Error fetching checklist items: $error');
-    return [];
+    print('Error fetching evaluation criteria: $error');
+    return {};
   }
 }
 
 class EvaluateProjectPage extends StatefulWidget {
+  final Project project;
+
+  const EvaluateProjectPage({Key? key, required this.project})
+      : super(key: key);
+
   @override
   _EvaluateProjectPageState createState() => _EvaluateProjectPageState();
 }
@@ -70,6 +51,7 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: AppColors.primary,
         elevation: 0,
         centerTitle: false,
@@ -79,23 +61,31 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
-        title: Text("Team Name 1"),
+        title: Text(widget.project.teamName),
         leading: IconButton(
           color: AppColors.whiteTextColor,
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        toolbarHeight: 60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
       ),
       body: FutureBuilder(
-        future: Future.wait([fetchEvaluationCriteria(), fetchChecklistItems()]),
+        future: fetchEvaluationCriteria(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text("Error: ${snapshot.error}"));
           } else {
-            final evaluationCriteria = snapshot.data?[0];
-            final checklistItems = snapshot.data?[1];
+            final data = snapshot.data as Map<String, dynamic>?;
+
+            final evaluationCriteria = data?['evaluationCriteriaDatas'] ?? [];
+            final checklistItems = data?['checklistItemDatas'] ?? [];
 
             return SingleChildScrollView(
               child: Container(
@@ -118,15 +108,14 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "AI Supported Human Resources System for IT Companies",
+                          widget.project.projectName,
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 10),
                         const Text("Project Description",
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(
-                            "Görüntü işleme tekniklerini kullanarak, gerçek zamanlı nesne tanıma ve sınıflandırma sistemi geliştirilmesi."),
+                        Text(widget.project.description),
                         SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,7 +126,7 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                                 const Text("Evaluating Teacher",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold)),
-                                Text("Akhan Akbulut"),
+                                Text(widget.project.evaluatingTeacherFullName),
                               ],
                             ),
                             Column(
@@ -166,7 +155,7 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         const SizedBox(height: 14),
                         const Text("Team",
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text("Team Name 1"),
+                        Text(widget.project.teamName),
                         SizedBox(height: 14),
                         const Text("Team Members",
                             style: TextStyle(fontWeight: FontWeight.bold)),
@@ -193,93 +182,89 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         const SizedBox(height: 14),
-                        ...evaluationCriteria?.map<Widget>((criteria) {
-                              return Column(
+                        ...evaluationCriteria.map<Widget>((criteria) {
+                          return Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          criteria['criteriaName'],
-                                          style: TextStyle(fontSize: 16),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 60,
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(),
-                                          ),
-                                          keyboardType: TextInputType.number,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TextField(
-                                    decoration: const InputDecoration(
-                                      hintText: "Write your thoughts...",
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0)),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0)),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF00B7FF),
-                                            width: 2.0),
-                                      ),
+                                  Expanded(
+                                    child: Text(
+                                      criteria['criteriaName'],
+                                      style: TextStyle(fontSize: 16),
                                     ),
-                                    maxLines: 3,
+                                  ),
+                                  SizedBox(
+                                    width: 60,
+                                    height: 40,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                      keyboardType: TextInputType.number,
+                                    ),
                                   ),
                                 ],
-                              );
-                            }).toList() ??
-                            [],
+                              ),
+                              TextField(
+                                decoration: const InputDecoration(
+                                  hintText: "Write your thoughts...",
+                                  border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF00B7FF), width: 2.0),
+                                  ),
+                                ),
+                                maxLines: 3,
+                              ),
+                            ],
+                          );
+                        }).toList(),
                         Divider(height: 20, thickness: 1),
                         const Text(
                           "Part II - Graduation Project Checklist",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                        ...checklistItems?.map<Widget>((item) {
-                              return Column(
+                        ...checklistItems.map<Widget>((item) {
+                          return Column(
+                            children: [
+                              Row(
                                 children: [
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                          value: false, onChanged: (value) {}),
-                                      Expanded(
-                                        child: Text(
-                                          item['itemName'],
-                                          style: TextStyle(fontSize: 16),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TextField(
-                                    decoration: const InputDecoration(
-                                      hintText: "Write your thoughts...",
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0)),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0)),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF00B7FF),
-                                            width: 2.0),
-                                      ),
+                                  Checkbox(value: false, onChanged: (value) {}),
+                                  Expanded(
+                                    child: Text(
+                                      item['itemName'],
+                                      style: TextStyle(fontSize: 16),
                                     ),
-                                    maxLines: 3,
                                   ),
                                 ],
-                              );
-                            }).toList() ??
-                            [],
+                              ),
+                              TextField(
+                                decoration: const InputDecoration(
+                                  hintText: "Write your thoughts...",
+                                  border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF00B7FF), width: 2.0),
+                                  ),
+                                ),
+                                maxLines: 3,
+                              ),
+                            ],
+                          );
+                        }).toList(),
                         Divider(height: 20, thickness: 1),
                         SizedBox(height: 10),
                         const Text("General Feedback",
@@ -320,35 +305,14 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         ElevatedButton(
                           onPressed: confirmEvaluationCheckbox ? () {} : null,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: confirmEvaluationCheckbox
-                                ? Colors.green
-                                : Colors.grey,
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
+                            backgroundColor: AppColors.primary,
+                            minimumSize: Size(double.infinity, 50),
                           ),
-                          child: Center(
-                            child: const Text(
-                              "Evaluate",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: AppColors.whiteTextColor),
-                            ),
+                          child: Text(
+                            "Confirm",
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                        if (!confirmEvaluationCheckbox)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10, left: 8),
-                            child: Text(
-                              "Evaluation can not be performed without confirmation.",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
                       ],
                     ),
                   ),
@@ -358,6 +322,27 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
           }
         },
       ),
+    );
+  }
+}
+
+class CommitmentCheckbox extends StatelessWidget {
+  final bool value;
+  final ValueChanged<bool?> onChanged;
+
+  const CommitmentCheckbox({
+    required this.value,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      activeColor: AppColors.primary,
+      value: value,
+      onChanged: onChanged,
+      title: const Text("Commitment to Impartial Evaluation"),
+      controlAffinity: ListTileControlAffinity.leading,
     );
   }
 }
