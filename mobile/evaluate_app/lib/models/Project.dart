@@ -11,6 +11,7 @@ class Project {
   final String presentationDate;
   final String startTime;
   final String endTime;
+  final List<TeamMember> members; // Team members list
 
   Project({
     required this.teamId,
@@ -25,6 +26,7 @@ class Project {
     required this.presentationDate,
     required this.startTime,
     required this.endTime,
+    required this.members,
   });
 
   factory Project.fromJson(Map<String, dynamic> json) {
@@ -41,23 +43,30 @@ class Project {
       presentationDate: json['presentationDate'] ?? '',
       startTime: json['startTime'] ?? '',
       endTime: json['endTime'] ?? '',
+      members: (json['members'] as List<dynamic>?)
+              ?.map((memberJson) => TeamMember.fromJson(memberJson))
+              .toList() ??
+          [],
     );
   }
 }
 
 class TeamMember {
+  final int studentId;
   final String fullName;
   final String studentNumber;
 
   TeamMember({
+    required this.studentId,
     required this.fullName,
     required this.studentNumber,
   });
 
   factory TeamMember.fromJson(Map<String, dynamic> json) {
     return TeamMember(
-      fullName: json['fullName'],
-      studentNumber: json['studentNumber'],
+      studentId: json['studentId'] ?? 0,
+      fullName: json['studentFullName'] ?? '',
+      studentNumber: json['studentNumber'] ?? '',
     );
   }
 }

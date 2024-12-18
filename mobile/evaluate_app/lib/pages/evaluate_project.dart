@@ -43,6 +43,67 @@ class EvaluateProjectPage extends StatefulWidget {
 }
 
 class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
+  void _showConfirmationDialog(BuildContext context) async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: AppColors.whiteTextColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: const Text(
+            'Confirm Action?',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: AppColors.primaryTextColor,
+            ),
+          ),
+          content: Text(
+            'Are you sure you want to submit this evaluation? This action cannot be undone.',
+            style: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16,
+              color: AppColors.primaryTextColor,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text(
+                'Cancel',
+                style: TextStyle(
+                  color: AppColors.primaryTextColor,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+                submitEvaluation(); // Submit evaluation after confirmation
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.trueGreen,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: const Text(
+                'Confirm',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Future<void> submitEvaluation() async {
     final token = await storage.read(key: 'accessToken');
     final url = Uri.parse(AppConfig.submitEvaluation);
@@ -58,7 +119,7 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
       "evaluationCriterias":
           (await fetchEvaluationCriteria())['evaluationCriteriaDatas']
               .map((criteria) => {
-                    "criteriaId": criteria['criteriaId'] - 1,
+                    "criteriaId": criteria['criteriaId'],
                     "isChecked": true,
                     "score": 0,
                     "feedback": "asdasds"
@@ -66,11 +127,8 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
               .toList(),
       "evaluationChecklistItems":
           (await fetchEvaluationCriteria())['checklistItemDatas']
-              .map((item) => {
-                    "itemId": item['itemId'] - 1,
-                    "isChecked": true,
-                    "feedback": ""
-                  })
+              .map((item) =>
+                  {"itemId": item['itemId'], "isChecked": true, "feedback": ""})
               .toList(),
     };
 
@@ -214,9 +272,9 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         SizedBox(height: 14),
                         const Text("Team Members",
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text("Kiran, Ege - 2000004002"),
-                        Text("Kiran, Ege - 2000004002"),
-                        Text("Kiran, Ege - 2000004002"),
+                        Text("Alparslan Eravsar - 2000003498"),
+                        Text("Semir Kimyonsen - 2000004562"),
+                        Text("Onur Taha Çetinkaya - 2000003710"),
                         Divider(height: 20, thickness: 1),
                         const Text(
                           "Part I - Evaluation Project Graduation Form",
@@ -332,7 +390,8 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         ElevatedButton(
                           onPressed: confirmEvaluationCheckbox
                               ? () async {
-                                  await submitEvaluation();
+                                  // Call the confirmation dialog instead of submitting directly
+                                  _showConfirmationDialog(context);
                                 }
                               : null,
                           style: ElevatedButton.styleFrom(
@@ -341,7 +400,9 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                           ),
                           child: Text(
                             "Confirm",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.whiteTextColor),
                           ),
                         ),
                       ],

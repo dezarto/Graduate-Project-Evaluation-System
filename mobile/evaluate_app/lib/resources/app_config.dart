@@ -23,8 +23,7 @@ class AppConfig {
       '$baseUrl/Professor/get-project-team-result/{teamId}';
 
   // POST Submit Evaluation
-  static const String submitEvaluation =
-      '$baseUrl/Professor/get-project-team-result/{teamId}';
+  static const String submitEvaluation = '$baseUrl/Professor/submit-evaluation';
 
   // POST Approve Team
   static const String approveProject = '$baseUrl/Professor/post-approval-teams';
