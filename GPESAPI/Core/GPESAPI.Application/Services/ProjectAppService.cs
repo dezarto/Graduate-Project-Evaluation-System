@@ -156,7 +156,7 @@ namespace GPESAPI.Application.Services
                 var team = await _teamService.GetTeamByIdAsync(presentation.TeamId);
                 var professorInfos = await _professorService.GetByProfessorIdAsync(professor.ProfessorId);
                 var teamMembers = await _teamMemberService.GetByTeamIdAsync(presentation.TeamId);
-
+                
                 var newProjectTeams = new ProjectTeams
                 {
                     TeamPresentationId = presentation.TeamPresentationId,
@@ -172,6 +172,7 @@ namespace GPESAPI.Application.Services
                     PresentationDate = presentation.PresentationDate,
                     StartTime = presentation.StartTime,
                     EndTime = presentation.EndTime,
+                    IsActive = team.isActive,
                     Members = new List<StudentList>()
                 };
 

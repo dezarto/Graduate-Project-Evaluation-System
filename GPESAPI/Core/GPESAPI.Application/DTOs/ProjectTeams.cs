@@ -13,6 +13,7 @@
         public string ProjectName { get; set; }
         public int ProjectId { get; set; }
         public bool isApproval { get; set; }
+        public bool IsActive { get; set; }
         public DateTime PresentationDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
