@@ -69,18 +69,18 @@
             <div class="container">
                 <div class="section">
                     <h3>Part I - Evaluation Criteria</h3>
-                    @if (Model.EvaluationCriteriaDatas != null && Model.EvaluationCriteriaDatas.Any())
+                    @if (Model.EvaluationCriterias != null && Model.EvaluationCriterias.Any())
                     {
-                        @for (int i = 0; i < Model.EvaluationCriteriaDatas.Count; i++)
+                        @for (int i = 0; i < Model.EvaluationCriterias.Count; i++)
                         {
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="EvaluationCriteria[@i].IsChecked" value="true">
-                                    @Model.EvaluationCriteriaDatas[i].CriteriaName (%@Model.EvaluationCriteriaDatas[i].Precent)
+                                    <input type="checkbox" name="EvaluationCriterias[@i].IsChecked" value="true">
+                                    @Model.EvaluationCriterias[i].CriteriaName (%@Model.EvaluationCriterias[i].Precent)
                                 </label>
-                                <input type="hidden" name="EvaluationCriteria[@i].CriteriaId" value="@Model.EvaluationCriteriaDatas[i].CriteriaId">
-                                <textarea name="EvaluationCriteria[@i].Score" class="numberInput" placeholder="Enter a numeric score"></textarea>
-                                <textarea name="EvaluationCriteria[@i].Comments" placeholder="Write your thoughts..."></textarea>
+                                <input type="hidden" name="EvaluationCriterias[@i].CriteriaId" value="@Model.EvaluationCriterias[i].CriteriaId">
+                                <input type="number" name="EvaluationCriterias[@i].Score" class="numberInput" placeholder="Enter a numeric score">
+                                <textarea name="EvaluationCriterias[@i].Feedback" placeholder="Write your thoughts..."></textarea>
                             </div>
                         }
                     }
@@ -92,17 +92,17 @@
 
                 <div class="section">
                     <h3>Part II - Checklist</h3>
-                    @if (Model.ChecklistItemDatas != null && Model.ChecklistItemDatas.Any())
+                    @if (Model.EvaluationChecklistItems != null && Model.EvaluationChecklistItems.Any())
                     {
-                        @for (int i = 0; i < Model.ChecklistItemDatas.Count; i++)
+                        @for (int i = 0; i < Model.EvaluationChecklistItems.Count; i++)
                         {
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="ChecklistItems[@i].IsChecked" value="true">
-                                    @Model.ChecklistItemDatas[i].ItemName
+                                    <input type="checkbox" name="EvaluationChecklistItems[@i].IsChecked" value="true">
+                                    @Model.EvaluationChecklistItems[i].ItemName
                                 </label>
-                                <input type="hidden" name="ChecklistItems[@i].ItemId" value="@Model.ChecklistItemDatas[i].ItemId">
-                                <textarea name="ChecklistItems[@i].Comments" placeholder="Write your thoughts..."></textarea>
+                                <input type="hidden" name="EvaluationChecklistItems[@i].ItemId" value="@Model.EvaluationChecklistItems[i].ItemId">
+                                <textarea name="EvaluationChecklistItems[@i].Feedback" placeholder="Write your thoughts..."></textarea>
                             </div>
                         }
                     }
@@ -110,6 +110,14 @@
                     {
                         <p>No checklist items available.</p>
                     }
+                </div>
+
+                <div class="section">
+                    <h3>General Comments</h3>
+                    <div class="form-group">
+                        <label for="GeneralComments">Please provide your general comments:</label>
+                        <textarea id="GeneralComments" name="GeneralComments" placeholder="Write your general comments here..." rows="4" cols="50"></textarea>
+                    </div>
                 </div>
 
                 <div class="confirmation">

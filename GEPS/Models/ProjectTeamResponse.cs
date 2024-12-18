@@ -18,8 +18,8 @@
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
 
-        public List<EvaluationCriterias> EvaluationCriteriaDatas { get; set; }
-        public List<ChecklistItems> ChecklistItemDatas { get; set; }
+        public List<EvaluationCriterias> EvaluationCriterias { get; set; }
+        public List<ChecklistItems> EvaluationChecklistItems { get; set; }
     }
 
     public class StudentList

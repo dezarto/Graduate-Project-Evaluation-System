@@ -304,13 +304,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GEPS.693dqlujtg.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"693dqlujtg"},{"Name":"integrity","Value":"sha256-RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18="},{"Name":"label","Value":"_content/GEPS/GEPS.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1122"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 18:36:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1122"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 12:20:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GEPS/GEPS.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\GEPS.693dqlujtg.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1122"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 18:36:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1122"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022RkDtnIVYUi\u002B942oH1\u002B4xUdRPqf5ilri/zdaje6FZg18=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 12:20:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GEPS/IKULogo.ngqm65fd7o.svg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\IKULogo.svg'))</AssetFile>

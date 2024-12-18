@@ -101,35 +101,35 @@ namespace GEPS.Controllers
 
         // ************************************  Post Submit Evaluation   ************************************
 
-        [HttpPost("SubmitEvaluation")]
-        public async Task<IActionResult> SubmitEvaluation(ProjectEvaluationSubmit evaluationSubmitModel)
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
+        //[HttpPost("SubmitEvaluation")]
+        //public async Task<IActionResult> SubmitEvaluation(ProjectEvaluationSubmit evaluationSubmitModel)
+        //{
+        //    var userRole = HttpContext.Items["UserRole"] as string;
+        //    ViewBag.UserRole = userRole;
 
-            string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
+        //    string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
 
-            try
-            {
-                var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationSubmitModel);
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationSubmitModel);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["SuccessMessage"] = "Evaluation submitted successfully!";
-                    return RedirectToAction("Success");
-                }
-                else
-                {
-                    ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
-                    return View("SubmitEvaluation", evaluationSubmitModel);
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-                return View("SubmitEvaluation", evaluationSubmitModel);
-            }
-        }
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            TempData["SuccessMessage"] = "Evaluation submitted successfully!";
+        //            return RedirectToAction("Success");
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
+        //            return View("SubmitEvaluation", evaluationSubmitModel);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
+        //        return View("SubmitEvaluation", evaluationSubmitModel);
+        //    }
+        //}
 
         // ************************************ Get Project Team Result Evaluation   ************************************
         [HttpGet("GetProjectTeamResult/{teamId}")]
@@ -345,7 +345,6 @@ namespace GEPS.Controllers
             }
         }
 
-
         [HttpGet]
         public async Task<IActionResult> TeacherCalendar()
         {
@@ -538,8 +537,8 @@ namespace GEPS.Controllers
                             TeamName = item.TeamName,
                             TeamPresentationId = item.TeamPresentationId,
                             Members = new List<StudentList>(),
-                            ChecklistItemDatas = allCriterias.ChecklistItemDatas,
-                            EvaluationCriteriaDatas = allCriterias.EvaluationCriteriaDatas,
+                            EvaluationChecklistItems = allCriterias.ChecklistItemDatas,
+                            EvaluationCriterias = allCriterias.EvaluationCriteriaDatas,
                         };
 
                         foreach (var member in item.Members)
@@ -568,16 +567,32 @@ namespace GEPS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostTeacherEvaluateProject(ProjectEvaluationSubmit evaluationModel)
+        public async Task<IActionResult> PostTeacherEvaluateProject(EvaluateReasult evaluationModel)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
             string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
-
+            
             try
             {
-                var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationModel);
+                evaluationModel.Date = DateTime.Now;
+
+                var token = HttpContext.Session.GetString("BearerToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new { success = false, errorMessage = "Authorization token is missing." });
+                }
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                {
+                    Content = new StringContent(JsonConvert.SerializeObject(evaluationModel), Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var response = await _httpClient.SendAsync(requestMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
