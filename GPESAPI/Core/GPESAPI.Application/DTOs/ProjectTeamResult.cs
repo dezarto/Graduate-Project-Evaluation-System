@@ -1,4 +1,6 @@
-﻿namespace GPESAPI.Application.DTOs
+﻿using GPESAPI.Domain.Entities;
+
+namespace GPESAPI.Application.DTOs
 {
     public class ProjectTeamResult
     {
@@ -7,7 +9,7 @@
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
         public List<ProfessorList> ProfessorsTeams { get; set; }
-        
+        public List<StudentLists> Members { get; set; }
     }
 
     public class ProfessorList
@@ -18,5 +20,12 @@
         public double EvaluationScore { get; set; }
         public string GeneralComments { get; set; }
         public List<EvaluationCriteriaResult> EvaluationCriterias { get; set; }
+    }
+
+    public class StudentLists
+    {
+        public int StudentId { get; set; }
+        public string StudentFullName { get; set; }
+        public string StudentNumber { get; set; }
     }
 }

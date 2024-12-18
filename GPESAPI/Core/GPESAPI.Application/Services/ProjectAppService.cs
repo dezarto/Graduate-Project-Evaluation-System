@@ -218,6 +218,32 @@ namespace GPESAPI.Application.Services
                 throw new Exception($"Team with ID {teamPresentation.TeamId} not found.");
             }
 
+            var teamMemberDomain = new List<StudentLists>();
+
+            var teamMembers = await _teamMemberService.GetByTeamIdAsync(teamId);
+
+            if (teamMembers == null)
+            {
+                throw new Exception($"Project with ID {team.ProjectId} Teammember error.");
+            }
+
+            foreach (var item in teamMembers)
+            {
+                var user = await _userService.GetByUserIdAsync(item.UserId);
+
+                if (user == null)
+                {
+                    continue;
+                }
+
+                teamMemberDomain.Add(new StudentLists
+                {
+                    StudentId = user.UserId,
+                    StudentFullName = user.FullName,
+                    StudentNumber = user.StudentNumber,
+                });
+            }
+
             var project = await _projectService.GetProjectByIdAsync(team.ProjectId);
             if (project == null)
             {
@@ -276,6 +302,8 @@ namespace GPESAPI.Application.Services
                 });
             }
 
+            
+
             return new ProjectTeamResult
             {
                 TeamId = teamId,
@@ -283,6 +311,7 @@ namespace GPESAPI.Application.Services
                 ProjectName = project.ProjectName,
                 ProjectDescription = project.Description,
                 ProfessorsTeams = professorsTeams,
+                Members = teamMemberDomain
             };
         }
 
