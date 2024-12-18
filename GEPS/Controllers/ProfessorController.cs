@@ -67,100 +67,7 @@ namespace GEPS.Controllers
             }
         }
 
-        // ************************************ Get  Evaulation   ************************************
-
-        [HttpGet("GetEvaluation/{evaluationId}")]
-        public async Task<IActionResult> GetEvaluation(int evaluationId)
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            string apiUrl = $"https://localhost:7107/api/Professor/get-evaluation/{evaluationId}";
-
-            try
-            {
-                var response = await _httpClient.GetAsync(apiUrl);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var evaluationResult = await response.Content.ReadFromJsonAsync<ProjectEvaluationResult>();
-                    return View("EvaluationResult", evaluationResult);
-                }
-                else
-                {
-                    ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
-                    return View("Error");
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-                return View("Error");
-            }
-        }
-
-        // ************************************  Post Submit Evaluation   ************************************
-
-        //[HttpPost("SubmitEvaluation")]
-        //public async Task<IActionResult> SubmitEvaluation(ProjectEvaluationSubmit evaluationSubmitModel)
-        //{
-        //    var userRole = HttpContext.Items["UserRole"] as string;
-        //    ViewBag.UserRole = userRole;
-
-        //    string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
-
-        //    try
-        //    {
-        //        var response = await _httpClient.PostAsJsonAsync(apiUrl, evaluationSubmitModel);
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            TempData["SuccessMessage"] = "Evaluation submitted successfully!";
-        //            return RedirectToAction("Success");
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
-        //            return View("SubmitEvaluation", evaluationSubmitModel);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-        //        return View("SubmitEvaluation", evaluationSubmitModel);
-        //    }
-        //}
-
-        // ************************************ Get Project Team Result Evaluation   ************************************
-        [HttpGet("GetProjectTeamResult/{teamId}")]
-        public async Task<IActionResult> GetProjectTeamResult(int teamId)
-        {
-            var userRole = HttpContext.Items["UserRole"] as string;
-            ViewBag.UserRole = userRole;
-
-            string apiUrl = $"https://localhost:7107/api/Professor/get-project-team-result/{teamId}";
-
-            try
-            {
-                var response = await _httpClient.GetAsync(apiUrl);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var teamResult = await response.Content.ReadFromJsonAsync<ProjectTeamResult>();
-                    return View("ProjectTeamResult", teamResult);
-                }
-                else
-                {
-                    ViewBag.Errors = new[] { $"API call failed with status: {response.StatusCode}" };
-                    return View("Error");
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
-                return View("Error");
-            }
-        }
+        
 
         // ************************************ Post Approval Team Evaluation   ************************************
         [HttpPost]
@@ -613,33 +520,42 @@ namespace GEPS.Controllers
             }
         }
 
-        public async Task<IActionResult> TeacherViewResult()
+        [HttpGet]
+        public async Task<IActionResult> TeacherViewResult(int id)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
-            string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
+            string apiUrl = $"https://localhost:7107/api/Professor/get-project-team-result/{id}";
 
             try
             {
-                string bearerToken = HttpContext.Session.GetString("BearerToken");
+                var token = HttpContext.Session.GetString("BearerToken");
 
-                if (string.IsNullOrEmpty(bearerToken))
+                if (string.IsNullOrEmpty(token))
                 {
-                    return Unauthorized("Bearer token is missing.");
+                    ViewBag.Errors = new[] { "Authorization token is missing." };
+                    return View("Error");
                 }
 
-                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-                var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
+                var response = await _httpClient.SendAsync(requestMessage);
 
-                if (projectTeams == null || !projectTeams.Any())
+                if (response.IsSuccessStatusCode)
                 {
-                    ViewBag.ErrorMessage = "No teams found.";
-                    return View();
-                }
+                    var content = await response.Content.ReadAsStringAsync();
+                    var projectTeamResult = JsonConvert.DeserializeObject<ProjectTeamResult>(content);
 
-                return View(projectTeams);
+                    return View(projectTeamResult);
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ViewBag.ErrorMessage = $"Değerlendirme kriterleri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
+                    return View(new ProjectTeamResult());
+                }
             }
             catch (HttpRequestException ex)
             {

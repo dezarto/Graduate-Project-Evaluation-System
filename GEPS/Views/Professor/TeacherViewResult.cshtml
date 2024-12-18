@@ -1,14 +1,9 @@
-﻿@{
-    @model IEnumerable<ProjectTeamResponse>
-
-}
-
+﻿@using Newtonsoft.Json
+@model GEPS.Models.ProjectTeamResult
 
 @{
-    ViewBag.Title = "TeacherViewResult";
+    ViewBag.Title = "Teacher View Result";
 }
-
-@using GEPS.Models  <!-- Burada doğru namespace'i ekliyoruz -->
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +11,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/css/TeacherViewResult.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" src="TeacherViewResult.js"></script>
-
-    <title>TeacherViewResult</title>
+    <title>Teacher View Result</title>
 </head>
 <body>
     <div class="mainTeacherViewResult">
@@ -26,212 +19,97 @@
             <h3>View Result</h3>
             <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project. </p>
         </section>
+
+        <!-- Dynamic Teacher Selection Buttons -->
         <section class="teacherSelection">
-            <button class="actionButton redButton">Akhan Akbulut(Me)</button>
-            <button class="actionButton redButton">Murat Taylı</button>
-            <button class="actionButton redButton">Öznur Şengel</button>
-            <button class="actionButton greenButton">Average Result</button>
+            @if (Model.ProfessorsTeams != null && Model.ProfessorsTeams.Count > 0)
+            {
+                @for (int i = 0; i < Model.ProfessorsTeams.Count; i++)
+                {
+                    <button class="actionButton redButton"
+                            onclick="showProfessorInfo(this)"
+                            data-professor='@Html.Raw(JsonConvert.SerializeObject(Model.ProfessorsTeams[i]))'>
+                        @Model.ProfessorsTeams[i].FullName
+                    </button>
+                }
+            }
+            else
+            {
+                <p>No professors available</p>
+            }
+            <button class="actionButton greenButton" onclick="showAverageResult()">Average Result</button>
         </section>
-        @foreach (var ProjectTeamResponse in Model ?? new List<ProjectTeamResponse>())
-        {
+
+        <!-- Team Information Section -->
         <section class="resultPart">
             <div class="inlinePadding">
-                    <h4> @ProjectTeamResponse.TeamName </h4>
-                <section class="teamInfo">
-                    <table class="tableOfTeamInfo">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <p>Team</p>
-                                </th>
-                                <th>
-                                    <p>Status</p>
-                                </th>
-                                <th>
-                                    <p>Evaluating Teacher</p>
-                                </th>
-                                <th>
-                                    <p>Team Members</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="teamTableBody">
-                            
-                                <tr>
-                                    <td>
-                                        <p> @ProjectTeamResponse.TeamId</p>
-                                    </td>
-                                    <td>
-                                        <p>  @ProjectTeamResponse.isEvaluated </p>
-                                    </td>
-                                    <td>
-                                        <p> @ProjectTeamResponse.EvaluatingTeacherMail </p>
-                                    </td>
-                                    <td>
-                                        @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
-                                        {
-                                            <ul>
-                                                @foreach (var member in ProjectTeamResponse.Members)
-                                                {
-                                                    <li>@member.StudentFullName</li>
-                                                }
-                                            </ul>
-                                        }
-                                        else
-                                        {
-                                            <p>No members</p>
-                                        }
-                                    </td>
-                                </tr>
-                            
-                        </tbody>
+                <h4>@Model.TeamName</h4>
+
+                <!-- Evaluation Results Section -->
+                <section class="resultTable">
+                    <table class="tableOfResult" id="evaluationResultsTable">
+                        <tr>
+                            <th>Evaluation</th>
+                            <th>Grades</th>
+                        </tr>
+                        <tr id="noEvaluationMessage">
+                            <td colspan="2">Select a professor to see their evaluation.</td>
+                        </tr>
                     </table>
                 </section>
 
-                        <section class="resultTable">
-                            <table class="tableOfResult">
-                        <tr>
-                            <th>
-                                <p>Evaluation</p>
-                            </th>
-                            <th>
-                                <p>Grades</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Technical Merits (%15) <br>
-                                    <b>Feedback:</b>
-                                </p>
-                            </td>
-                            <td>
-                                        <p> 1 </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Project Design and Implementation (%40) <br>
-                                    <b>Feedback: </b>
-                                </p>
-                            </td>
-                            <td>
-                                <p>2@*@Model.Evaluation.EvaluationScore*@</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Report (Completeness and Content) (%15) <br>
-                                    <b>Feedback:</b>
-                                </p>
-                            </td>
-                            <td>
-                                <p>@*@Model.Evaluation.EvaluationScore*@</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Presentation (%10) <br>
-                                    <b>Feedback:</b>
-                                </p>
-                            </td>
-                            <td>
-                                <p>3@*@Model.Evaluation.EvaluationScore*@</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Demo (%10) <br>
-                                    <b>Feedback:</b>
-                                </p>
-                            </td>
-                            <td>
-                                <p>7</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    Papers (%10) <br>
-                                    <b>Feedback:</b>
-                                </p>
-                            </td>
-                            <td>
-                                <p>2@*@Model.Evaluation.EvaluationScore*@</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Total Score (%100)</p>
-                            </td>
-                            <td>
-                                <p>5@*@Model.Evaluation.EvaluationScore*@</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <p><b>General Feedback</b> </p>
-                </section>
-                    
+                <p><b>General Feedback</b></p>
+                <p id="generalFeedback">Select a professor to see their feedback.</p>
             </div>
         </section>
-        }
     </div>
-</body>
-</html>
 
+    <!-- JavaScript for handling button clicks -->
+    <script>
+                function showProfessorInfo(button) {
+            // Parse professor data from button's data attribute
+            const professorData = JSON.parse(button.getAttribute('data-professor'));
 
-<script>
-        document.addEventListener("DOMContentLoaded", function () {
-        // Team status hücresini seç
-        const teamStatusElement = document.querySelector("#teamTableBody td:nth-child(2) p");
+            const evaluationTable = document.getElementById('evaluationResultsTable');
+            const generalFeedback = document.getElementById('generalFeedback');
 
-        if (teamStatusElement) {
-            const status = teamStatusElement.textContent.trim();
+            // Clear previous results
+            evaluationTable.innerHTML = `
+                <tr>
+                    <th>Evaluation</th>
+                    <th>Grades</th>
+                </tr>
+            `;
 
-
-            switch (status) {
-                case "READY TO EVALUATE":
-                    teamStatusElement.style.color = "blue";
-                    teamStatusElement.style.fontWeight = "bold";
-                    teamStatusElement.textContent = " Ready to Evaluate";
-                    break;
-
-                case "NO RESULT":
-                    teamStatusElement.style.color = "red";
-                    teamStatusElement.style.fontWeight = "bold";
-                    teamStatusElement.textContent = "❌ No Result";
-                    break;
-
-                case "RESULT AVAILABLE":
-                    teamStatusElement.style.color = "green";
-                    teamStatusElement.style.fontWeight = "bold";
-                    teamStatusElement.textContent = "✅ Result Available";
-                    break;
-
-                default:
-                    teamStatusElement.style.color = "black";
-                    teamStatusElement.textContent = "Unknown Status";
-                    break;
+            if (professorData) {
+                if (professorData.EvaluationCriterias && professorData.EvaluationCriterias.length > 0) {
+                    // Add evaluation criteria to the table
+                    professorData.EvaluationCriterias.forEach(criteria => {
+                        evaluationTable.innerHTML += `
+                            <tr>
+                                <td>${criteria.CriteriaId} - ${criteria.Feedback}</td>
+                                <td>${criteria.Score}</td>
+                            </tr>
+                        `;
+                    });
+                    generalFeedback.textContent = professorData.GeneralComments || "No feedback provided.";
+                } else {
+                    // Show "Not evaluated" message
+                    evaluationTable.innerHTML += `
+                        <tr>
+                            <td colspan="2">Değerlendirilmedi</td>
+                        </tr>
+                    `;
+                    generalFeedback.textContent = "No feedback available.";
+                }
+            } else {
+                alert("Professor data is missing.");
             }
         }
-    });
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // Tüm butonları seç
-        const buttons = document.querySelectorAll(".actionButton");
-
-        // Her butona tıklama olayı ekle
-        buttons.forEach(button => {
-            button.addEventListener("click", () => {
-                // Önce tüm butonlardan 'clicked' sınıfını kaldır
-                buttons.forEach(btn => btn.classList.remove("clicked"));
-                // Tıklanan butona 'clicked' sınıfını ekle
-                button.classList.add("clicked");
-            });
-        });
-    });
-</script>
+        function showAverageResult() {
+            alert("Average result will be shown here.");
+        }
+    </script>
+</body>
+</html>
