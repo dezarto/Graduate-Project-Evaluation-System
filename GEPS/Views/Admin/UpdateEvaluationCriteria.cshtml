@@ -15,15 +15,14 @@
         <form id="updateCriteriaForm">
             <input type="hidden" id="evaluationId" value="@Model.CriteriaId" />
 
-
             <div class="form-group">
                 <label for="criteriaName">Criteria Name</label>
-                <input type="text" id="criteriaName" name="CriteriaName" class="form-control" required>
+                <input type="text" id="criteriaName" name="CriteriaName" class="form-control" required value="@Model.CriteriaName">
             </div>
 
             <div class="form-group">
-                <label for="criteriaName">Percent</label>
-                <input type="number" id="Precent" name="Precent" class="form-control" required>
+                <label for="Precent">Percent</label>
+                <input type="number" id="Precent" name="Precent" class="form-control" required value="@Model.Precent">
             </div>
 
             <div class="form-actions">

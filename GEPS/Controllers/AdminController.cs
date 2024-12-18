@@ -808,7 +808,7 @@ namespace GEPS.Controllers
             }
         }
 
-        [HttpPost("UpdateCheckListItem/{id}")]
+        [HttpPut("UpdateCheckListItem/{id}")]
         public async Task<IActionResult> UpdateCheckListItem(int id, [FromBody] AdminChecklistItem checklistItem)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
@@ -824,7 +824,7 @@ namespace GEPS.Controllers
 
             try
             {
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
+                var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl)
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(checklistItem), Encoding.UTF8, "application/json")
                 };

@@ -15,7 +15,7 @@
         <form id="updateChecklistItemForm">
             <div class="form-group">
                 <label for="itemName">Item Name</label>
-                <input type="text" id="itemName" name="ItemName" class="form-control" required>
+                <input type="text" id="itemName" name="ItemName" class="form-control" value="@Model.ItemName"  required>
                 <input type="hidden" id="itemId" value="@Model.ItemId">
             </div>
 
@@ -36,13 +36,13 @@
                 };
 
                 $.ajax({
-                    url: '/Admin/UpdateCheckListItem',  // Backend URL for updating the checklist item
-                    type: 'POST',
+                    url: '/Admin/UpdateCheckListItem/' + checklistItem.ItemId,
+                    type: 'PUT',
                     contentType: 'application/json',
                     data: JSON.stringify(checklistItem),
                     success: function (response) {
                         if (response.success) {
-                            window.location.href = '@Url.Action("GetAllCheckListItem", "Admin")';  // Yönlendirme URL'i
+                            window.location.href = '@Url.Action("GetAllChecklistItems", "Admin")';  // Yönlendirme URL'i
                             $('#responseMessage').html('<div class="alert alert-success">Checklist item updated successfully!</div>');
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');

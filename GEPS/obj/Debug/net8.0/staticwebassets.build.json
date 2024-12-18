@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xx3h2Gpka2oR+GaMF9e2dCiOC1cWsWIbCiYgYyR6sAc=",
+  "Hash": "2z8+J1dUqOBAuw1kQcgTg3gLWYUgwua/cKN3wwqpy/A=",
   "Source": "GEPS",
   "BasePath": "_content/GEPS",
   "Mode": "Default",
@@ -1968,6 +1968,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\6761f782e75427da20c70976.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762faa2734c6fb86fc7445e.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6762faa2734c6fb86fc7445e#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r4uv0hziiw",
+      "Integrity": "tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6762faa2734c6fb86fc7445e.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762fbea734c6fb86fc7445f.pdf",
+      "SourceId": "GEPS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\",
+      "BasePath": "_content/GEPS",
+      "RelativePath": "uploads/6762fbea734c6fb86fc7445f#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r4uv0hziiw",
+      "Integrity": "tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6762fbea734c6fb86fc7445f.pdf"
     }
   ],
   "Endpoints": [
@@ -9594,6 +9636,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-Pu6hMWN2T+vwZX2+wrrjq0ASUXLcFv+HNQFBBhjLxV4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6762faa2734c6fb86fc7445e.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762faa2734c6fb86fc7445e.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 16:38:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6762faa2734c6fb86fc7445e.r4uv0hziiw.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762faa2734c6fb86fc7445e.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 16:38:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r4uv0hziiw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6762faa2734c6fb86fc7445e.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6762fbea734c6fb86fc7445f.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762fbea734c6fb86fc7445f.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 16:44:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6762fbea734c6fb86fc7445f.r4uv0hziiw.pdf",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762fbea734c6fb86fc7445f.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 16:44:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r4uv0hziiw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6762fbea734c6fb86fc7445f.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
         }
       ]
     }

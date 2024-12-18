@@ -53,7 +53,6 @@
                                                 Delete
                                             </button>
                                         </div>
-
                                     </div>
                                 </td>
                             </tr>
@@ -83,12 +82,13 @@
                 $.ajax({
                     url: apiUrl,
                     type: 'DELETE',
-                    success: function (result) {
-                        alert('tarih başarıyla silindi!');
-                        location.reload();
+                    success: function () {
+                        setTimeout(function() {
+                            location.href = location.href;
+                        }, 200);
                     },
                     error: function () {
-                        alert('tarih silinirken bir hata oluştu.');
+                        
                     }
                 });
             }

@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Semir\\Desktop\\GEPS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\models\\teamcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:models\\teamcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\professor\\teachercalendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\professor\\teachercalendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\student\\projectcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\updatechecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\models\\projectteamresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:models\\projectteamresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\admin\\getallchecklistitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\getallchecklistitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|c:\\users\\semir\\desktop\\geps\\views\\admin\\postaddchecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{607CCECA-BD98-49D0-B8C1-7F08C9FF0F61}|GEPS.csproj|solutionrelative:views\\admin\\postaddchecklistitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDYAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T16:31:24.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProjectTeamResult.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Models\\ProjectTeamResult.cs",
-              "RelativeDocumentMoniker": "Models\\ProjectTeamResult.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Models\\ProjectTeamResult.cs",
-              "RelativeToolTip": "Models\\ProjectTeamResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T16:04:18.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TeamCreator.cs",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Models\\TeamCreator.cs",
-              "RelativeDocumentMoniker": "Models\\TeamCreator.cs",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Models\\TeamCreator.cs",
-              "RelativeToolTip": "Models\\TeamCreator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T15:29:14.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProjectCreate.cshtml",
-              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
-              "RelativeDocumentMoniker": "Views\\Student\\ProjectCreate.cshtml",
-              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Student\\ProjectCreate.cshtml",
-              "RelativeToolTip": "Views\\Student\\ProjectCreate.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAD4v28AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-18T15:29:36.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
               "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\StudentController.cs",
               "RelativeToolTip": "Controllers\\StudentController.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAEwIYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAEwHoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T15:28:19.945Z",
+              "WhenOpened": "2024-12-18T17:11:26.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T18:05:46.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Controllers\\ProfessorController.cs",
+              "ViewState": "AgIAANgBAAAAAAAAAAAqwPcBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T17:58:02.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TeacherCalendar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Professor\\TeacherCalendar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Professor\\TeacherCalendar.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Professor\\TeacherCalendar.cshtml",
+              "RelativeToolTip": "Views\\Professor\\TeacherCalendar.cshtml",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAQwFcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T17:53:15.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GetAllChecklistItems.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\GetAllChecklistItems.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\GetAllChecklistItems.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\GetAllChecklistItems.cshtml",
+              "RelativeToolTip": "Views\\Admin\\GetAllChecklistItems.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAFIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T17:18:59.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PostAddCheckListItem.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\PostAddCheckListItem.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\PostAddCheckListItem.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\PostAddCheckListItem.cshtml",
+              "RelativeToolTip": "Views\\Admin\\PostAddCheckListItem.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwDsAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T17:16:09.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateCheckListItem.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\UpdateCheckListItem.cshtml",
+              "ToolTip": "C:\\Users\\Semir\\Desktop\\GEPS\\Views\\Admin\\UpdateCheckListItem.cshtml",
+              "RelativeToolTip": "Views\\Admin\\UpdateCheckListItem.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwB8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T17:14:56.58Z",
               "EditorCaption": ""
             }
           ]

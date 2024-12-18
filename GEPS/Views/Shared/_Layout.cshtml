@@ -45,15 +45,10 @@
             <a href="@Url.Action("TeamHomeProfessor", "Professor")">Home</a>
             <a href="@Url.Action("ProfessorProfile", "Professor")">My Profile</a>
             <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
-            <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Evaluate Project</a>
-            <a href="@Url.Action("TeacherViewResult", "Professor")">View Result</a>
-            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Presentation Schedule</a>
             <a href="@Url.Action("TeacherCalendar", "Professor")">Calendar</a>
         }
         else if (ViewBag.UserRole == "Student")
         {
-            <a href="@Url.Action("ProjectCreate", "Student")">Project Create</a>
-            <a href="@Url.Action("ProjectUpload", "Student")">Project Upload</a>
             <a href="@Url.Action("TeamHome", "Student")">Team Home</a>
         }
     </aside>

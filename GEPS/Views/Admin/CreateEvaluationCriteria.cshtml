@@ -11,7 +11,7 @@
     <div class="container">
         <h2>Create New Evaluation Criteria</h2>
 
-        <div id="responseMessage" style="margin-top: 20px;"></div> <!-- Hata/Sonuc Mesajı -->
+        <div id="responseMessage" style="margin-top: 20px;"></div>
 
         <form id="CreateEvaluationCriteriaForm">
             <div class="form-group">
@@ -32,27 +32,22 @@
 
     <script>
         $(document).ready(function () {
-            // Save Button Tıklama Olayı
             $('#saveButton').click(function () {
-                // Formdaki Alanları Oku
                 var criteriaName = $('#CriteriaName').val();
                 var Precent = $('#Precent').val();
 
-                // Alanların Dolu Olduğunu Kontrol Et
                 if (!criteriaName || !Precent) {
                     $('#responseMessage').html('<div class="alert alert-warning">Please fill in all fields.</div>');
                     return;
                 }
 
-                // Veri Nesnesi
                 var criteria = {
                     CriteriaName: criteriaName,
-                    Precent: parseFloat(Precent) // Yüzdelik değeri sayıya çeviriyoruz
+                    Precent: parseFloat(Precent) 
                 };
 
-                // AJAX İsteği
                 $.ajax({
-                    url: '/Admin/CreateEvaluationCriteria', // Controller Adresi
+                    url: '/Admin/CreateEvaluationCriteria',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(criteria),
@@ -84,7 +79,7 @@
                 window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';
                 setTimeout(() => {
                     window.location.reload(); // Yenilemeyi zorlar
-                }, 50);
+                }, 100);
 
             });
 

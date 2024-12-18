@@ -25,7 +25,7 @@
     </div>
 
     <script>
-        $(document).ready(function () {
+                $(document).ready(function () {
             $('#saveButton').click(function (e) {
                 e.preventDefault(); // Formun varsayılan davranışını engelle
 
@@ -53,6 +53,9 @@
                         if (response.success) {
                             $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria created successfully!</div>');
                             $('#ItemName').val(''); // Başarıyla gönderildikten sonra input alanını temizle
+
+                            // Sayfayı başka bir sayfaya yönlendir
+                            window.location.href = '/Admin/GetAllChecklistItems'; // Yönlendirme URL'sini buraya ekleyin
                         } else {
                             $('#responseMessage').html('<div class="alert alert-danger">Error: ' + (response.errorMessage || 'Unknown error') + '</div>');
                         }
