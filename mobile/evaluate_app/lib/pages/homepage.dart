@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       );
       if (response.statusCode == 200) {
+        print('${response.body}: Projects fetched successfully!');
         print('${response.statusCode}: Projects fetched successfully!');
         final List<dynamic> data = json.decode(response.body);
         setState(() {

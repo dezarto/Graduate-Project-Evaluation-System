@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:evaluate_app/models/models.dart';
+import 'package:intl/intl.dart';
 
 final storage = const FlutterSecureStorage();
 
@@ -42,8 +43,62 @@ class EvaluateProjectPage extends StatefulWidget {
 }
 
 class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
+  Future<void> submitEvaluation() async {
+    final token = await storage.read(key: 'accessToken');
+    final url = Uri.parse(AppConfig.submitEvaluation);
+    final now = DateTime.now().toUtc();
+
+    final formattedDate = DateFormat("yyyy-MM-ddTHH:mm:ss.SSS'Z'").format(now);
+
+    final evaluationData = {
+      "teamId": widget.project.teamId,
+      "generalComments": "string",
+      "totalScore": 0,
+      "date": formattedDate,
+      "evaluationCriterias":
+          (await fetchEvaluationCriteria())['evaluationCriteriaDatas']
+              .map((criteria) => {
+                    "criteriaId": criteria['criteriaId'] - 1,
+                    "isChecked": true,
+                    "score": 0,
+                    "feedback": "asdasds"
+                  })
+              .toList(),
+      "evaluationChecklistItems":
+          (await fetchEvaluationCriteria())['checklistItemDatas']
+              .map((item) => {
+                    "itemId": item['itemId'] - 1,
+                    "isChecked": true,
+                    "feedback": ""
+                  })
+              .toList(),
+    };
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(evaluationData),
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        print('${response.statusCode}: Criterias fetched successfully!');
+        print('Evaluation submitted successfully!');
+        Navigator.of(context).pop(); // Navigate back to the home page
+      } else {
+        throw Exception(
+            'Failed to submit evaluation: ${response.statusCode}${response.body}${evaluationData}');
+      }
+    } catch (error) {
+      print('Error submitting evaluation: $error');
+    }
+  }
+
   bool commitmentCheckbox = false;
-  bool confirmEvaluationCheckbox = false;
+  bool confirmEvaluationCheckbox = true;
   bool technicalMeritsSwitch = false;
   bool projectDesignSwitch = false;
 
@@ -162,19 +217,6 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                         Text("Kiran, Ege - 2000004002"),
                         Text("Kiran, Ege - 2000004002"),
                         Text("Kiran, Ege - 2000004002"),
-                        SizedBox(height: 10),
-                        CheckboxListTile(
-                          activeColor: AppColors.primary,
-                          value: commitmentCheckbox,
-                          onChanged: (bool? value) {
-                            setState(() {
-                              commitmentCheckbox = value ?? false;
-                            });
-                          },
-                          title:
-                              const Text("Commitment to Impartial Evaluation"),
-                          controlAffinity: ListTileControlAffinity.leading,
-                        ),
                         Divider(height: 20, thickness: 1),
                         const Text(
                           "Part I - Evaluation Project Graduation Form",
@@ -286,24 +328,13 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
                           ),
                           maxLines: 3,
                         ),
-                        CheckboxListTile(
-                          activeColor: AppColors.primary,
-                          value: confirmEvaluationCheckbox,
-                          onChanged: (bool? value) {
-                            setState(() {
-                              confirmEvaluationCheckbox = value ?? false;
-                            });
-                          },
-                          title: const Text(
-                            "I confirm my evaluation results.",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                          controlAffinity: ListTileControlAffinity.leading,
-                        ),
                         SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: confirmEvaluationCheckbox ? () {} : null,
+                          onPressed: confirmEvaluationCheckbox
+                              ? () async {
+                                  await submitEvaluation();
+                                }
+                              : null,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primary,
                             minimumSize: Size(double.infinity, 50),
@@ -322,27 +353,6 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
           }
         },
       ),
-    );
-  }
-}
-
-class CommitmentCheckbox extends StatelessWidget {
-  final bool value;
-  final ValueChanged<bool?> onChanged;
-
-  const CommitmentCheckbox({
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CheckboxListTile(
-      activeColor: AppColors.primary,
-      value: value,
-      onChanged: onChanged,
-      title: const Text("Commitment to Impartial Evaluation"),
-      controlAffinity: ListTileControlAffinity.leading,
     );
   }
 }
