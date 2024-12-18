@@ -12,6 +12,6 @@
     public class StudenLists
     {
         public string StudentFullName { get; set; }
-        public string StudenNumber { get; set; }
+        public string StudentNumber { get; set; }
     }
 }

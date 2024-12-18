@@ -1246,7 +1246,7 @@
             "type": "string",
             "nullable": true
           },
-          "studenNumber": {
+          "studentNumber": {
             "type": "string",
             "nullable": true
           }

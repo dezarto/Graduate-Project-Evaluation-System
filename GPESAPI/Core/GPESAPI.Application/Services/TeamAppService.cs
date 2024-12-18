@@ -57,11 +57,11 @@ namespace GPESAPI.Application.Services
 
             foreach (var studentUsername in teamCreator.StudentList)
             {
-                var studentL = await _userService.GetByStudentNumberAsync(studentUsername.StudenNumber);
+                var studentL = await _userService.GetByStudentNumberAsync(studentUsername.StudentNumber);
 
                 if (studentL == null)
                 {
-                    Console.WriteLine($"Student not found: {studentUsername.StudenNumber}");
+                    Console.WriteLine($"Student not found: {studentUsername.StudentNumber}");
                     continue;
                 }
 
