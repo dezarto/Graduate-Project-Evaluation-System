@@ -30,7 +30,7 @@ namespace GPESAPI.API.Controllers
                 return BadRequest(new { message = "Username and password are required." });
             }
             
-            if(request.Username == "a.akbulut@iku.edu.tr")
+            if(request.Username == "a.akbulut@iku.edu.tr" || request.Username == "c.catal@iku.edu.tr")
             {
                 var token = _tokenService.GenerateToken(request, "Professor");
                 if (token == null)
