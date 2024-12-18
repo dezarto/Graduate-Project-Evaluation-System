@@ -99,54 +99,21 @@ namespace GEPS.Controllers
                     var content = await response.Content.ReadAsStringAsync();
                     var professorList = JsonConvert.DeserializeObject<List<Professor>>(content);
 
-                    if(professorList != null)
-                    {    
-                        var newTeamCreator = new TeamCreator
-                        {
-                            Description = "",
-                            ProjectName = "",
-                            StudentList = new List<StudenLists>
-                            {
-                                new StudenLists { StudenNumber = "", StudentFullName = "" },
-                                new StudenLists { StudenNumber = "", StudentFullName = "" },
-                                new StudenLists { StudenNumber = "", StudentFullName = "" }
-                            },
-                            ProfessorList = professorList ?? new List<Professor>(),
-                            TeamName = "",
-                            SelectedProfessorId = null
-                        };
-                        return View(newTeamCreator);
-                    }
-                    else
-                    {
-                        var newTeamCreator = new TeamCreator
-                        {
-                            Description = "",
-                            ProjectName = "",
-                            StudentList = new List<StudenLists>
-                            {
-                                new StudenLists { StudenNumber = "", StudentFullName = "" },
-                                new StudenLists { StudenNumber = "", StudentFullName = "" },
-                                new StudenLists { StudenNumber = "", StudentFullName = "" }
-                            },
-                            ProfessorList = new List<Professor>(),
-                            TeamName = "",
-                            SelectedProfessorId = null
-                        };
-                        return View(newTeamCreator);
-                    }
+                    // Profesör listesini ViewBag ile gönderiyoruz
+                    ViewBag.ProfessorList = professorList ?? new List<Professor>();
+                    return View();
                 }
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
                     ViewBag.ErrorMessage = $"Profesör bilgileri alınamadı. API Hatası: {response.StatusCode} - {errorContent}";
-                    return View(new List<Professor>());
+                    return View();
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = $"Bir hata oluştu: {ex.Message}";
-                return View(new List<Professor>());
+                return View();
             }
         }
 
@@ -170,7 +137,7 @@ namespace GEPS.Controllers
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl)
                 {
-                    Content = JsonContent.Create(teamCreator)
+                    Content = new StringContent(JsonConvert.SerializeObject(teamCreator), Encoding.UTF8, "application/json")
                 };
 
                 requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);

@@ -6,11 +6,11 @@
         public string TeamName { get; set; }
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
-        public List<ProfessorList> ProfessorsTeams { get; set; }
+        public List<AllProfessorList> ProfessorsTeams { get; set; }
         public List<StudentLists> Members { get; set; }
     }
 
-    public class ProfessorList
+    public class AllProfessorList
     {
         public int ProfessorId { get; set; }
         public string FullName { get; set; }
