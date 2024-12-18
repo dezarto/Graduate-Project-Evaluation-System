@@ -1,77 +1,57 @@
-﻿@{
-    @model IEnumerable<ProjectTeamResponse>
-}
-
+﻿@model ProjectTeamResponse
 
 <html>
-
 <head>
     <link rel="stylesheet" type="text/css" href="~/css/TeacherEvaluateProject.css">
 </head>
 
 <script>
-    // Sadece sayıya izin veren event listener
+    // Allow only numeric input
     document.addEventListener("DOMContentLoaded", () => {
-        const numberInput = document.getElementById("numberInput");
+        const numberInputs = document.querySelectorAll(".numberInput");
 
-        numberInput.addEventListener("input", (event) => {
-            const input = event.target.value;
-            // Sadece rakamları tut, diğerlerini temizle
-            event.target.value = input.replace(/[^0-9]/g, "");
+        numberInputs.forEach(input => {
+            input.addEventListener("input", (event) => {
+                const value = event.target.value;
+                event.target.value = value.replace(/[^0-9]/g, "");
+            });
         });
     });
 </script>
 
 <body>
-
     <div class="all-boxes">
-
         <div class="intro">
-            <h2> Evalute Project </h2>
-            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, 
-             writing the project name and selecting the advisor for project. </p>
+            <h2>Evaluate Project</h2>
+            <p>Evaluate the graduate project by reviewing the team details, project description, and evaluation criteria.</p>
         </div>
-        
-        <div class="box-1">
-            <h4>AI Supported Human Resources System for IT Companies AI Supported Human Resources System for IT Companies </h4>
-            <section class="teamInfo">
-                <table class="tableOfTeamInfo">
-                    <thead>
-                        <tr>
-                            <th>
-                               <p>Team</p>
-                            </th>
-                            <th>
-                                <p>Status</p>
-                            </th>
-                            <th>
-                                <p>Evaluating Teacher</p>
-                            </th>
-                            <th>
-                                <p>Team Members</p>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="teamTableBody">
-                        @foreach (var ProjectTeamResponse in Model ?? new List<ProjectTeamResponse>())
-                        {
+
+        <form asp-action="PostTeacherEvaluateProject" method="post">
+            <div class="box-1">
+                <h4>@Model.ProjectName</h4>
+                <p><strong>Description:</strong> @Model.Description</p>
+                <section class="teamInfo">
+                    <table class="tableOfTeamInfo">
+                        <thead>
                             <tr>
+                                <th>Team Name</th>
+                                <th>Status</th>
+                                <th>Evaluating Teacher</th>
+                                <th>Team Members</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.TeamName</td>
+                                <td>@(Model.isEvaluated ? "Evaluated" : "Not Evaluated")</td>
+                                <td>@Model.EvaluatingTeacherFullName (@Model.EvaluatingTeacherMail)</td>
                                 <td>
-                                    <p> @ProjectTeamResponse.TeamId</p>
-                                </td>
-                                <td>
-                                    <p>  @ProjectTeamResponse.IsEvaluated </p>
-                                </td>
-                                <td>
-                                    <p> @ProjectTeamResponse.EvaluatingTeacherMail </p>
-                                </td>
-                                <td>
-                                    @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
+                                    @if (Model.Members != null && Model.Members.Any())
                                     {
                                         <ul>
-                                            @foreach (var member in ProjectTeamResponse.Members)
+                                            @foreach (var member in Model.Members)
                                             {
-                                                <li>@member.StudentFullName</li> 
+                                                <li>@member.StudentFullName (@member.StudentNumber)</li>
                                             }
                                         </ul>
                                     }
@@ -81,53 +61,70 @@
                                     }
                                 </td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            </section>
-        </div>
-        
-        <div class="container">
+                        </tbody>
+                    </table>
+                </section>
+            </div>
 
-            <label>
-                <input type="radio" name="...">
-                Commitment to Impartial Evaluation
-            </label>
-    
-            <div class="section">
-                <h3>Part I - Evaluation Project Graduation Form</h3>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" class="checkbox">
-                        Technical Merits (%15)
-                    </label>
-                    <div class="number-only-textarea">
-                        <textarea id="numberInput"></textarea>
-                    </div>
-                    <textarea placeholder="Write your thoughts..."></textarea>
+            <div class="container">
+                <div class="section">
+                    <h3>Part I - Evaluation Criteria</h3>
+                    @if (Model.EvaluationCriteriaDatas != null && Model.EvaluationCriteriaDatas.Any())
+                    {
+                        @for (int i = 0; i < Model.EvaluationCriteriaDatas.Count; i++)
+                        {
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="EvaluationCriteria[@i].IsChecked" value="true">
+                                    @Model.EvaluationCriteriaDatas[i].CriteriaName (%@Model.EvaluationCriteriaDatas[i].Precent)
+                                </label>
+                                <input type="hidden" name="EvaluationCriteria[@i].CriteriaId" value="@Model.EvaluationCriteriaDatas[i].CriteriaId">
+                                <textarea name="EvaluationCriteria[@i].Score" class="numberInput" placeholder="Enter a numeric score"></textarea>
+                                <textarea name="EvaluationCriteria[@i].Comments" placeholder="Write your thoughts..."></textarea>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No evaluation criteria available.</p>
+                    }
                 </div>
-            </div>
-    
-            <div class="section">
-                <h3>Part II - Graduation Project Checklist</h3>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" class="checkbox">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget porta sapien. Nulla pulvinar tellus justo, a accumsan nunc vehicula a. Cras nec orci nunc. Aenean pellentesque vel nisi ut tempor. Vivamus commodo leo ac porta aliquet. Fusce eu suscipit odio, feugiat pellentesque nulla. Maecenas tellus metus, pellentesque non felis.
-                    </label>
-                    <textarea placeholder="Write your thoughts..."></textarea>
+
+                <div class="section">
+                    <h3>Part II - Checklist</h3>
+                    @if (Model.ChecklistItemDatas != null && Model.ChecklistItemDatas.Any())
+                    {
+                        @for (int i = 0; i < Model.ChecklistItemDatas.Count; i++)
+                        {
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="ChecklistItems[@i].IsChecked" value="true">
+                                    @Model.ChecklistItemDatas[i].ItemName
+                                </label>
+                                <input type="hidden" name="ChecklistItems[@i].ItemId" value="@Model.ChecklistItemDatas[i].ItemId">
+                                <textarea name="ChecklistItems[@i].Comments" placeholder="Write your thoughts..."></textarea>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No checklist items available.</p>
+                    }
                 </div>
+
+                <div class="confirmation">
+                    <label>
+                        <input type="radio" name="Confirmation" value="true" required>
+                        I confirm my evaluation results.
+                    </label>
+                </div>
+
+                <input type="hidden" name="ProjectId" value="@Model.ProjectId">
+                <input type="hidden" name="TeamId" value="@Model.TeamId">
+
+                <button type="submit" class="evaluate-button">Evaluate</button>
             </div>
-    
-            <div class="confirmation">
-                <label>
-                    <input type="radio" name="confirmation">
-                    I confirm my evaluation results.
-                </label>
-            </div>
-    
-            <button class="evaluate-button">Evaluate</button>
-        </div>
-    </div>      
+        </form>
+    </div>
 </body>
 </html>

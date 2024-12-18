@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LipFhdjccPsuciQuU6o8+oQKCciLjtVEs0HN+jE5aO8=",
+  "Hash": "ET0WNywVSccHxr/etAoZ+riL9YpFzebPJWDEt8U+owM=",
   "Source": "GEPS",
   "BasePath": "_content/GEPS",
   "Mode": "Default",
@@ -136,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0pe9l084ia",
-      "Integrity": "XJjD3OsQPlaz6nU2PNPQWjuBlldgECJo/25phx91ido=",
+      "Fingerprint": "a63x4guvi5",
+      "Integrity": "UvKLSUofgzoXl93TqhDEAIe8huPZhNYb9PZq1UuURmE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\admin1.css"
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "z05syrf03r",
-      "Integrity": "c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY=",
+      "Fingerprint": "0z46c1zute",
+      "Integrity": "VMENPN92Xm2XaWIqvZAtR+j3Y8u9iDgemjGKIfLlnP0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Calendar.css"
@@ -220,8 +220,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "wisy785psr",
-      "Integrity": "6Nu4IGtLzOIcMXEHEZ6ImJc4//YLKS2okQP/fVnuwvw=",
+      "Fingerprint": "otynk9m1dg",
+      "Integrity": "DAi4m5XUoPBfEBTuu1CErirPrPyY9MA8ZYRorNyavJI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\editprof.css"
@@ -325,8 +325,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "79dsjutey1",
-      "Integrity": "5VIT9G/4xyCrVHUqwkfqSsb1OAJxN2Zef32RgXXRCM0=",
+      "Fingerprint": "nnqsv1t1os",
+      "Integrity": "86jURxW98j8glbU0N/mRU9vxEc68o525GQOvbuVMyZo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\navbar.css"
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yczeg5qxgp",
-      "Integrity": "gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28=",
+      "Fingerprint": "3ro1lj1ezt",
+      "Integrity": "cdsc3dsACUu5F/zBElp4CObZyh7yZzUv7WJl40yPjHI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\ProjectCreate.css"
@@ -430,8 +430,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0cioperud8",
-      "Integrity": "MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4=",
+      "Fingerprint": "7kgky9xmyd",
+      "Integrity": "Kbl5dwavBJ3FfW9rGgR9Giq0ysXRfO/imydODdL34x4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\SubmitProjectTopics1.css"
@@ -2218,7 +2218,7 @@
       ]
     },
     {
-      "Route": "css/admin1.0pe9l084ia.css",
+      "Route": "css/admin1.a63x4guvi5.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\admin1.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2228,7 +2228,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2285"
+          "Value": "2292"
         },
         {
           "Name": "Content-Type",
@@ -2236,11 +2236,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XJjD3OsQPlaz6nU2PNPQWjuBlldgECJo/25phx91ido=\""
+          "Value": "\"UvKLSUofgzoXl93TqhDEAIe8huPZhNYb9PZq1UuURmE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2250,7 +2250,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0pe9l084ia"
+          "Value": "a63x4guvi5"
         },
         {
           "Name": "label",
@@ -2258,7 +2258,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XJjD3OsQPlaz6nU2PNPQWjuBlldgECJo/25phx91ido="
+          "Value": "sha256-UvKLSUofgzoXl93TqhDEAIe8huPZhNYb9PZq1UuURmE="
         }
       ]
     },
@@ -2273,7 +2273,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2285"
+          "Value": "2292"
         },
         {
           "Name": "Content-Type",
@@ -2281,11 +2281,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XJjD3OsQPlaz6nU2PNPQWjuBlldgECJo/25phx91ido=\""
+          "Value": "\"UvKLSUofgzoXl93TqhDEAIe8huPZhNYb9PZq1UuURmE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2295,7 +2295,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XJjD3OsQPlaz6nU2PNPQWjuBlldgECJo/25phx91ido="
+          "Value": "sha256-UvKLSUofgzoXl93TqhDEAIe8huPZhNYb9PZq1UuURmE="
+        }
+      ]
+    },
+    {
+      "Route": "css/Calendar.0z46c1zute.css",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\Calendar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "710"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VMENPN92Xm2XaWIqvZAtR+j3Y8u9iDgemjGKIfLlnP0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0z46c1zute"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Calendar.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VMENPN92Xm2XaWIqvZAtR+j3Y8u9iDgemjGKIfLlnP0="
         }
       ]
     },
@@ -2310,7 +2355,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "679"
+          "Value": "710"
         },
         {
           "Name": "Content-Type",
@@ -2318,11 +2363,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY=\""
+          "Value": "\"VMENPN92Xm2XaWIqvZAtR+j3Y8u9iDgemjGKIfLlnP0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2332,52 +2377,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY="
-        }
-      ]
-    },
-    {
-      "Route": "css/Calendar.z05syrf03r.css",
-      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\Calendar.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "679"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "z05syrf03r"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Calendar.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-c6ZLJqeyw3IcXViYWVLSXXm9dLsQin+yexvlDAnfWOY="
+          "Value": "sha256-VMENPN92Xm2XaWIqvZAtR+j3Y8u9iDgemjGKIfLlnP0="
         }
       ]
     },
@@ -2556,7 +2556,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1326"
+          "Value": "1331"
         },
         {
           "Name": "Content-Type",
@@ -2564,11 +2564,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6Nu4IGtLzOIcMXEHEZ6ImJc4//YLKS2okQP/fVnuwvw=\""
+          "Value": "\"DAi4m5XUoPBfEBTuu1CErirPrPyY9MA8ZYRorNyavJI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2578,12 +2578,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6Nu4IGtLzOIcMXEHEZ6ImJc4//YLKS2okQP/fVnuwvw="
+          "Value": "sha256-DAi4m5XUoPBfEBTuu1CErirPrPyY9MA8ZYRorNyavJI="
         }
       ]
     },
     {
-      "Route": "css/editprof.wisy785psr.css",
+      "Route": "css/editprof.otynk9m1dg.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\editprof.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2593,7 +2593,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1326"
+          "Value": "1331"
         },
         {
           "Name": "Content-Type",
@@ -2601,11 +2601,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6Nu4IGtLzOIcMXEHEZ6ImJc4//YLKS2okQP/fVnuwvw=\""
+          "Value": "\"DAi4m5XUoPBfEBTuu1CErirPrPyY9MA8ZYRorNyavJI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2615,7 +2615,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "wisy785psr"
+          "Value": "otynk9m1dg"
         },
         {
           "Name": "label",
@@ -2623,7 +2623,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6Nu4IGtLzOIcMXEHEZ6ImJc4//YLKS2okQP/fVnuwvw="
+          "Value": "sha256-DAi4m5XUoPBfEBTuu1CErirPrPyY9MA8ZYRorNyavJI="
         }
       ]
     },
@@ -2956,51 +2956,6 @@
       ]
     },
     {
-      "Route": "css/navbar.79dsjutey1.css",
-      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\navbar.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1958"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5VIT9G/4xyCrVHUqwkfqSsb1OAJxN2Zef32RgXXRCM0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "79dsjutey1"
-        },
-        {
-          "Name": "label",
-          "Value": "css/navbar.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-5VIT9G/4xyCrVHUqwkfqSsb1OAJxN2Zef32RgXXRCM0="
-        }
-      ]
-    },
-    {
       "Route": "css/navbar.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\navbar.css",
       "Selectors": [],
@@ -3011,7 +2966,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1958"
+          "Value": "1964"
         },
         {
           "Name": "Content-Type",
@@ -3019,11 +2974,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5VIT9G/4xyCrVHUqwkfqSsb1OAJxN2Zef32RgXXRCM0=\""
+          "Value": "\"86jURxW98j8glbU0N/mRU9vxEc68o525GQOvbuVMyZo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3033,7 +2988,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5VIT9G/4xyCrVHUqwkfqSsb1OAJxN2Zef32RgXXRCM0="
+          "Value": "sha256-86jURxW98j8glbU0N/mRU9vxEc68o525GQOvbuVMyZo="
+        }
+      ]
+    },
+    {
+      "Route": "css/navbar.nnqsv1t1os.css",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\navbar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1964"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"86jURxW98j8glbU0N/mRU9vxEc68o525GQOvbuVMyZo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nnqsv1t1os"
+        },
+        {
+          "Name": "label",
+          "Value": "css/navbar.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-86jURxW98j8glbU0N/mRU9vxEc68o525GQOvbuVMyZo="
         }
       ]
     },
@@ -3120,6 +3120,51 @@
       ]
     },
     {
+      "Route": "css/ProjectCreate.3ro1lj1ezt.css",
+      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cdsc3dsACUu5F/zBElp4CObZyh7yZzUv7WJl40yPjHI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3ro1lj1ezt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/ProjectCreate.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cdsc3dsACUu5F/zBElp4CObZyh7yZzUv7WJl40yPjHI="
+        }
+      ]
+    },
+    {
       "Route": "css/ProjectCreate.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
       "Selectors": [],
@@ -3130,7 +3175,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "908"
+          "Value": "887"
         },
         {
           "Name": "Content-Type",
@@ -3138,11 +3183,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28=\""
+          "Value": "\"cdsc3dsACUu5F/zBElp4CObZyh7yZzUv7WJl40yPjHI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3152,52 +3197,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28="
-        }
-      ]
-    },
-    {
-      "Route": "css/ProjectCreate.yczeg5qxgp.css",
-      "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "908"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yczeg5qxgp"
-        },
-        {
-          "Name": "label",
-          "Value": "css/ProjectCreate.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-gs7bXTxC62knmwbNwCbxpzCRKFlPYkAV+te3tN9lK28="
+          "Value": "sha256-cdsc3dsACUu5F/zBElp4CObZyh7yZzUv7WJl40yPjHI="
         }
       ]
     },
@@ -3366,7 +3366,7 @@
       ]
     },
     {
-      "Route": "css/SubmitProjectTopics1.0cioperud8.css",
+      "Route": "css/SubmitProjectTopics1.7kgky9xmyd.css",
       "AssetFile": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\SubmitProjectTopics1.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3376,7 +3376,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2073"
+          "Value": "2096"
         },
         {
           "Name": "Content-Type",
@@ -3384,11 +3384,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4=\""
+          "Value": "\"Kbl5dwavBJ3FfW9rGgR9Giq0ysXRfO/imydODdL34x4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3398,7 +3398,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0cioperud8"
+          "Value": "7kgky9xmyd"
         },
         {
           "Name": "label",
@@ -3406,7 +3406,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4="
+          "Value": "sha256-Kbl5dwavBJ3FfW9rGgR9Giq0ysXRfO/imydODdL34x4="
         }
       ]
     },
@@ -3421,7 +3421,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2073"
+          "Value": "2096"
         },
         {
           "Name": "Content-Type",
@@ -3429,11 +3429,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4=\""
+          "Value": "\"Kbl5dwavBJ3FfW9rGgR9Giq0ysXRfO/imydODdL34x4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 16:31:37 GMT"
+          "Value": "Tue, 17 Dec 2024 23:20:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3443,7 +3443,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MKxpXxp9RcqDEoR5y5yqaTmh0759p+crU268dw7wBe4="
+          "Value": "sha256-Kbl5dwavBJ3FfW9rGgR9Giq0ysXRfO/imydODdL34x4="
         }
       ]
     },

@@ -42,6 +42,7 @@
         }
         else if (ViewBag.UserRole == "Professor")
         {
+            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Home</a>
             <a href="@Url.Action("ProfessorProfile", "Professor")">My Profile</a>
             <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
             <a href="@Url.Action("TeacherEvaluateProject", "Professor")">Evaluate Project</a>

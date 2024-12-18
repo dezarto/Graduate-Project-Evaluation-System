@@ -480,12 +480,13 @@ namespace GEPS.Controllers
         // *************************************   Teacher Evaluate Page  *************************************
 
         [HttpGet]
-        public async Task<IActionResult> TeacherEvaluateProject()
+        public async Task<IActionResult> TeacherEvaluateProject(int id)
         {
             var userRole = HttpContext.Items["UserRole"] as string;
             ViewBag.UserRole = userRole;
 
             string apiUrl = "https://localhost:7107/api/Professor/get-project-team-view";
+            string apiUrlOther = "https://localhost:7107/api/Professor/get-evaluations-criteria-and-check-list-datas";
 
             try
             {
@@ -500,13 +501,64 @@ namespace GEPS.Controllers
 
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
 
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
+
+                var allCriterias = await _httpClient.GetFromJsonAsync<AllCriterias>(apiUrlOther);
+
                 if (projectTeams == null || !projectTeams.Any())
                 {
                     ViewBag.ErrorMessage = "No teams found.";
                     return View();
                 }
 
-                return View(projectTeams);
+                if (allCriterias == null)
+                {
+                    ViewBag.ErrorMessage = "No criteria found.";
+                    return View();
+                }
+
+                foreach (var item in projectTeams)
+                {
+                    if (item.TeamId == id) 
+                    {
+                        var newProjectTeams = new ProjectTeamResponse
+                        {
+                            TeamId = item.TeamId,
+                            Description = item.Description,
+                            EndTime = item.EndTime,
+                            EvaluatingTeacherFullName = item.EvaluatingTeacherFullName,
+                            EvaluatingTeacherMail = item.EvaluatingTeacherMail,
+                            isEvaluated = item.isEvaluated,
+                            IsActive = item.IsActive,
+                            isApproval = item.isApproval,
+                            PresentationDate = item.PresentationDate,
+                            ProjectId = item.ProjectId,
+                            ProjectName = item.ProjectName,
+                            StartTime = item.StartTime,
+                            TeamName = item.TeamName,
+                            TeamPresentationId = item.TeamPresentationId,
+                            Members = new List<StudentList>(),
+                            ChecklistItemDatas = allCriterias.ChecklistItemDatas,
+                            EvaluationCriteriaDatas = allCriterias.EvaluationCriteriaDatas,
+                        };
+
+                        foreach (var member in item.Members)
+                        {
+                            var student = new StudentList
+                            {
+                                StudentId = member.StudentId,
+                                StudentFullName = member.StudentFullName,
+                                StudentNumber = member.StudentNumber,
+                            };
+
+                            newProjectTeams.Members.Add(student);
+                        }
+
+                        return View(newProjectTeams);
+                    }
+                }
+
+                return View();
             }
             catch (HttpRequestException ex)
             {

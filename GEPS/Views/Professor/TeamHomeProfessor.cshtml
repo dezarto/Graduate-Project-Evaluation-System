@@ -48,6 +48,9 @@
                                         <th>
                                             <p>Team Members</p>
                                         </th>
+                                        <th>
+                                            <p>Evaluate</p>
+                                        </th>
                                     </tr>
                                 </thead>
 
@@ -59,7 +62,7 @@
                                                 <p> @ProjectTeamResponse.TeamId</p>
                                             </td>
                                             <td>
-                                                <p>  @ProjectTeamResponse.IsEvaluated </p>
+                                                <p>  @ProjectTeamResponse.isEvaluated </p>
                                             </td>
                                             <td>
                                                 <p> @ProjectTeamResponse.EvaluatingTeacherMail </p>
@@ -78,6 +81,11 @@
                                                 {
                                                     <p>No members</p>
                                                 }
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("TeacherEvaluateProject", "Professor", new { id = ProjectTeamResponse.TeamId })" class="add-btn">
+                                                    View Detail
+                                                </a>
                                             </td>
                                         </tr>
                                     }
