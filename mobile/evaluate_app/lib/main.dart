@@ -3,6 +3,8 @@ import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'dart:io';
+import 'package:evaluate_app/data/data_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -10,7 +12,14 @@ void main() {
 
   HttpOverrides.global = MyHttpOverrides();
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DataProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

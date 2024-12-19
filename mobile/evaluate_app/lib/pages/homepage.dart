@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:evaluate_app/models/models.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:evaluate_app/pages/evaluate_project.dart';
 import 'package:evaluate_app/pages/view_project_results.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:evaluate_app/data/data_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Project> projects = [];
   bool isLoading = true;
-  final storage = const FlutterSecureStorage();
+  final DataProvider dataProvider = DataProvider();
 
   @override
   void initState() {
@@ -24,29 +22,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> fetchProjects() async {
-    final token = await storage.read(key: 'accessToken');
-    final url = Uri.parse(AppConfig.projectTeamView);
-
     try {
-      final response = await http.get(
-        url,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
-      );
-      if (response.statusCode == 200) {
-        print('${response.body}: Projects fetched successfully!');
-        print('${response.statusCode}: Projects fetched successfully!');
-        final List<dynamic> data = json.decode(response.body);
-        setState(() {
-          projects = data.map((e) => Project.fromJson(e)).toList();
-          isLoading = false;
-        });
-      } else {
-        throw Exception('${response.statusCode}: Failed to load projects.');
-      }
+      await dataProvider.fetchProjects();
+      setState(() {
+        projects = dataProvider.projects;
+        isLoading = false;
+      });
     } catch (error) {
-      print('Error fetching projects: $error');
+      print('Error: $error');
       setState(() {
         isLoading = false;
       });
@@ -54,50 +37,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void approveProject(int teamId) async {
-    final token = await storage.read(key: 'accessToken');
-    final url =
-        Uri.parse('${AppConfig.approveProject}?teamId=$teamId&approval=true');
-
-    try {
-      final response = await http.post(
-        url,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
-      );
-      if (response.statusCode == 200) {
-        print('Team with ID $teamId approved successfully!');
-        fetchProjects();
-      } else {
-        throw Exception(
-            '${response.statusCode}:Failed to approve team with ID $teamId.');
-      }
-    } catch (error) {
-      print('Error approving team: $error');
+    final result = await dataProvider.approveProject(teamId);
+    if (result) {
+      fetchProjects();
+    } else {
+      print('Failed to approve team with ID $teamId');
     }
   }
 
   void rejectProject(int teamId) async {
-    final token = await storage.read(key: 'accessToken');
-    final url =
-        Uri.parse('${AppConfig.approveProject}?teamId=$teamId&approval=false');
-
-    try {
-      final response = await http.post(
-        url,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
-      );
-      if (response.statusCode == 200) {
-        print('Team with ID $teamId rejected successfully!');
-        fetchProjects();
-      } else {
-        throw Exception(
-            '${response.statusCode}:Failed to approve team with ID $teamId.');
-      }
-    } catch (error) {
-      print('Error rejecting team: $error');
+    final result = await dataProvider.rejectProject(teamId);
+    if (result) {
+      fetchProjects();
+    } else {
+      print('Failed to reject team with ID $teamId');
     }
   }
 
@@ -131,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(dialogContext).pop(); // Dialog'u kapatır
+                Navigator.of(dialogContext).pop();
               },
               child: const Text(
                 'Cancel',
@@ -228,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           statusColor = Colors.amber;
                         } else if (project.isEvaluated) {
                           statusText = 'Result Available';
-                          statusColor = Colors.green;
+                          statusColor = AppColors.trueGreen;
                         } else {
                           statusText = 'Ready to Evaluate';
                           statusColor = Color(0xFF00B7FF);

@@ -5,12 +5,13 @@ import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:evaluate_app/models/models.dart';
 import 'package:intl/intl.dart';
+import 'package:evaluate_app/data/data_provider.dart';
 
 final storage = const FlutterSecureStorage();
 
 Future<Map<String, dynamic>> fetchEvaluationCriteria() async {
   final token = await storage.read(key: 'accessToken');
-  final url = Uri.parse(AppConfig.CriteriaAndItems);
+  final url = Uri.parse(AppConfig.criteriaAndItems);
 
   try {
     final response = await http.get(
@@ -33,75 +34,59 @@ Future<Map<String, dynamic>> fetchEvaluationCriteria() async {
 }
 
 class EvaluateProjectPage extends StatefulWidget {
+  final DataProvider dataProvider = DataProvider();
   final Project project;
 
-  const EvaluateProjectPage({Key? key, required this.project})
-      : super(key: key);
+  EvaluateProjectPage({Key? key, required this.project}) : super(key: key);
 
   @override
   _EvaluateProjectPageState createState() => _EvaluateProjectPageState();
 }
 
 class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
-  void _showConfirmationDialog(BuildContext context) async {
-    await showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: AppColors.whiteTextColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          title: const Text(
-            'Confirm Action?',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: AppColors.primaryTextColor,
-            ),
-          ),
-          content: Text(
-            'Are you sure you want to submit this evaluation? This action cannot be undone.',
-            style: const TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 16,
-              color: AppColors.primaryTextColor,
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: const Text(
-                'Cancel',
-                style: TextStyle(
-                  color: AppColors.primaryTextColor,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-                submitEvaluation(); // Submit evaluation after confirmation
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.trueGreen,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: const Text(
-                'Confirm',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
-        );
-      },
-    );
+  final List<TextEditingController> _criteriaControllers = [];
+  final List<TextEditingController> _criteriaFeedbackControllers = [];
+  final List<TextEditingController> _checklistFeedbackControllers = [];
+  final TextEditingController _generalFeedbackController =
+      TextEditingController();
+  int totalScore = 0;
+  late List<bool> _checklistCheckboxes;
+  late List<bool> _criteriaCheckboxes;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchEvaluationCriteria().then((data) {
+      final criteria = data['evaluationCriteriaDatas'] ?? [];
+      final checklist = data['checklistItemDatas'] ?? [];
+
+      setState(() {
+        _criteriaControllers.addAll(
+            List.generate(criteria.length, (index) => TextEditingController()));
+        _criteriaFeedbackControllers.addAll(
+            List.generate(criteria.length, (index) => TextEditingController()));
+        _checklistFeedbackControllers.addAll(List.generate(
+            checklist.length, (index) => TextEditingController()));
+        _checklistCheckboxes =
+            List.generate(checklist.length, (index) => false);
+        _criteriaCheckboxes = List.generate(criteria.length, (index) => true);
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _criteriaControllers) {
+      controller.dispose();
+    }
+    for (var controller in _criteriaFeedbackControllers) {
+      controller.dispose();
+    }
+    for (var controller in _checklistFeedbackControllers) {
+      controller.dispose();
+    }
+    _generalFeedbackController.dispose();
+    super.dispose();
   }
 
   Future<void> submitEvaluation() async {
@@ -113,23 +98,26 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
 
     final evaluationData = {
       "teamId": widget.project.teamId,
-      "generalComments": "string",
-      "totalScore": 0,
+      "generalComments": _generalFeedbackController.text,
+      "totalScore": totalScore,
       "date": formattedDate,
       "evaluationCriterias":
-          (await fetchEvaluationCriteria())['evaluationCriteriaDatas']
-              .map((criteria) => {
-                    "criteriaId": criteria['criteriaId'],
-                    "isChecked": true,
-                    "score": 0,
-                    "feedback": "asdasds"
-                  })
-              .toList(),
+          List.generate(_criteriaControllers.length, (index) {
+        return {
+          "criteriaId": index + 1,
+          "isChecked": _criteriaCheckboxes[index],
+          "score": int.tryParse(_criteriaControllers[index].text) ?? 0,
+          "feedback": _criteriaFeedbackControllers[index].text,
+        };
+      }),
       "evaluationChecklistItems":
-          (await fetchEvaluationCriteria())['checklistItemDatas']
-              .map((item) =>
-                  {"itemId": item['itemId'], "isChecked": true, "feedback": ""})
-              .toList(),
+          List.generate(_checklistFeedbackControllers.length, (index) {
+        return {
+          "itemId": index + 1,
+          "isChecked": _checklistCheckboxes[index],
+          "feedback": _checklistFeedbackControllers[index].text,
+        };
+      }),
     };
 
     try {
@@ -143,22 +131,15 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print('${response.statusCode}: Criterias fetched successfully!');
-        print('Evaluation submitted successfully!');
-        Navigator.of(context).pop(); // Navigate back to the home page
+        print('${response.statusCode}: Evaluation submitted successfully!');
+        Navigator.of(context).pop();
       } else {
-        throw Exception(
-            'Failed to submit evaluation: ${response.statusCode}${response.body}${evaluationData}');
+        throw Exception('Failed to submit evaluation: ${response.body}');
       }
     } catch (error) {
       print('Error submitting evaluation: $error');
     }
   }
-
-  bool commitmentCheckbox = false;
-  bool confirmEvaluationCheckbox = true;
-  bool technicalMeritsSwitch = false;
-  bool projectDesignSwitch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -187,231 +168,251 @@ class _EvaluateProjectPageState extends State<EvaluateProjectPage> {
           ),
         ),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<Map<String, dynamic>>(
         future: fetchEvaluationCriteria(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text("Error: ${snapshot.error}"));
-          } else {
-            final data = snapshot.data as Map<String, dynamic>?;
+          } else if (!snapshot.hasData || snapshot.data == null) {
+            return const Center(child: Text("No data available"));
+          }
 
-            final evaluationCriteria = data?['evaluationCriteriaDatas'] ?? [];
-            final checklistItems = data?['checklistItemDatas'] ?? [];
+          final data = snapshot.data!;
+          final evaluationCriteria =
+              data['evaluationCriteriaDatas'] as List<dynamic>? ?? [];
+          final checklistItems =
+              data['checklistItemDatas'] as List<dynamic>? ?? [];
 
-            return SingleChildScrollView(
+          if (evaluationCriteria.isEmpty && checklistItems.isEmpty) {
+            return const Center(
+                child: Text("No criteria or checklist items found"));
+          }
+
+          return SingleChildScrollView(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.pageBackground,
+              ),
+              padding: const EdgeInsets.fromLTRB(13.0, 13.0, 13.0, 13.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.pageBackground,
-                ),
-                padding: const EdgeInsets.fromLTRB(13.0, 13.0, 13.0, 13.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 201, 201, 201),
-                      width: 0.7,
-                    ),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 201, 201, 201),
+                    width: 0.7,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(13.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.project.projectName,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 10),
-                        const Text("Project Description",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(widget.project.description),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(13.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.project.projectName,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text("Project Description",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(widget.project.description),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text("Evaluating Teacher",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text(widget.project.evaluatingTeacherFullName),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text("Status",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Row(
+                                children: const [
+                                  Icon(Icons.circle,
+                                      size: 8, color: Color(0xFF00B7FF)),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    "Ready to Evaluate",
+                                    style: TextStyle(
+                                        color: Color(0xFF00B7FF),
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 14),
+                      const Text("Team",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(widget.project.teamName),
+                      const SizedBox(height: 14),
+                      const Text("Team Members",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text("Alparslan Eravsar - 2000003498"),
+                      Text("Semir Kimyonsen - 2000004562"),
+                      Text("Onur Taha Çetinkaya - 2000003710"),
+                      const Divider(height: 20, thickness: 1),
+                      const Text(
+                        "Part I - Evaluation Project Graduation Form",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      const SizedBox(height: 14),
+                      ...evaluationCriteria.map<Widget>((criteria) {
+                        final index = evaluationCriteria.indexOf(criteria);
+                        return Column(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text("Evaluating Teacher",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                                Text(widget.project.evaluatingTeacherFullName),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text("Status",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                                Row(
-                                  children: [
-                                    Icon(Icons.circle,
-                                        size: 8, color: Color(0xFF00B7FF)),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      "Ready to Evaluate",
-                                      style: TextStyle(
-                                          color: Color(0xFF00B7FF),
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 14),
-                        const Text("Team",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(widget.project.teamName),
-                        SizedBox(height: 14),
-                        const Text("Team Members",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text("Alparslan Eravsar - 2000003498"),
-                        Text("Semir Kimyonsen - 2000004562"),
-                        Text("Onur Taha Çetinkaya - 2000003710"),
-                        Divider(height: 20, thickness: 1),
-                        const Text(
-                          "Part I - Evaluation Project Graduation Form",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                        const SizedBox(height: 14),
-                        ...evaluationCriteria.map<Widget>((criteria) {
-                          return Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      criteria['criteriaName'],
-                                      style: TextStyle(fontSize: 16),
-                                    ),
+                                Expanded(
+                                  child: Text(
+                                    criteria['criteriaName'],
+                                    style: const TextStyle(fontSize: 16),
                                   ),
-                                  SizedBox(
-                                    width: 60,
-                                    height: 40,
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
+                                ),
+                                const SizedBox(
+                                  width: 60,
+                                  height: 40,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.0)),
                                       ),
-                                      keyboardType: TextInputType.number,
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.0)),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF00B7FF),
+                                            width: 2.0),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              TextField(
-                                decoration: const InputDecoration(
-                                  hintText: "Write your thoughts...",
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    borderSide: BorderSide(
-                                        color: Color(0xFF00B7FF), width: 2.0),
+                                    keyboardType: TextInputType.number,
                                   ),
                                 ),
-                                maxLines: 3,
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            const TextField(
+                              decoration: InputDecoration(
+                                hintText: "Write your thoughts...",
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF00B7FF), width: 2.0),
+                                ),
                               ),
-                            ],
-                          );
-                        }).toList(),
-                        Divider(height: 20, thickness: 1),
-                        const Text(
-                          "Part II - Graduation Project Checklist",
+                              maxLines: 3,
+                            ),
+                            const SizedBox(height: 14),
+                          ],
+                        );
+                      }).toList(),
+                      const Divider(height: 20, thickness: 1),
+                      const Text(
+                        "Part II - Graduation Project Checklist",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      ...checklistItems.map<Widget>((item) {
+                        final index = checklistItems.indexOf(item);
+                        return Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    item['itemName'],
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            const TextField(
+                              decoration: InputDecoration(
+                                hintText: "Write your thoughts...",
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF00B7FF), width: 2.0),
+                                ),
+                              ),
+                              maxLines: 3,
+                            ),
+                            const SizedBox(height: 14),
+                          ],
+                        );
+                      }).toList(),
+                      Divider(height: 20, thickness: 1),
+                      SizedBox(height: 10),
+                      const Text("General Feedback",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: const InputDecoration(
+                          hintText: "Write your general feedback...",
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0)),
+                            borderSide: BorderSide(
+                                color: Color(0xFF00B7FF), width: 2.0),
+                          ),
+                        ),
+                        maxLines: 6,
+                      ),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await submitEvaluation();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          minimumSize: Size(double.infinity, 50),
+                        ),
+                        child: Text(
+                          "Confirm",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.whiteTextColor),
                         ),
-                        ...checklistItems.map<Widget>((item) {
-                          return Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Checkbox(value: false, onChanged: (value) {}),
-                                  Expanded(
-                                    child: Text(
-                                      item['itemName'],
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              TextField(
-                                decoration: const InputDecoration(
-                                  hintText: "Write your thoughts...",
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    borderSide: BorderSide(
-                                        color: Color(0xFF00B7FF), width: 2.0),
-                                  ),
-                                ),
-                                maxLines: 3,
-                              ),
-                            ],
-                          );
-                        }).toList(),
-                        Divider(height: 20, thickness: 1),
-                        SizedBox(height: 10),
-                        const Text("General Feedback",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(height: 10),
-                        TextField(
-                          decoration: const InputDecoration(
-                            hintText: "Write your thoughts...",
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0)),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF00B7FF), width: 2.0),
-                            ),
-                          ),
-                          maxLines: 3,
-                        ),
-                        SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: confirmEvaluationCheckbox
-                              ? () async {
-                                  // Call the confirmation dialog instead of submitting directly
-                                  _showConfirmationDialog(context);
-                                }
-                              : null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.primary,
-                            minimumSize: Size(double.infinity, 50),
-                          ),
-                          child: Text(
-                            "Confirm",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.whiteTextColor),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-            );
-          }
+            ),
+          );
         },
       ),
     );

@@ -15,7 +15,7 @@ class AppConfig {
   static const String profileView = '$baseUrl/Professor/get-my-profile';
 
   // GET Evaluation Criterias and Checklist Items
-  static const String CriteriaAndItems =
+  static const String criteriaAndItems =
       '$baseUrl/Professor/get-evaluations-criteria-and-check-list-datas';
 
   // GET Project Results
