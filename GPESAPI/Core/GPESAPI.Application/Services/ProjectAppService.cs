@@ -42,16 +42,16 @@ namespace GPESAPI.Application.Services
         {
             var student = await _userService.GetByStudentNumberAsync(studentNumber);
             var teamId = await _teamMemberService.GetByUserIdAsync(student.UserId);
-            
-            if(teamId != null)
+
+            if (teamId != null)
             {
                 var team = await _teamService.GetTeamByIdAsync(teamId.TeamId);
                 var project = await _projectService.GetProjectByIdAsync(team.ProjectId);
                 var teamMembers = await _teamMemberService.GetByTeamIdAsync(team.TeamId);
-
                 var report = await _reportService.GetReportByTeamId(teamId.TeamId);
+                var presentations = await _teamPresentationService.GetTeamPresentationByTeamIdAsync(teamId.TeamId);
 
-                if (report == null) { 
+                if (report == null && presentations == null) { 
                     var newStudentProjectTeams = new StudentProjectTeams
                     {
                         TeamId = team.TeamId,
@@ -63,6 +63,120 @@ namespace GPESAPI.Application.Services
                         Description = project.Description,
                         Members = new List<GPESAPI.Application.DTOs.MemberList>(),
                         ReportId = null,
+                        PresentationDate = null,
+                        EndTime = null,
+                        StartTime = null,
+                    };
+
+                    if (teamMembers != null && teamMembers.Count > 0)
+                    {
+                        foreach (var teamMember in teamMembers)
+                        {
+                            var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
+
+                            var studentDatas = new GPESAPI.Application.DTOs.MemberList
+                            {
+                                StudentId = teamMember.UserId,
+                                StudentFullName = studentInfos.FullName,
+                                StudentNumber = studentInfos.StudentNumber,
+                            };
+
+                            newStudentProjectTeams.Members.Add(studentDatas);
+                        }
+                    }
+
+                    return newStudentProjectTeams;
+                }
+                else if(presentations == null && report != null)
+                {
+                    var newStudentProjectTeams = new StudentProjectTeams
+                    {
+                        TeamId = team.TeamId,
+                        ProjectId = team.ProjectId,
+                        AdvisorId = team.AdvisorId,
+                        isActive = team.isActive,
+                        TeamName = team.TeamName,
+                        ProjectName = project.ProjectName,
+                        Description = project.Description,
+                        Members = new List<GPESAPI.Application.DTOs.MemberList>(),
+                        ReportId = report.ReportId,
+                        PresentationDate = null,
+                        StartTime = null,
+                        EndTime = null,
+                    };
+
+                    if (teamMembers != null && teamMembers.Count > 0)
+                    {
+                        foreach (var teamMember in teamMembers)
+                        {
+                            var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
+
+                            var studentDatas = new GPESAPI.Application.DTOs.MemberList
+                            {
+                                StudentId = teamMember.UserId,
+                                StudentFullName = studentInfos.FullName,
+                                StudentNumber = studentInfos.StudentNumber,
+                            };
+
+                            newStudentProjectTeams.Members.Add(studentDatas);
+                        }
+                    }
+
+                    return newStudentProjectTeams;
+                }
+                else if(report == null && presentations != null)
+                {
+                    var newStudentProjectTeams = new StudentProjectTeams
+                    {
+                        TeamId = team.TeamId,
+                        ProjectId = team.ProjectId,
+                        AdvisorId = team.AdvisorId,
+                        isActive = team.isActive,
+                        TeamName = team.TeamName,
+                        ProjectName = project.ProjectName,
+                        Description = project.Description,
+                        Members = new List<GPESAPI.Application.DTOs.MemberList>(),
+                        ReportId = null,
+                        PresentationDate = presentations.PresentationDate,
+                        StartTime = presentations.StartTime,
+                        EndTime = presentations.EndTime,
+                    };
+
+                    if (teamMembers != null && teamMembers.Count > 0)
+                    {
+                        foreach (var teamMember in teamMembers)
+                        {
+                            var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
+
+                            var studentDatas = new GPESAPI.Application.DTOs.MemberList
+                            {
+                                StudentId = teamMember.UserId,
+                                StudentFullName = studentInfos.FullName,
+                                StudentNumber = studentInfos.StudentNumber,
+                            };
+
+                            newStudentProjectTeams.Members.Add(studentDatas);
+                        }
+                    }
+
+                    return newStudentProjectTeams;
+                }
+                else if(report != null && presentations != null)
+                {
+                    var newStudentProjectTeams = new StudentProjectTeams
+                    {
+                        TeamId = team.TeamId,
+                        ProjectId = team.ProjectId,
+                        AdvisorId = team.AdvisorId,
+                        isActive = team.isActive,
+                        TeamName = team.TeamName,
+                        ProjectName = project.ProjectName,
+                        Description = project.Description,
+                        Members = new List<GPESAPI.Application.DTOs.MemberList>(),
+                        ReportId = report.ReportId,
+                        PresentationDate = presentations.PresentationDate,
+                        StartTime = presentations.StartTime,
+                        EndTime = presentations.EndTime,
                     };
 
                     if (teamMembers != null && teamMembers.Count > 0)
@@ -88,33 +202,19 @@ namespace GPESAPI.Application.Services
                 {
                     var newStudentProjectTeams = new StudentProjectTeams
                     {
-                        TeamId = team.TeamId,
-                        ProjectId = team.ProjectId,
-                        AdvisorId = team.AdvisorId,
-                        isActive = team.isActive,
-                        TeamName = team.TeamName,
-                        ProjectName = project.ProjectName,
-                        Description = project.Description,
-                        Members = new List<GPESAPI.Application.DTOs.MemberList>(),
-                        ReportId = report.ReportId,
+                        TeamId = null,
+                        ProjectId = null,
+                        AdvisorId = null,
+                        isActive = null,
+                        TeamName = null,
+                        ProjectName = null,
+                        Description = null,
+                        Members = null,
+                        PresentationDate = null,
+                        EndTime = null,
+                        ReportId = null,
+                        StartTime = null,
                     };
-
-                    if (teamMembers != null && teamMembers.Count > 0)
-                    {
-                        foreach (var teamMember in teamMembers)
-                        {
-                            var studentInfos = await _userService.GetByUserIdAsync(teamMember.UserId);
-
-                            var studentDatas = new GPESAPI.Application.DTOs.MemberList
-                            {
-                                StudentId = teamMember.UserId,
-                                StudentFullName = studentInfos.FullName,
-                                StudentNumber = studentInfos.StudentNumber,
-                            };
-
-                            newStudentProjectTeams.Members.Add(studentDatas);
-                        }
-                    }
 
                     return newStudentProjectTeams;
                 }
@@ -130,7 +230,11 @@ namespace GPESAPI.Application.Services
                     TeamName = null,
                     ProjectName = null,
                     Description = null,
-                    Members = null
+                    Members = null,
+                    PresentationDate= null,
+                    EndTime= null,
+                    ReportId = null,
+                    StartTime = null,
                 };
 
                 return newStudentProjectTeams;

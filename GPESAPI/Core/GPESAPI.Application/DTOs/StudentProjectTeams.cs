@@ -11,6 +11,9 @@
         public string? Description { get; set; }
         public string? ProjectName { get; set; }
         public int? ReportId { get; set; }
+        public DateTime? PresentationDate { get; set; }
+        public TimeSpan? StartTime { get; set; }
+        public TimeSpan? EndTime { get; set; }
     }
 
     public class MemberList
