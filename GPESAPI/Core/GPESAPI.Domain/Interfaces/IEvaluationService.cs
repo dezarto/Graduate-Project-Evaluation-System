@@ -10,5 +10,6 @@ namespace GPESAPI.Domain.Interfaces
         Task AddEvaluationAsync(Evaluation evaluation);
         Task UpdateEvaluationAsync(Evaluation evaluation);
         Task DeleteEvaluationAsync(int id);
+        Task<bool> HasMatchingProfessorAndTeamAsync(int professorId, int teamId);
     }
 }

@@ -41,5 +41,11 @@ namespace GPESAPI.Domain.Services
         {
             return await _evaluationRepository.GetByFieldAsync("TeamId" , id);
         }
+
+        public async Task<bool> HasMatchingProfessorAndTeamAsync(int professorId, int teamId)
+        {
+            var evaluations = await _evaluationRepository.GetAllAsync();
+            return evaluations.Any(e => e.ProfessorId == professorId && e.TeamId == teamId);
+        }
     }
 }

@@ -198,8 +198,13 @@ namespace GPESAPI.API.Controllers
                 return BadRequest("Evaluation result is null.");
 
             var result = await _evaluationAppService.SubmitEvaluationSave(evaluateResult, professorMail);
+            
+            if (result)
+            {
+                return Ok("Evaluation submitted successfully.");
+            }
 
-            return Ok("Evaluation submitted successfully.");
+            return BadRequest("Evaluation submitted failed.");
         }
 
         [HttpGet("get-evaluation/{evaluationId}")]

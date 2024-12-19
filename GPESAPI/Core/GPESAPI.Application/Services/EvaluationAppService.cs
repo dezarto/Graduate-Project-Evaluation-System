@@ -64,45 +64,51 @@ namespace GPESAPI.Application.Services
             if (evaluateResult == null)
                 throw new ArgumentNullException(nameof(evaluateResult));
 
-            var evaluation = new Evaluation
-            {
-                TeamId = evaluateResult.TeamId,
-                GeneralComments = evaluateResult.GeneralComments,
-                EvaluationScore = evaluateResult.TotalScore,
-                ProfessorId = professor.ProfessorId,
-                Date = evaluateResult.Date,
-            };
+            var alreadyEvaluated = await _evaluationService.HasMatchingProfessorAndTeamAsync(professor.ProfessorId, evaluateResult.TeamId);
 
-            await _evaluationService.AddEvaluationAsync(evaluation);
-
-            foreach (var criteria in evaluateResult.EvaluationCriterias)
+            if (!alreadyEvaluated)
             {
-                var criteriaDetail = new EvaluationCriteriaDetail
+                var evaluation = new Evaluation
                 {
-                    EvaluationId = evaluation.EvaluationId,
-                    CriteriaId = criteria.CriteriaId,
-                    isChecked = criteria.isChecked,
-                    Score = criteria.Score,
-                    Feedback = criteria.Feedback,
+                    TeamId = evaluateResult.TeamId,
+                    GeneralComments = evaluateResult.GeneralComments,
+                    EvaluationScore = evaluateResult.TotalScore,
+                    ProfessorId = professor.ProfessorId,
+                    Date = evaluateResult.Date,
                 };
 
-                await _evaluationCriteriaDetailService.AddEvaluationCriteriaDetailAsync(criteriaDetail);
-            }
+                await _evaluationService.AddEvaluationAsync(evaluation);
 
-            foreach (var checklistItem in evaluateResult.EvaluationChecklistItems)
-            {
-                var checklistItemDetail = new ChecklistItemDetail
+                foreach (var criteria in evaluateResult.EvaluationCriterias)
                 {
-                    EvaluationId = evaluation.EvaluationId,
-                    ItemId = checklistItem.ItemId,
-                    isChecked = checklistItem.isChecked,
-                    Feedback = checklistItem.Feedback
-                };
+                    var criteriaDetail = new EvaluationCriteriaDetail
+                    {
+                        EvaluationId = evaluation.EvaluationId,
+                        CriteriaId = criteria.CriteriaId,
+                        isChecked = criteria.isChecked,
+                        Score = criteria.Score,
+                        Feedback = criteria.Feedback,
+                    };
 
-                await _checklistItemDetailService.AddChecklistItemDetailAsync(checklistItemDetail);
+                    await _evaluationCriteriaDetailService.AddEvaluationCriteriaDetailAsync(criteriaDetail);
+                }
+
+                foreach (var checklistItem in evaluateResult.EvaluationChecklistItems)
+                {
+                    var checklistItemDetail = new ChecklistItemDetail
+                    {
+                        EvaluationId = evaluation.EvaluationId,
+                        ItemId = checklistItem.ItemId,
+                        isChecked = checklistItem.isChecked,
+                        Feedback = checklistItem.Feedback
+                    };
+
+                    await _checklistItemDetailService.AddChecklistItemDetailAsync(checklistItemDetail);
+                }
+
+                return true;
             }
-
-            return true;
+            return false;
         }
 
         public async Task<EvaluateReasult> GetEvaluationResult(int evaluateId)
