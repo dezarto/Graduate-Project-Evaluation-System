@@ -6,18 +6,34 @@
 </head>
 
 <script>
-    // Allow only numeric input
+    // Sayfa yüklendiğinde form işleme kurallarını uygula
     document.addEventListener("DOMContentLoaded", () => {
         const numberInputs = document.querySelectorAll(".numberInput");
+        const form = document.querySelector("form");
 
+        // Sadece sayısal girdi izin veren işleyici
         numberInputs.forEach(input => {
             input.addEventListener("input", (event) => {
                 const value = event.target.value;
                 event.target.value = value.replace(/[^0-9]/g, "");
             });
         });
+
+        // Form gönderiminde boş alanları kontrol et
+        form.addEventListener("submit", (event) => {
+            // Tüm textarea elemanlarını seç
+            const textareas = form.querySelectorAll("textarea");
+
+            textareas.forEach(textarea => {
+                // Eğer değer boşsa, " " (tek boşluk) ata
+                if (!textarea.value.trim()) {
+                    textarea.value = " ";
+                }
+            });
+        });
     });
 </script>
+
 
 <body>
     <div class="all-boxes">
@@ -101,7 +117,7 @@
                                     <input type="checkbox" name="EvaluationChecklistItems[@i].IsChecked" value="true">
                                     @Model.EvaluationChecklistItems[i].ItemName
                                 </label>
-                                <input type="hidden" name="EvaluationChecklistItems[@i].ItemId" value="@Model.EvaluationChecklistItems[i].ItemId">
+                                <input type="hidden" name="EvaluationChecklistItems[@i].ItemId" value="@Model.EvaluationChecklistItems[@i].ItemId">
                                 <textarea name="EvaluationChecklistItems[@i].Feedback" placeholder="Write your thoughts..."></textarea>
                             </div>
                         }
@@ -133,6 +149,10 @@
                 <button type="submit" class="evaluate-button">Evaluate</button>
             </div>
         </form>
+
+
     </div>
 </body>
+
+
 </html>

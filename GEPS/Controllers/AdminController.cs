@@ -964,5 +964,94 @@ namespace GEPS.Controllers
                 return RedirectToAction("GetAllEvaluationCriteria");
             }
         }
+
+        [HttpGet("PresentationTrigger")]
+        public IActionResult PresentationTrigger()
+        {
+            return  View();
+        }
+
+        [HttpPost("DateApprove")]
+        public async Task<IActionResult> DateApprove()
+        {
+            var apiUrl = "https://localhost:7107/api/Manuel/schedule-teams-presentations-optimized-backtracking";
+
+            // Token alımı
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized(new { message = "Authorization token is missing." });
+            }
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // Token'i Authorization Header'a ekliyoruz
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                    // API'ye POST isteği gönderiyoruz
+                    var response = await client.PostAsync(apiUrl, null);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return Ok(new { message = "Operation completed successfully." });
+                    }
+                    else
+                    {
+                        var errorContent = await response.Content.ReadAsStringAsync();
+                        return StatusCode((int)response.StatusCode, new { message = "API request failed.", details = errorContent });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
+        }
+
+        [HttpPost("ProfessorAndUserSync")]
+        public async Task<IActionResult> ProfessorAndUserSync()
+        {
+            var apiUrl = "https://localhost:7107/api/Manuel/sync-users-with-professors";
+
+            // Token alımı
+            var token = HttpContext.Session.GetString("BearerToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized(new { message = "Authorization token is missing." });
+            }
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // Token'i Authorization Header'a ekliyoruz
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                    // API'ye POST isteği gönderiyoruz
+                    var response = await client.PostAsync(apiUrl, null);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return Ok(new { message = "Operation completed successfully." });
+                    }
+                    else
+                    {
+                        var errorContent = await response.Content.ReadAsStringAsync();
+                        return StatusCode((int)response.StatusCode, new { message = "API request failed.", details = errorContent });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
+        }
+
+
     }
+    
 }

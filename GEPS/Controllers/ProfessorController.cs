@@ -480,10 +480,37 @@ namespace GEPS.Controllers
             ViewBag.UserRole = userRole;
 
             string apiUrl = "https://localhost:7107/api/Professor/submit-evaluation";
-            
+
             try
             {
                 evaluationModel.Date = DateTime.Now;
+
+                if (evaluationModel.EvaluationChecklistItems != null)
+                {
+                    foreach (var item in evaluationModel.EvaluationChecklistItems)
+                    {
+                        if (string.IsNullOrWhiteSpace(item.Feedback))
+                        {
+                            item.Feedback = string.Empty;
+                        }
+                    }
+                }
+
+                if (evaluationModel.EvaluationCriterias != null)
+                {
+                    foreach (var criteria in evaluationModel.EvaluationCriterias)
+                    {
+                        if (string.IsNullOrWhiteSpace(criteria.Feedback))
+                        {
+                            criteria.Feedback = string.Empty;
+                        }
+                    }
+                }
+
+                if (string.IsNullOrWhiteSpace(evaluationModel.GeneralComments))
+                {
+                    evaluationModel.GeneralComments = string.Empty;
+                }
 
                 var token = HttpContext.Session.GetString("BearerToken");
 
@@ -504,7 +531,7 @@ namespace GEPS.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     ViewBag.Message = "Evaluation submitted successfully!";
-                    return RedirectToAction("TeamHomeProfessor"); 
+                    return RedirectToAction("TeamHomeProfessor");
                 }
                 else
                 {
@@ -514,7 +541,7 @@ namespace GEPS.Controllers
             }
             catch (Exception ex)
             {
-                   
+
                 ViewBag.Errors = new[] { $"An error occurred: {ex.Message}" };
                 return View("Error");
             }

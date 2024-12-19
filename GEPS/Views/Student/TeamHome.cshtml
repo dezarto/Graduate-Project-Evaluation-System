@@ -66,6 +66,9 @@
                                 <th>Team Members</th>
                                 <th>Date</th>
                                 <th>Action</th>
+                                <th>Presentation Date</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,8 +82,9 @@
                                         }
                                     </ul>
                                 </td>
-                                <td>Empty</td>
-
+                                <td>@Model.PresentationDate</td>
+                                <td>@Model.StartTime</td>
+                                <td>@Model.EndTime</td>
                                 <td class="load-report">
                                     <!-- Butonu tıklanamaz yapacak koşulu kontrol et -->
                                     <a href="/Student/ProjectUpload" style="text-decoration: none; color: inherit;">
