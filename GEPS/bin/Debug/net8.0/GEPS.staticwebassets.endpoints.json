@@ -7709,6 +7709,88 @@
           "Value": "uploads/6762fbea734c6fb86fc7445f.pdf"
         }
       ]
+    },
+    {
+      "Route": "uploads/6763111b374423d898e421a2.pdf",
+      "AssetFile": "uploads/6763111b374423d898e421a2.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 18:14:51 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6763111b374423d898e421a2.r4uv0hziiw.pdf",
+      "AssetFile": "uploads/6763111b374423d898e421a2.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "781004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 18:14:51 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r4uv0hziiw"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tcHSbzmPAhzAv899aVDSrLg6QXTGkdirdj7q/4zdlk8="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6763111b374423d898e421a2.pdf"
+        }
+      ]
     }
   ]
 }

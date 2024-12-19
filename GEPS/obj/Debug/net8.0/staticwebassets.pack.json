@@ -377,6 +377,10 @@
       "PackagePath": "staticwebassets\\uploads\\6762fbea734c6fb86fc7445f.pdf"
     },
     {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6763111b374423d898e421a2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6763111b374423d898e421a2.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

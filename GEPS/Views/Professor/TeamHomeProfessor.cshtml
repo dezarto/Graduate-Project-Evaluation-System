@@ -51,11 +51,20 @@
                                         <th>
                                             <p>Evaluate</p>
                                         </th>
+                                        <th>
+                                            <p>Presentation Date</p>
+                                        </th>
+                                        <th>
+                                            <p>Start Time</p>
+                                        </th>
+                                        <th>
+                                            <p>End Time</p>
+                                        </th>
                                     </tr>
                                 </thead>
 
                                 <tbody id="teamTableBody">
-                                    @foreach (var ProjectTeamResponse in Model )
+                                    @foreach (var ProjectTeamResponse in Model)
                                     {
                                         <tr>
                                             <td>
@@ -67,6 +76,7 @@
                                             <td>
                                                 <p> @ProjectTeamResponse.EvaluatingTeacherMail </p>
                                             </td>
+
                                             <td>
                                                 @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
                                                 {
@@ -82,6 +92,19 @@
                                                     <p>No members</p>
                                                 }
                                             </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.PresentationDate.ToString("yyyy-MM-dd") </p>
+                                            </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.StartTime.ToString(@"hh\:mm") </p>
+                                            </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.EndTime.ToString(@"hh\:mm") </p>
+                                            </td>
+
                                             <td>
                                                 <a href="@Url.Action("TeacherEvaluateProject", "Professor", new { id = ProjectTeamResponse.TeamId })" class="add-btn">
                                                     Evaluate Team
@@ -98,7 +121,7 @@
                     </div>
                 </section>
             </div>
-           
+
         </section>
         <section class="SpringTerm">
             <h4>2023-2024 Spring </h4>
