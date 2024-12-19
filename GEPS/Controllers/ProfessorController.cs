@@ -180,6 +180,9 @@ namespace GEPS.Controllers
             ViewBag.UserRole = userRole;
 
             string apiUrl = "https://localhost:7107/api/Professor/get-approval-teams-view";
+
+            string apiUrlA = "https://localhost:7107/api/Professor/get-project-team-view";
+
             try
             {
                 string bearerToken = HttpContext.Session.GetString("BearerToken");
@@ -191,12 +194,21 @@ namespace GEPS.Controllers
 
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
 
+                var projectTeamsMembers = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrlA);
+
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
+
                 var projectTeams = await _httpClient.GetFromJsonAsync<List<ProjectTeamResponse>>(apiUrl);
 
                 if (projectTeams == null || !projectTeams.Any())
                 {
                     ViewBag.ErrorMessage = "No teams found.";
                     return View();
+                }
+
+                if(projectTeamsMembers != null)
+                {
+                    return View(projectTeamsMembers);
                 }
 
                 return View(projectTeams);
