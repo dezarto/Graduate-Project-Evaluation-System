@@ -968,12 +968,18 @@ namespace GEPS.Controllers
         [HttpGet("PresentationTrigger")]
         public IActionResult PresentationTrigger()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             return  View();
         }
 
         [HttpPost("DateApprove")]
         public async Task<IActionResult> DateApprove()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = "https://localhost:7107/api/Manuel/schedule-teams-presentations-optimized-backtracking";
 
             // Token alımı
@@ -1014,6 +1020,9 @@ namespace GEPS.Controllers
         [HttpPost("ProfessorAndUserSync")]
         public async Task<IActionResult> ProfessorAndUserSync()
         {
+            var userRole = HttpContext.Items["UserRole"] as string;
+            ViewBag.UserRole = userRole;
+
             var apiUrl = "https://localhost:7107/api/Manuel/sync-users-with-professors";
 
             // Token alımı

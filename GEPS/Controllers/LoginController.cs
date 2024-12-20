@@ -43,9 +43,7 @@ namespace GEPS.Controllers
 
                     if (authResult != null && authResult.Success)
                     {
-                        // Backend'den gelen token'ı session'a kaydediyoruz
                         HttpContext.Session.SetString("BearerToken", authResult.Token);
-                        // Token'ı TempData ile frontend'e gönderiyoruz
                         TempData["Token"] = authResult.Token;
 
                         if (login.Username.Contains("@iku.edu.tr"))
