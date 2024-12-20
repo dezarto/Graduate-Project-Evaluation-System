@@ -173,29 +173,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: projects.length,
                       itemBuilder: (context, index) {
                         final project = projects[index];
-                        String statusText;
-                        Color statusColor;
-
-                        if (!project.isApproval) {
-                          statusText = 'Pending Approval';
-                          statusColor = Colors.amber;
-                        } else if (project.isEvaluated) {
-                          statusText = 'Result Available';
-                          statusColor = AppColors.trueGreen;
-                        } else {
-                          statusText = 'Ready to Evaluate';
-                          statusColor = Color(0xFF00B7FF);
-                        }
-
                         return buildTeamCard(
                           context,
                           project,
                           project.teamName,
                           project.projectName,
-                          statusText,
-                          statusColor,
-                          project.isEvaluated ? 'View Result' : 'Evaluate',
-                          project.isEvaluated,
                           project.isApproval,
                         );
                       },
@@ -212,10 +194,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Project project,
     String teamName,
     String projectName,
-    String statusText,
-    Color statusColor,
-    String buttonText,
-    bool isEvaluated,
     bool isApproval,
   ) {
     const int maxChars = 90;
@@ -234,156 +212,110 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 3,
         shadowColor: Colors.black26,
         child: Container(
-          height: 170,
+          height: 220,
           padding: const EdgeInsets.all(13.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Team',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      teamName,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: AppColors.primaryTextColor,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    const Text(
-                      'Project Name',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      truncatedProjectName,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: AppColors.primaryTextColor,
-                      ),
-                    ),
-                  ],
+              const Text(
+                'Team',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Status',
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.circle, size: 8, color: statusColor),
-                            const SizedBox(width: 4),
-                            Text(
-                              statusText,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: statusColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    isEvaluated
-                        ? ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      ViewProjectResults(project: project),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            child: Text(
-                              buttonText,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          )
-                        : (!isApproval
-                            ? Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      showConfirmationDialog(
-                                          context, 'approve', project.teamId);
-                                    },
-                                    icon: const Icon(Icons.check_circle),
-                                    color: Colors.green,
-                                    iconSize: 50,
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      showConfirmationDialog(
-                                          context, 'reject', project.teamId);
-                                    },
-                                    icon: const Icon(Icons.cancel),
-                                    color: Colors.red,
-                                    iconSize: 50,
-                                  ),
-                                ],
-                              )
-                            : ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          EvaluateProjectPage(project: project),
-                                    ),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primary,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                                child: Text(
-                                  buttonText,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              )),
-                  ],
+              Text(
+                teamName,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: AppColors.primaryTextColor,
                 ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Project Name',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                truncatedProjectName,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: AppColors.primaryTextColor,
+                ),
+              ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (!isApproval) ...[
+                    IconButton(
+                      onPressed: () {
+                        showConfirmationDialog(
+                            context, 'approve', project.teamId);
+                      },
+                      icon: const Icon(Icons.check_circle),
+                      color: Colors.green,
+                      iconSize: 40,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        showConfirmationDialog(
+                            context, 'reject', project.teamId);
+                      },
+                      icon: const Icon(Icons.cancel),
+                      color: Colors.red,
+                      iconSize: 40,
+                    ),
+                  ] else ...[
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ViewProjectResults(project: project),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: const Text(
+                        'View Result',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                EvaluateProjectPage(project: project),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: const Text(
+                        'Evaluate',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ]
+                ],
               ),
             ],
           ),

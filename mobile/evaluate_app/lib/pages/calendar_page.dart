@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:evaluate_app/resources/app_resources.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:evaluate_app/models/models.dart';
+import 'package:evaluate_app/pages/profile.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({Key? key}) : super(key: key);
@@ -16,8 +18,20 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime? _selectedDate;
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
+  User? _user;
 
   List<Map<String, dynamic>> _availableTimes = [];
+
+  Future<void> _initializeUser() async {
+    try {
+      _user = await fetchUser();
+      setState(() {});
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Error fetching user data!")),
+      );
+    }
+  }
 
   Future<void> fetchTimes() async {
     final storage = const FlutterSecureStorage();
@@ -69,14 +83,22 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
   Future<void> _sendAvailability() async {
+    if (_user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("User data not available!")),
+      );
+      return;
+    }
+
     final storage = const FlutterSecureStorage();
     final token = await storage.read(key: 'accessToken');
+
     if (_selectedDate != null && _startTime != null && _endTime != null) {
       try {
         final availabilityData = [
           {
             "availabilityId": 0,
-            "professorId": 0,
+            "professorId": _user!.professorId,
             "availableDate":
                 "${_selectedDate!.toIso8601String().split('T')[0]}T00:00:00",
             "startTime":
@@ -102,9 +124,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               backgroundColor: AppColors.trueGreen,
             ),
           );
-
-          // Refresh available times
-          fetchTimes();
+          fetchTimes(); // Mevcut zamanları yenile
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -112,6 +132,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
               backgroundColor: AppColors.falseRed,
             ),
           );
+          print('Status Code: ${response.statusCode}, ${response.body}');
+          print(availabilityData);
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -215,7 +237,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   @override
   void initState() {
     super.initState();
-    fetchTimes(); // Fetch times when the screen is loaded
+    fetchTimes();
+    _initializeUser();
   }
 
   @override
