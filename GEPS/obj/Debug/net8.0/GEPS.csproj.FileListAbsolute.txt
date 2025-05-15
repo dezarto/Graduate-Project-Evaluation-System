@@ -1,0 +1,308 @@
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Onur\source\repos\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Onur\source\repos\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Semir\Desktop\GEPS ONUR\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.endpoints.json
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Semir\Desktop\GEPS\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.endpoints.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Semir\Desktop\Son\GEPS\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Semir\Desktop\Son\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.endpoints.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Semir\Desktop\asdads\GEPS\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Semir\Desktop\asdads\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.endpoints.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Semir\Desktop\GEPS\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Semir\Desktop\GEPS\obj\Debug\net8.0\ref\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\appsettings.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.staticwebassets.runtime.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.exe
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.deps.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.runtimeconfig.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.csproj.AssemblyReference.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfoInputs.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.AssemblyInfo.cs
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.csproj.CoreCompileInputs.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.RazorAssemblyInfo.cs
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.build.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GEPS.props
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\scopedcss\bundle\GEPS.styles.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\scopedcss\projectbundle\GEPS.bundle.scp.css
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.csproj.Up2Date
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\refint\GEPS.dll
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.pdb
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\GEPS.genruntimeconfig.cache
+C:\Users\Onur\OneDrive\Masaüstü\GEPS\obj\Debug\net8.0\ref\GEPS.dll

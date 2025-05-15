@@ -1,0 +1,90 @@
+﻿@model IEnumerable<AdminChecklistItem>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/admin1.css">
+    <title>Checklist Items</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Checklist Items</h1>
+            <a href="@Url.Action("PostAddCheckListItem", "Admin")" class="add-btn">Add New Checklist Item</a>
+        </div>
+
+        @if (ViewBag.Errors != null && ViewBag.Errors.Any())
+        {
+            <div class="error-messages">
+                @foreach (var error in ViewBag.Errors)
+                {
+                    <p class="error">@error</p>
+                }
+            </div>
+        }
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Id</th>
+                    <th>Item Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ItemId</td>
+                            <td>@item.ItemName</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="@Url.Action("UpdateChecklistItem", "Admin", new { id = item.ItemId })" class="edit-btn">Edit</a>
+                                    <button class="delete-btn"
+                                            data-id="@item.ItemId"
+                                            onclick="deleteCheckList(this)">
+                                        Delete
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="no-data">No Checklist Items Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        function deleteCheckList(button) {
+            if (confirm('Bu Check List silmek istediğinizden emin misiniz?')) {
+                const id = $(button).data('id');
+                const apiUrl = "@Url.Action("DeleteCheckListItem", "Admin")/" + id;
+
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'DELETE',
+                    success: function (result) {
+                        alert('Değerlendirme kriteri başarıyla silindi!');
+                        location.reload(); // Sayfayı yenile
+                    },
+                    error: function () {
+                        window.location.href = '@Url.Action("GetAllChecklistItems", "Admin")';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

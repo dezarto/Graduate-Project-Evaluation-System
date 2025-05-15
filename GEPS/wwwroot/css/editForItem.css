@@ -1,0 +1,39 @@
+body{
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+    }
+    .mainEditItem{
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 8%;
+    width: 80%;
+    }
+    .submitButton {
+    background-color: #0DBF00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: #09A000;
+}
+
+.cancelButton {
+    background-color: #FF4C4C;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background-color: #FF2C2C;
+}
+.form-buttons{
+    padding-top: 5%;;
+}

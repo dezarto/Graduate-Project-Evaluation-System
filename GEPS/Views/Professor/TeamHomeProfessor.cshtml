@@ -1,0 +1,160 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model IEnumerable<ProjectTeamResponse>
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/TeacherCalendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="TeamStatusData.js"></script>
+
+    <title>TeacherCalendar</title>
+</head>
+<body>
+    <div class="mainTeacherCalendar">
+        <section class="infoTeacherCalendar">
+            <h3>Presentation Calendar</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project.  </p>
+        </section>
+        <section class="FallTerm">
+            <h4>2024-2025 Fall </h4>
+            <div class="whiteBox">
+                <section class="presentationInfo">
+                    <div class="dateContainer">
+                        <h5>27 June 2025</h5>
+                        <h5>Friday</h5>
+                        <p>15:00-16:00</p>
+                    </div>
+                    <div class="presentationContent">
+                        <h4>AI Supported Human Resources System for IT Companies AI Supported Human Resources System for IT Companies</h4>
+                        <section class="teamInfo">
+                            <table class="tableOfTeamInfo">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>Team</p>
+                                        </th>
+                                        <th>
+                                            <p>Status</p>
+                                        </th>
+                                        <th>
+                                            <p>Evaluating Teacher</p>
+                                        </th>
+                                        <th>
+                                            <p>Team Members</p>
+                                        </th>
+                                        <th>
+                                            <p>Presentation Date</p>
+                                        </th>
+                                        <th>
+                                            <p>Start Time</p>
+                                        </th>
+                                        <th>
+                                            <p>End Time</p>
+                                        </th>
+                                        <th>
+                                            <p>Evaluate</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="teamTableBody">
+                                    @foreach (var ProjectTeamResponse in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <p> @ProjectTeamResponse.TeamId</p>
+                                            </td>
+                                            <td>
+                                                <p>  @ProjectTeamResponse.isEvaluated </p>
+                                            </td>
+                                            <td>
+                                                <p> @ProjectTeamResponse.EvaluatingTeacherMail </p>
+                                            </td>
+
+                                            <td>
+                                                @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
+                                                {
+                                                    <ul>
+                                                        @foreach (var member in ProjectTeamResponse.Members)
+                                                        {
+                                                            <li>@member.StudentFullName</li> <!-- Öğrencilerin ismini listele -->
+                                                        }
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <p>No members</p>
+                                                }
+                                            </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.PresentationDate.ToString("yyyy-MM-dd") </p>
+                                            </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.StartTime.ToString(@"hh\:mm") </p>
+                                            </td>
+
+                                            <td>
+                                                <p> @ProjectTeamResponse.EndTime.ToString(@"hh\:mm") </p>
+                                            </td>
+
+                                            <td>
+                                                <a href="@Url.Action("TeacherEvaluateProject", "Professor", new { id = ProjectTeamResponse.TeamId })" class="add-btn">
+                                                    Evaluate Team
+                                                </a>
+                                                <a href="@Url.Action("TeacherViewResult", "Professor", new { id = ProjectTeamResponse.TeamId })" class="add-btn">
+                                                    View Result
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </section>
+            </div>
+
+        </section>
+        <section class="SpringTerm">
+            <h4>2023-2024 Spring </h4>
+        </section>
+    </div>
+</body>
+@section Scripts
+{
+    <script>
+        const token = '@TempData["Token"]';
+        if (token) {
+            sessionStorage.setItem('Token', token);
+        }
+
+        // Token'i sessionStorage'dan al
+        var token = sessionStorage.getItem("Token");
+
+        // Token varsa, başlık olarak backend'e gönderebilirsiniz
+        if (token) {
+            fetch('https://your-api-url', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // API'den gelen veriyi işleme
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+}
+</html>

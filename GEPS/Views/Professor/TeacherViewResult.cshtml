@@ -1,0 +1,115 @@
+﻿@using Newtonsoft.Json
+@model GEPS.Models.ProjectTeamResult
+
+@{
+    ViewBag.Title = "Teacher View Result";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/TeacherViewResult.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Teacher View Result</title>
+</head>
+<body>
+    <div class="mainTeacherViewResult">
+        <section class="infoTeacherViewResult">
+            <h3>View Result</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project. </p>
+        </section>
+
+        <!-- Dynamic Teacher Selection Buttons -->
+        <section class="teacherSelection">
+            @if (Model.ProfessorsTeams != null && Model.ProfessorsTeams.Count > 0)
+            {
+                @for (int i = 0; i < Model.ProfessorsTeams.Count; i++)
+                {
+                    <button class="actionButton redButton"
+                            onclick="showProfessorInfo(this)"
+                            data-professor='@Html.Raw(JsonConvert.SerializeObject(Model.ProfessorsTeams[i]))'>
+                        @Model.ProfessorsTeams[i].FullName
+                    </button>
+                }
+            }
+            else
+            {
+                <p>No professors available</p>
+            }
+            <button class="actionButton greenButton" onclick="showAverageResult()">Average Result</button>
+        </section>
+
+        <!-- Team Information Section -->
+        <section class="resultPart">
+            <div class="inlinePadding">
+                <h4>@Model.TeamName</h4>
+
+                <!-- Evaluation Results Section -->
+                <section class="resultTable">
+                    <table class="tableOfResult" id="evaluationResultsTable">
+                        <tr>
+                            <th>Evaluation</th>
+                            <th>Grades</th>
+                        </tr>
+                        <tr id="noEvaluationMessage">
+                            <td colspan="2">Select a professor to see their evaluation.</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <p><b>General Feedback</b></p>
+                <p id="generalFeedback">Select a professor to see their feedback.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript for handling button clicks -->
+    <script>
+                function showProfessorInfo(button) {
+            // Parse professor data from button's data attribute
+            const professorData = JSON.parse(button.getAttribute('data-professor'));
+
+            const evaluationTable = document.getElementById('evaluationResultsTable');
+            const generalFeedback = document.getElementById('generalFeedback');
+
+            // Clear previous results
+            evaluationTable.innerHTML = `
+                <tr>
+                    <th>Evaluation</th>
+                    <th>Grades</th>
+                </tr>
+            `;
+
+            if (professorData) {
+                if (professorData.EvaluationCriterias && professorData.EvaluationCriterias.length > 0) {
+                    // Add evaluation criteria to the table
+                    professorData.EvaluationCriterias.forEach(criteria => {
+                        evaluationTable.innerHTML += `
+                            <tr>
+                                <td>${criteria.CriteriaId} - ${criteria.Feedback}</td>
+                                <td>${criteria.Score}</td>
+                            </tr>
+                        `;
+                    });
+                    generalFeedback.textContent = professorData.GeneralComments || "No feedback provided.";
+                } else {
+                    // Show "Not evaluated" message
+                    evaluationTable.innerHTML += `
+                        <tr>
+                            <td colspan="2">Değerlendirilmedi</td>
+                        </tr>
+                    `;
+                    generalFeedback.textContent = "No feedback available.";
+                }
+            } else {
+                alert("Professor data is missing.");
+            }
+        }
+
+        function showAverageResult() {
+            alert("Average result will be shown here.");
+        }
+    </script>
+</body>
+</html>

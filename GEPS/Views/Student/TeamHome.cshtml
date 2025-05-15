@@ -1,0 +1,107 @@
+﻿@model GEPS.Models.StudentProjectTeamsWeb
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluate</title>
+    <link rel="stylesheet" href="~/css/SubmitProjectTopics1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+    <main>
+        <div class="mainTeamHome">
+            <div class="box">
+                <div class="intro">
+                    <div class="intro-title">
+                        <h2>Create Graduation Project</h2>
+                    </div>
+
+                    <div class="intro-exp">
+                        <p>
+                            Create a graduation project for your final year. This section guides students to form their team by adding
+                            team members, specifying the project name, and selecting an advisor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="required-documents">
+                    <i class="fa fa-file-text"></i>
+                    <h4>Required Documents</h4>
+                </div>
+
+                <div class="create-project" onclick="redirectToCreateProject()">
+                    <i class="fa fa-plus"></i>
+                    <h4>Create Graduation Project</h4>
+                </div>
+
+                <script>
+                    function redirectToCreateProject() {
+                        window.location.href = "/Student/ProjectCreate";
+                    }
+
+                    // Koşulu kontrol et ve butonu devre dışı bırak
+                    window.onload = function() {
+                        var reportId = @Model.ReportId;  // Model'den gelen ReportId'yi alıyoruz
+
+                        // Eğer ReportId != 0 ise butonu devre dışı bırak
+                        var uploadButton = document.getElementById("uploadButton");
+                        if (reportId !== 0) {
+                            uploadButton.disabled = true;  // Butonu devre dışı bırak
+                            uploadButton.style.backgroundColor = "#cccccc";  // Gri renkte yap
+                            uploadButton.style.cursor = "not-allowed";  // Fare imleci yasaklı
+                        }
+                    };
+                </script>
+
+                <div>
+                    <table class="table-a">
+                        <thead>
+                            <tr>
+                                <th>My Graduation Project</th>
+                                <th>Team Members</th>
+                                <th>Presentation Date</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.ProjectName</td>
+                                <td>
+                                    <ul>
+                                        @foreach (var member in Model.Members)
+                                        {
+                                            <li>@member.StudentFullName - @member.StudentNumber</li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td>@Model.PresentationDate</td>
+                                <td>@Model.StartTime</td>
+                                <td>@Model.EndTime</td>
+                                <td class="load-report">
+                                    <!-- Butonu tıklanamaz yapacak koşulu kontrol et -->
+                                    <a href="/Student/ProjectUpload" style="text-decoration: none; color: inherit;">
+                                        <button id="uploadButton" class="upload-button">
+                                            <i class="fa fa-upload"></i>
+                                            <p>Load<br>Report</p>
+                                        </button>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

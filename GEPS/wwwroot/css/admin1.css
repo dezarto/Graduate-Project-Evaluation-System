@@ -1,0 +1,142 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: left;
+}
+
+.container {
+    width: 80%;
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 5%;
+    margin-bottom: 1%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+td{
+    border: 1px solid #ddd; 
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.add-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.mainTeacherCalendar{
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 5%;
+}
+
+.tableOfTeamInfo {
+    width: 60%;
+    margin: 10px 0;
+}
+
+.tableOfTeamInfo td, .tableOfTeamInfo th {
+    padding: 10px; 
+    text-align: left; 
+    vertical-align: middle; 
+}
+
+.tableOfTeamInfo th {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.tableOfTeamInfo p{
+    font-size: 10px;
+}
+.presentationInfo{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; 
+}
+
+.dateContainer {
+    width:20%;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    padding-top: 4%;
+    flex-shrink: 0; /* Date alanının sabit bir boyutta kalmasını sağlar */
+}
+
+.dateContainer h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin:0;
+}
+.dateContainer p {
+    font-size: 16px;
+    margin:0;
+}
+
+.presentationContent {
+    flex-grow: 1; /* Tablo ve içerik kalan alana yayılsın */
+}
+.FallTerm{
+    padding-top: 3%;
+}
+.SpringTerm{
+    padding-top: 1%;
+}
+.whiteBox{
+    padding-top:2%;
+}

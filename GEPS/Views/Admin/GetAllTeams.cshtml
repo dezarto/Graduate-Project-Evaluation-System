@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Teams>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin1.css">
+    <title>Project Teams</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Teams</h1>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Project Name</th>
+                    <th>Project Id</th>
+                    <th>Advisor ID</th>
+                    <th>Student List</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var team in Model)
+                    {
+                        <tr>
+                            <td>@team.TeamName</td>
+                            <td>@team.TeamId</td>
+                            <td>@team.ProjectId</td>
+                            <td>@team.AdvisorId</td>
+                           
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="delete-btn" data-id="@team.TeamId" onclick="deleteTeam(this)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="no-data">No Teams Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function deleteTeam(button) {
+            if (confirm('Bu Teams silmek istediğinizden emin misiniz?')) {
+                const id = $(button).data('id');
+                const apiUrl = "@Url.Action("DeleteTeams", "Admin")/" + id;
+
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'DELETE',
+                    success: function (result) {
+                        alert('öğrenciyi başarıyla silindi!');
+                        location.reload(); // Sayfayı yenile
+                    },
+                    error: function () {
+                        window.location.href = '@Url.Action("GetAllTeams", "Admin")';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

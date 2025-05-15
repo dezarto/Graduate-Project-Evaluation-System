@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Upload Project";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/loadProject.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="mainLoadProject">
+        <section class="infoLoadProject">
+            <h3>Load Project</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while they create their team by adding team members, writing the project name, and selecting the advisor for the project.</p>
+        </section>
+
+        <section class="uploadFile">
+            <form id="projectUploadForm" method="post" enctype="multipart/form-data" action="/project-upload">
+                <div class="container">
+                    <div class="drag-box" id="drag-box">
+                        <label for="file-upload">Drag</label>
+                        <input type="file" id="file-upload" name="File" accept=".pdf,.rar" onchange="updateFileName()">
+                    </div>
+                    <div class="or">or</div>
+                    <button type="button" class="import-button" id="import-button">Import File</button>
+                    <div class="note">(only .pdf .rar files are accepted)</div>
+                    <!-- Display selected file name -->
+                    <div id="file-name-display" class="file-name-display"></div>
+                </div>
+            </form>
+        </section>
+
+        <section class="submitFile">
+            <button class="submitFileButton" id="submitFileButton">Submit File</button>
+        </section>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (ViewBag.Errors != null)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var error in ViewBag.Errors)
+                    {
+                        <li>@error</li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+
+    <script>
+        const dragBox = document.getElementById('drag-box');
+        const fileInput = document.getElementById('file-upload');
+        const importButton = document.getElementById('import-button');
+        const submitButton = document.getElementById('submitFileButton');
+        const projectUploadForm = document.getElementById('projectUploadForm');
+        const fileNameDisplay = document.getElementById('file-name-display');
+
+        // Prevent default behavior when dragging files over
+        dragBox.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dragBox.style.backgroundColor = "#e0e0e0"; // Show drag indicator
+        });
+
+        dragBox.addEventListener('dragleave', () => {
+            dragBox.style.backgroundColor = "#f9f9f9"; // Reset background color
+        });
+
+        // Handle file drop
+        dragBox.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dragBox.style.backgroundColor = "#f9f9f9"; // Reset background color
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files; // Assign dropped files to file input
+                updateFileName(); // Update the file name display
+            }
+        });
+
+        // "Import File" button click event
+        importButton.addEventListener('click', () => {
+            fileInput.click(); // Open the file dialog on button click
+        });
+
+        // Submit the form when the "Submit File" button is clicked
+        submitButton.addEventListener('click', () => {
+            if (fileInput.files.length > 0) {
+                projectUploadForm.submit(); // Submit the form if a file is selected
+            } else {
+                alert("Please select a file before submitting.");
+            }
+        });
+
+        // Update the file name display after file selection
+        function updateFileName() {
+            const file = fileInput.files[0];
+            if (file) {
+                fileNameDisplay.textContent = `Selected file: ${file.name}`; // Display the file name
+            } else {
+                fileNameDisplay.textContent = ''; // Clear file name if no file is selected
+            }
+        }
+
+        // Optional: Handle file selection directly from the file input
+        fileInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0) {
+                console.log('Selected files:', files);
+                updateFileName(); // Update the file name display
+            }
+        });
+    </script>
+</body>
+</html>

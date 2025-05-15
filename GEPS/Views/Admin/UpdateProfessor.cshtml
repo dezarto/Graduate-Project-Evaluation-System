@@ -1,0 +1,84 @@
+﻿@model GEPS.Models.Professor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Professor</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Professor</h2>
+        <form id="createProfessorForm">
+            <!-- Hidden input field for ProfessorId -->
+            <input type="hidden" id="professorId" name="ProfessorId" value="@Model.ProfessorId" />
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="FullName" class="form-control" required value="@Model.FullName">
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department" name="Department" class="form-control" required value="@Model.Department">
+            </div>
+
+            <div class="form-group">
+                <label for="mailAddress">Mail Address</label>
+                <input type="email" id="mailAddress" name="MailAddress" class="form-control" required value="@Model.MailAddress">
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="Role" class="form-control" required readonly value="@Model.Role">
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                // Get professorId from the hidden input field
+                var professorId = $('#professorId').val(); // Get the hidden value of ProfessorId
+
+                // Create professor object from the form inputs
+                var professor = {
+                    ProfessorId: professorId, // Add professorId to the object
+                    FullName: $('#fullName').val(),
+                    Department: $('#department').val(),
+                    MailAddress: $('#mailAddress').val(),
+                    Role: $('#role').val()
+                };
+
+                // AJAX request to update the professor
+                $.ajax({
+                    url: '/Admin/UpdateProfessor/' + professorId,  // Pass the professorId in the URL
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(professor),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllProfessor", "Admin")';
+                            $('#responseMessage').html('<div class="alert alert-success">Professor updated successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        $('#responseMessage').html('<div class="alert alert-danger">An error occurred while updating the professor.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

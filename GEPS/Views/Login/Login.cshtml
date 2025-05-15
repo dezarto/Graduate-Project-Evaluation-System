@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Giriş";
+    Layout = null;
+}
+
+@model GEPS.Models.Login
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css" >
+</head>
+<body>
+    <div class="background-image">
+        
+        <div class="login-header">
+            <img src="~/EvaluateRed.svg" alt="Evaluate Logo" class="evaluate-logo">
+        </div>
+
+        <div class="userform">
+            <form method="post" asp-controller="Login" asp-action="Login" id="loginForm">
+                
+                <div class="input-container">
+                    <label for="username">User</label>
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                    </div>
+                </div>
+
+                
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                        <span class="toggle-password" onclick="togglePassword()">Show</span>
+                    </div>
+                </div>
+
+                
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+
+       
+        <div class="footer-logo">
+            <img src="~/IKULOGO.svg" alt="T.C. İstanbul Kültür Üniversitesi">
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const toggleText = document.querySelector(".toggle-password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleText.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                toggleText.textContent = "Show";
+            }
+        }
+    </script>
+</body>
+
+</html>

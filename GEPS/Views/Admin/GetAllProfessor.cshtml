@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Professor>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/admin1.css">
+    <title>Professors</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Professors</h1>
+            <a href="@Url.Action("PostCreateProfessor", "Admin")" class="add-btn">Add New Professor</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name Surname</th>
+                    <th>Role</th>
+                    <th>Department</th>
+                    <th>Mail Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var professor in Model)
+                    {
+                        <tr>
+                            <td>@professor.FullName</td>
+                            <td>@professor.Role</td>
+                            <td>@professor.Department</td>
+                            <td>@professor.MailAddress</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="@Url.Action("UpdateProfessor", "Admin", new { id = professor.ProfessorId })" class="edit-btn">Edit</a>
+                                    <form asp-action="DeleteProfessor" asp-controller="Admin" method="post" style="display:inline;">
+                                        <input type="hidden" name="id" value="@professor.ProfessorId" />
+                                        <button type="submit" class="delete-btn" onclick="return confirm('Bu profesörü silmek istediğinizden emin misiniz?')">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="no-data">No Professors Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+       
+    </div>
+</body>
+</html>

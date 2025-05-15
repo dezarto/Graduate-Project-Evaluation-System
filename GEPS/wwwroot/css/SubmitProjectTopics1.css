@@ -1,0 +1,124 @@
+﻿body {
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+}
+
+.mainTeamHome{
+    padding:8%;
+    margin-bottom:8%;
+}
+
+.intro {
+    margin-bottom: 35px;
+}
+
+.box {
+    width: 100%;
+
+}
+
+.required-documents {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100px;
+}
+
+.required-documents i {
+    font-size: 40px; /* İkon boyutu */
+    color: #C1272D; /* İkon rengi */
+    margin-bottom: 5px; /* Metin ile aradaki boşluk */
+    margin-left: 15px;
+}
+
+.required-documents h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.create-project {
+    width: 235px;
+    height: 55px;
+    background-color: lightgreen;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: center;
+}
+
+    .create-project:hover {
+        background-color: #82ec85;
+    }
+
+    .create-project i {
+        font-size: 32px;
+        color: white;
+    }
+
+    .create-project h4 {
+        margin: 0;
+        font-size: 18px;
+        color: white;
+    }
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+    .titles h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+.contents {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.table-a {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.table-td {
+    padding-right: 240px;
+    display: ruby-text;
+}
+
+.load-report {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #d32f2f;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.load-report i {
+    font-size: 28px; /* İkon boyutu */
+    margin-bottom: 5px;
+}
+
+.load-report p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #333;
+}
+
+.load-report:hover {
+    transform: translateY(-3px);
+}

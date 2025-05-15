@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Student>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/admin1.css">
+    <title>Student</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Students</h1>
+            <a href="@Url.Action("CreateStudent", "Admin")" class="add-btn">Add New Student</a>
+        </div>
+
+        <table>
+            <thead>
+                
+                <tr>
+                    <th>Name Surname</th>
+                    <th>Role</th>
+                    <th>Student Number</th>
+                    <th>Mail Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var Student in Model)
+                    {
+                        <tr>
+                            <td>@Student.FullName</td>
+                            <td>@Student.Role</td>
+                            <td>@Student.StudentNumber</td>
+                            <td>@Student.Email</td>
+                            <td>
+                                <div class="action-buttons">
+
+                                    <div class="action-buttons">
+                                        <a href="@Url.Action("UpdateStudent", "Admin", new { id = Student.UserId })" class="edit-btn">Edit</a>
+                                        <input type="hidden" name="id" value="@Student.UserId" />
+                                        <button class="delete-btn"
+                                                data-id="@Student.UserId"
+                                                onclick="DeleteStudent(this)">
+                                            Delete
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="no-data">No Professors Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+       
+    </div>
+
+    <script>
+        function DeleteStudent(button) {
+            if (confirm('Bu öğrenciyi silmek istediğinizden emin misiniz?')) {
+                const id = $(button).data('id');
+                const apiUrl = "@Url.Action("DeleteStudent", "Admin")/" + id;
+
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'DELETE',
+                    success: function (result) {
+                        window.location.href = '@Url.Action("GetAllStudent", "Admin")';
+                        alert('öğrenciyi başarıyla silindi!');
+                        location.reload(); // Sayfayı yenile
+                    },
+                    
+                    error: function () {
+                        window.location.href = '@Url.Action("GetAllStudent", "Admin")';
+                    }
+                });
+            }
+        }
+    </script>
+
+
+</body>
+</html>

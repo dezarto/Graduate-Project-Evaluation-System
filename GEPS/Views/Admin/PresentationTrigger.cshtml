@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/buttons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>AdminButtons</title>
+</head>
+<body>
+    <div class="button-container">
+        <button class="btn" id="button1">Presentation Trigger</button>
+        <button class="btn" id="button2">User and Professor Sync</button>
+    </div>
+
+    <script>
+        document.getElementById("button1").addEventListener("click", async function () {
+            try {
+                const response = await fetch("/Admin/DateApprove", {
+                    method: "POST",
+                    headers: {
+                    }
+                });
+
+                if (response.ok) {
+                    alert("Success: Operation completed successfully!");
+                } else {
+                    alert("Error: Unable to complete the operation.");
+                }
+            } catch (error) {
+                alert("Error: An unexpected error occurred.");
+                console.error(error);
+            }
+        });
+
+        document.getElementById("button2").addEventListener("click", async function () {
+            try {
+                const response = await fetch("/Admin/ProfessorAndUserSync", {
+                    method: "POST",
+                    headers: {
+                    }
+                });
+
+                if (response.ok) {
+                    alert("Success: Operation completed successfully!");
+                } else {
+                    alert("Error: Unable to complete the operation.");
+                }
+            } catch (error) {
+                alert("Error: An unexpected error occurred.");
+                console.error(error);
+            }
+        });
+    </script>
+    
+
+</body>
+</html>
+

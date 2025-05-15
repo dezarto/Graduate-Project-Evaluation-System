@@ -1,0 +1,9 @@
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\GPESAPI.Application.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\GPESAPI.Application.deps.json
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\GPESAPI.Application.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\AutoMapper.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\Microsoft.Extensions.Options.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\Microsoft.Extensions.Primitives.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\GPESAPI.Domain.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Release\net8.0\publish\GPESAPI.Domain.pdb

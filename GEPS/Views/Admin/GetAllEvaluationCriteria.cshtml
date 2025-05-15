@@ -1,0 +1,83 @@
+﻿@model List<AdminEvaluationCriteria>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin1.css">
+    <title>Evaluation Criteria</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Evaluation Criterias</h1>
+            <a href="@Url.Action("CreateEvaluationCriteria", "Admin")" class="add-btn">Add New Criteria</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Criteria Id</th>
+                    <th>Criteria Name</th>
+                    <th>Percent</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var criteria in Model)
+                    {
+                        <tr>
+                            <td>@criteria.CriteriaId</td>
+                            <td>@criteria.CriteriaName</td>
+                            <td>@criteria.Precent</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="@Url.Action("UpdateEvaluationCriteria", "Admin", new { id = criteria.CriteriaId })" class="edit-btn">Edit</a>
+                                    
+                                        <input type="hidden" name="id" value="@criteria.CriteriaId" />
+                                        <button class="delete-btn"
+                                                data-id="@criteria.CriteriaId"
+                                                onclick="deleteCriteria(this)">
+                                            Delete
+                                        </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="no-data">No Criteria Found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        function deleteCriteria(button) {
+            if (confirm('Bu kriteri silmek istediğinizden emin misiniz?')) {
+                const id = $(button).data('id');
+                const apiUrl = "@Url.Action("DeleteEvaluationCriteria", "Admin")/" + id;
+
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'DELETE',
+                    success: function (result) {
+                        alert('Değerlendirme kriteri başarıyla silindi!');
+                        location.reload(); // Sayfayı yenile
+                    },
+                    error: function () {
+                        window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

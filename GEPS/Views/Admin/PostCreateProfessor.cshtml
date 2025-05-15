@@ -1,0 +1,75 @@
+﻿@model GEPS.Models.Professor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Professor</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Professor</h2>
+        <form id="createProfessorForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="FullName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department" name="Department" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mailAddress">Mail Address</label>
+                <input type="email" id="mailAddress" name="MailAddress" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="Role" class="form-control" value="Professor" required readonly>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                var professor = {
+                    FullName: $('#fullName').val(),
+                    Department: $('#department').val(),
+                    MailAddress: $('#mailAddress').val(),
+                    Role: $('#role').val()
+                };
+
+                $.ajax({
+                    url: '/Admin/PostCreateProfessor',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(professor),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllProfessor", "Admin")';
+                            $('#responseMessage').html('<div class="alert alert-success">Professor created successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        $('#responseMessage').html('<div class="alert alert-danger">An error occurred while creating the professor.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

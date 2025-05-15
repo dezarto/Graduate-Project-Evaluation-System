@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "gAtOE3Lk1uMy8S+tBsGlaLqJ3+dZWsg7E4RPkX2lzVE=",
+  "Source": "GPESAPI.API",
+  "BasePath": "_content/GPESAPI.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Evaluation Criteria</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Evaluation Criteria</h2>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+
+        <form id="CreateEvaluationCriteriaForm">
+            <div class="form-group">
+                <label for="CriteriaName">Criteria Name</label>
+                <input type="text" id="CriteriaName" name="CriteriaName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Precent">Precent</label>
+                <input type="number" id="Precent" name="Precent" class="form-control" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                var criteriaName = $('#CriteriaName').val();
+                var Precent = $('#Precent').val();
+
+                if (!criteriaName || !Precent) {
+                    $('#responseMessage').html('<div class="alert alert-warning">Please fill in all fields.</div>');
+                    return;
+                }
+
+                var criteria = {
+                    CriteriaName: criteriaName,
+                    Precent: parseFloat(Precent) 
+                };
+
+                $.ajax({
+                    url: '/Admin/CreateEvaluationCriteria',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(criteria),
+                    beforeSend: function (xhr) {
+                        // Token Ekleme (Varsa)
+                        var token = sessionStorage.getItem("BearerToken");
+                        if (token) {
+                            xhr.setRequestHeader("Authorization", "Bearer " + token);
+                        }
+                    },
+                    
+                    success: function (response) {
+                        if (response.success) {
+                            $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria created successfully!</div>');
+                            $('#CriteriaName').val(''); // Formu Temizle
+                            $('#Precent').val('');
+
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + (response.errorMessage || 'Unknown error') + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.responseJSON && xhr.responseJSON.errorMessage
+                            ? xhr.responseJSON.errorMessage
+                            : 'An error occurred while creating the Evaluation Criteria.';
+                        $('#responseMessage').html('<div class="alert alert-danger">' + errorMessage + '</div>');
+                    }
+                });
+                window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';
+                setTimeout(() => {
+                    window.location.reload(); // Yenilemeyi zorlar
+                }, 100);
+
+            });
+
+        });
+    </script>
+</body>
+</html>

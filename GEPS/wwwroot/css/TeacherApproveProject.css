@@ -1,0 +1,112 @@
+body{
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+}
+.mainTeacherApproveProject{
+    padding:8%;
+}
+
+.tableOfTeamInfo {
+    width: 60%;
+    margin: 10px 0;
+}
+
+.tableOfTeamInfo td, .tableOfTeamInfo th {
+    padding: 10px; 
+    text-align: left; 
+    vertical-align: middle; 
+
+}
+
+.tableOfTeamInfo th {
+    font-weight: bold;
+}
+
+.tableOfTeamInfo p{
+    font-size: 16px;
+}
+.projectInfo{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    /*border: 1px solid #777777;*/
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; 
+    padding-top:2%;
+    padding-left:3%;
+}
+
+.projectContent{
+    width:70%;
+}
+
+.tableOfTeamInfo{
+    width:70%;
+}
+
+#teamTableBody{
+    width:50%;
+}
+
+#teamTableBody p {
+    font-size:16px;
+}
+
+.choiceContainer {
+    width:20%;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    padding-top: 4%;
+    flex-shrink: 0; 
+    display: flex;
+     gap: 20px; /* Butonlar arası boşluk */
+    margin-top: 20px; /* Üst boşluk */
+}
+
+.choiceButton {
+    display: flex; /* İçerikleri yan yana hizala */
+    align-items: center; /* Dikeyde ortala */
+    padding: 10px 20px; /* Buton iç boşlukları */
+    border: none; /* Buton kenarlıkları kaldır */
+    border-radius: 25px; /* Yuvarlak köşe */
+    cursor: pointer; /* İmleç buton üzerinde değişsin */
+    color: white; /* Yazı rengi */
+}
+
+.choiceButton.approve {
+    background-color: #0DBF00;
+}
+
+.choiceButton.reject {
+    background-color: #E30613;
+}
+
+.choiceButton:hover {
+    opacity: 0.8; 
+}
+
+.icon {
+    width: 20px; /* İkon genişliği */
+    height: 20px; /* İkon yüksekliği */
+}
+.resultMessage {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    display: none; /* Başlangıçta görünmez */
+}
+.resultMessage.approved {
+    color: #0DBF00; 
+}
+
+.resultMessage.rejected {
+    color: #E30613;
+}
+.whiteBox{
+    padding-top:2%;
+}

@@ -1,0 +1,105 @@
+
+.customHeader {
+    background-color: #C1272D;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    color: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    position: fixed;
+    top:80px; /* Header'ın altında başlasın */
+    left: -200px; /* Varsayılan olarak kapalı */
+    bottom: 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    display: none;
+}
+
+.sidebar.open {
+    left: 0; /* Açıldığında görünür */
+    display: block;
+    width:17%;
+}
+
+.sidebar h3 {
+    margin: 0;
+    color: #C1272D;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #C1272D;
+    color: white;
+}
+
+.toggleButton {
+    background-color: #C1272D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    position: absolute;
+    top: 1%;
+    left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center; /* Yatay hizalamayı ortalar */
+    justify-content: space-between; /* Hello ve Logout arasında boşluk bırakır */
+    margin-bottom: 20px; /* Altına biraz boşluk ekler */
+}
+
+.logout {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.logouticon {
+    height: 30px;
+    width: 30px;
+}
+
+.sidebaricon{
+    height: 30px;
+    width: 30px;
+}

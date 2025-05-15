@@ -1,0 +1,67 @@
+﻿@model GEPS.Models.AdminChecklistItem
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Checklist Item</title>
+    <link rel="stylesheet" href="~/css/editchecklist.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Checklist Item</h2>
+        <form id="updateChecklistItemForm">
+            <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input type="text" id="itemName" name="ItemName" class="form-control" value="@Model.ItemName"  required>
+                <input type="hidden" id="itemId" value="@Model.ItemId">
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="updateButton" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#updateButton').click(function () {
+                var checklistItem = {
+                    ItemId: $('#itemId').val(),  // Hidden field to store ItemId
+                    ItemName: $('#itemName').val(),  // Get the value entered by the user
+                };
+
+                $.ajax({
+                    url: '/Admin/UpdateCheckListItem/' + checklistItem.ItemId,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(checklistItem),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllChecklistItems", "Admin")';  // Yönlendirme URL'i
+                            $('#responseMessage').html('<div class="alert alert-success">Checklist item updated successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Improved error handling
+                        var errorMessage = xhr.responseJSON && xhr.responseJSON.errorMessage
+                            ? xhr.responseJSON.errorMessage
+                            : 'An error occurred while updating the checklist item. Please try again later.';
+
+                        $('#responseMessage').html('<div class="alert alert-danger">' + errorMessage + '</div>');
+
+                        // Optional: log the error to the console for debugging
+                        console.error('AJAX Error:', status, error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

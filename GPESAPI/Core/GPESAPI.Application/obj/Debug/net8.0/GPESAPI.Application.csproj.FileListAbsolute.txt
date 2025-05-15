@@ -1,0 +1,15 @@
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Debug\net8.0\GPESAPI.Application.deps.json
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Debug\net8.0\GPESAPI.Application.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Debug\net8.0\GPESAPI.Application.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Debug\net8.0\GPESAPI.Domain.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\bin\Debug\net8.0\GPESAPI.Domain.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.csproj.AssemblyReference.cache
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.AssemblyInfoInputs.cache
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.AssemblyInfo.cs
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.csproj.CoreCompileInputs.cache
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI..13D2924B.Up2Date
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\refint\GPESAPI.Application.dll
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\GPESAPI.Application.pdb
+C:\Users\Semir\source\repos\GPESAPI\Core\GPESAPI.Application\obj\Debug\net8.0\ref\GPESAPI.Application.dll

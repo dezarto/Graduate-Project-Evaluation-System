@@ -1,0 +1,46 @@
+.footer {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    height: 120px;
+}
+
+.footer-logo {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer-title img {
+    height: 50px;
+}
+
+
+.footer-links {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.footer-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-links a.feedback-link {
+    color: red;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

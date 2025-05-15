@@ -1,0 +1,71 @@
+body{
+    height: 100%;
+    background-color: #F2F2F2;
+    font-family: 'Inter', sans-serif;
+}
+.mainTeacherCalendar{
+    padding:8%;
+}
+
+.tableOfTeamInfo {
+    width: 60%;
+    margin: 10px 0;
+}
+
+.tableOfTeamInfo td, .tableOfTeamInfo th {
+    padding: 10px; 
+    text-align: left; 
+    vertical-align: middle; 
+
+}
+
+.tableOfTeamInfo th {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.tableOfTeamInfo p{
+    font-size: 16px;
+}
+.presentationInfo{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    /*border: 1px solid #777777;*/
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+   display: flex;
+    align-items: flex-start;
+    gap: 20px; 
+}
+
+.dateContainer {
+    width:20%;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    padding-top: 4%;
+    flex-shrink: 0; /* Date alanının sabit bir boyutta kalmasını sağlar */
+}
+
+.dateContainer h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin:0;
+}
+.dateContainer p {
+    font-size: 16px;
+    margin:0;
+}
+
+.presentationContent {
+    flex-grow: 1; /* Tablo ve içerik kalan alana yayılsın */
+}
+.FallTerm{
+    padding-top: 3%;
+}
+.SpringTerm{
+    padding-top: 1%;
+}
+.whiteBox{
+    padding-top:2%;
+}

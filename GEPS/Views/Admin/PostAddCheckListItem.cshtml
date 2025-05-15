@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Evaluation Criteria</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Evaluation Criteria</h2>
+        <form id="CreateEvaluationCriteria">
+            <div class="form-group">
+                <label for="ItemName">Item Name</label>
+                <input type="text" id="ItemName" name="ItemName" class="form-control" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+                $(document).ready(function () {
+            $('#saveButton').click(function (e) {
+                e.preventDefault(); // Formun varsayılan davranışını engelle
+
+                // Formdaki değerleri al
+                var itemName = $('#ItemName').val();
+
+                // Alanların doğruluğunu kontrol et
+                if (!itemName) {
+                    $('#responseMessage').html('<div class="alert alert-warning">Please fill in all fields.</div>');
+                    return;
+                }
+
+                // Gönderilecek veri
+                var checklistItem = {
+                    ItemName: itemName
+                };
+
+                // AJAX isteği
+                $.ajax({
+                    url: '/Admin/PostAddCheckListItem', // Backend URL'si
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(checklistItem), // Gönderilen veri
+                    success: function (response) {
+                        if (response.success) {
+                            $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria created successfully!</div>');
+                            $('#ItemName').val(''); // Başarıyla gönderildikten sonra input alanını temizle
+
+                            // Sayfayı başka bir sayfaya yönlendir
+                            window.location.href = '/Admin/GetAllChecklistItems'; // Yönlendirme URL'sini buraya ekleyin
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + (response.errorMessage || 'Unknown error') + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.responseJSON && xhr.responseJSON.errorMessage
+                            ? xhr.responseJSON.errorMessage
+                            : 'An error occurred while creating the Evaluation Criteria.';
+                        $('#responseMessage').html('<div class="alert alert-danger">' + errorMessage + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+﻿@model List<ProfessorAvailability>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/css/admin1.css">
+    <title>Teacher Availability Calendar</title>
+</head>
+
+<body>
+    <h2>Teacher Availability</h2>
+
+    <div class="container">
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="error">
+                <p>@ViewBag.ErrorMessage</p>
+            </div>
+        }
+
+        <div class="header">
+            <h1>Professors</h1>
+            <a href="@Url.Action("CreateTeacherCalendar", "Professor")" class="add-btn">Add New Date</a>
+        </div>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Available Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var availability in Model)
+                        {
+                            <tr>
+                                <td>@availability.AvailableDate.ToString("yyyy-MM-dd")</td>
+                                <td>@availability.StartTime</td>
+                                <td>@availability.EndTime</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <div class="action-buttons">
+                                            <input type="hidden" name="id" value="@availability.AvailabilityId" />
+                                            <button class="delete-btn"
+                                                    data-id="@availability.AvailabilityId"
+                                                    onclick="DeleteCalendar(this)">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="no-data">No Professors Found</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No availability data to display.</p>
+        }
+    </div>
+
+    <script>
+        function DeleteCalendar(button) {
+            if (confirm('Bu tarihi silmek istediğinizden emin misiniz?')) {
+                const id = $(button).data('id');
+                const apiUrl = "@Url.Action("DeleteTeacherCalendar", "Professor")/" + id;
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'DELETE',
+                    success: function () {
+                        setTimeout(function() {
+                            location.href = location.href;
+                        }, 200);
+                    },
+                    error: function () {
+                        
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

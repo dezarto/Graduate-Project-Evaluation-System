@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="main-admin">
+        <!-- Empty Sections -->
+        <section></section>
+        <section></section>
+
+        <!-- Criterias Section -->
+        <section class="criterias">
+            <h3>Criteria</h3>
+            <button class="add-new" id="add-new-criteria">Add New<br>Criteria</button>
+            <table class="criteria-table">
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Percentage (%)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* Example row - Replace with @foreach loop *@
+                    <tr>
+                        <td>Technical Merits</td>
+                        <td>15</td>
+                        <td>
+                            <button class="edit-criteria">Edit</button>
+                            <button class="delete-criteria">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Checklist Items Section -->
+        <section class="checklist-items">
+            <h3>Checklist Items</h3>
+            <button class="add-new" id="add-new-item">Add New<br>Item</button>
+            <table class="checklist-items-table">
+                <thead>
+                    <tr>
+                        <th>Item No</th>
+                        <th>Item</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* Example row - Replace with @foreach loop *@
+                    <tr>
+                        <td>1</td>
+                        <td>The project contains all the parts required by the Computer Engineering Department.</td>
+                        <td>
+                            <button class="edit-item">Edit</button>
+                            <button class="delete-item">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

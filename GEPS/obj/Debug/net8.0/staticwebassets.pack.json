@@ -1,0 +1,409 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GEPS.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GEPS.693dqlujtg.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\EvaluateGrey.svg",
+      "PackagePath": "staticwebassets\\EvaluateGrey.svg"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\EvaluateRed.svg",
+      "PackagePath": "staticwebassets\\EvaluateRed.svg"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\IKULogo.svg",
+      "PackagePath": "staticwebassets\\IKULogo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\approve.png",
+      "PackagePath": "staticwebassets\\approve.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\cross.png",
+      "PackagePath": "staticwebassets\\cross.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\Calendar.css",
+      "PackagePath": "staticwebassets\\css\\Calendar.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\HomeForStu.css",
+      "PackagePath": "staticwebassets\\css\\HomeForStu.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\ProjectCreate.css",
+      "PackagePath": "staticwebassets\\css\\ProjectCreate.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\SubmitProjectTopics.css",
+      "PackagePath": "staticwebassets\\css\\SubmitProjectTopics.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\SubmitProjectTopics1.css",
+      "PackagePath": "staticwebassets\\css\\SubmitProjectTopics1.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\TeacherApproveProject.css",
+      "PackagePath": "staticwebassets\\css\\TeacherApproveProject.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\TeacherCalendar.css",
+      "PackagePath": "staticwebassets\\css\\TeacherCalendar.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\TeacherEvaluateProject.css",
+      "PackagePath": "staticwebassets\\css\\TeacherEvaluateProject.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\TeacherViewResult.css",
+      "PackagePath": "staticwebassets\\css\\TeacherViewResult.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\admin1.css",
+      "PackagePath": "staticwebassets\\css\\admin1.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\buttons.css",
+      "PackagePath": "staticwebassets\\css\\buttons.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\editForCriteria.css",
+      "PackagePath": "staticwebassets\\css\\editForCriteria.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\editForItem.css",
+      "PackagePath": "staticwebassets\\css\\editForItem.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\editprof.css",
+      "PackagePath": "staticwebassets\\css\\editprof.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\footer.css",
+      "PackagePath": "staticwebassets\\css\\footer.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\loadProject.css",
+      "PackagePath": "staticwebassets\\css\\loadProject.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\navbar.css",
+      "PackagePath": "staticwebassets\\css\\navbar.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\logored2.png",
+      "PackagePath": "staticwebassets\\logored2.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\logout.png",
+      "PackagePath": "staticwebassets\\logout.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\sidebar.png",
+      "PackagePath": "staticwebassets\\sidebar.png"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d10696140a07cd7d3d05.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761d10696140a07cd7d3d05.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761d184245a2a9cf67efdac.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761d184245a2a9cf67efdac.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761e877cb66080a0b308d5b.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761e877cb66080a0b308d5b.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6761f782e75427da20c70976.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6761f782e75427da20c70976.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762faa2734c6fb86fc7445e.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6762faa2734c6fb86fc7445e.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6762fbea734c6fb86fc7445f.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6762fbea734c6fb86fc7445f.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Semir\\Desktop\\GEPS\\wwwroot\\uploads\\6763111b374423d898e421a2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\6763111b374423d898e421a2.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GEPS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.GEPS.props",
+      "PackagePath": "build\\GEPS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GEPS.props",
+      "PackagePath": "buildMultiTargeting\\GEPS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.GEPS.props",
+      "PackagePath": "buildTransitive\\GEPS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

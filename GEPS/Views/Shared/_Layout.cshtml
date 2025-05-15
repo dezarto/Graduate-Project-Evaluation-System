@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GEPS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GEPS.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+
+</head>
+<body>
+    <header class="customHeader">
+        <div class="logoContainer">
+            <img src="~/logored2.png" alt="Logo" class="logo" />
+        </div>
+    </header>
+    <button class="toggleButton" onclick="toggleSidebar()"> <img src="~/sidebar.png" alt="sidebar" class="sidebaricon" /></button>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div>
+                <h4>Hello,</h4>
+                <h3>@User.Identity.Name</h3>
+            </div>
+
+            <form asp-controller="Login" asp-action="LogoutSystem" method="get" style="display: inline;">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="logout">
+                    <img src="~/logout.png" alt="logout" class="logouticon" />
+                </button>
+            </form>
+        </div>
+        @if (ViewBag.UserRole == "Admin")
+        {
+            <a href="@Url.Action("GetAllProfessor", "Admin")">Professor List</a>
+            <a href="@Url.Action("GetAllStudent", "Admin")">All Student</a>
+            <a href="@Url.Action("GetAllEvaluationCriteria", "Admin")">Evaluation Criterias</a>
+            <a href="@Url.Action("GetAllChecklistItems", "Admin")">Checklist Items</a>
+            <a href="@Url.Action("GetAllTeams", "Admin")">All Teams</a>
+            <a href="@Url.Action("PresentationTrigger", "Admin")">Presentation Trigger</a>
+        }
+        else if (ViewBag.UserRole == "Professor")
+        {
+            <a href="@Url.Action("TeamHomeProfessor", "Professor")">Home</a>
+            <a href="@Url.Action("ProfessorProfile", "Professor")">My Profile</a>
+            <a href="@Url.Action("TeacherApproveProject", "Professor")">Approve Project</a>
+            <a href="@Url.Action("TeacherCalendar", "Professor")">Calendar</a>
+        }
+        else if (ViewBag.UserRole == "Student")
+        {
+            <a href="@Url.Action("TeamHome", "Student")">Team Home</a>
+        }
+    </aside>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <img src="~/IKULogo.svg" alt="T.C. İstanbul Kültür Üniversitesi">
+        </div>
+
+        <div class="footer-title">
+            <img src="~/EvaluateGrey.svg" alt="Evaluate Logo">
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Documentation</a>
+            <a href="#" class="feedback-link">Give Feedback</a>
+        </div>
+
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>

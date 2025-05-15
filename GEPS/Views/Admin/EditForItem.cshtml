@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* model gelecek *@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/editForItem.css">
+    <title>Edit Item</title>
+</head>
+<body>
+    <div class="mainEditItem">
+
+        @using (Html.BeginForm("EditItem", "Item", FormMethod.Post))
+        {
+            /*<div class="form-group">
+                <label for="itemNo">Item No:</label>
+                @Html.TextBoxFor(model => model.ItemNo@*model gelecek*@, new { @id = "itemNo", @placeholder = "Enter item no", @class = "form-control", required = "required" })
+            </div>*/
+
+            /* <div class="form-group">
+                <label for="itemName">Item Name:</label>
+                @Html.TextBoxFor(model => model.ItemName@*model gelecek*@, new { @id = "itemName", @placeholder = "Enter item name", @class = "form-control", required = "required" })
+            </div>
+            */
+
+            <div class="form-buttons">
+                <button type="submit" class="submitButton">Add Item</button>
+                <button type="button" class="cancelButton">Cancel</button>
+            </div>
+        }
+    </div>
+</body>
+</html>

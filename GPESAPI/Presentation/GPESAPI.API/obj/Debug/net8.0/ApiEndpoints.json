@@ -1,0 +1,653 @@
+[
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "CreateProfessor",
+    "RelativePath": "api/Admin/create-professor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "professorDto",
+        "Type": "GPESAPI.Application.DTOs.ProfessorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GPESAPI.Application.DTOs.ProfessorDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Admin/create-student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "GPESAPI.Application.DTOs.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GPESAPI.Application.DTOs.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "DeleteChecklistItem",
+    "RelativePath": "api/Admin/delete-checklist-item/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "DeleteEvaluationCriteria",
+    "RelativePath": "api/Admin/delete-evaluation-criteria/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "DeleteProfessor",
+    "RelativePath": "api/Admin/delete-professor-by-id/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Admin/delete-student/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "DeleteTeamById",
+    "RelativePath": "api/Admin/delete-team-by-id/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetAllChecklistItems",
+    "RelativePath": "api/Admin/get-all-checklist-items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetAllEvaluationCriteria",
+    "RelativePath": "api/Admin/get-all-evaluation-criteria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetAllProfessors",
+    "RelativePath": "api/Admin/get-all-professor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetAllStudent",
+    "RelativePath": "api/Admin/get-all-student",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.UserDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetAllTeams",
+    "RelativePath": "api/Admin/get-all-teams",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetChecklistItemById",
+    "RelativePath": "api/Admin/get-checklist-item-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetEvaluationCriteriaById",
+    "RelativePath": "api/Admin/get-evaluation-criteria-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetProfessorById",
+    "RelativePath": "api/Admin/get-professor-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GPESAPI.Application.DTOs.ProfessorDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "GetStudentById",
+    "RelativePath": "api/Admin/get-student-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GPESAPI.Application.DTOs.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "AddChecklistItem",
+    "RelativePath": "api/Admin/post-add-checklist-item",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checklistItem",
+        "Type": "GPESAPI.Application.DTOs.ChecklistItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "AddEvaluationCriteria",
+    "RelativePath": "api/Admin/post-add-evaluation-criteria",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "evaluationCriteria",
+        "Type": "GPESAPI.Application.DTOs.EvaluationCriteriaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "UpdateChecklistItem",
+    "RelativePath": "api/Admin/put-update-checklist-item/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "checklistItem",
+        "Type": "GPESAPI.Application.DTOs.ChecklistItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "UpdateEvaluationCriteria",
+    "RelativePath": "api/Admin/put-update-evaluation-criteria/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "evaluationCriteria",
+        "Type": "GPESAPI.Application.DTOs.EvaluationCriteriaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "UpdateProfessor",
+    "RelativePath": "api/Admin/update-professor-by-id/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "professorDto",
+        "Type": "GPESAPI.Application.DTOs.ProfessorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.AdminController",
+    "Method": "UpdateStudent",
+    "RelativePath": "api/Admin/update-student/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userDto",
+        "Type": "GPESAPI.Application.DTOs.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.LoginCatsController",
+    "Method": "Login",
+    "RelativePath": "api/LoginCats",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GPESAPI.Application.DTOs.LoginRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ManuelController",
+    "Method": "ScheduleTeamsPresentationsOptimizedBacktracking",
+    "RelativePath": "api/Manuel/schedule-teams-presentations-optimized-backtracking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ManuelController",
+    "Method": "SyncUsersWithProfessors",
+    "RelativePath": "api/Manuel/sync-users-with-professors",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "AddProfessorAvailability",
+    "RelativePath": "api/Professor/delete-availability-by-id/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "ProfessorApprovalTeamsView",
+    "RelativePath": "api/Professor/get-approval-teams-view",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "GetProfessorAvailability",
+    "RelativePath": "api/Professor/get-availability-by-professor-auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "GetEvaluation",
+    "RelativePath": "api/Professor/get-evaluation/{evaluationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "evaluationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "EvaluationsCriteriaAndCheckListDatas",
+    "RelativePath": "api/Professor/get-evaluations-criteria-and-check-list-datas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "MyProfile",
+    "RelativePath": "api/Professor/get-my-profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "ProjectTeamResult",
+    "RelativePath": "api/Professor/get-project-team-result/{teamId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "ProjectTeamView",
+    "RelativePath": "api/Professor/get-project-team-view",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "ProfessorApprovalTeams",
+    "RelativePath": "api/Professor/post-approval-teams",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "approval",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "AddProfessorAvailability",
+    "RelativePath": "api/Professor/post-availability-by-professor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "availabilities",
+        "Type": "GPESAPI.Application.DTOs.ProfessorAvailabilityDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.ProfessorController",
+    "Method": "SubmitEvaluation",
+    "RelativePath": "api/Professor/submit-evaluation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "evaluateResult",
+        "Type": "GPESAPI.Application.DTOs.EvaluateReasult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "CreateTeam",
+    "RelativePath": "api/Student/create-team",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamCreator",
+        "Type": "GPESAPI.Application.DTOs.TeamCreator",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "GetAllProfessors",
+    "RelativePath": "api/Student/get-all-professor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GPESAPI.Application.DTOs.ProfessorDTO, GPESAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "ProjectTeamView",
+    "RelativePath": "api/Student/project-team-view",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GPESAPI.API.Controllers.StudentController",
+    "Method": "UploadProject",
+    "RelativePath": "api/Student/project-upload/{filePath}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filePath",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

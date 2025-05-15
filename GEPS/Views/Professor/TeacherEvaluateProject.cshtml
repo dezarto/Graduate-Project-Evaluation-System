@@ -1,0 +1,158 @@
+﻿@model ProjectTeamResponse
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/TeacherEvaluateProject.css">
+</head>
+
+<script>
+    // Sayfa yüklendiğinde form işleme kurallarını uygula
+    document.addEventListener("DOMContentLoaded", () => {
+        const numberInputs = document.querySelectorAll(".numberInput");
+        const form = document.querySelector("form");
+
+        // Sadece sayısal girdi izin veren işleyici
+        numberInputs.forEach(input => {
+            input.addEventListener("input", (event) => {
+                const value = event.target.value;
+                event.target.value = value.replace(/[^0-9]/g, "");
+            });
+        });
+
+        // Form gönderiminde boş alanları kontrol et
+        form.addEventListener("submit", (event) => {
+            // Tüm textarea elemanlarını seç
+            const textareas = form.querySelectorAll("textarea");
+
+            textareas.forEach(textarea => {
+                // Eğer değer boşsa, " " (tek boşluk) ata
+                if (!textarea.value.trim()) {
+                    textarea.value = " ";
+                }
+            });
+        });
+    });
+</script>
+
+
+<body>
+    <div class="all-boxes">
+        <div class="intro">
+            <h2>Evaluate Project</h2>
+            <p>Evaluate the graduate project by reviewing the team details, project description, and evaluation criteria.</p>
+        </div>
+
+        <form asp-action="PostTeacherEvaluateProject" method="post">
+            <div class="box-1">
+                <h4>@Model.ProjectName</h4>
+                <p><strong>Description:</strong> @Model.Description</p>
+                <section class="teamInfo">
+                    <table class="tableOfTeamInfo">
+                        <thead>
+                            <tr>
+                                <th>Team Name</th>
+                                <th>Status</th>
+                                <th>Evaluating Teacher</th>
+                                <th>Team Members</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.TeamName</td>
+                                <td>@(Model.isEvaluated ? "Evaluated" : "Not Evaluated")</td>
+                                <td>@Model.EvaluatingTeacherFullName (@Model.EvaluatingTeacherMail)</td>
+                                <td>
+                                    @if (Model.Members != null && Model.Members.Any())
+                                    {
+                                        <ul>
+                                            @foreach (var member in Model.Members)
+                                            {
+                                                <li>@member.StudentFullName (@member.StudentNumber)</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <p>No members</p>
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div class="container">
+                <div class="section">
+                    <h3>Part I - Evaluation Criteria</h3>
+                    @if (Model.EvaluationCriterias != null && Model.EvaluationCriterias.Any())
+                    {
+                        @for (int i = 0; i < Model.EvaluationCriterias.Count; i++)
+                        {
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="EvaluationCriterias[@i].IsChecked" value="true">
+                                    @Model.EvaluationCriterias[i].CriteriaName (%@Model.EvaluationCriterias[i].Precent)
+                                </label>
+                                <input type="hidden" name="EvaluationCriterias[@i].CriteriaId" value="@Model.EvaluationCriterias[i].CriteriaId">
+                                <input type="number" name="EvaluationCriterias[@i].Score" class="numberInput" placeholder="Enter a numeric score">
+                                <textarea name="EvaluationCriterias[@i].Feedback" placeholder="Write your thoughts..."></textarea>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No evaluation criteria available.</p>
+                    }
+                </div>
+
+                <div class="section">
+                    <h3>Part II - Checklist</h3>
+                    @if (Model.EvaluationChecklistItems != null && Model.EvaluationChecklistItems.Any())
+                    {
+                        @for (int i = 0; i < Model.EvaluationChecklistItems.Count; i++)
+                        {
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="EvaluationChecklistItems[@i].IsChecked" value="true">
+                                    @Model.EvaluationChecklistItems[i].ItemName
+                                </label>
+                                <input type="hidden" name="EvaluationChecklistItems[@i].ItemId" value="@Model.EvaluationChecklistItems[@i].ItemId">
+                                <textarea name="EvaluationChecklistItems[@i].Feedback" placeholder="Write your thoughts..."></textarea>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No checklist items available.</p>
+                    }
+                </div>
+
+                <div class="section">
+                    <h3>General Comments</h3>
+                    <div class="form-group">
+                        <label for="GeneralComments">Please provide your general comments:</label>
+                        <textarea id="GeneralComments" name="GeneralComments" placeholder="Write your general comments here..." rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="confirmation">
+                    <label>
+                        <input type="radio" name="Confirmation" value="true" required>
+                        I confirm my evaluation results.
+                    </label>
+                </div>
+
+                <input type="hidden" name="ProjectId" value="@Model.ProjectId">
+                <input type="hidden" name="TeamId" value="@Model.TeamId">
+
+                <button type="submit" class="evaluate-button">Evaluate</button>
+            </div>
+        </form>
+
+
+    </div>
+</body>
+
+
+</html>

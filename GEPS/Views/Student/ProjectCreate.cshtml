@@ -1,0 +1,145 @@
+﻿@model TeamCreator
+
+@{
+    ViewBag.Title = "ProjectDetails";
+    ViewData["Title"] = "Submit Project";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/ProjectCreate.css" />
+    <title>Project Create</title>
+</head>
+<body>
+    <div class="mainProjectCreate">
+        @using (Html.BeginForm("CreateTeam", "Student", FormMethod.Post, new { id = "form1" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h2>Create Graduation Project</h2>
+                        <p>
+                            Create a graduate project for graduation. This is a descriptive text block
+                            to guide the student while creating their team by adding team members, writing the project
+                            name, and selecting the advisor for the project.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Project Title -->
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Title</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form__field", placeholder = "Enter Project Title", required = "required" })
+                        @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <!-- Project Description -->
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Description (max. 500 words)</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form__field", placeholder = "Enter Project Description", required = "required", rows = 5 })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <!-- Team Name -->
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Team Name</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(m => m.TeamName, new { @class = "form__field", placeholder = "Enter Project Team Name", required = "required" })
+                        @Html.ValidationMessageFor(m => m.TeamName, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                <!-- Advisory Selection -->
+                <tr>
+                    <td colspan="2">
+                        <h5>Project Advisory</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @{
+                            var professors = ViewBag.ProfessorList as List<Professor>; // Safely casting to List<Professor>
+                        }
+
+                        @if (professors == null || !professors.Any())
+                        {
+                            <div class="alert alert-warning">Professor list could not be loaded. Please try again later.</div>
+                        }
+                        else
+                        {
+                            @Html.DropDownListFor(
+                                     m => m.SelectedProfessorId,
+                                     new SelectList(professors, "ProfessorId", "FullName"),
+                                     "Select a professor",
+                                     new { @class = "form__field", required = "required" }
+                                     )
+                            @Html.ValidationMessageFor(m => m.SelectedProfessorId, "", new { @class = "text-danger" })
+                        }
+                    </td>
+                </tr>
+
+                <!-- Team Members -->
+                <tr>
+                    <td colspan="2">
+                        <h5>Team Members</h5>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.StudentList[0].StudentFullName, new { @class = "form__field", placeholder = "Enter Team Member's Full Name" })
+                        @Html.ValidationMessageFor(m => m.StudentList[0].StudentFullName, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.StudentList[0].StudentNumber, new { @class = "form__field", placeholder = "Enter Team Member's Student Number" })
+                        @Html.ValidationMessageFor(m => m.StudentList[0].StudentNumber, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+
+                @for (int i = 1; i < 3; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(m => m.StudentList[i].StudentFullName, new { @class = "form__field", placeholder = "Enter Team Member's Full Name" })
+                            @Html.ValidationMessageFor(m => m.StudentList[i].StudentFullName, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.StudentList[i].StudentNumber, new { @class = "form__field", placeholder = "Enter Team Member's Student Number" })
+                            @Html.ValidationMessageFor(m => m.StudentList[i].StudentNumber, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                }
+
+                <!-- Submit Button -->
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="submitProject-button">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

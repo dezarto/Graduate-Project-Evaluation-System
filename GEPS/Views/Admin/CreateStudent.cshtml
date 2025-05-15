@@ -1,0 +1,81 @@
+﻿@model GEPS.Models.Student
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Student</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Student</h2>
+        <form id="createStudentForm">
+            <div class="form-group">
+                <label for="studentNumber">Student Number</label>
+                <input type="text" id="studentNumber" name="StudentNumber" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="Role" class="form-control" value="Student" required readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="FullName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="professorId">Professor ID</label>
+                <input type="number" id="professorId" name="ProfessorId" class="form-control" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                var student = {
+                    StudentNumber: $('#studentNumber').val(),
+                    Role: $('#role').val(),
+                    Email: $('#email').val(),
+                    FullName: $('#fullName').val(),
+                    ProfessorId: $('#professorId').val()
+                };
+
+                $.ajax({
+                    url: '/Admin/CreateStudent',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(student),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllStudent", "Admin")';
+                            $('#responseMessage').html('<div class="alert alert-success">Student created successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        $('#responseMessage').html('<div class="alert alert-danger">An error occurred while creating the student.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

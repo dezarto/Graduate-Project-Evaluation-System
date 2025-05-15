@@ -1,0 +1,85 @@
+﻿@model GEPS.Models.Student
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+    <link rel="stylesheet" href="~/css/editprof.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Student</h2>
+        <form id="updateStudentForm">
+            <input type="hidden" id="userId" name="UserId" value="@Model.UserId" />
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="FullName" class="form-control" value="@Model.FullName" placeholder="Enter Full Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentNumber">Student Number</label>
+                <input type="text" id="studentNumber" name="StudentNumber" class="form-control" value="@Model.StudentNumber" placeholder="Enter Student Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="Email" class="form-control" value="@Model.Email" placeholder="Enter Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="Role" class="form-control" value="@Model.Role" placeholder="Enter Role" required readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="professorId">Professor ID</label>
+                <input type="number" id="professorId" name="ProfessorId" class="form-control" value="@Model.ProfessorId" placeholder="Enter Professor ID" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="saveButton" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                var student = {
+                    UserId: $('#userId').val(),
+                    FullName: $('#fullName').val(),
+                    StudentNumber: $('#studentNumber').val(),
+                    Email: $('#email').val(),
+                    Role: $('#role').val(),
+                    ProfessorId: $('#professorId').val()
+                };
+
+                $.ajax({
+                    url: '/Admin/UpdateStudent/' + student.UserId,  // Backend URL
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(student),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllStudent", "Admin")';  // Yönlendirme URL'i
+                            $('#responseMessage').html('<div class="alert alert-success">Student updated successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        $('#responseMessage').html('<div class="alert alert-danger">An error occurred while updating the student.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

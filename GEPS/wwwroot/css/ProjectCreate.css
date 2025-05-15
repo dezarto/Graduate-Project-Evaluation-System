@@ -1,0 +1,48 @@
+﻿html, body {
+    margin: 0;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    background-color: #E8E8E8;
+    font-family: 'Inter', sans-serif;
+}
+
+.mainProjectCreate {
+    width: 100%;
+    padding:8%;
+}
+
+td {
+    padding: 1%;
+}
+
+/*input[type="input"] {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #777777;
+    border-radius: 25px;
+}*/
+
+#projectDescription {
+    height: 150px;
+}
+
+.submitProject-button {
+    float: right;
+    width: 30%;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #C1272D;
+    background-color: #C1272D;
+    color: white;
+}
+
+.form__field {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #777777;
+    border-radius: 25px;
+}

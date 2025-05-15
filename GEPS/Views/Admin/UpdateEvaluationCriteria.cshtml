@@ -1,0 +1,79 @@
+﻿@model GEPS.Models.AdminEvaluationCriteria
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Evaluation Criteria</title>
+    <link rel="stylesheet" href="~/css/editcriteria.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Evaluation Criteria</h2>
+        <form id="updateCriteriaForm">
+            <input type="hidden" id="evaluationId" value="@Model.CriteriaId" />
+
+            <div class="form-group">
+                <label for="criteriaName">Criteria Name</label>
+                <input type="text" id="criteriaName" name="CriteriaName" class="form-control" required value="@Model.CriteriaName">
+            </div>
+
+            <div class="form-group">
+                <label for="Precent">Percent</label>
+                <input type="number" id="Precent" name="Precent" class="form-control" required value="@Model.Precent">
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="updateButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#updateButton').click(function () {
+                // Kontrol etme
+                var criteria = {
+                    CriteriaName: $('#criteriaName').val(),
+                    Precent: parseFloat($('#Precent').val())
+                };
+
+                // Boş kontrolü
+                if (!criteria.CriteriaName || isNaN(criteria.Precent)) {
+                    $('#responseMessage').html('<div class="alert alert-danger">Please fill in valid criteria name and percent.</div>');
+                    return;
+                }
+
+                // ID'yi al
+                var id = $('#evaluationId').val();  // ID'yi inputtan al
+                console.log(id);  // Konsola ID değerini yazdır
+
+                $.ajax({
+                    url: '/Admin/UpdateEvaluationCriteria/' + id, // Dinamik URL ile id gönder
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(criteria),  // JSON formatında veri gönder
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("GetAllEvaluationCriteria", "Admin")';  // Yönlendirme URL'i
+                            $('#responseMessage').html('<div class="alert alert-success">Evaluation Criteria updated successfully!</div>');
+                        } else {
+                            $('#responseMessage').html('<div class="alert alert-danger">Error: ' + response.errorMessage + '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        $('#responseMessage').html('<div class="alert alert-danger">An error occurred while updating the criteria.</div>');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>
+

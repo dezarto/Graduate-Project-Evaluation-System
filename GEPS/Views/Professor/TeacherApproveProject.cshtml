@@ -1,0 +1,117 @@
+﻿@model List<ProjectTeamResponse>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/TeacherApproveProject.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>TeacherApproveProject</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="mainTeacherApproveProject">
+        <section class="infoTeacherApproveProject">
+            <h3>Approve Project</h3>
+            <p>Create graduate project for graduation. This is a descriptive text block to navigate the student while he/she creating their team by adding team members, writing the project name and selecting the advisor for project.</p>
+        </section>
+        @foreach (var ProjectTeamResponse in Model ?? new List<ProjectTeamResponse>())
+        {
+            <div class="whiteBox">
+                <section class="projectInfo">
+                    <section class="projectContent">
+                        <h4>@ProjectTeamResponse.TeamName</h4>
+                        <section class="teamInfo">
+                            <table class="tableOfTeamInfo">
+                                <thead>
+                                    <tr>
+                                        <th><p>Team</p></th>
+                                        <th><p>Status</p></th>
+                                        <th><p>Evaluating Teacher</p></th>
+                                        <th><p>Team Members</p></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="teamTableBody">
+                                    <tr>
+                                        <td><p>@ProjectTeamResponse.TeamId</p></td>
+                                        <td><p>@ProjectTeamResponse.IsActive</p></td>
+                                        <td><p>@ProjectTeamResponse.EvaluatingTeacherMail</p></td>
+                                        <td>
+                                            @if (ProjectTeamResponse.Members != null && ProjectTeamResponse.Members.Any())
+                                            {
+                                                <ul>
+                                                    @foreach (var member in ProjectTeamResponse.Members)
+                                                    {
+                                                        <li>@member.StudentFullName</li>
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <p>No members</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </section>
+                    <div class="choiceContainer">
+                        <button class="choiceButton approve" data-project-id="@ProjectTeamResponse.TeamId">
+                            <img src="~/approve.png" alt="Approve" class="icon" />
+                        </button>
+                        <button class="choiceButton reject" data-project-id="@ProjectTeamResponse.TeamId">
+                            <img src="~/cross.png" alt="Reject" class="icon" />
+                        </button>
+                    </div>
+                    <div id="resultMessage" class="resultMessage"></div>
+                </section>
+            </div>
+        }
+    </div>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const approveButtons = document.querySelectorAll(".approve");
+        const rejectButtons = document.querySelectorAll(".reject");
+
+        // Approve button click
+        approveButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const projectId = this.getAttribute("data-project-id");
+                handleProjectAction(projectId, true); // true -> approve
+            });
+        });
+
+        // Reject button click
+        rejectButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const projectId = this.getAttribute("data-project-id");
+                handleProjectAction(projectId, false); // false -> reject/delete
+            });
+        });
+
+        // Function to handle project action
+        function handleProjectAction(projectId, isApproved) {
+            const apiUrl = `/Professor/TeacherApproveProject?projectId=${projectId}&approval=${isApproved}`;
+
+            $.ajax({
+                url: apiUrl,
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (response) {
+                    const message = isApproved ? "Project approved successfully!" : "Project rejected/deleted successfully!";
+                    alert(message); // Show success message to the user
+                    location.reload(); // Reload the page to reflect changes
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+            });
+        }
+    });
+</script>
+
+</html>
